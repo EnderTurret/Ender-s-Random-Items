@@ -1,6 +1,5 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.item.ItemBase;
 
 import net.minecraft.item.Item;

@@ -1,5 +1,5 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "randomfoods:items/sanitizing_water"
+		"layer0": "randomitems:items/sanitizing_water"
 }}

@@ -4,18 +4,22 @@
         "count": 1
     },
         "pattern": [
-            "   ",
-            "PTP",
-			"   "
+            "gGg",
+            "GTG",
+			"gGg"
         ],
         "type": "minecraft:crafting_shaped",
         "key": {
             "T": {
                 "item": "randomitems:block_tesseract"
         },
-			"P": {
-				"item": "minecraft:potion",
-				"data": 8229
+			"G": {
+				"item": "minecraft:ghast_tear",
+				"data": 0
+		},
+			"g": {
+				"item": "minecraft:speckled_melon",
+				"data": 0
 		}
     }
 }

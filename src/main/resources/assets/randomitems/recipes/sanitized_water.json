@@ -11,11 +11,11 @@
         "type": "minecraft:crafting_shaped",
         "key": {
             "W": {
-                "item": "minecraft:potion",
+                "item": "minecraft:water_bucket",
 				"data": 0
         },
 			"G": {
-				"item": "minecraft:glowstone",
+				"item": "minecraft:glowstone_dust",
 				"data": 0
 		},
 			"R": {

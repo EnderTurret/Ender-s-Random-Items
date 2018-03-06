@@ -1,12 +1,10 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.block.BlockBase;
 import net.enderturret.randomitems.block.BlockTesseract;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.Loader;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {

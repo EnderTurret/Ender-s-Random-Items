@@ -3,7 +3,7 @@
 	"textures": {
 		"0": "minecraft:blocks/structure_block",
 		"1": "minecraft:blocks/concrete_pink",
-		"particle": "minecarft:blocks/concrete_pink"
+		"particle": "minecraft:blocks/concrete_pink"
 	},
 	"elements": [
 		{
