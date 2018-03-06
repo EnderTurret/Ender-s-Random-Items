@@ -1,0 +1,26 @@
+{
+    "result": {
+        "item": "randomitems:sanitizing_water",
+        "count": 2
+    },
+        "pattern": [
+            " R ",
+            "GWG",
+			" R "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "W": {
+                "item": "minecraft:potion",
+				"data": 0
+        },
+			"G": {
+				"item": "minecraft:glowstone",
+				"data": 0
+		},
+			"R": {
+				"item": "minecraft:redstone",
+				"data": 0
+		}
+    }
+}

@@ -1,0 +1,21 @@
+{
+    "result": {
+        "item": "randomitems:block_love_tesseract",
+        "count": 1
+    },
+        "pattern": [
+            "   ",
+            "PTP",
+			"   "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "T": {
+                "item": "randomitems:block_tesseract"
+        },
+			"P": {
+				"item": "minecraft:potion",
+				"data": 8229
+		}
+    }
+}

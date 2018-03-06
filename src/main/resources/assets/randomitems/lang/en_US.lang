@@ -1,0 +1,9 @@
+#Lang File
+#Blocks
+tile.block_tesseract.name=Tesseract
+tile.block_love_tesseract.name=Love Tesseract
+#Items
+item.moist_towelette.name=Moist Towelette
+item.sanitizing_water.name=Sanitizing Water
+#Other
+itemGroup.randomitems=§1§lEnder's Random Items

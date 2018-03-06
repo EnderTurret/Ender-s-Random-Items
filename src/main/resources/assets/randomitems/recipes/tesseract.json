@@ -1,0 +1,26 @@
+{
+    "result": {
+        "item": "randomitems:block_tesseract",
+        "count": 1
+    },
+        "pattern": [
+            "EOE",
+            "ONO",
+			"EOE"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "N": {
+                "item": "minecraft:nether_star",
+                "data": 0
+        },
+			"E": {
+				"item": "minecraft:eye_of_ender",
+				"data": 0
+		},
+			"O": {
+				"item": "minecraft:obsidian",
+				"data": 0
+		}
+    }
+}
