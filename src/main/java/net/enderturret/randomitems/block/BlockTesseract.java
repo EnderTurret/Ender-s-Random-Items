@@ -15,32 +15,32 @@ import net.minecraft.world.World;
 public class BlockTesseract extends BlockBase {
 	//TODO: When placed next to a solid block, some of the model turns black
 	public String Effect;
-	
-  	public BlockTesseract(String name, SoundType Soundtype, Material Material, String effect)
-  	{
-  		super(name, Soundtype, Material);
-  		Effect = effect;
-  		setCreativeTab(RandomItems.creativeTab);
-  	}
 
-  	// Give status effects when right-clicked
-  	@Override
-  	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
-  			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-  			if (Effect.equals("Resistance"))
-  				playerIn.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 6000, 0));
-  			else if (Effect.equals("Regeneration"))
-  				playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6000, 0));
-  			else if (Effect.equals("Absorption"))
-  				playerIn.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 6000, 0));
-  			else if (Effect.equals("Fire resist"))
-  				playerIn.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 6000, 0));
-  			return true;
-  	}
+	public BlockTesseract(String name, SoundType Soundtype, Material Material, String effect)
+	{
+		super(name, Soundtype, Material);
+		Effect = effect;
+		setCreativeTab(RandomItems.creativeTab);
+	}
 
-  	// Fix for model
-  	@Override
-  	public boolean isOpaqueCube(IBlockState state) {
-  		return false;
-  	}
+	// Give status effects when right-clicked
+	@Override
+	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
+			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+			if (Effect.equals("Resistance"))
+				playerIn.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 6000, 0));
+			else if (Effect.equals("Regeneration"))
+				playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6000, 0));
+			else if (Effect.equals("Absorption"))
+				playerIn.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 6000, 0));
+			else if (Effect.equals("Fire resist"))
+				playerIn.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 6000, 0));
+			return true;
+	}
+
+	// Fix for model
+	@Override
+	public boolean isOpaqueCube(IBlockState state) {
+		return false;
+	}
 }

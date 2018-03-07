@@ -12,7 +12,7 @@ public class ModBlocks {
 	// Blocks
 	public static BlockTesseract blockTesseract = new BlockTesseract("block_tesseract", SoundType.METAL, Material.CIRCUITS, "Resistance");
 	public static BlockTesseract blockLoveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, "Regeneration");
-	
+
 	// One registry to rule them all
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
