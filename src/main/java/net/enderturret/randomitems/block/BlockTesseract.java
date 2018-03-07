@@ -13,7 +13,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class BlockTesseract extends BlockBase {
-	
+	//TODO: When placed next to a solid block, some of the model turns black
 	public String Effect;
 	
   	public BlockTesseract(String name, SoundType Soundtype, Material Material, String effect)
@@ -22,6 +22,8 @@ public class BlockTesseract extends BlockBase {
   		Effect = effect;
   		setCreativeTab(RandomItems.creativeTab);
   	}
+
+  	// Give status effects when right-clicked
   	@Override
   	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
   			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
@@ -35,6 +37,8 @@ public class BlockTesseract extends BlockBase {
   				playerIn.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 6000, 0));
   			return true;
   	}
+
+  	// Fix for model
   	@Override
   	public boolean isOpaqueCube(IBlockState state) {
   		return false;
