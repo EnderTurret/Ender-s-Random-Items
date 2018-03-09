@@ -11,8 +11,8 @@
         "type": "minecraft:crafting_shaped",
         "key": {
             "p": {
-                "item": "minecraft:pufferfish",
-				"data": 0
+                "item": "minecraft:fish",
+				"data": 3
         },
 			"W": {
 				"item": "minecraft:water_bucket",

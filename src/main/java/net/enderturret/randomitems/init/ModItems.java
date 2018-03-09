@@ -16,6 +16,7 @@ public class ModItems {
 	// Food & Drinks
 	public static SaturatedDrinkItem secretCoke = new SaturatedDrinkItem("secret_coke", 1, 1f, false);
 	// Puffballs
+	//TODO: Fix the glowing one
 	public static ItemPuffball puffBall = new ItemPuffball("puffball");
 	public static ItemPuffball puffBallWhite = new ItemPuffball("puffball_white");
 	public static ItemPuffball puffBallLightGray = new ItemPuffball("puffball_light_gray");
@@ -57,7 +58,7 @@ public class ModItems {
 				puffBallCyan,
 				puffBallLightBlue,
 				puffBallBlue,
-				puffBallPurple,
+				//puffBallPurple,
 				puffBallMagenta,
 				puffBallPink
 		);
@@ -85,7 +86,7 @@ public class ModItems {
 		puffBallCyan.registerItemModel();
 		puffBallLightBlue.registerItemModel();
 		puffBallBlue.registerItemModel();
-		puffBallPurple.registerItemModel();
+		//puffBallPurple.registerItemModel();
 		puffBallMagenta.registerItemModel();
 		puffBallPink.registerItemModel();
 	}

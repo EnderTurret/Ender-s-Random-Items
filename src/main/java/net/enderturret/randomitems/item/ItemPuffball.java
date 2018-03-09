@@ -64,8 +64,8 @@ public class ItemPuffball extends ItemBase {
 				else if (playerIn.getHeldItemOffhand().getItem() == ModItems.puffBallBlue)
 					playerIn.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 20, 0));
 
-				else if (playerIn.getHeldItemOffhand().getItem() == ModItems.puffBallPurple)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 80, 0));
+				//else if (playerIn.getHeldItemOffhand().getItem() == ModItems.puffBallPurple)
+					//playerIn.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 80, 0));
 
 				else if (playerIn.getHeldItemOffhand().getItem() == ModItems.puffBallMagenta)
 					playerIn.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 20, 0));
