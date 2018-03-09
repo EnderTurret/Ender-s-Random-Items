@@ -1,0 +1,29 @@
+{
+    "result": {
+        "item": "randomitems:puffball_yellow",
+        "count": 1
+    },
+        "pattern": [
+            "gGg",
+            "YPY",
+			"gGg"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "g": {
+                "item": "minecraft:golden_apple",
+				"data": 0
+        },
+			"G": {
+				"item": "minecraft:golden_ingot",
+				"data": 0
+		},
+			"P": {
+				"item": "randomitems:puffball"
+		},
+			"Y": {
+				"item": "minecraft:dye",
+				"data": 11
+		}
+    }
+}

@@ -21,6 +21,7 @@ public class BlockTesseract extends BlockBase {
 		super(name, Soundtype, Material);
 		Effect = effect;
 		setCreativeTab(RandomItems.creativeTab);
+		setHardness(2000f);
 	}
 
 	// Give status effects when right-clicked

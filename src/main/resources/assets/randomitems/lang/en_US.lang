@@ -5,5 +5,25 @@ tile.block_love_tesseract.name=Love Tesseract
 item.moist_towelette.name=Moist Towelette
 item.sanitizing_water.name=Sanitizing Water
 item.secret_coke.name=Secret Coke
+#Puffballs
+item.puffball_tail.name=Puffball Tail
+item.puffball_fur.name=Puffball Fur
+item.puffball.name=Puffball
+item.puffball_white.name=White Puffball
+item.puffball_light_gray.name=Light Gray Puffball
+item.puffball_gray.name=Gray Puffball
+item.puffball_black.name=Black Puffball
+item.puffball_brown.name=Brown Puffball
+item.puffball_red.name=Red Puffball
+item.puffball_orange.name=Orange Puffball
+item.puffball_yellow.name=Yellow Puffball
+item.puffball_lime.name=Lime Puffball
+item.puffball_green.name=Green Puffball
+item.puffball_cyan.name=Cyan Puffball
+item.puffball_light_blue.name=Light Blue Puffball
+item.puffball_blue.name=Blue Puffball
+item.puffball_purple.name=Purple Puffball
+item.puffball_magenta.name=Magenta Puffball
+item.puffball_pink.name=Pink Puffball
 #Other
 itemGroup.randomitems=§1§lEnder's Random Items
