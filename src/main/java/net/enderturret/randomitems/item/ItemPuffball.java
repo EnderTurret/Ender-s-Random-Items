@@ -2,16 +2,12 @@ package net.enderturret.randomitems.item;
 
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
-import net.minecraftforge.fml.relauncher.Side;
-import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class ItemPuffball extends ItemBase {
 
