@@ -26,7 +26,6 @@ out
 .idea
 
 # Gradle
-build.gradle
 build
 .gradle
 gradlew
