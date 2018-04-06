@@ -1,6 +1,5 @@
 package net.enderturret.randomitems.block;
 
-import net.enderturret.randomitems.RandomItems;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.state.IBlockState;
@@ -14,13 +13,12 @@ import net.minecraft.world.World;
 
 public class BlockTesseract extends BlockBase {
 	//TODO: When placed next to a solid block, some of the model turns black
-	public String Effect;
+	private final String Effect;
 
 	public BlockTesseract(String name, SoundType Soundtype, Material Material, String effect)
 	{
 		super(name, Soundtype, Material);
 		Effect = effect;
-		setCreativeTab(RandomItems.creativeTab);
 		setHardness(2000f);
 	}
 

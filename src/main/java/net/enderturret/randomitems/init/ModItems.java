@@ -7,7 +7,6 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
-
 	// Plain Items
 	public static ItemBase moistTowelette = new ItemBase("moist_towelette");
 	public static ItemBase sanitizingWater = new ItemBase("sanitizing_water");
@@ -34,7 +33,8 @@ public class ModItems {
 	public static ItemPuffball puffBallPurple = new ItemPuffball("puffball_purple");
 	public static ItemPuffball puffBallMagenta = new ItemPuffball("puffball_magenta");
 	public static ItemPuffball puffBallPink = new ItemPuffball("puffball_pink");
-	
+	//public static ItemPuffball puffBallPurple = new ItemPuffball("puffball_purple");
+
 	// Register ALL THE THINGS!!!
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
@@ -63,7 +63,6 @@ public class ModItems {
 				puffBallPink
 		);
 	}
-
 	// Don't forget the models because no one likes black and purple
 	public static void registerModels() {
 		moistTowelette.registerItemModel();

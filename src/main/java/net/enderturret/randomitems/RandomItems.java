@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.0")
+@Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.1")
 public class RandomItems {
 
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
@@ -24,20 +24,17 @@ public class RandomItems {
 
 	@Mod.EventBusSubscriber
 	public static class RegistrationHandler {
-
 		// Register the things
 		@SubscribeEvent
 		public static void registerItems(RegistryEvent.Register<Item> event) {
 			ModBlocks.registerItemBlocks(event.getRegistry());
 			ModItems.register(event.getRegistry());
 		}
-
 		// Register some more
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> event) {
 			ModBlocks.register(event.getRegistry());
 		}
-
 		// Register just a bit more
 		@SubscribeEvent
 		public static void registerModels(ModelRegistryEvent event) {

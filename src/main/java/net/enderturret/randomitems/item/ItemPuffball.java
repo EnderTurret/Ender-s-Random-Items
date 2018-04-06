@@ -1,6 +1,5 @@
 package net.enderturret.randomitems.item;
 
-import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
@@ -11,10 +10,8 @@ import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
 
-	public ItemPuffball(String name)
-	{
+	public ItemPuffball(String name) {
 		super(name);
-		setCreativeTab(RandomItems.creativeTab);
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
