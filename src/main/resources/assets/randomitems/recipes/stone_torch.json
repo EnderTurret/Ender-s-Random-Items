@@ -1,0 +1,26 @@
+{
+    "result": {
+        "item": "randomitems:block_stone_torch",
+		"count": 1
+    },
+        "pattern": [
+            "C",
+            "S"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "C": [
+            {
+			    "item": "minecraft:coal",
+				"data": 0
+			},
+			{
+				"item": "minecraft:coal",
+				"data": 1
+			}
+		],
+			"S": {
+				"item": "randomitems:stone_stick"
+		}
+    }
+}

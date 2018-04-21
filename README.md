@@ -11,3 +11,9 @@ Moist towelette: A crafting item to be used with rotten flesh to make something 
 Sanitizing water: Crafting item.
 
 Puffballs: Small 'foxes' that stay in your inventory and when held in your offhand give you special potion effects.
+
+Stone Stick: Crafting item.
+
+Stone Chisel: Used to craft 6 stone sticks by right-clicking a stone block.
+
+Stone Torch: Basically a torch made with stone rather than wood.

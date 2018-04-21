@@ -2,6 +2,7 @@ package net.enderturret.randomitems.init;
 
 import net.enderturret.randomitems.item.ItemBase;
 import net.enderturret.randomitems.item.ItemPuffball;
+import net.enderturret.randomitems.item.ItemStoneChisel;
 import net.enderturret.randomitems.item.SaturatedDrinkItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -12,6 +13,8 @@ public class ModItems {
 	public static ItemBase sanitizingWater = new ItemBase("sanitizing_water");
 	public static ItemBase puffBallTail = new ItemBase("puffball_tail");
 	public static ItemBase puffBallFur = new ItemBase("puffball_fur");
+	public static ItemBase stoneStick = new ItemBase("stone_stick");
+	public static ItemStoneChisel stoneChisel = new ItemStoneChisel("stone_chisel", 32);
 	// Food & Drinks
 	public static SaturatedDrinkItem secretCoke = new SaturatedDrinkItem("secret_coke", 1, 1f, false);
 	// Puffballs
@@ -43,7 +46,7 @@ public class ModItems {
 				secretCoke,
 				puffBallTail,
 				puffBallFur,
-				//Puffballs
+
 				puffBall,
 				puffBallWhite,
 				puffBallLightGray,
@@ -60,7 +63,10 @@ public class ModItems {
 				puffBallBlue,
 				//puffBallPurple,
 				puffBallMagenta,
-				puffBallPink
+				puffBallPink,
+
+				stoneStick,
+				stoneChisel
 		);
 	}
 	// Don't forget the models because no one likes black and purple
@@ -88,5 +94,8 @@ public class ModItems {
 		//puffBallPurple.registerItemModel();
 		puffBallMagenta.registerItemModel();
 		puffBallPink.registerItemModel();
+		
+		stoneStick.registerItemModel();
+		stoneChisel.registerItemModel();
 	}
 }

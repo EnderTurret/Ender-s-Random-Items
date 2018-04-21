@@ -11,7 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.1")
+@Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.2")
 public class RandomItems {
 
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();

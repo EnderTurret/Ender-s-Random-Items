@@ -1,0 +1,5 @@
+{
+    "parent": "minecraft:block/torch_wall",
+    "textures": {
+        "torch": "randomitems:items/torch"
+}}

@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "0.1.1"
+version = "0.1.2"
 group = "net.enderturret.randomitems"
 archivesBaseName = "EndersRandomItems-1.12"
 
