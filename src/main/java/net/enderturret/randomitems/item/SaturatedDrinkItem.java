@@ -14,6 +14,7 @@ public class SaturatedDrinkItem extends ItemFood {
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
+		setCreativeTab(null);
 	}
 
 	// Register the model, because no one likes black and purple
