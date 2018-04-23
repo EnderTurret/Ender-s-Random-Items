@@ -8,14 +8,13 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block {
-	protected final String name;
-	public BlockBase(String name, SoundType Soundtype, Material Material) {
-		super(Material);
+	private final String name;
+	public BlockBase(String name, SoundType soundType, Material material) {
+		super(material);
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.blockSoundType = Soundtype;
-		setHardness(0.8F);
+		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
 	}
 	// Register the model, because black and purple is ugly

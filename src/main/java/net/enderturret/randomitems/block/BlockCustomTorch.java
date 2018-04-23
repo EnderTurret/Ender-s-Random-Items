@@ -7,7 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class BlockCustomTorch extends BlockTorch {
-	protected final String name;
+	private final String name;
 	public BlockCustomTorch(String name, SoundType soundType) {
 		this.name = name;
 		setUnlocalizedName(name);

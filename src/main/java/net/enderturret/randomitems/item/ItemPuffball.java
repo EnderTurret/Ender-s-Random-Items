@@ -9,7 +9,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
-
 	public ItemPuffball(String name) {
 		super(name);
 	}

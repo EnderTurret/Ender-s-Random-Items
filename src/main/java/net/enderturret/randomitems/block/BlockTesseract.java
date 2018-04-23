@@ -7,7 +7,6 @@ import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
 import net.minecraft.potion.PotionEffect;
-import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
@@ -15,12 +14,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockTesseract extends BlockBase {
-	private final String Effect;
-
-	public BlockTesseract(String name, SoundType Soundtype, Material Material, String effect)
-	{
-		super(name, Soundtype, Material);
-		Effect = effect;
+	private final String effect;
+	public BlockTesseract(String name, SoundType soundType, Material material, String effect) {
+		super(name, soundType, material);
+		this.effect = effect;
 		setHardness(2000f);
 		setLightLevel(1f);
 	}
@@ -29,9 +26,9 @@ public class BlockTesseract extends BlockBase {
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn,
 			EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-			if (Effect.equals("Resistance"))
+			if (effect.equals("Resistance"))
 				playerIn.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 6000, 0));
-			else if (Effect.equals("Regeneration"))
+			else if (effect.equals("Regeneration"))
 				playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 6000, 0));
 			return true;
 	}
