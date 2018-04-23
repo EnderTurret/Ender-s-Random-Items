@@ -6,13 +6,13 @@ import net.minecraft.block.SoundType;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
-public class BlockStoneTorch extends BlockTorch {
+public class BlockCustomTorch extends BlockTorch {
 	protected final String name;
-	public BlockStoneTorch() {
-		name = "block_stone_torch";
+	public BlockCustomTorch(String name, SoundType soundType) {
+		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.blockSoundType = SoundType.STONE;
+		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
 	}
 	public void registerItemModel(Item itemBlock) {

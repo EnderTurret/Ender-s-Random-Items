@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.block.BlockStoneTorch;
+import net.enderturret.randomitems.block.BlockCustomTorch;
 import net.enderturret.randomitems.block.BlockTesseract;
 import net.minecraft.block.Block;
 import net.minecraft.block.SoundType;
@@ -12,7 +12,7 @@ public class ModBlocks {
 	// Blocks
 	public static BlockTesseract blockTesseract = new BlockTesseract("block_tesseract", SoundType.METAL, Material.CIRCUITS, "Resistance");
 	public static BlockTesseract blockLoveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, "Regeneration");
-	public static BlockStoneTorch blockStoneTorch = new BlockStoneTorch();
+	public static BlockCustomTorch blockStoneTorch = new BlockCustomTorch("block_stone_torch", SoundType.STONE);
 
 	// One registry to rule them all
 	public static void register(IForgeRegistry<Block> registry) {
