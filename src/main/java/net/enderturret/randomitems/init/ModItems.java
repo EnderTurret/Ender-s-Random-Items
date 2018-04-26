@@ -2,6 +2,7 @@ package net.enderturret.randomitems.init;
 
 import net.enderturret.randomitems.item.ItemBase;
 import net.enderturret.randomitems.item.ItemPuffball;
+import net.enderturret.randomitems.item.ItemQuestionableCheese;
 import net.enderturret.randomitems.item.ItemStoneChisel;
 import net.enderturret.randomitems.item.SaturatedDrinkItem;
 import net.minecraft.item.Item;
@@ -15,10 +16,10 @@ public class ModItems {
 	public static ItemBase puffBallFur = new ItemBase("puffball_fur");
 	public static ItemBase stoneStick = new ItemBase("stone_stick");
 	public static ItemStoneChisel stoneChisel = new ItemStoneChisel("stone_chisel", 32);
+	public static ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
 	// Food & Drinks
 	public static SaturatedDrinkItem secretCoke = new SaturatedDrinkItem("secret_coke", 1, 1f, false);
 	// Puffballs
-	//TODO: Fix the glowing one
 	public static ItemPuffball puffBall = new ItemPuffball("puffball");
 	public static ItemPuffball puffBallWhite = new ItemPuffball("puffball_white");
 	public static ItemPuffball puffBallLightGray = new ItemPuffball("puffball_light_gray");
@@ -66,7 +67,8 @@ public class ModItems {
 				puffBallPink,
 
 				stoneStick,
-				stoneChisel
+				stoneChisel,
+				questionableCheese
 		);
 	}
 	// Don't forget the models because no one likes black and purple
@@ -97,5 +99,6 @@ public class ModItems {
 		
 		stoneStick.registerItemModel();
 		stoneChisel.registerItemModel();
+		questionableCheese.registerItemModel();
 	}
 }
