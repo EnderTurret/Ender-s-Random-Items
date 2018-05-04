@@ -14,7 +14,7 @@ public class SaturatedDrinkItem extends ItemFood {
 		setRegistryName(name);
 		setCreativeTab(null);
 	}
-	// Register the model, because no one likes black and purple
+	/** Register the model, because no one likes black and purple */
 	public void registerItemModel() {
 		RandomItems.proxy.registerItemRenderer(this, 0, name);
 	}
