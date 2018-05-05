@@ -17,7 +17,7 @@ import net.minecraft.world.World;
 public class ItemFLARD extends ItemBase {
 	private int customGeneratedEffect;
 	private final Random rand = new Random();
-	private final Enchantment[] enchants = {Enchantments.AQUA_AFFINITY, Enchantments.BANE_OF_ARTHROPODS, Enchantments.BINDING_CURSE,
+	public final Enchantment[] enchants = {Enchantments.AQUA_AFFINITY, Enchantments.BANE_OF_ARTHROPODS, Enchantments.BINDING_CURSE,
 			Enchantments.BLAST_PROTECTION, Enchantments.DEPTH_STRIDER, Enchantments.EFFICIENCY, Enchantments.FEATHER_FALLING, Enchantments.FIRE_ASPECT,
 			Enchantments.FIRE_PROTECTION, Enchantments.FLAME, Enchantments.FORTUNE, Enchantments.FROST_WALKER, Enchantments.INFINITY, Enchantments.KNOCKBACK,
 			Enchantments.LOOTING, Enchantments.LUCK_OF_THE_SEA, Enchantments.LURE, Enchantments.MENDING, Enchantments.POWER, Enchantments.PROJECTILE_PROTECTION,
@@ -43,24 +43,19 @@ public class ItemFLARD extends ItemBase {
 		customGeneratedEffect = rand.nextInt(5);
 		playerIn.inventory.deleteStack(playerIn.getHeldItemMainhand());
 		if (customGeneratedEffect == 0) {
-			System.out.println("poison");
 			playerIn.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 2));
 		}
 		else if (customGeneratedEffect == 1) {
-			System.out.println("enchantment");
 			if (playerIn.getHeldItemOffhand() != null)
-				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(10));
+				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(5));
 		}
 		else if (customGeneratedEffect == 2) {
-			System.out.println("drop items");
 			playerIn.inventory.dropAllItems();
 		}
 		else if (customGeneratedEffect == 3) {
-			System.out.println("weather");
 			worldIn.addWeatherEffect(new EntityLightningBolt(worldIn, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), false));
 		}
 		else if (customGeneratedEffect == 4) {
-			System.out.println("diamond");
 			playerIn.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
 		}
 		else if (customGeneratedEffect == 5) {
