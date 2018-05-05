@@ -63,5 +63,32 @@ public class ItemFLARD extends ItemBase {
 			System.out.println("diamond");
 			playerIn.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
 		}
+		else if (customGeneratedEffect == 5) {
+			
+		}
+		else if (customGeneratedEffect == 6) {
+			
+		}
+		else if (customGeneratedEffect == 7) {
+			
+		}
+		else if (customGeneratedEffect == 8) {
+			
+		}
+		else if (customGeneratedEffect == 9) {
+			
+		}
+		else if (customGeneratedEffect == 10) {
+			
+		}
+		else if (customGeneratedEffect == 11) {
+			
+		}
+		else if (customGeneratedEffect == 12) {
+			
+		}
+		else if (customGeneratedEffect == 13) {
+			
+		}
 	}
 }

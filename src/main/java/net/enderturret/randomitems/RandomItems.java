@@ -5,7 +5,14 @@ import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.world.storage.loot.LootEntry;
+import net.minecraft.world.storage.loot.LootEntryItem;
+import net.minecraft.world.storage.loot.LootPool;
+import net.minecraft.world.storage.loot.RandomValueRange;
+import net.minecraft.world.storage.loot.conditions.LootCondition;
+import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
@@ -40,6 +47,15 @@ public class RandomItems {
 		public static void registerModels(ModelRegistryEvent event) {
 			ModBlocks.registerModels();
 			ModItems.registerModels();
+		}
+		// Add FLARD to the dungeon loot table pool thing
+		@SubscribeEvent
+		public static void onLootLoad(LootTableLoadEvent e) {
+			if (e.getName().toString().equals("minecraft:chests/simple_dungeon")) {
+				LootEntry flard = new LootEntryItem(ModItems.flard, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
+				LootPool poolDungeon = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0,2), new RandomValueRange(0), "randomitems:dungeon_pool");
+				e.getTable().addPool(poolDungeon);
+			}
 		}
 	}
 }
