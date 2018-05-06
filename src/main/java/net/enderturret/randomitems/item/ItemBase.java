@@ -11,7 +11,7 @@ public class ItemBase extends Item {
 		setRegistryName(name);
 		setCreativeTab(RandomItems.creativeTab);
 	}
-	/** Item model */
+	/** Registers the item model */
 	public void registerItemModel() {
 		RandomItems.proxy.registerItemRenderer(this, 0, name);
 	}
