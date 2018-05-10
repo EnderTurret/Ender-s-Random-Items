@@ -1,5 +1,8 @@
 package net.enderturret.randomitems;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import net.enderturret.randomitems.init.ModBlocks;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
@@ -16,12 +19,14 @@ import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 @Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.2")
 public class RandomItems {
 
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
+	public static final Logger log = LogManager.getLogger("randomitems");
 
 	@Mod.Instance("randomitems")
 	public static RandomItems instance;
