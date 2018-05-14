@@ -6,6 +6,9 @@ import org.apache.logging.log4j.Logger;
 import net.enderturret.randomitems.init.ModBlocks;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
+import net.enderturret.randomitems.util.FLARDEffectRegistry;
+import net.enderturret.randomitems.util.flardeffects.EffectChestLoot;
+import net.enderturret.randomitems.util.flardeffects.EffectEnchantment;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -40,6 +43,7 @@ public class RandomItems {
 		public static void registerItems(RegistryEvent.Register<Item> event) {
 			ModBlocks.registerItemBlocks(event.getRegistry());
 			ModItems.register(event.getRegistry());
+			FLARDEffectRegistry.registerAll(new EffectChestLoot(), new EffectEnchantment());
 		}
 		// Register some more
 		@SubscribeEvent
