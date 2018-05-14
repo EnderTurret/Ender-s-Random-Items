@@ -3,7 +3,6 @@ package net.enderturret.randomitems.proxy;
 import net.minecraft.item.Item;
 
 public class CommonProxy {
-	// Because reasons
-	public void registerItemRenderer(Item item, int meta, String id) {
-	}
+	// I'm not exactly sure why this is here
+	public void registerItemRenderer(Item item, int meta, String id) {}
 }

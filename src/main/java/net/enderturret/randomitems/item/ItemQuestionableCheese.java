@@ -1,5 +1,6 @@
 package net.enderturret.randomitems.item;
 
+import net.enderturret.randomitems.ConfigurationHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -15,26 +16,27 @@ public class ItemQuestionableCheese extends ItemBase {
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote)
-			if (entityIn instanceof EntityPlayer) {
-				EntityPlayer playerIn = (EntityPlayer) entityIn;
-				if (playerIn.getHeldItemMainhand().getItem() == ModItems.questionableCheese)
-					if (worldIn.getBlockState(playerIn.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
-						worldIn.setBlockToAir(playerIn.getPosition().down());
-						worldIn.createExplosion(null, playerIn.getPosition().getX(), playerIn.getPosition().getY()-1, playerIn.getPosition().getZ(), 8.0F, true);
-					}
-			}
+			if (ConfigurationHandler.questionableCheeseEnabled == true)
+				if (entityIn instanceof EntityPlayer) {
+					EntityPlayer playerIn = (EntityPlayer) entityIn;
+					if (playerIn.getHeldItemMainhand().getItem() == ModItems.questionableCheese)
+						if (worldIn.getBlockState(playerIn.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
+							worldIn.setBlockToAir(playerIn.getPosition().down());
+							worldIn.createExplosion(null, playerIn.getPosition().getX(), playerIn.getPosition().getY()-1, playerIn.getPosition().getZ(), 8.0F, true);
+						}
+				}
 	}
-	//TODO: Fix this. V
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		World worldIn = entityItem.getEntityWorld();
 		if (!worldIn.isRemote)
-			if (entityItem.getItem().isItemEqual(new ItemStack(ModItems.questionableCheese)))
-				if (worldIn.getBlockState(entityItem.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
-					worldIn.setBlockToAir(entityItem.getPosition().down());
-					worldIn.createExplosion(null, entityItem.getPosition().getX(), entityItem.getPosition().getY()-1, entityItem.getPosition().getZ(), 8.0F, true);
-					return true;
-				}
+			if (ConfigurationHandler.questionableCheeseEnabled == true)
+				if (entityItem.getItem().isItemEqual(new ItemStack(ModItems.questionableCheese)))
+					if (worldIn.getBlockState(entityItem.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
+						worldIn.setBlockToAir(entityItem.getPosition().down());
+						worldIn.createExplosion(null, entityItem.getPosition().getX(), entityItem.getPosition().getY()-1, entityItem.getPosition().getZ(), 8.0F, true);
+						return true;
+					}
 		return false;
 	}
 }

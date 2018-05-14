@@ -11,7 +11,11 @@ public class ItemBase extends Item {
 		setRegistryName(name);
 		setCreativeTab(RandomItems.creativeTab);
 	}
-	/** Registers the item model */
+	/** Registers the item model with meta */
+	public void registerItemModel(int meta) {
+			RandomItems.proxy.registerItemRenderer(this, meta, name);
+	}
+	/** Registers the item model with a meta of 0 */
 	public void registerItemModel() {
 		RandomItems.proxy.registerItemRenderer(this, 0, name);
 	}

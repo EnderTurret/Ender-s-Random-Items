@@ -2,6 +2,7 @@ package net.enderturret.randomitems.item;
 
 import java.util.Random;
 
+import net.enderturret.randomitems.ConfigurationHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -14,6 +15,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemStoneChisel extends ItemBase {
+	static final Random rand = new Random();
 	public ItemStoneChisel(String name, int durability) {
 		super(name);
 		setMaxDamage(durability);
@@ -21,18 +23,18 @@ public class ItemStoneChisel extends ItemBase {
 	}
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
-			if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-				Random rand = new Random();
-				player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));
-				worldIn.setBlockToAir(pos);
-				if (player.getHeldItemMainhand().getItemDamage() == 32) {
-					player.setHeldItem(hand, ItemStack.EMPTY);
-					player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
+		if (ConfigurationHandler.stoneChiselEnabled == true)
+			if (player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
+				if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
+					player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));
+					worldIn.setBlockToAir(pos);
+					if (player.getHeldItemMainhand().getItemDamage() == 32) {
+						player.setHeldItem(hand, ItemStack.EMPTY);
+						player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
+					}
+					player.getHeldItemMainhand().attemptDamageItem(1, rand, null);
+					return EnumActionResult.SUCCESS;
 				}
-				player.getHeldItemMainhand().attemptDamageItem(1, rand, null);
-				return EnumActionResult.SUCCESS;
-			}
 		return EnumActionResult.FAIL;
 	}
 }

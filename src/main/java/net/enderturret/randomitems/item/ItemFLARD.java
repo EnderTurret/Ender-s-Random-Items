@@ -4,6 +4,7 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
+import net.enderturret.randomitems.ConfigurationHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.enchantment.Enchantment;
@@ -53,18 +54,19 @@ public class ItemFLARD extends ItemBase {
 				EntityPlayer playerIn = (EntityPlayer)entityIn;
 				if (playerIn.getHeldItemMainhand() != null)
 					if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard)
-						executeFlardEffect(stack, worldIn, playerIn, playerIn.getPosition());
+						if (ConfigurationHandler.flardEnabled == true)
+							executeFlardEffect(stack, worldIn, playerIn, playerIn.getPosition());
 		}
 	}
 	/** Method called whenever a random effect is needed */
 	protected void executeFlardEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		customGeneratedEffect = rand.nextInt(11);
+		customGeneratedEffect = rand.nextInt(12);
 		playerIn.inventory.deleteStack(playerIn.getHeldItemMainhand());
-		if (customGeneratedEffect == 0) {
+		if (customGeneratedEffect == 0 && ConfigurationHandler.flardEffects.flardPoisonEffect == true) {
 			log(" was poisoned.", playerIn);
 			playerIn.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 2));
 		}
-		else if (customGeneratedEffect == 1) {
+		else if (customGeneratedEffect == 1 && ConfigurationHandler.flardEffects.flardOffhandEnchantEffect == true) {
 			if (playerIn.getHeldItemOffhand() != ItemStack.EMPTY) {
 				log(" got their offhand item enchanted", playerIn);
 				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(5));
@@ -72,32 +74,32 @@ public class ItemFLARD extends ItemBase {
 			else
 				log(" could have had their offhand item enchanted, but they weren't holding anything (Offhand was empty)", playerIn);
 		}
-		else if (customGeneratedEffect == 2) {
+		else if (customGeneratedEffect == 2 && ConfigurationHandler.flardEffects.flardInventoryDropEffect == true) {
 			log(" had their inventory dropped", playerIn);
 			playerIn.inventory.dropAllItems();
 		}
-		else if (customGeneratedEffect == 3) {
+		else if (customGeneratedEffect == 3 && ConfigurationHandler.flardEffects.flardLightningEffect == true) {
 			log(" got struck by lightning", playerIn);
 			worldIn.addWeatherEffect(new EntityLightningBolt(worldIn, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), false));
 		}
-		else if (customGeneratedEffect == 4) {
+		else if (customGeneratedEffect == 4 && ConfigurationHandler.flardEffects.flardDiamondEffect == true) {
 			log(" got a diamond added to their inventory", playerIn);
 			playerIn.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
 		}
-		else if (customGeneratedEffect == 5) {
+		else if (customGeneratedEffect == 5 && ConfigurationHandler.flardEffects.flardHoleEffect == true) {
 			log(" fell into a hole", playerIn);
 			if (worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.AIR.getDefaultState())
 				worldIn.setBlockToAir(playerIn.getPosition().down());
 		}
-		else if (customGeneratedEffect == 6) {
+		else if (customGeneratedEffect == 6 && ConfigurationHandler.flardEffects.flardExplosionEffect == true) {
 			log(" exploded", playerIn);
 			worldIn.createExplosion(null, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), 6.0F, true);
 		}
-		else if (customGeneratedEffect == 7) {
+		else if (customGeneratedEffect == 7 && ConfigurationHandler.flardEffects.flardXPEffect == true) {
 			log(" got a few levels", playerIn);
 			playerIn.addExperienceLevel(rand.nextInt(4));
 		}
-		else if (customGeneratedEffect == 8) {
+		else if (customGeneratedEffect == 8 && ConfigurationHandler.flardEffects.flardChestLootEffect == true) {
 			if (worldIn.getTileEntity(pos.down()) != null) {
 				TileEntity tileEntity = worldIn.getTileEntity(playerIn.getPosition().down());
 				if (tileEntity instanceof TileEntityChest) {
@@ -116,25 +118,25 @@ public class ItemFLARD extends ItemBase {
 			else
 				log(" would have had a chest of loot, but none were found (No TileEntityChest under their feet)", playerIn);
 		}
-		else if (customGeneratedEffect == 9) {
+		else if (customGeneratedEffect == 9 && ConfigurationHandler.flardEffects.flardFireEffect == true) {
 			log(" was set on fire", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState());
 		}
-		else if (customGeneratedEffect == 10) {
+		else if (customGeneratedEffect == 10 && ConfigurationHandler.flardEffects.flardPuddleEffect == true) {
 			log(" had a puddle appear under them", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.FLOWING_WATER.getStateFromMeta(7));
 		}
-		else if (customGeneratedEffect == 11) {
+		else if (customGeneratedEffect == 11 && ConfigurationHandler.flardEffects.flardCobwebEffect == true) {
 			log(" got stuck in a cobweb", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.WEB.getDefaultState());
 		}
-		else if (customGeneratedEffect == 12) {
+		else if (customGeneratedEffect == 12 && ConfigurationHandler.flardEffects.flardXPEffect == true) {
 			log(" 12", playerIn);
 		}
-		else if (customGeneratedEffect == 13) {
+		else if (customGeneratedEffect == 13 && ConfigurationHandler.flardEffects.flardXPEffect == true) {
 			log(" 13", playerIn);
 		}
 	}

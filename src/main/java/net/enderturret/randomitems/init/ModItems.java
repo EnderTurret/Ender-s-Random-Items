@@ -1,5 +1,6 @@
 package net.enderturret.randomitems.init;
 
+import net.enderturret.randomitems.ConfigurationHandler;
 import net.enderturret.randomitems.item.ItemBase;
 import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.item.ItemPuffball;
@@ -81,7 +82,7 @@ public class ModItems {
 		secretCoke.registerItemModel();
 		puffBallTail.registerItemModel();
 		puffBallFur.registerItemModel();
-		
+
 		puffball.registerItemModel();
 		puffballWhite.registerItemModel();
 		puffballLightGray.registerItemModel();
@@ -99,7 +100,7 @@ public class ModItems {
 		//puffballPurple.registerItemModel();
 		puffballMagenta.registerItemModel();
 		puffballPink.registerItemModel();
-		
+
 		stoneStick.registerItemModel();
 		stoneChisel.registerItemModel();
 		questionableCheese.registerItemModel();
