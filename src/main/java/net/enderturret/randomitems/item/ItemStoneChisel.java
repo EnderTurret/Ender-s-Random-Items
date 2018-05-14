@@ -2,7 +2,7 @@ package net.enderturret.randomitems.item;
 
 import java.util.Random;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -23,7 +23,7 @@ public class ItemStoneChisel extends ItemBase {
 	}
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigurationHandler.stoneChiselEnabled == true)
+		if (ConfigHandler.stoneChiselEnabled == true)
 			if (player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
 				if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
 					player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));

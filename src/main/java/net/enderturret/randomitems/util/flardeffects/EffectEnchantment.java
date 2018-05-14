@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.util.flardeffects;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.util.ICustomFLARDEffect;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,7 +19,7 @@ public class EffectEnchantment implements ICustomFLARDEffect {
 			Enchantments.THORNS, Enchantments.UNBREAKING, Enchantments.VANISHING_CURSE};
 	@Override
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		if (ConfigurationHandler.flardEffects.flardOffhandEnchantEffect == true)
+		if (ConfigHandler.flardEffects.flardOffhandEnchantEffect == true)
 			if (playerIn.getHeldItemOffhand() != ItemStack.EMPTY) {
 				log(" got their offhand item enchanted", playerIn);
 				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(5));

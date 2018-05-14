@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.util.flardeffects;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.util.ICustomFLARDEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -18,7 +18,7 @@ public class EffectChestLoot implements ICustomFLARDEffect {
 			new ResourceLocation("minecraft", "chests/jungle_temple"), new ResourceLocation("minecraft", "chests/woodland_mansion")};
 	@Override
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		if (ConfigurationHandler.flardEffects.flardChestLootEffect == true)
+		if (ConfigHandler.flardEffects.flardChestLootEffect == true)
 			if (worldIn.getTileEntity(pos.down()) != null) {
 				TileEntity tileEntity = worldIn.getTileEntity(playerIn.getPosition().down());
 				if (tileEntity instanceof TileEntityChest) {

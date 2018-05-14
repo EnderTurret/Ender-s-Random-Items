@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.block;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,7 @@ public class BlockTesseract extends BlockBase {
 	// Give status effects when right-clicked
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigurationHandler.tesseractEffects == true) {
+		if (ConfigHandler.tesseractEffects == true) {
 			playerIn.addPotionEffect(new PotionEffect(effect, 6000, 0));
 			return true;
 		}

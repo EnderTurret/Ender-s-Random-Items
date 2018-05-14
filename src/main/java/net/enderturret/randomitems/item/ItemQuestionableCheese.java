@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.item;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
@@ -16,7 +16,7 @@ public class ItemQuestionableCheese extends ItemBase {
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote)
-			if (ConfigurationHandler.questionableCheeseEnabled == true)
+			if (ConfigHandler.questionableCheeseEnabled == true)
 				if (entityIn instanceof EntityPlayer) {
 					EntityPlayer playerIn = (EntityPlayer) entityIn;
 					if (playerIn.getHeldItemMainhand().getItem() == ModItems.questionableCheese)
@@ -30,7 +30,7 @@ public class ItemQuestionableCheese extends ItemBase {
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		World worldIn = entityItem.getEntityWorld();
 		if (!worldIn.isRemote)
-			if (ConfigurationHandler.questionableCheeseEnabled == true)
+			if (ConfigHandler.questionableCheeseEnabled == true)
 				if (entityItem.getItem().isItemEqual(new ItemStack(ModItems.questionableCheese)))
 					if (worldIn.getBlockState(entityItem.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
 						worldIn.setBlockToAir(entityItem.getPosition().down());

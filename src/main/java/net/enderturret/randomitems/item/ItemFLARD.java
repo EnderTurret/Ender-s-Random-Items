@@ -4,7 +4,7 @@ import java.util.Random;
 
 import org.apache.logging.log4j.Level;
 
-import net.enderturret.randomitems.ConfigurationHandler;
+import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.util.FLARDEffectRegistry;
@@ -43,7 +43,7 @@ public class ItemFLARD extends ItemBase {
 				EntityPlayer playerIn = (EntityPlayer)entityIn;
 				if (playerIn.getHeldItemMainhand() != null)
 					if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard)
-						if (ConfigurationHandler.flardEnabled == true)
+						if (ConfigHandler.flardEnabled == true)
 							executeFlardEffect(stack, worldIn, playerIn, playerIn.getPosition());
 		}
 	}
@@ -51,46 +51,46 @@ public class ItemFLARD extends ItemBase {
 	protected void executeFlardEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		effectNum = rand.nextInt(10+FLARDEffectRegistry.effects.size());
 		playerIn.inventory.deleteStack(playerIn.getHeldItemMainhand());
-		if (effectNum == 0 && ConfigurationHandler.flardEffects.flardPoisonEffect == true) {
+		if (effectNum == 0 && ConfigHandler.flardEffects.flardPoisonEffect == true) {
 			log(" was poisoned.", playerIn);
 			playerIn.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 2));
 		}
-		else if (effectNum == 1 && ConfigurationHandler.flardEffects.flardInventoryDropEffect == true) {
+		else if (effectNum == 1 && ConfigHandler.flardEffects.flardInventoryDropEffect == true) {
 			log(" had their inventory dropped", playerIn);
 			playerIn.inventory.dropAllItems();
 		}
-		else if (effectNum == 2 && ConfigurationHandler.flardEffects.flardLightningEffect == true) {
+		else if (effectNum == 2 && ConfigHandler.flardEffects.flardLightningEffect == true) {
 			log(" got struck by lightning", playerIn);
 			worldIn.addWeatherEffect(new EntityLightningBolt(worldIn, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), false));
 		}
-		else if (effectNum == 3 && ConfigurationHandler.flardEffects.flardDiamondEffect == true) {
+		else if (effectNum == 3 && ConfigHandler.flardEffects.flardDiamondEffect == true) {
 			log(" got a diamond added to their inventory", playerIn);
 			playerIn.inventory.addItemStackToInventory(new ItemStack(Items.DIAMOND, 1));
 		}
-		else if (effectNum == 4 && ConfigurationHandler.flardEffects.flardHoleEffect == true) {
+		else if (effectNum == 4 && ConfigHandler.flardEffects.flardHoleEffect == true) {
 			log(" fell into a hole", playerIn);
 			if (worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.AIR.getDefaultState())
 				worldIn.setBlockToAir(playerIn.getPosition().down());
 		}
-		else if (effectNum == 5 && ConfigurationHandler.flardEffects.flardExplosionEffect == true) {
+		else if (effectNum == 5 && ConfigHandler.flardEffects.flardExplosionEffect == true) {
 			log(" exploded", playerIn);
 			worldIn.createExplosion(null, playerIn.getPosition().getX(), playerIn.getPosition().getY(), playerIn.getPosition().getZ(), 6.0F, true);
 		}
-		else if (effectNum == 6 && ConfigurationHandler.flardEffects.flardXPEffect == true) {
+		else if (effectNum == 6 && ConfigHandler.flardEffects.flardXPEffect == true) {
 			log(" got a few levels", playerIn);
 			playerIn.addExperienceLevel(rand.nextInt(4));
 		}
-		else if (effectNum == 7 && ConfigurationHandler.flardEffects.flardFireEffect == true) {
+		else if (effectNum == 7 && ConfigHandler.flardEffects.flardFireEffect == true) {
 			log(" was set on fire", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.FIRE.getDefaultState());
 		}
-		else if (effectNum == 8 && ConfigurationHandler.flardEffects.flardPuddleEffect == true) {
+		else if (effectNum == 8 && ConfigHandler.flardEffects.flardPuddleEffect == true) {
 			log(" had a puddle appear under them", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.FLOWING_WATER.getStateFromMeta(7));
 		}
-		else if (effectNum == 9 && ConfigurationHandler.flardEffects.flardCobwebEffect == true) {
+		else if (effectNum == 9 && ConfigHandler.flardEffects.flardCobwebEffect == true) {
 			log(" got stuck in a cobweb", playerIn);
 			if (worldIn.isAirBlock(pos))
 				worldIn.setBlockState(pos, Blocks.WEB.getDefaultState());

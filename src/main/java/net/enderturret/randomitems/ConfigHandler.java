@@ -5,7 +5,7 @@ import net.minecraftforge.common.config.Config.Comment;
 import net.minecraftforge.common.config.Config.Type;
 
 @Config(modid = "randomitems", type = Type.INSTANCE)
-public class ConfigurationHandler {
+public class ConfigHandler {
 	@Comment("Set to false to disable tesseracts effects")
 	public static boolean tesseractEffects = true;
 	@Comment("Set to false to disable FLARD having any use")
