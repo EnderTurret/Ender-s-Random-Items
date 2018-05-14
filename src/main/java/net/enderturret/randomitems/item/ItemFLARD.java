@@ -96,7 +96,7 @@ public class ItemFLARD extends ItemBase {
 				worldIn.setBlockState(pos, Blocks.WEB.getDefaultState());
 		}
 		else
-			if (FLARDEffectRegistry.effects.get(effectNum-10) != null)
+			if (effectNum >= 10 && FLARDEffectRegistry.effects.get(effectNum-10) != null)
 				FLARDEffectRegistry.effects.get(effectNum-10).onFLARDEffectRun(stack, worldIn, playerIn, pos);
 	}
 	public void log(String message, EntityPlayer playerIn) {

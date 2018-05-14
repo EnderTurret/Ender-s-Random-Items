@@ -18,19 +18,22 @@ import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.client.event.ModelRegistryEvent;
+import net.minecraftforge.common.config.Config.Type;
+import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
+import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
-@Mod(modid = "randomitems", name = "Ender's Random Items", version = "0.1.2")
+@Mod(modid = Referance.modId, name = "Ender's Random Items", version = Referance.modVersion)
 public class RandomItems {
 
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
 	public static final Logger log = LogManager.getLogger("randomitems");
 
-	@Mod.Instance("randomitems")
+	@Mod.Instance(Referance.modId)
 	public static RandomItems instance;
 
 	@SidedProxy(serverSide = "net.enderturret.randomitems.proxy.CommonProxy", clientSide = "net.enderturret.randomitems.proxy.ClientProxy")
@@ -64,6 +67,11 @@ public class RandomItems {
 				LootPool poolDungeon = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0,2), new RandomValueRange(0), "randomitems:dungeon_pool");
 				e.getTable().addPool(poolDungeon);
 			}
+		}
+		@SubscribeEvent
+		public static void onConfigChanged(OnConfigChangedEvent e) {
+			if (e.getModID().equals(Referance.modId))
+				ConfigManager.sync(Referance.modId, Type.INSTANCE);
 		}
 	}
 }

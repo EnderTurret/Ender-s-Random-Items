@@ -17,3 +17,7 @@ Stone Stick: Crafting item.
 Stone Chisel: Used to craft 6 stone sticks by right-clicking a stone block.
 
 Stone Torch: Basically a torch made with stone rather than wood.
+
+Questionable Cheese: Throw it on a beacon.
+
+FLARD: It is literally a lucky block in an item form.
