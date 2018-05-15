@@ -43,19 +43,19 @@ public class RandomItems {
 	public static class RegistrationHandler {
 		// Register the things
 		@SubscribeEvent
-		public static void registerItems(RegistryEvent.Register<Item> event) {
-			ModBlocks.registerItemBlocks(event.getRegistry());
-			ModItems.register(event.getRegistry());
+		public static void registerItems(RegistryEvent.Register<Item> e) {
+			ModBlocks.registerItemBlocks(e.getRegistry());
+			ModItems.register(e.getRegistry());
 			FLARDEffectRegistry.registerAll(new EffectChestLoot(), new EffectEnchantment());
 		}
 		// Register some more
 		@SubscribeEvent
-		public static void registerBlocks(RegistryEvent.Register<Block> event) {
-			ModBlocks.register(event.getRegistry());
+		public static void registerBlocks(RegistryEvent.Register<Block> e) {
+			ModBlocks.register(e.getRegistry());
 		}
 		// Register just a bit more
 		@SubscribeEvent
-		public static void registerModels(ModelRegistryEvent event) {
+		public static void registerModels(ModelRegistryEvent e) {
 			ModBlocks.registerModels();
 			ModItems.registerModels();
 		}

@@ -3,8 +3,6 @@ package net.enderturret.randomitems.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.enderturret.randomitems.RandomItems;
-
 public class FLARDEffectRegistry {
 	/** The registry */
 	public static List<ICustomFLARDEffect> effects = new ArrayList();

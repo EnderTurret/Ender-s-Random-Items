@@ -1,6 +1,5 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.item.ItemBase;
 import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.item.ItemPuffball;
