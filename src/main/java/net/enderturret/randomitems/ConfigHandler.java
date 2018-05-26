@@ -16,6 +16,8 @@ public class ConfigHandler {
 	public static boolean puffballEffectsEnabled = true;
 	@Comment("Set to false to disable the stone chisel being useable")
 	public static boolean stoneChiselEnabled = true;
+	@Comment("Set to true to make /repair list the names of items rather than the item itself")
+	public static boolean repairHumour = false;
 	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();
 	public static class SubCategoryFLARD {
 		@Comment("Set to false to disable FLARD's poison effect")

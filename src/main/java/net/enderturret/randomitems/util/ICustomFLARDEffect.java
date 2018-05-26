@@ -11,8 +11,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface ICustomFLARDEffect {
+	/** Random for all your Pseudo-random needs */
 	final Random rand = new Random();
-	/** Run when FLARD is held and the random number just so happens to be the slot that your effect is registered in */
+	/** Run when FLARD is held and the your effect is chosen */
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos);
 	/** Logger for your custom effect */
 	public default void log(String message, EntityPlayer playerIn) {

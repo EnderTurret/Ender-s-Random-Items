@@ -6,6 +6,7 @@ import org.apache.logging.log4j.Logger;
 import net.enderturret.randomitems.init.ModBlocks;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
+import net.enderturret.randomitems.util.CommandRepair;
 import net.enderturret.randomitems.util.FLARDEffectRegistry;
 import net.enderturret.randomitems.util.flardeffects.EffectChestLoot;
 import net.enderturret.randomitems.util.flardeffects.EffectEnchantment;
@@ -25,7 +26,11 @@ import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
+import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.server.permission.DefaultPermissionLevel;
+import net.minecraftforge.server.permission.PermissionAPI;
 
 @Mod(modid = Referance.modId, name = "Ender's Random Items", version = Referance.modVersion)
 public class RandomItems {
@@ -68,10 +73,20 @@ public class RandomItems {
 				e.getTable().addPool(poolDungeon);
 			}
 		}
+		// Configuration update
 		@SubscribeEvent
 		public static void onConfigChanged(OnConfigChangedEvent e) {
 			if (e.getModID().equals(Referance.modId))
 				ConfigManager.sync(Referance.modId, Type.INSTANCE);
 		}
+	}
+	@Mod.EventHandler
+	public static void init(FMLInitializationEvent e) {
+		PermissionAPI.registerNode("command.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
+		PermissionAPI.registerNode("command.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
+	}
+	@Mod.EventHandler
+	public static void onServerStart(FMLServerStartingEvent e) {
+		e.registerServerCommand(new CommandRepair());
 	}
 }
