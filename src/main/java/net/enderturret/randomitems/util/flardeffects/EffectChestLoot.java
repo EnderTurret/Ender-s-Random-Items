@@ -1,6 +1,7 @@
 package net.enderturret.randomitems.util.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
+import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.util.ICustomFLARDEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
@@ -36,5 +37,9 @@ public class EffectChestLoot implements ICustomFLARDEffect {
 			}
 			else
 				log(" would have had a chest of loot, but none were found (No TileEntityChest under their feet)", playerIn);
+		else {
+			ItemFLARD f = (ItemFLARD)stack.getItem();
+			f.rollEffect(stack, worldIn, playerIn, pos);
+		}
 	}
 }
