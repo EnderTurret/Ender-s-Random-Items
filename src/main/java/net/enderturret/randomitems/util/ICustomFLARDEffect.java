@@ -12,7 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public interface ICustomFLARDEffect {
-	/** Random for all your Pseudo-random needs */
+	/** Random for all your pseudo-random needs */
 	final Random rand = new Random();
 	/** Run when FLARD is held and the your effect is chosen */
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos);
