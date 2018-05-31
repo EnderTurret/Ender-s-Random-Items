@@ -17,7 +17,7 @@ public class EnchantmentGravity extends Enchantment {
 	}
 	@Override
 	public int getMaxLevel() {
-		return 3;
+		return 1;
 	}
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
@@ -32,7 +32,7 @@ public class EnchantmentGravity extends Enchantment {
 	}
 	@Override
 	public int getMaxEnchantability(int enchantmentLevel) {
-		return 9000;
+		return 500;
 	}
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
