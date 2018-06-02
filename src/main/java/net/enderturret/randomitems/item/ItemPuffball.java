@@ -11,6 +11,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
+	//TODO: Get my sister to make the remaining puffball textures.
 	public ItemPuffball(String name) {
 		super(name);
 	}
