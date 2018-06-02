@@ -1,7 +1,7 @@
 # Ender's Random Items Mod
 A minecraft mod with the purpose of nothing whatsoever, it will contain several blocks and items that will do different things.
 
-##Current items and blocks include:
+## Current items and blocks include:
 
 **Tesseracts**: Blocks that when right-clicked give you a potion effect,
 think of it sort of like a mini beacon.
@@ -22,7 +22,7 @@ think of it sort of like a mini beacon.
 
 **FLARD**: It is literally a lucky block in an item form.
 
-##Other features include:
+## Other features include:
 
 **Custom FLARD effects**: Utilized by FLARD to do something random,
 kind of like a lucky block. You can create your own effects by
@@ -30,4 +30,4 @@ implementing ICustomFLARDEffect, and filling out the method onFLARDEffectRun.
 Then you would want to register the effect by calling the method
 FLARDEffectRegistry.register with an instance of your custom FLARD effect.
 If you have more than one you want to register, use FLARDEffectRegistry.registerAll.
-For more information on how to make one, look at [one of these](../tree/master/src/main/java/net/enderturret/randomitems/util/flardeffects)
+For more information on how to make one, look at [one of these](../master/src/main/java/net/enderturret/randomitems/util/flardeffects)
