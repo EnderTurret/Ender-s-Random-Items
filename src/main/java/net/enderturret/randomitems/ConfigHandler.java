@@ -6,20 +6,25 @@ import net.minecraftforge.common.config.Config.Type;
 
 @Config(modid = "randomitems", type = Type.INSTANCE)
 public class ConfigHandler {
-	@Comment("Set to false to disable tesseracts effects")
+	@Comment("Controls whether tesseracts apply effects.")
 	public static boolean tesseractEffects = true;
-	@Comment("Set to false to disable FLARD having any use")
+	@Comment("Controls whether FLARD does anything.")
 	public static boolean flardEnabled = true;
-	@Comment("Set to false to disable questionable cheese having any use")
+	@Comment("Controls whether questionable cheese can be used.")
 	public static boolean questionableCheeseEnabled = true;
-	@Comment("Set to false to disable puffballs having any use whatsoever")
+	@Comment("Controls whether puffballs apply effects.")
 	public static boolean puffballEffectsEnabled = true;
-	@Comment("Set to false to disable the stone chisel being useable")
+	@Comment("Controls whether the stone chisel can be used.")
 	public static boolean stoneChiselEnabled = true;
-	@Comment("Set to true to make /repair list the names of items rather than the item itself")
+	@Comment("Controls whether /repair lists the names of the items vs the localized name")
 	public static boolean repairHumour = false;
-	@Comment("Set to false to disable the FLARD spam in the logs")
+	@Comment("Controls whether FLARD can log players using it.")
 	public static boolean flardMessages = true;
+	@Comment("Controls whether the nVIDIA enchantment works.")
+	public static boolean nvidiaEnchantmentEnabled = false;
+	@Comment("Controls whether the anti-gravity enchant works.")
+	public static boolean antiGravEnabled = true;
+	@Comment("For controlling individual effects.")
 	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();
 	public static class SubCategoryFLARD {
 		@Comment("Set to false to disable FLARD's poison effect")
@@ -46,7 +51,5 @@ public class ConfigHandler {
 		public boolean flardPuddleEffect = true;
 		@Comment("Set to false to disable FLARD's cobweb creation effect")
 		public boolean flardCobwebEffect = true;
-		//@Comment("Set to false to disable FLARD's ")
-		//public boolean flardEffect = true;
 	}
 }

@@ -11,7 +11,6 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
-	//TODO: Get my sister to make the remaining puffball textures.
 	public ItemPuffball(String name) {
 		super(name);
 	}
@@ -61,7 +60,7 @@ public class ItemPuffball extends ItemBase {
 					else if (i == ModItems.puffballBlue)
 						playerIn.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 20, 0));
 
-					// else if (i == ModItems.puffballPurple)
+					// else if (i == ModItems.puffballPurple) TODO: Fix this???
 						// playerIn.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 80, 0));
 
 					else if (i == ModItems.puffballMagenta)

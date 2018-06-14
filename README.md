@@ -26,8 +26,6 @@ think of it sort of like a mini beacon.
 
 **Custom FLARD effects**: Utilized by FLARD to do something random,
 kind of like a lucky block. You can create your own effects by
-implementing ICustomFLARDEffect, and filling out the method onFLARDEffectRun.
-Then you would want to register the effect by calling the method
-FLARDEffectRegistry.register with an instance of your custom FLARD effect.
-If you have more than one you want to register, use FLARDEffectRegistry.registerAll.
-For more information on how to make one, look at [one of these](../master/src/main/java/net/enderturret/randomitems/util/flardeffects)
+implementing ICustomFLARDEffect, and filling out the method onFLARDEffectRun. Then you would want to register the effect by calling the method
+FLARDEffectRegistry.register with an instance of your custom FLARD effect. If you have more than one you want to register,
+use FLARDEffectRegistry.registerAll. For more information on how to make one, look at [one of these](../master/src/main/java/net/enderturret/randomitems/util/flardeffects)

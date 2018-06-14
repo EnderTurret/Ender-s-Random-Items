@@ -2,8 +2,6 @@ package net.enderturret.randomitems.item;
 
 import java.util.Random;
 
-import org.apache.logging.log4j.Level;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
@@ -33,14 +31,12 @@ public class ItemFLARD extends ItemBase {
 	}
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!worldIn.isRemote)
-			if (entityIn instanceof EntityPlayer) {
-				EntityPlayer playerIn = (EntityPlayer) entityIn;
-				if (playerIn.getHeldItemMainhand() != null)
-					if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard)
-						if (ConfigHandler.flardEnabled == true)
-							rollEffect(stack, worldIn, playerIn, playerIn.getPosition());
-			}
+		if (!worldIn.isRemote && entityIn instanceof EntityPlayer) {
+			EntityPlayer playerIn = (EntityPlayer) entityIn;
+			if (playerIn.getHeldItemMainhand() != null)
+				if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard && ConfigHandler.flardEnabled)
+					rollEffect(stack, worldIn, playerIn, playerIn.getPosition());
+		}
 	}
 	/** Method called whenever a random effect is needed */
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
@@ -82,7 +78,7 @@ public class ItemFLARD extends ItemBase {
 		else if (effectNum == 4) {
 			if (ConfigHandler.flardEffects.flardHoleEffect) {
 				log(" fell into a hole", playerIn);
-				if (worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.AIR.getDefaultState())
+				if (worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.AIR.getDefaultState() || worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState())
 					worldIn.setBlockToAir(playerIn.getPosition().down());
 			} else
 				rollEffect(stack, worldIn, playerIn, pos);
@@ -139,7 +135,7 @@ public class ItemFLARD extends ItemBase {
 
 	public void log(String message, EntityPlayer playerIn) {
 		if (ConfigHandler.flardMessages)
-			RandomItems.log.log(Level.INFO, "[FLARD] " + playerIn.getName() + message);
+			RandomItems.log.info("[FLARD] " + playerIn.getName() + message);
 	}
 	public void finishRoll(EntityPlayer playerIn) {
 		playerIn.inventory.deleteStack(playerIn.getHeldItemMainhand());

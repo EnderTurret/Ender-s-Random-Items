@@ -32,7 +32,7 @@ public class BlockTesseract extends BlockBase {
 		else
 			return false;
 	}
-	// Fix for model
+	// More like lighting errors everywhere amirite?
 	@Override
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;

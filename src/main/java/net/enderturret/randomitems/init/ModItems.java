@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
-	// Plain Items
+
 	public static final ItemBase moistTowelette = new ItemBase("moist_towelette");
 	public static final ItemBase sanitizingWater = new ItemBase("sanitizing_water");
 	public static final ItemBase puffBallTail = new ItemBase("puffball_tail");
@@ -19,9 +19,9 @@ public class ModItems {
 	public static final ItemStoneChisel stoneChisel = new ItemStoneChisel("stone_chisel", 32);
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
 	public static final ItemFLARD flard = new ItemFLARD();
-	// Food & Drinks
+
 	public static final SaturatedDrinkItem secretCoke = new SaturatedDrinkItem("secret_coke", 1, 1f, false);
-	// Puffballs
+
 	public static final ItemPuffball puffball = new ItemPuffball("puffball");
 	public static final ItemPuffball puffballWhite = new ItemPuffball("puffball_white");
 	public static final ItemPuffball puffballLightGray = new ItemPuffball("puffball_light_gray");
@@ -41,7 +41,7 @@ public class ModItems {
 	public static final ItemPuffball puffballPink = new ItemPuffball("puffball_pink");
 	//public static final ItemPuffball puffBallPurple = new ItemPuffball("puffball_purple");
 
-	// Register ALL THE THINGS!!!
+	// Don't want them nonexistent now do we?
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				moistTowelette,
@@ -74,7 +74,7 @@ public class ModItems {
 				flard
 		);
 	}
-	// Don't forget the models because no one likes black and purple
+	// Models are nice.
 	public static void registerModels() {
 		moistTowelette.registerItemModel();
 		sanitizingWater.registerItemModel();

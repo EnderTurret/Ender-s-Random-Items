@@ -42,8 +42,8 @@ public class CommandRepair implements ICommand {
 							final String[] n = names.toArray(new String[0]);
 							if (n.length > 5) {
 								final String[] firstFive = {n[1], n[2], n[3], n[4], n[5]};
-								final int something = n.length-5;
-								playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+Arrays.toString(firstFive)+" and "+something+" more..."));
+								final int remaining = n.length-5;
+								playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+Arrays.toString(firstFive)+" and "+remaining+" more..."));
 							}
 							else
 								playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+Arrays.toString(n)));

@@ -23,18 +23,17 @@ public class ItemStoneChisel extends ItemBase {
 	}
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.stoneChiselEnabled == true)
-			if (player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
-				if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-					player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));
-					worldIn.setBlockToAir(pos);
-					if (player.getHeldItemMainhand().getItemDamage() == 32) {
-						player.setHeldItem(hand, ItemStack.EMPTY);
-						player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
-					}
-					player.getHeldItemMainhand().attemptDamageItem(1, rand, null);
-					return EnumActionResult.SUCCESS;
+		if (ConfigHandler.stoneChiselEnabled == true && player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
+			if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
+				player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));
+				worldIn.setBlockToAir(pos);
+				if (player.getHeldItemMainhand().getItemDamage() == 32) {
+					player.setHeldItem(hand, ItemStack.EMPTY);
+					player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
 				}
-		return EnumActionResult.FAIL;
+				player.getHeldItemMainhand().attemptDamageItem(1, rand, null);
+				return EnumActionResult.SUCCESS;
+			}
+	return EnumActionResult.FAIL;
 	}
 }

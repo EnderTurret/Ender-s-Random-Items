@@ -11,12 +11,10 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBase {
-
 	public BlockTileEntityBase(String name, SoundType soundType, Material material) {
 		super(name, soundType, material);
 	}
 	public abstract Class<TE> getTileEntityClass();
-
 	public TE getTileEntity(IBlockAccess world, BlockPos pos) {
 		return (TE)world.getTileEntity(pos);
 	}

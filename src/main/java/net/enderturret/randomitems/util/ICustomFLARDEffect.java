@@ -2,8 +2,6 @@ package net.enderturret.randomitems.util;
 
 import java.util.Random;
 
-import org.apache.logging.log4j.Level;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.minecraft.entity.player.EntityPlayer;
@@ -19,6 +17,6 @@ public interface ICustomFLARDEffect {
 	/** Logger for your custom effect */
 	public default void log(String message, EntityPlayer playerIn) {
 		if (ConfigHandler.flardMessages)
-			RandomItems.log.log(Level.INFO, "[FLARD] "+playerIn.getName()+message);
+			RandomItems.log.info("[FLARD] "+playerIn.getName()+message);
 	}
 }

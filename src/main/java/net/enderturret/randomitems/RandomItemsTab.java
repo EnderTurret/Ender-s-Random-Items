@@ -8,7 +8,7 @@ public class RandomItemsTab extends CreativeTabs {
 	public RandomItemsTab() {
 		super("randomitems");
 	}
-	// Icon for tab
+	// Icon
 	@Override
 	public ItemStack getTabIconItem() {
 		return new ItemStack(ModBlocks.blockTesseract);

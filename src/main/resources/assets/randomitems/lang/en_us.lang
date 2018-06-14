@@ -1,8 +1,6 @@
-#Blocks
 tile.block_tesseract.name=Tesseract
 tile.block_love_tesseract.name=Love Tesseract
 tile.block_stone_torch.name=Stone Torch
-#Items
 item.moist_towelette.name=Moist Towelette
 item.sanitizing_water.name=Sanitizing Water
 item.secret_coke.name=Secret Coke
@@ -10,7 +8,6 @@ item.stone_stick.name=Stone Stick
 item.stone_chisel.name=Stone Chisel
 item.questionable_cheese.name=Questionable Cheese
 item.flard.name=FLARD
-#Puffballs
 item.puffball_tail.name=Puffball Tail
 item.puffball_fur.name=Puffball Fur
 item.puffball.name=Puffball
@@ -30,9 +27,8 @@ item.puffball_blue.name=Blue Puffball
 item.puffball_purple.name=Purple Puffball
 item.puffball_magenta.name=Magenta Puffball
 item.puffball_pink.name=Pink Puffball
-#Commands
 command.repair.invalidParams=Invalid Parameter:
-#Other
 itemGroup.randomitems=§1§lEnder's Random Items
 enchantment.level.0=
 enchantment.antigravity=Anti Gravity
+enchantment.nvidia=nVIDIA

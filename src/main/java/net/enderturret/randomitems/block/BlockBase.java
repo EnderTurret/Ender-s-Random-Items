@@ -17,11 +17,11 @@ public class BlockBase extends Block {
 		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
 	}
-	// Register the model, because black and purple is ugly
+	// You should know what this does by now.
 	public void registerItemModel(Item itemBlock) {
 		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
-	// Make sure they have an item form
+	// This is by far the best method name in this file.
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}

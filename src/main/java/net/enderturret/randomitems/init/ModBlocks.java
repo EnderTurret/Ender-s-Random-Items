@@ -10,7 +10,7 @@ import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
-	// Blocks
+
 	public static final BlockTesseract blockTesseract = new BlockTesseract("block_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE);
 	public static final BlockTesseract blockLoveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION);
 	public static final BlockCustomTorch blockStoneTorch = new BlockCustomTorch("block_stone_torch", SoundType.STONE);

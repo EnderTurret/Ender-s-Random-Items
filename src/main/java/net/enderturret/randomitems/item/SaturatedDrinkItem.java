@@ -7,8 +7,8 @@ import net.minecraft.item.ItemStack;
 
 public class SaturatedDrinkItem extends ItemFood {
 	private final String name;
-	public SaturatedDrinkItem(String name, int Food, float Saturation, boolean isWolfFood) {
-		super(Food, Saturation, isWolfFood);
+	public SaturatedDrinkItem(String name, int food, float saturation, boolean isWolfFood) {
+		super(food, saturation, isWolfFood);
 		this.name = name;
 		setUnlocalizedName(name);
 		setRegistryName(name);
