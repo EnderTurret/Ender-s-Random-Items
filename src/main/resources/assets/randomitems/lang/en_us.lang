@@ -1,6 +1,25 @@
 tile.block_tesseract.name=Tesseract
 tile.block_love_tesseract.name=Love Tesseract
 tile.block_stone_torch.name=Stone Torch
+
+tile.block_core_purple.name=Purple Core
+tile.block_core_red.name=Red Core
+tile.block_core_blue.name=Blue Core
+tile.block_core_black.name=Black Core
+tile.block_core_yellow.name=Yellow Core
+tile.block_core_white.name=White Core
+tile.block_core_gray.name=Gray Core
+tile.block_core_light_blue.name=Light Blue Core
+tile.block_core_light_gray.name=Light Gray Core
+tile.block_core_cyan.name=Cyan Core
+tile.block_core_orange.name=Orange Core
+tile.block_core_magenta.name=Magenta Core
+tile.block_core_pink.name=Pink Core
+tile.block_core_brown.name=Brown Core
+tile.block_core_green.name=Green Core
+tile.block_core_lime.name=Lime Core
+tile.block_core_black_2.name=Black Core
+
 item.moist_towelette.name=Moist Towelette
 item.sanitizing_water.name=Sanitizing Water
 item.secret_coke.name=Secret Coke
@@ -8,6 +27,7 @@ item.stone_stick.name=Stone Stick
 item.stone_chisel.name=Stone Chisel
 item.questionable_cheese.name=Questionable Cheese
 item.flard.name=FLARD
+
 item.puffball_tail.name=Puffball Tail
 item.puffball_fur.name=Puffball Fur
 item.puffball.name=Puffball
@@ -27,6 +47,7 @@ item.puffball_blue.name=Blue Puffball
 item.puffball_purple.name=Purple Puffball
 item.puffball_magenta.name=Magenta Puffball
 item.puffball_pink.name=Pink Puffball
+
 command.repair.invalidParams=Invalid Parameter:
 itemGroup.randomitems=§1§lEnder's Random Items
 enchantment.level.0=

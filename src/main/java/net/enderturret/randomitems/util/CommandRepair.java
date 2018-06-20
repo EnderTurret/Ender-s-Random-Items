@@ -5,6 +5,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import net.enderturret.randomitems.ConfigHandler;
+import net.enderturret.randomitems.RandomItems;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.CommandResultStats;
 import net.minecraft.command.ICommand;
@@ -35,7 +36,7 @@ public class CommandRepair implements ICommand {
 									if (ConfigHandler.repairHumour)
 										names.add(playerIn.inventory.getStackInSlot(i).getDisplayName());
 									else
-										names.add(I18n.translateToLocal(playerIn.inventory.getStackInSlot(i).getUnlocalizedName()+".name"));
+										names.add(RandomItems.proxy.localize(playerIn.inventory.getStackInSlot(i).getUnlocalizedName()+".name"));
 								}
 						sender.setCommandStat(CommandResultStats.Type.AFFECTED_ITEMS, names.size());
 						if (!names.isEmpty()) {
@@ -57,7 +58,7 @@ public class CommandRepair implements ICommand {
 								if (ConfigHandler.repairHumour)
 									playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+playerIn.getHeldItemMainhand().getDisplayName()));
 								else
-									playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+I18n.translateToLocal(playerIn.getHeldItemMainhand().getUnlocalizedName()+".name")));
+									playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+RandomItems.proxy.localize(playerIn.getHeldItemMainhand().getUnlocalizedName()+".name")));
 							}
 				}
 				else {}
