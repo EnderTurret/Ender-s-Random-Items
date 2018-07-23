@@ -24,6 +24,8 @@ public class ConfigHandler {
 	public static boolean nvidiaEnchantmentEnabled = false;
 	@Comment("Controls whether the anti-gravity enchant works.")
 	public static boolean antiGravEnabled = true;
+	@Comment("Controls whether the cores do anything when right-clicked.")
+	public static boolean coreThingEnabled = true;
 	@Comment("For controlling individual effects.")
 	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();
 	public static class SubCategoryFLARD {
