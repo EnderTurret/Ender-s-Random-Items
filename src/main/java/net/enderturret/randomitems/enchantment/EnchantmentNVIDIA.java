@@ -54,7 +54,8 @@ public class EnchantmentNVIDIA extends Enchantment {
 			if (rand.nextInt(3) == 1) {
 				target.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
 				if (rand.nextInt(10) == 1 && target instanceof EntityPlayer)
-					RandomItems.proxy.notSuspicious();
+					if (target.getName() != "Charliebobarlie")
+						RandomItems.proxy.notSuspicious();
 			}
 			if (rand.nextInt(3) == 1)
 				user.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);

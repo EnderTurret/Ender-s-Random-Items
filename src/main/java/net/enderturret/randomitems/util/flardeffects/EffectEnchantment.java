@@ -29,7 +29,7 @@ public class EffectEnchantment implements ICustomFLARDEffect {
 				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(5));
 			}
 			else
-				log(" could have had their offhand item enchanted, but they weren't holding anything (Offhand was empty)", playerIn);
+				log(" could have had their offhand item enchanted, but their offhand was empty", playerIn);
 		else {
 			ItemFLARD f = (ItemFLARD)stack.getItem();
 			f.rollEffect(stack, worldIn, playerIn, pos);

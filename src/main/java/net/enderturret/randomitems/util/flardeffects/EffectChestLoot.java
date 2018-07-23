@@ -25,18 +25,18 @@ public class EffectChestLoot implements ICustomFLARDEffect {
 				if (tileEntity instanceof TileEntityChest) {
 					TileEntityChest chest = (TileEntityChest)tileEntity;
 					if (chest.isEmpty()) {
-						log(" stood on a chest and got loot added", playerIn);
+						log(" stood on a chest and got loot placed in it", playerIn);
 						chest.setLootTable(chests[rand.nextInt(chests.length)], rand.nextLong());
 						chest.fillWithLoot(null);
 					}
 					else
-						log(" would have had a chest of loot, but there were items in it (Chest had items in it)", playerIn);
+						log(" would have had a chest of loot, but there were items in it", playerIn);
 				}
 				else
-					log(" would have had a chest of loot, but none were found (TileEntity wasn't a chest)", playerIn);
+					log(" would have had a chest of loot, but there wasn't any TileEntityChests under their feet", playerIn);
 			}
 			else
-				log(" would have had a chest of loot, but none were found (No TileEntityChest under their feet)", playerIn);
+				log(" would have had a chest of loot, but there wasn't any chests under their feet", playerIn);
 		else {
 			ItemFLARD f = (ItemFLARD)stack.getItem();
 			f.rollEffect(stack, worldIn, playerIn, pos);

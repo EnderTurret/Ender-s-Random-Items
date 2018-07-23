@@ -49,7 +49,7 @@ item.puffball_magenta.name=Magenta Puffball
 item.puffball_pink.name=Pink Puffball
 
 command.repair.invalidParams=Invalid Parameter:
-itemGroup.randomitems=§1§lEnder's Random Items
+itemGroup.randomitems=§1§lEnder's Random Items§r
 enchantment.level.0=
 enchantment.antigravity=Anti Gravity
 enchantment.nvidia=nVIDIA

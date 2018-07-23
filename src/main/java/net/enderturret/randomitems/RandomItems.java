@@ -34,16 +34,12 @@ import net.minecraftforge.server.permission.PermissionAPI;
 
 @Mod(modid = Referance.modId, name = "Ender's Random Items", version = Referance.modVersion)
 public class RandomItems {
-
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
 	public static final Logger log = LogManager.getLogger("randomitems");
-
 	@Mod.Instance(Referance.modId)
 	public static RandomItems instance;
-
 	@SidedProxy(serverSide = "net.enderturret.randomitems.proxy.CommonProxy", clientSide = "net.enderturret.randomitems.proxy.ClientProxy")
 	public static CommonProxy proxy;
-
 	@Mod.EventBusSubscriber
 	public static class RegistrationHandler {
 		@SubscribeEvent
@@ -80,6 +76,7 @@ public class RandomItems {
 	public static void init(FMLInitializationEvent e) {
 		PermissionAPI.registerNode("command.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
 		PermissionAPI.registerNode("command.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
+		PermissionAPI.registerNode("command.repair", DefaultPermissionLevel.OP, "Used for /repair");
 	}
 	@Mod.EventHandler
 	public static void onServerStart(FMLServerStartingEvent e) {

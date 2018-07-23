@@ -16,11 +16,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.server.permission.PermissionAPI;
 
-public class CommandRepair implements ICommand {
-	private final List aliases;
+public class CommandRepair extends CommandBase {
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length > 0 && !sender.getEntityWorld().isRemote)
@@ -68,13 +66,6 @@ public class CommandRepair implements ICommand {
 			sender.sendMessage(new TextComponentString(this.getUsage(sender)));
 	}
 	@Override
-	public List<String> getTabCompletions(MinecraftServer server, ICommandSender sender, String[] args, BlockPos targetPos) {
-		List<String> l = new ArrayList<String>();
-		l.add("all");
-		l.add("hand");
-		return l;
-	}
-	@Override
 	public String getName() {
 		return "repair";
 	}
@@ -82,24 +73,16 @@ public class CommandRepair implements ICommand {
 	public String getUsage(ICommandSender sender) {
 		return "/repair <all|hand>";
 	}
-	@Override
-	public int compareTo(ICommand o) {
-		return 0;
-	}
-	@Override
-	public List<String> getAliases() {
-		return aliases;
+	public CommandRepair() {
+		aliases.add("repair");
+		tabCompletions.add("all");
+		tabCompletions.add("hand");
 	}
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
-		return true;
-	}
-	@Override
-	public boolean isUsernameIndex(String[] args, int index) {
-		return false;
-	}
-	public CommandRepair() {
-		aliases = new ArrayList();
-		aliases.add("repair");
+		if (sender.getCommandSenderEntity() instanceof EntityPlayer)
+			return PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "command.repair");
+		else
+			return false;
 	}
 }

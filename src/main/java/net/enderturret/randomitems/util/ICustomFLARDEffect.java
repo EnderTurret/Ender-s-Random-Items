@@ -15,7 +15,7 @@ public interface ICustomFLARDEffect {
 	/** Run when FLARD is held and the your effect is chosen */
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos);
 	/** Logger for your custom effect */
-	public default void log(String message, EntityPlayer playerIn) {
+	default void log(String message, EntityPlayer playerIn) {
 		if (ConfigHandler.flardMessages)
 			RandomItems.log.info("[FLARD] "+playerIn.getName()+message);
 	}
