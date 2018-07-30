@@ -5,7 +5,7 @@ import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.item.ItemPuffball;
 import net.enderturret.randomitems.item.ItemQuestionableCheese;
 import net.enderturret.randomitems.item.ItemStoneChisel;
-import net.enderturret.randomitems.item.SaturatedDrinkItem;
+import net.enderturret.randomitems.item.SaturatedFoodItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
 
@@ -20,7 +20,8 @@ public class ModItems {
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
 	public static final ItemFLARD flard = new ItemFLARD();
 
-	public static final SaturatedDrinkItem secretCoke = new SaturatedDrinkItem("secret_coke", 1, 1f, false);
+	public static final SaturatedFoodItem secretCoke = new SaturatedFoodItem("secret_coke", 1, 1f, false, true);
+	public static final SaturatedFoodItem syntacticSugar = new SaturatedFoodItem("syntactic_sugar", 1, 1f, false, false);
 
 	public static final ItemPuffball puffball = new ItemPuffball("puffball");
 	public static final ItemPuffball puffballWhite = new ItemPuffball("puffball_white");
@@ -71,7 +72,8 @@ public class ModItems {
 				stoneStick,
 				stoneChisel,
 				questionableCheese,
-				flard
+				flard,
+				syntacticSugar
 		);
 	}
 	// Models are nice.
@@ -104,5 +106,6 @@ public class ModItems {
 		stoneChisel.registerItemModel();
 		questionableCheese.registerItemModel();
 		flard.registerItemModel();
+		syntacticSugar.registerItemModel();
 	}
 }

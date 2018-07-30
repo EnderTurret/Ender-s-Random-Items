@@ -1,0 +1,17 @@
+{
+    "result": {
+        "item": "randomitems:syntactic_sugar",
+        "count": 1
+    },
+        "pattern": [
+            " S ",
+            "SSS",
+			" S "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "S": {
+                "item": "minecraft:sugar",
+				"data": 0
+        }
+}}
