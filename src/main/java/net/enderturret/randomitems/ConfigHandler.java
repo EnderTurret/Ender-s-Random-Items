@@ -2,9 +2,8 @@ package net.enderturret.randomitems;
 
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
-import net.minecraftforge.common.config.Config.Type;
 
-@Config(modid = "randomitems", type = Type.INSTANCE)
+@Config(modid="randomitems",type=Config.Type.INSTANCE)
 public class ConfigHandler {
 	@Comment("Controls whether tesseracts apply effects.")
 	public static boolean tesseractEffects = true;
