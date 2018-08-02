@@ -9,7 +9,7 @@ buildscript {
 }
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "1.0.0"
+version = "1.0.1"
 group = "net.enderturret.randomitems"
 archivesBaseName = "EndersRandomItems-1.12.2"
 
@@ -19,7 +19,7 @@ compileJava {
 }
 
 minecraft {
-    version = "1.12.2-14.23.4.2708"
+    version = "1.12.2-14.23.4.2746"
     runDir = "run"
 
     mappings = "snapshot_20171003"
