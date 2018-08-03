@@ -13,7 +13,6 @@ import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
-// Joke
 public class EnchantmentNVIDIA extends Enchantment {
 	private final String enchName = "nvidia";
 	protected EnchantmentNVIDIA() {

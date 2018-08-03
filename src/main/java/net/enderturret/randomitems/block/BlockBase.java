@@ -17,7 +17,6 @@ public class BlockBase extends Block {
 		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
 	}
-	// You should know what this does by now.
 	public void registerItemModel(Item itemBlock) {
 		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
