@@ -4,7 +4,9 @@ import net.enderturret.randomitems.RandomItems;
 import net.minecraft.item.Item;
 
 public class ItemBase extends Item {
+
 	private final String name;
+
 	public ItemBase(String name) {
 		this.name = name;
 		setUnlocalizedName(name);

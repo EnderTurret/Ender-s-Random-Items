@@ -16,6 +16,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.server.permission.PermissionAPI;
 
 public class CommandRepair extends CommandBase {
@@ -42,10 +43,10 @@ public class CommandRepair extends CommandBase {
 							if (n.length > 5) {
 								final String[] firstFive = {n[1], n[2], n[3], n[4], n[5]};
 								final int remaining = n.length-5;
-								playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+Arrays.toString(firstFive)+" and "+remaining+" more..."));
+								playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+Arrays.toString(firstFive)+" and "+remaining+" more..."));
 							}
 							else
-								playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+Arrays.toString(n)));
+								playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+Arrays.toString(n)));
 						}
 					}
 					else if (args[0].equalsIgnoreCase("hand") && PermissionAPI.hasPermission(playerIn, "command.repair.hand"))
@@ -54,9 +55,9 @@ public class CommandRepair extends CommandBase {
 								playerIn.getHeldItemMainhand().setItemDamage(0);
 								sender.setCommandStat(CommandResultStats.Type.AFFECTED_ITEMS, 1);
 								if (ConfigHandler.repairHumour)
-									playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+playerIn.getHeldItemMainhand().getDisplayName()));
+									playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+playerIn.getHeldItemMainhand().getDisplayName()));
 								else
-									playerIn.sendMessage(new TextComponentString("Successfully repaired your: "+RandomItems.proxy.localize(playerIn.getHeldItemMainhand().getUnlocalizedName()+".name")));
+									playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+RandomItems.proxy.localize(playerIn.getHeldItemMainhand().getUnlocalizedName()+".name")));
 							}
 				}
 				else {}
@@ -65,19 +66,23 @@ public class CommandRepair extends CommandBase {
 		else
 			sender.sendMessage(new TextComponentString(this.getUsage(sender)));
 	}
+
 	@Override
 	public String getName() {
 		return "repair";
 	}
+
 	@Override
 	public String getUsage(ICommandSender sender) {
 		return "/repair <all|hand>";
 	}
+
 	public CommandRepair() {
 		aliases.add("repair");
 		tabCompletions.add("all");
 		tabCompletions.add("hand");
 	}
+
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
 		if (sender.getCommandSenderEntity() instanceof EntityPlayer)

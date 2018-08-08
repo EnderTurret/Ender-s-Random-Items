@@ -10,9 +10,11 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 public class ItemQuestionableCheese extends ItemBase {
+
 	public ItemQuestionableCheese() {
 		super("questionable_cheese");
 	}
+
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote && ConfigHandler.questionableCheeseEnabled)
@@ -25,6 +27,7 @@ public class ItemQuestionableCheese extends ItemBase {
 						}
 				}
 	}
+
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		World worldIn = entityItem.getEntityWorld();

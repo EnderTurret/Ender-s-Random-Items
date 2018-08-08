@@ -1,0 +1,19 @@
+{
+    "result": {
+        "item": "randomitems:invisible_leather_pants",
+		"count": 1
+    },
+        "pattern": [
+            "F",
+            "A"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "F": {
+                "item": "randomitems:flard"
+        },
+			"A": {
+				"item": "minecraft:leather_leggings",
+				"data": 0
+		}
+}}

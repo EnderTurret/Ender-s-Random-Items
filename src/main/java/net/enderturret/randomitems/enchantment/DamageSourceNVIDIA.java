@@ -10,6 +10,7 @@ public class DamageSourceNVIDIA extends DamageSource {
 	public DamageSourceNVIDIA(String damageTypeIn) {
 		super(damageTypeIn);
 	}
+
 	@Override
 	public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
 		return new TextComponentString(entityLivingBaseIn.getName()+" experienced nVIDIA");

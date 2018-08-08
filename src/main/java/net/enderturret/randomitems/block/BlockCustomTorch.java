@@ -14,6 +14,7 @@ public class BlockCustomTorch extends BlockTorch {
 		setRegistryName(name);
 		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
+		setLightLevel(1f);
 	}
 	public void registerItemModel(Item itemBlock) {
 		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);

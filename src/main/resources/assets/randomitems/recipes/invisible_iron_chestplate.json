@@ -1,0 +1,19 @@
+{
+    "result": {
+        "item": "randomitems:invisible_iron_chestplate",
+		"count": 1
+    },
+        "pattern": [
+            "F",
+            "A"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "F": {
+                "item": "randomitems:flard"
+        },
+			"A": {
+				"item": "minecraft:iron_chestplate",
+				"data": 0
+		}
+}}

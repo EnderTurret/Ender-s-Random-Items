@@ -5,10 +5,11 @@ import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.ItemStack;
 
 public class RandomItemsTab extends CreativeTabs {
+
 	public RandomItemsTab() {
 		super("randomitems");
 	}
-	// Icon
+
 	@Override
 	public ItemStack getTabIconItem() {
 		return new ItemStack(ModBlocks.blockTesseract);

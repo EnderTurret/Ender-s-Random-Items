@@ -9,6 +9,7 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block {
 	private final String name;
+
 	public BlockBase(String name, SoundType soundType, Material material) {
 		super(material);
 		this.name = name;
@@ -17,10 +18,11 @@ public class BlockBase extends Block {
 		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.creativeTab);
 	}
+
 	public void registerItemModel(Item itemBlock) {
 		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
-	// This is by far the best method name in this file.
+
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}

@@ -19,16 +19,20 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemFLARD extends ItemBase {
+
 	private int effectNum;
 	private final Random rand = new Random();
+
 	public ItemFLARD() {
 		super("flard");
 		setMaxStackSize(1);
 	}
+
 	@Override
 	public boolean isValidArmor(ItemStack stack, EntityEquipmentSlot armorType, Entity entity) {
 		return true;
 	}
+
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote && entityIn instanceof EntityPlayer) {
@@ -137,6 +141,7 @@ public class ItemFLARD extends ItemBase {
 		if (ConfigHandler.flardMessages)
 			RandomItems.log.info("[FLARD] " + playerIn.getName() + message);
 	}
+
 	public void finishRoll(EntityPlayer playerIn) {
 		playerIn.inventory.deleteStack(playerIn.getHeldItemMainhand());
 	}

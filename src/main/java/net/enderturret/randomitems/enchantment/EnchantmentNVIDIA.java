@@ -20,32 +20,32 @@ public class EnchantmentNVIDIA extends Enchantment {
 		this.setRegistryName(enchName);
 		this.setName(enchName);
 	}
+
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		if (stack.getItem() == Items.DIAMOND_SWORD && ConfigHandler.nvidiaEnchantmentEnabled)
-			return true;
-		else
-			return false;
+		return (stack.getItem() == Items.DIAMOND_SWORD && ConfigHandler.nvidiaEnchantmentEnabled) ? true : false;
 	}
+
 	@Override
 	public int getMaxLevel() {
 		return 1;
 	}
+
 	@Override
 	public boolean canApply(ItemStack stack) {
-		if (stack.getItem() == Items.DIAMOND_SWORD && ConfigHandler.nvidiaEnchantmentEnabled)
-			return true;
-		else
-			return false;
+		return (stack.getItem() == Items.DIAMOND_SWORD && ConfigHandler.nvidiaEnchantmentEnabled) ? true : false;
 	}
+
 	@Override
 	public int getMaxEnchantability(int enchantmentLevel) {
 		return 19;
 	}
+
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
 		return 8;
 	}
+
 	@Override
 	public void onEntityDamaged(EntityLivingBase user, Entity target, int level) {
 		final Random rand = new Random();

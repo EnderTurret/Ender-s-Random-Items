@@ -15,12 +15,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class ItemStoneChisel extends ItemBase {
+
 	static final Random rand = new Random();
+
 	public ItemStoneChisel(String name, int durability) {
 		super(name);
 		setMaxDamage(durability);
 		setMaxStackSize(1);
 	}
+
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (ConfigHandler.stoneChiselEnabled == true && player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)

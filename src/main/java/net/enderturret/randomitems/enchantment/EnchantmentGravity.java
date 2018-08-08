@@ -13,28 +13,27 @@ public class EnchantmentGravity extends Enchantment {
 		this.setRegistryName(enchName);
 		this.setName(enchName);
 	}
+
 	@Override
 	public int getMaxLevel() {
 		return 1;
 	}
+
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		if (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)))
-			return true;
-		else
-			return false;
+		return (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS))) ? true : false;
 	}
+
 	@Override
 	public boolean canApply(ItemStack stack) {
-		if (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)))
-			return true;
-		else
-			return false;
+		return (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS))) ? true : false;
 	}
+
 	@Override
 	public int getMaxEnchantability(int enchantmentLevel) {
 		return 500;
 	}
+
 	@Override
 	public int getMinEnchantability(int enchantmentLevel) {
 		return 5+enchantmentLevel;
