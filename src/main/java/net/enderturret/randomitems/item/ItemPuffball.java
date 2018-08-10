@@ -18,7 +18,7 @@ public class ItemPuffball extends ItemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (ConfigHandler.puffballEffectsEnabled == true && entityIn instanceof EntityPlayer) {
+		if (ConfigHandler.puffballEffectsEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;
 			if (playerIn.getHeldItemOffhand() != ItemStack.EMPTY) {
 				Item i = playerIn.getHeldItemOffhand().getItem();

@@ -16,8 +16,8 @@ public class ModItems {
 
 	public static final ItemBase moistTowelette = new ItemBase("moist_towelette");
 	public static final ItemBase sanitizingWater = new ItemBase("sanitizing_water");
-	public static final ItemBase puffBallTail = new ItemBase("puffball_tail");
-	public static final ItemBase puffBallFur = new ItemBase("puffball_fur");
+	public static final ItemBase puffballTail = new ItemBase("puffball_tail");
+	public static final ItemBase puffballFur = new ItemBase("puffball_fur");
 	public static final ItemBase stoneStick = new ItemBase("stone_stick");
 	public static final ItemStoneChisel stoneChisel = new ItemStoneChisel("stone_chisel", 32);
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
@@ -70,15 +70,18 @@ public class ModItems {
 	public static final ItemArmor invisibleDiamondLeggings = new ItemArmor("invisible_diamond_leggings", RandomItems.invisibleDiamond, EntityEquipmentSlot.LEGS);
 	public static final ItemArmor invisibleDiamondBoots = new ItemArmor("invisible_diamond_boots", RandomItems.invisibleDiamond, EntityEquipmentSlot.FEET);
 
-	
-	// Don't want them nonexistent now do we?
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				moistTowelette,
 				sanitizingWater,
 				secretCoke,
-				puffBallTail,
-				puffBallFur,
+				puffballTail,
+				puffballFur,
+				stoneStick,
+				stoneChisel,
+				questionableCheese,
+				flard,
+				//syntacticSugar,
 
 				puffball,
 				puffballWhite,
@@ -97,12 +100,6 @@ public class ModItems {
 				//puffballPurple,
 				puffballMagenta,
 				puffballPink,
-
-				stoneStick,
-				stoneChisel,
-				questionableCheese,
-				flard,
-				//syntacticSugar,
 
 				invisibleLeatherCap,
 				invisibleLeatherTunic,
@@ -131,8 +128,13 @@ public class ModItems {
 		moistTowelette.registerItemModel();
 		sanitizingWater.registerItemModel();
 		secretCoke.registerItemModel();
-		puffBallTail.registerItemModel();
-		puffBallFur.registerItemModel();
+		puffballTail.registerItemModel();
+		puffballFur.registerItemModel();
+		stoneStick.registerItemModel();
+		stoneChisel.registerItemModel();
+		questionableCheese.registerItemModel();
+		flard.registerItemModel();
+		//syntacticSugar.registerItemModel();
 
 		puffball.registerItemModel();
 		puffballWhite.registerItemModel();
@@ -151,12 +153,6 @@ public class ModItems {
 		//puffballPurple.registerItemModel();
 		puffballMagenta.registerItemModel();
 		puffballPink.registerItemModel();
-
-		stoneStick.registerItemModel();
-		stoneChisel.registerItemModel();
-		questionableCheese.registerItemModel();
-		flard.registerItemModel();
-		//syntacticSugar.registerItemModel();
 
 		invisibleLeatherCap.registerItemModel();
 		invisibleLeatherTunic.registerItemModel();

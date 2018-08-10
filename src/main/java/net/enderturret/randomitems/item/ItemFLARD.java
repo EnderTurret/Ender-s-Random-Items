@@ -1,7 +1,5 @@
 package net.enderturret.randomitems.item;
 
-import java.util.Random;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.init.ModItems;
@@ -13,6 +11,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.math.BlockPos;
@@ -21,7 +20,6 @@ import net.minecraft.world.World;
 public class ItemFLARD extends ItemBase {
 
 	private int effectNum;
-	private final Random rand = new Random();
 
 	public ItemFLARD() {
 		super("flard");
@@ -44,9 +42,9 @@ public class ItemFLARD extends ItemBase {
 	}
 	/** Method called whenever a random effect is needed */
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		effectNum = rand.nextInt(10 + FLARDEffectRegistry.registry.size());
+		effectNum = Item.itemRand.nextInt(10 + FLARDEffectRegistry.registry.size());
 
-		if (effectNum == 0) {
+		if (effectNum == 0 && ConfigHandler.flardEffects.flardPoisonEffect) {
 			if (ConfigHandler.flardEffects.flardPoisonEffect) {
 				log(" was poisoned.", playerIn);
 				playerIn.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 2));
@@ -100,7 +98,7 @@ public class ItemFLARD extends ItemBase {
 		else if (effectNum == 6) {
 			if (ConfigHandler.flardEffects.flardXPEffect) {
 				log(" got a few levels", playerIn);
-				playerIn.addExperienceLevel(rand.nextInt(4));
+				playerIn.addExperienceLevel(Item.itemRand.nextInt(4));
 			} else
 				rollEffect(stack, worldIn, playerIn, pos);
 		}

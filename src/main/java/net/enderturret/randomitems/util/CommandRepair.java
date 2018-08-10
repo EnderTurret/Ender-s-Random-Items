@@ -8,15 +8,12 @@ import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.CommandResultStats;
-import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.command.WrongUsageException;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.server.MinecraftServer;
-import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
-import net.minecraft.util.text.translation.I18n;
 import net.minecraftforge.server.permission.PermissionAPI;
 
 public class CommandRepair extends CommandBase {
@@ -85,9 +82,6 @@ public class CommandRepair extends CommandBase {
 
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
-		if (sender.getCommandSenderEntity() instanceof EntityPlayer)
-			return PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "command.repair");
-		else
-			return false;
+		return (sender.getCommandSenderEntity() instanceof EntityPlayer) ? PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "command.repair") : false;
 	}
 }

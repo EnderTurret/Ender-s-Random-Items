@@ -1,5 +1,7 @@
 package net.enderturret.randomitems;
 
+import java.util.Random;
+
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -38,6 +40,7 @@ import net.minecraftforge.server.permission.PermissionAPI;
 @Mod(modid = Reference.modId, name = "Ender's Random Items", version = Reference.modVersion)
 public class RandomItems {
 
+	public static final Random rand = new Random();
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
 	public static final Logger log = LogManager.getLogger("randomitems");
 	public static final ArmorMaterial invisibleLeather = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_leather", 5, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);

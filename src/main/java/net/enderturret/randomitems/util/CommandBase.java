@@ -3,7 +3,6 @@ package net.enderturret.randomitems.util;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.minecraft.command.CommandException;
 import net.minecraft.command.ICommand;
 import net.minecraft.command.ICommandSender;
 import net.minecraft.server.MinecraftServer;
