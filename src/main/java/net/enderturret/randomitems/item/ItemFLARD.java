@@ -44,7 +44,7 @@ public class ItemFLARD extends ItemBase {
 	}
 	/** Method called whenever a random effect is needed */
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		effectNum = rand.nextInt(10 + FLARDEffectRegistry.effects.size());
+		effectNum = rand.nextInt(10 + FLARDEffectRegistry.registry.size());
 
 		if (effectNum == 0) {
 			if (ConfigHandler.flardEffects.flardPoisonEffect) {
@@ -132,8 +132,8 @@ public class ItemFLARD extends ItemBase {
 				rollEffect(stack, worldIn, playerIn, pos);
 		}
 
-		else if (effectNum >= 10 && FLARDEffectRegistry.effects.get(effectNum - 10) != null)
-			FLARDEffectRegistry.effects.get(effectNum - 10).onFLARDEffectRun(stack, worldIn, playerIn, pos);
+		else if (effectNum >= 10 && FLARDEffectRegistry.registry.get(effectNum - 10) != null)
+			FLARDEffectRegistry.registry.get(effectNum - 10).onFLARDEffectRun(stack, worldIn, playerIn, pos);
 		finishRoll(playerIn);
 	}
 

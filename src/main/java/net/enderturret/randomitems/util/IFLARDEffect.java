@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public interface ICustomFLARDEffect {
+public interface IFLARDEffect {
 	/** Random for all your pseudo-random needs */
 	final Random rand = new Random();
 	/** Run when FLARD is held and the your effect is chosen */

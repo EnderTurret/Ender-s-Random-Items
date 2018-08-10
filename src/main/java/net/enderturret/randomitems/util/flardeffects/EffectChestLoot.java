@@ -2,7 +2,7 @@ package net.enderturret.randomitems.util.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.item.ItemFLARD;
-import net.enderturret.randomitems.util.ICustomFLARDEffect;
+import net.enderturret.randomitems.util.IFLARDEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
@@ -11,7 +11,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class EffectChestLoot implements ICustomFLARDEffect {
+public class EffectChestLoot implements IFLARDEffect {
 	/** Array of chest loot tables. Use for whatever */
 	public static final ResourceLocation[] chests = {new ResourceLocation("minecraft", "chests/simple_dungeon"),
 			new ResourceLocation("minecraft", "chests/abandoned_mineshaft"), new ResourceLocation("minecraft", "chests/desert_pyramid"),

@@ -57,22 +57,27 @@ public class BlockCore extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.coreThingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up())) {
-			IBlockState stateAbove = worldIn.getBlockState(pos.up());
-			if (stateAbove == Blocks.END_STONE.getDefaultState()) {
-				worldIn.destroyBlock(pos.up(), false);
-				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.questionableCheese)));
-			}
-			else if (stateAbove == Blocks.QUARTZ_BLOCK.getDefaultState()) {
-				worldIn.destroyBlock(pos.up(), false);
-				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.flard)));
-			}
-			/*else if (worldIn.getBlockState(pos.up(2)) == Blocks.REEDS.getDefaultState()) {
-				worldIn.destroyBlock(pos.up(2), false);
-				worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.syntacticSugar)));
-			}*/
-			return true;
-		} else
+		if (ConfigHandler.coreThingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
+			return craft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
+		else
 			return false;
+	}
+	private boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
+		if (stateAbove == Blocks.END_STONE.getDefaultState()) {
+			worldIn.destroyBlock(pos.up(), false);
+			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.questionableCheese)));
+			return true;
+		}
+		else if (stateAbove == Blocks.QUARTZ_BLOCK.getDefaultState()) {
+			worldIn.destroyBlock(pos.up(), false);
+			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.flard)));
+			return true;
+		}
+		/*else if (worldIn.getBlockState(pos.up(2)) == Blocks.REEDS.getDefaultState()) {
+			worldIn.destroyBlock(pos.up(2), false);
+			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.syntacticSugar)));
+			return true;
+		}*/
+		return false;
 	}
 }

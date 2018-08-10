@@ -10,8 +10,8 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public abstract class BlockTileEntityBase<TE extends TileEntity> extends BlockBase {
-	public BlockTileEntityBase(String name, SoundType soundType, Material material) {
+public abstract class TileEntityBase<TE extends TileEntity> extends BlockBase {
+	public TileEntityBase(String name, SoundType soundType, Material material) {
 		super(name, soundType, material);
 	}
 	public abstract Class<TE> getTileEntityClass();
