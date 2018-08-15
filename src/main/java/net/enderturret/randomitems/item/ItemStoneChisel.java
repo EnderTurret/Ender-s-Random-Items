@@ -27,7 +27,7 @@ public class ItemStoneChisel extends ItemBase {
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (ConfigHandler.stoneChiselEnabled && worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-			playerIn.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 1/*8*/));
+			playerIn.addItemStackToInventory(new ItemStack(ModItems.stoneStick, stickAmount));
 			worldIn.setBlockToAir(pos);
 			if (playerIn.getHeldItem(hand).getItemDamage() == playerIn.getHeldItem(hand).getMaxDamage()) {
 				playerIn.setHeldItem(hand, ItemStack.EMPTY);
