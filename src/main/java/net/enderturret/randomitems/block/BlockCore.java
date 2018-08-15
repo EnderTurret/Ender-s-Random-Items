@@ -13,22 +13,17 @@ import net.minecraft.util.BlockRenderLayer;
 import net.minecraft.util.EnumBlockRenderType;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
-import net.minecraft.util.EnumParticleTypes;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
-import net.minecraft.world.WorldServer;
 import net.minecraftforge.fml.relauncher.Side;
 import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockCore extends BlockBase {
 
-	private final EnumParticleTypes particleType;
-
-	public BlockCore(String name, EnumParticleTypes particle) {
+	public BlockCore(String name) {
 		super(name, SoundType.GLASS, Material.PISTON);
 		setLightLevel(1F);
 		setCreativeTab(null);
-		particleType = particle;
 	}
 
 	@Override
@@ -65,7 +60,6 @@ public class BlockCore extends BlockBase {
 			return false;
 	}
 	private boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
-		((WorldServer)worldIn).spawnParticle(particleType, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, 5, 0, 0, 0, 0.1, 0);
 		if (stateAbove == Blocks.END_STONE.getDefaultState()) {
 			worldIn.destroyBlock(pos.up(), false);
 			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.questionableCheese)));
