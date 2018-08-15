@@ -43,11 +43,6 @@ public class RandomItems {
 	public static final Random rand = new Random();
 	public static final RandomItemsTab creativeTab = new RandomItemsTab();
 	public static final Logger log = LogManager.getLogger("randomitems");
-	public static final ArmorMaterial invisibleLeather = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_leather", 5, new int[] {1, 2, 3, 1}, 15, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, 0.0F);
-	public static final ArmorMaterial invisibleChainmail = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_chainmail", 15, new int[] {1, 4, 5, 2}, 12, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F);
-	public static final ArmorMaterial invisibleIron = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_iron", 15, new int[] {2, 5, 6, 2}, 9, SoundEvents.ITEM_ARMOR_EQUIP_IRON, 0.0F);
-	public static final ArmorMaterial invisibleGold = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_gold", 7, new int[] {1, 3, 5, 2}, 25, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, 0.0F);
-	public static final ArmorMaterial invisibleDiamond = EnumHelper.addArmorMaterial("INVISIBLE_LEATHER", Reference.modId+":invisible_diamond", 33, new int[] {3, 6, 8, 3}, 10, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F);
 
 	@Mod.Instance(Reference.modId)
 	public static RandomItems instance;
@@ -93,9 +88,9 @@ public class RandomItems {
 
 	@Mod.EventHandler
 	public static void init(FMLInitializationEvent e) {
-		PermissionAPI.registerNode("command.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
-		PermissionAPI.registerNode("command.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
-		PermissionAPI.registerNode("command.repair", DefaultPermissionLevel.OP, "Used for /repair");
+		PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
+		PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
+		PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
 	}
 
 	@Mod.EventHandler

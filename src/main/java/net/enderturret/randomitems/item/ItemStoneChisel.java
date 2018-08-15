@@ -15,25 +15,27 @@ import net.minecraft.world.World;
 
 public class ItemStoneChisel extends ItemBase {
 
-	public ItemStoneChisel(String name, int durability) {
+	private final int stickAmount;
+
+	public ItemStoneChisel(String name, int durability, int stickAmount) {
 		super(name);
 		setMaxDamage(durability);
 		setMaxStackSize(1);
+		this.stickAmount = stickAmount;
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.stoneChiselEnabled && player.getHeldItemMainhand().getItem() == ModItems.stoneChisel)
-			if (worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-				player.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 6));
-				worldIn.setBlockToAir(pos);
-				if (player.getHeldItemMainhand().getItemDamage() == 32) {
-					player.setHeldItem(hand, ItemStack.EMPTY);
-					player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
-				}
-				player.getHeldItemMainhand().attemptDamageItem(1, Item.itemRand, null);
-				return EnumActionResult.SUCCESS;
+	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
+		if (ConfigHandler.stoneChiselEnabled && worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
+			playerIn.addItemStackToInventory(new ItemStack(ModItems.stoneStick, 1/*8*/));
+			worldIn.setBlockToAir(pos);
+			if (playerIn.getHeldItem(hand).getItemDamage() == playerIn.getHeldItem(hand).getMaxDamage()) {
+				playerIn.setHeldItem(hand, ItemStack.EMPTY);
+				playerIn.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
 			}
-	return EnumActionResult.FAIL;
+			playerIn.getHeldItem(hand).attemptDamageItem(1, Item.itemRand, null);
+			return EnumActionResult.SUCCESS;
+		}
+		return EnumActionResult.FAIL;
 	}
 }

@@ -1,13 +1,7 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.RandomItems;
-import net.enderturret.randomitems.item.ItemArmor;
-import net.enderturret.randomitems.item.ItemBase;
-import net.enderturret.randomitems.item.ItemFLARD;
-import net.enderturret.randomitems.item.ItemPuffball;
-import net.enderturret.randomitems.item.ItemQuestionableCheese;
-import net.enderturret.randomitems.item.ItemStoneChisel;
-import net.enderturret.randomitems.item.SaturatedFoodItem;
+import net.enderturret.randomitems.util.ArmorMaterials;
+import net.enderturret.randomitems.item.*;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -19,7 +13,8 @@ public class ModItems {
 	public static final ItemBase puffballTail = new ItemBase("puffball_tail");
 	public static final ItemBase puffballFur = new ItemBase("puffball_fur");
 	public static final ItemBase stoneStick = new ItemBase("stone_stick");
-	public static final ItemStoneChisel stoneChisel = new ItemStoneChisel("stone_chisel", 32);
+	public static final ItemStoneChisel stoneChiselIron = new ItemStoneChisel("iron_stone_chisel", 31, 4);
+	public static final ItemStoneChisel stoneChiselDiamond = new ItemStoneChisel("diamond_stone_chisel", 63, 8);
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
 	public static final ItemFLARD flard = new ItemFLARD();
 
@@ -45,30 +40,30 @@ public class ModItems {
 	public static final ItemPuffball puffballPink = new ItemPuffball("puffball_pink");
 	//public static final ItemPuffball puffBallPurple = new ItemPuffball("puffball_purple");
 
-	public static final ItemArmor invisibleLeatherCap = new ItemArmor("invisible_leather_cap", RandomItems.invisibleLeather, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleLeatherTunic = new ItemArmor("invisible_leather_tunic", RandomItems.invisibleLeather, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleLeatherPants = new ItemArmor("invisible_leather_pants", RandomItems.invisibleLeather, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleLeatherBoots = new ItemArmor("invisible_leather_boots", RandomItems.invisibleLeather, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleLeatherCap = new ItemArmor("invisible_leather_cap", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor invisibleLeatherTunic = new ItemArmor("invisible_leather_tunic", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor invisibleLeatherPants = new ItemArmor("invisible_leather_pants", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor invisibleLeatherBoots = new ItemArmor("invisible_leather_boots", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.FEET);
 
-	public static final ItemArmor invisibleChainHelmet = new ItemArmor("invisible_chainmail_helmet", RandomItems.invisibleChainmail, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleChainChestplate = new ItemArmor("invisible_chainmail_chestplate", RandomItems.invisibleChainmail, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleChainLeggings = new ItemArmor("invisible_chainmail_leggings", RandomItems.invisibleChainmail, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleChainBoots = new ItemArmor("invisible_chainmail_boots", RandomItems.invisibleChainmail, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleChainHelmet = new ItemArmor("invisible_chainmail_helmet", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor invisibleChainChestplate = new ItemArmor("invisible_chainmail_chestplate", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor invisibleChainLeggings = new ItemArmor("invisible_chainmail_leggings", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor invisibleChainBoots = new ItemArmor("invisible_chainmail_boots", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.FEET);
 
-	public static final ItemArmor invisibleIronHelmet = new ItemArmor("invisible_iron_helmet", RandomItems.invisibleIron, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleIronChestplate = new ItemArmor("invisible_iron_chestplate", RandomItems.invisibleIron, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleIronLeggings = new ItemArmor("invisible_iron_leggings", RandomItems.invisibleIron, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleIronBoots = new ItemArmor("invisible_iron_boots", RandomItems.invisibleIron, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleIronHelmet = new ItemArmor("invisible_iron_helmet", ArmorMaterials.invisibleIron, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor invisibleIronChestplate = new ItemArmor("invisible_iron_chestplate", ArmorMaterials.invisibleIron, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor invisibleIronLeggings = new ItemArmor("invisible_iron_leggings", ArmorMaterials.invisibleIron, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor invisibleIronBoots = new ItemArmor("invisible_iron_boots", ArmorMaterials.invisibleIron, EntityEquipmentSlot.FEET);
 
-	public static final ItemArmor invisibleGoldHelmet = new ItemArmor("invisible_gold_helmet", RandomItems.invisibleGold, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleGoldChestplate = new ItemArmor("invisible_gold_chestplate", RandomItems.invisibleGold, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleGoldLeggings = new ItemArmor("invisible_gold_leggings", RandomItems.invisibleGold, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleGoldBoots = new ItemArmor("invisible_gold_boots", RandomItems.invisibleGold, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleGoldHelmet = new ItemArmor("invisible_gold_helmet", ArmorMaterials.invisibleGold, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor invisibleGoldChestplate = new ItemArmor("invisible_gold_chestplate", ArmorMaterials.invisibleGold, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor invisibleGoldLeggings = new ItemArmor("invisible_gold_leggings", ArmorMaterials.invisibleGold, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor invisibleGoldBoots = new ItemArmor("invisible_gold_boots", ArmorMaterials.invisibleGold, EntityEquipmentSlot.FEET);
 
-	public static final ItemArmor invisibleDiamondHelmet = new ItemArmor("invisible_diamond_helmet", RandomItems.invisibleDiamond, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleDiamondChestplate = new ItemArmor("invisible_diamond_chestplate", RandomItems.invisibleDiamond, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleDiamondLeggings = new ItemArmor("invisible_diamond_leggings", RandomItems.invisibleDiamond, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleDiamondBoots = new ItemArmor("invisible_diamond_boots", RandomItems.invisibleDiamond, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleDiamondHelmet = new ItemArmor("invisible_diamond_helmet", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.HEAD);
+	public static final ItemArmor invisibleDiamondChestplate = new ItemArmor("invisible_diamond_chestplate", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.CHEST);
+	public static final ItemArmor invisibleDiamondLeggings = new ItemArmor("invisible_diamond_leggings", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.LEGS);
+	public static final ItemArmor invisibleDiamondBoots = new ItemArmor("invisible_diamond_boots", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.FEET);
 
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
@@ -78,7 +73,8 @@ public class ModItems {
 				puffballTail,
 				puffballFur,
 				stoneStick,
-				stoneChisel,
+				stoneChiselIron,
+				stoneChiselDiamond,
 				questionableCheese,
 				flard,
 				//syntacticSugar,
@@ -131,7 +127,8 @@ public class ModItems {
 		puffballTail.registerItemModel();
 		puffballFur.registerItemModel();
 		stoneStick.registerItemModel();
-		stoneChisel.registerItemModel();
+		stoneChiselIron.registerItemModel();
+		stoneChiselDiamond.registerItemModel();
 		questionableCheese.registerItemModel();
 		flard.registerItemModel();
 		//syntacticSugar.registerItemModel();

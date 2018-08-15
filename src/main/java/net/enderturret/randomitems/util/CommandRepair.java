@@ -2,8 +2,6 @@ package net.enderturret.randomitems.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
 import net.minecraft.command.CommandException;
@@ -23,8 +21,8 @@ public class CommandRepair extends CommandBase {
 			if (args[0].equalsIgnoreCase("all") || args[0].equalsIgnoreCase("hand"))
 				if (sender.getCommandSenderEntity() instanceof EntityPlayer) {
 					EntityPlayer playerIn = (EntityPlayer)sender.getCommandSenderEntity();
-					if (args[0].equalsIgnoreCase("all") && PermissionAPI.hasPermission(playerIn, "command.repair.all")) {
-						final List<String> names = new ArrayList<String>();
+					if (args[0].equalsIgnoreCase("all") && PermissionAPI.hasPermission(playerIn, "randomitems.repair.all")) {
+						final ArrayList<String> names = new ArrayList<String>();
 						for (int i = 0; i < playerIn.inventory.getSizeInventory(); i++)
 							if (playerIn.inventory.getStackInSlot(i) != ItemStack.EMPTY)
 								if (playerIn.inventory.getStackInSlot(i).isItemDamaged()) {
@@ -38,15 +36,14 @@ public class CommandRepair extends CommandBase {
 						if (!names.isEmpty()) {
 							final String[] n = names.toArray(new String[0]);
 							if (n.length > 5) {
-								final String[] firstFive = {n[1], n[2], n[3], n[4], n[5]};
-								final int remaining = n.length-5;
-								playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+Arrays.toString(firstFive)+" and "+remaining+" more..."));
+								final String[] five = {n[1], n[2], n[3], n[4], n[5]};
+								playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+Arrays.toString(five)+" and "+(n.length-5)+" more..."));
 							}
 							else
 								playerIn.sendMessage(new TextComponentString(RandomItems.proxy.localize("command.repair.success")+Arrays.toString(n)));
 						}
 					}
-					else if (args[0].equalsIgnoreCase("hand") && PermissionAPI.hasPermission(playerIn, "command.repair.hand"))
+					else if (args[0].equalsIgnoreCase("hand") && PermissionAPI.hasPermission(playerIn, "randomitems.repair.hand"))
 						if (playerIn.getHeldItemMainhand() != ItemStack.EMPTY)
 							if (playerIn.getHeldItemMainhand().isItemDamaged()) {
 								playerIn.getHeldItemMainhand().setItemDamage(0);
@@ -59,7 +56,7 @@ public class CommandRepair extends CommandBase {
 				}
 				else {}
 			else
-				throw new WrongUsageException("/repair <all|hand> ", new Object[0]);
+				throw new WrongUsageException(this.getUsage(sender), new Object[0]);
 		else
 			sender.sendMessage(new TextComponentString(this.getUsage(sender)));
 	}
@@ -82,6 +79,6 @@ public class CommandRepair extends CommandBase {
 
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
-		return (sender.getCommandSenderEntity() instanceof EntityPlayer) ? PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "command.repair") : false;
+		return (sender.getCommandSenderEntity() instanceof EntityPlayer) ? PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "randomitems.repair") : false;
 	}
 }

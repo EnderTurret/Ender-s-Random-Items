@@ -18,7 +18,7 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void notSuspicious() {
-		Minecraft.getMinecraft().displayCrashReport(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
+		Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
 	}
 
 	@Override

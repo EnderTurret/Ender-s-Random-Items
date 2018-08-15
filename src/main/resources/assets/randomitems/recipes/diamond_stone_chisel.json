@@ -1,0 +1,21 @@
+{
+    "result": {
+        "item": "randomitems:stone_chisel",
+		"count": 1
+    },
+        "pattern": [
+            "  D",
+            " W ",
+            "   "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "W": {
+                "item": "minecraft:stick",
+				"data": 0
+        },
+			"D": {
+				"item": "minecraft:diamond",
+				"data": 0
+		}
+}}

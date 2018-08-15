@@ -12,6 +12,8 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.fml.common.FMLCommonHandler;
+import net.minecraftforge.fml.relauncher.Side;
 
 public class EnchantmentNVIDIA extends Enchantment {
 	private final String enchName = "nvidia";
@@ -48,16 +50,15 @@ public class EnchantmentNVIDIA extends Enchantment {
 
 	@Override
 	public void onEntityDamaged(EntityLivingBase user, Entity target, int level) {
+		if (!ConfigHandler.nvidiaEnchantmentEnabled) return;
 		final Random rand = new Random();
-		if (!target.getEntityWorld().isRemote && ConfigHandler.nvidiaEnchantmentEnabled) {
-			if (rand.nextInt(3) == 1) {
-				target.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
-				if (rand.nextInt(10) == 1 && target instanceof EntityPlayer)
-					if (target.getName() != "Charliebobarlie")
-						RandomItems.proxy.notSuspicious();
-			}
+		if (!target.getEntityWorld().isRemote) {
 			if (rand.nextInt(3) == 1)
+				target.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
 				user.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
 		}
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
+			if (rand.nextInt(10) == 1 && target instanceof EntityPlayer)
+				RandomItems.proxy.notSuspicious();
 	}
 }

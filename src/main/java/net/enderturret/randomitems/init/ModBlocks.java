@@ -6,6 +6,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraft.util.EnumParticleTypes;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
@@ -13,23 +14,23 @@ public class ModBlocks {
 	public static final BlockTesseract blockTesseract = new BlockTesseract("block_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE);
 	public static final BlockTesseract blockLoveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION);
 	public static final BlockCustomTorch blockStoneTorch = new BlockCustomTorch("block_stone_torch", SoundType.STONE);
-	public static final BlockCore blockCorePurple = new BlockCore("block_core_purple");
-	public static final BlockCore blockCoreRed = new BlockCore("block_core_red");
-	public static final BlockCore blockCoreBlue = new BlockCore("block_core_blue");
-	public static final BlockCore blockCoreBlack = new BlockCore("block_core_black");
-	public static final BlockCore blockCoreYellow = new BlockCore("block_core_yellow");
-	public static final BlockCore blockCoreWhite = new BlockCore("block_core_white");
-	public static final BlockCore blockCoreGray = new BlockCore("block_core_gray");
-	public static final BlockCore blockCoreLightGray = new BlockCore("block_core_light_gray");
-	public static final BlockCore blockCoreLightBlue = new BlockCore("block_core_light_blue");
-	public static final BlockCore blockCoreCyan = new BlockCore("block_core_cyan");
-	public static final BlockCore blockCoreOrange = new BlockCore("block_core_orange");
-	public static final BlockCore blockCoreMagenta = new BlockCore("block_core_magenta");
-	public static final BlockCore blockCorePink = new BlockCore("block_core_pink");
-	public static final BlockCore blockCoreBrown = new BlockCore("block_core_brown");
-	public static final BlockCore blockCoreGreen = new BlockCore("block_core_green");
-	public static final BlockCore blockCoreLime = new BlockCore("block_core_lime");
-	public static final BlockCore blockCoreBlack2 = new BlockCore("block_core_black_2");
+	public static final BlockCore blockCorePurple = new BlockCore("block_core_purple", EnumParticleTypes.SPELL_WITCH);
+	public static final BlockCore blockCoreRed = new BlockCore("block_core_red", EnumParticleTypes.REDSTONE);
+	public static final BlockCore blockCoreBlue = new BlockCore("block_core_blue", EnumParticleTypes.DRIP_WATER);
+	public static final BlockCore blockCoreBlack = new BlockCore("block_core_black", EnumParticleTypes.MOB_APPEARANCE);
+	public static final BlockCore blockCoreYellow = new BlockCore("block_core_yellow", EnumParticleTypes.DRIP_LAVA);
+	public static final BlockCore blockCoreWhite = new BlockCore("block_core_white", EnumParticleTypes.FIREWORKS_SPARK);
+	public static final BlockCore blockCoreGray = new BlockCore("block_core_gray", EnumParticleTypes.END_ROD);
+	public static final BlockCore blockCoreLightGray = new BlockCore("block_core_light_gray", EnumParticleTypes.DAMAGE_INDICATOR);
+	public static final BlockCore blockCoreLightBlue = new BlockCore("block_core_light_blue", EnumParticleTypes.CLOUD);
+	public static final BlockCore blockCoreCyan = new BlockCore("block_core_cyan", EnumParticleTypes.WATER_SPLASH);
+	public static final BlockCore blockCoreOrange = new BlockCore("block_core_orange", EnumParticleTypes.CRIT);
+	public static final BlockCore blockCoreMagenta = new BlockCore("block_core_magenta", EnumParticleTypes.CRIT_MAGIC);
+	public static final BlockCore blockCorePink = new BlockCore("block_core_pink", EnumParticleTypes.DRAGON_BREATH);
+	public static final BlockCore blockCoreBrown = new BlockCore("block_core_brown", EnumParticleTypes.FALLING_DUST);
+	public static final BlockCore blockCoreGreen = new BlockCore("block_core_green", EnumParticleTypes.NOTE);
+	public static final BlockCore blockCoreLime = new BlockCore("block_core_lime", EnumParticleTypes.SLIME);
+	public static final BlockCore blockCoreBlack2 = new BlockCore("block_core_black_2", EnumParticleTypes.SMOKE_LARGE);
 
 	// One registry to rule them all
 	public static void register(IForgeRegistry<Block> registry) {
