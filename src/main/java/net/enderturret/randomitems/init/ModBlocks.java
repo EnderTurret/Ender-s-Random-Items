@@ -31,7 +31,7 @@ public class ModBlocks {
 	public static final BlockCore blockCoreLime = new BlockCore("block_core_lime");
 	public static final BlockCore blockCoreBlack2 = new BlockCore("block_core_black_2");
 
-	// One registry to rule them all
+	/** One registry to rule them all */
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				blockTesseract,
@@ -56,7 +56,7 @@ public class ModBlocks {
 				blockCoreBlack2
 				);
 	}
-	// One registry to find them
+	/** One registry to find them */
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				blockTesseract.createItemBlock(),
@@ -81,7 +81,7 @@ public class ModBlocks {
 				blockCoreBlack2.createItemBlock()
 				);
 	}
-	// One registry to bring them all and in the pre init register them
+	/** One registry to bring them all and in the pre init register them */
 	public static void registerModels() {
 		blockTesseract.registerItemModel(Item.getItemFromBlock(blockTesseract));
 		blockLoveTesseract.registerItemModel(Item.getItemFromBlock(blockLoveTesseract));

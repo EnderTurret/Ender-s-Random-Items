@@ -13,6 +13,7 @@ public class ModItems {
 	public static final ItemBase puffballTail = new ItemBase("puffball_tail");
 	public static final ItemBase puffballFur = new ItemBase("puffball_fur");
 	public static final ItemBase stoneStick = new ItemBase("stone_stick");
+	/** Aren't you glad there isn't a stone stone chisel? */
 	public static final ItemStoneChisel stoneChiselIron = new ItemStoneChisel("iron_stone_chisel", 31, 4);
 	public static final ItemStoneChisel stoneChiselDiamond = new ItemStoneChisel("diamond_stone_chisel", 63, 8);
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
