@@ -2,6 +2,7 @@ package net.enderturret.randomitems.init;
 
 import net.enderturret.randomitems.util.ArmorMaterials;
 import net.enderturret.randomitems.item.*;
+import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraftforge.registries.IForgeRegistry;
@@ -22,24 +23,23 @@ public class ModItems {
 	public static final SaturatedFoodItem secretCoke = new SaturatedFoodItem("secret_coke", 1, 1f, false, true);
 	//public static final SaturatedFoodItem syntacticSugar = new SaturatedFoodItem("syntactic_sugar", 1, 1f, false, false);
 
-	public static final ItemPuffball puffball = new ItemPuffball("puffball");
-	public static final ItemPuffball puffballWhite = new ItemPuffball("puffball_white");
-	public static final ItemPuffball puffballLightGray = new ItemPuffball("puffball_light_gray");
-	public static final ItemPuffball puffballGray = new ItemPuffball("puffball_gray");
-	public static final ItemPuffball puffballBlack = new ItemPuffball("puffball_black");
-	public static final ItemPuffball puffballBrown = new ItemPuffball("puffball_brown");
-	public static final ItemPuffball puffballRed = new ItemPuffball("puffball_red");
-	public static final ItemPuffball puffballOrange = new ItemPuffball("puffball_orange");
-	public static final ItemPuffball puffballYellow = new ItemPuffball("puffball_yellow");
-	public static final ItemPuffball puffballLime = new ItemPuffball("puffball_lime");
-	public static final ItemPuffball puffballGreen = new ItemPuffball("puffball_green");
-	public static final ItemPuffball puffballCyan = new ItemPuffball("puffball_cyan");
-	public static final ItemPuffball puffballLightBlue = new ItemPuffball("puffball_light_blue");
-	public static final ItemPuffball puffballBlue = new ItemPuffball("puffball_blue");
-	public static final ItemPuffball puffballPurple = new ItemPuffball("puffball_purple");
-	public static final ItemPuffball puffballMagenta = new ItemPuffball("puffball_magenta");
-	public static final ItemPuffball puffballPink = new ItemPuffball("puffball_pink");
-	//public static final ItemPuffball puffBallPurple = new ItemPuffball("puffball_purple");
+	public static final ItemBase puffball = new ItemBase("puffball");
+	public static final ItemPuffball puffballWhite = new ItemPuffball("puffball_white", MobEffects.SPEED);
+	public static final ItemPuffball puffballLightGray = new ItemPuffball("puffball_light_gray", MobEffects.INVISIBILITY);
+	public static final ItemPuffball puffballGray = new ItemPuffball("puffball_gray", MobEffects.RESISTANCE);
+	public static final ItemPuffball puffballBlack = new ItemPuffball("puffball_black", MobEffects.LEVITATION);
+	public static final ItemPuffball puffballBrown = new ItemPuffball("puffball_brown", MobEffects.SATURATION);
+	public static final ItemPuffball puffballRed = new ItemPuffball("puffball_red", MobEffects.REGENERATION);
+	public static final ItemPuffball puffballOrange = new ItemPuffball("puffball_orange", MobEffects.FIRE_RESISTANCE);
+	public static final ItemPuffball puffballYellow = new ItemPuffball("puffball_yellow", MobEffects.ABSORPTION);
+	public static final ItemPuffball puffballLime = new ItemPuffball("puffball_lime", MobEffects.LUCK);
+	public static final ItemPuffball puffballGreen = new ItemPuffball("puffball_green", MobEffects.JUMP_BOOST);
+	public static final ItemPuffball puffballCyan = new ItemPuffball("puffball_cyan", MobEffects.HASTE);
+	public static final ItemPuffball puffballLightBlue = new ItemPuffball("puffball_light_blue", MobEffects.WATER_BREATHING);
+	public static final ItemPuffball puffballBlue = new ItemPuffball("puffball_blue", MobEffects.NIGHT_VISION);
+	public static final ItemPuffball puffballPurple = new ItemPuffball("puffball_purple", MobEffects.HEALTH_BOOST);
+	public static final ItemPuffball puffballMagenta = new ItemPuffball("puffball_magenta", MobEffects.GLOWING);
+	public static final ItemPuffball puffballPink = new ItemPuffball("puffball_pink", MobEffects.STRENGTH);
 
 	public static final ItemArmor invisibleLeatherCap = new ItemArmor("invisible_leather_cap", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.HEAD);
 	public static final ItemArmor invisibleLeatherTunic = new ItemArmor("invisible_leather_tunic", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.CHEST);
@@ -94,7 +94,7 @@ public class ModItems {
 				puffballCyan,
 				puffballLightBlue,
 				puffballBlue,
-				//puffballPurple,
+				puffballPurple,
 				puffballMagenta,
 				puffballPink,
 
@@ -148,7 +148,7 @@ public class ModItems {
 		puffballCyan.registerItemModel();
 		puffballLightBlue.registerItemModel();
 		puffballBlue.registerItemModel();
-		//puffballPurple.registerItemModel();
+		puffballPurple.registerItemModel();
 		puffballMagenta.registerItemModel();
 		puffballPink.registerItemModel();
 

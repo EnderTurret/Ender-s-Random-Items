@@ -22,7 +22,7 @@ public class EffectEnchantment extends AbstractFLARDEffect {
 			ModEnchantments.antiGravity};
 	@Override
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
-		if (ConfigHandler.flardEffects.flardOffhandEnchantEffect == true)
+		if (ConfigHandler.flardEffects.flardOffhandEnchantEffect)
 			if (playerIn.getHeldItemOffhand() != ItemStack.EMPTY) {
 				log(" got their offhand item enchanted", playerIn);
 				playerIn.getHeldItemOffhand().addEnchantment(enchants[rand.nextInt(enchants.length)], rand.nextInt(5));

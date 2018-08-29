@@ -15,7 +15,9 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockTesseract extends BlockBase {
+
 	private final Potion effect;
+
 	public BlockTesseract(String name, SoundType soundType, Material material, Potion effect) {
 		super(name, soundType, material);
 		this.effect = effect;
@@ -25,7 +27,7 @@ public class BlockTesseract extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.tesseractEffects == true) {
+		if (ConfigHandler.tesseractEffects) {
 			playerIn.addPotionEffect(new PotionEffect(effect, 6000, 0));
 			return true;
 		}

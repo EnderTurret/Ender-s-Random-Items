@@ -1,75 +1,42 @@
 package net.enderturret.randomitems.item;
 
+import java.util.UUID;
+
+import com.google.common.collect.Multimap;
+
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.item.Item;
+import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
 
-	public ItemPuffball(String name) {
+	private static final UUID maxHealthUUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
+	private final Potion effect;
+
+	public ItemPuffball(String name, Potion effect) {
 		super(name);
+		this.effect = effect;
 	}
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (ConfigHandler.puffballEffectsEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;
-			if (playerIn.getHeldItemOffhand() != ItemStack.EMPTY) {
-				Item i = playerIn.getHeldItemOffhand().getItem();
-				if (i == ModItems.puffballWhite)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.SPEED, 20, 0));
-
-				else if (i == ModItems.puffballLightGray)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.INVISIBILITY, 20, 0));
-
-				else if (i == ModItems.puffballGray)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.RESISTANCE, 20, 0));
-
-				else if (i == ModItems.puffballBlack)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.LEVITATION, 20, 0));
-
-				else if (i == ModItems.puffballBrown)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.SATURATION, 20, 0));
-
-				else if (i == ModItems.puffballRed)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.REGENERATION, 20, 0));
-
-				else if (i == ModItems.puffballOrange)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.FIRE_RESISTANCE, 20, 0));
-
-				else if (i == ModItems.puffballYellow)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.ABSORPTION, 20, 0));
-
-				else if (i == ModItems.puffballLime)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.LUCK, 20, 0));
-
-				else if (i == ModItems.puffballGreen)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 0));
-
-				else if (i == ModItems.puffballCyan)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.HASTE, 20, 0));
-
-				else if (i == ModItems.puffballLightBlue)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.WATER_BREATHING, 20, 0));
-
-				else if (i == ModItems.puffballBlue)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.NIGHT_VISION, 20, 0));
-
-				// else if (i == ModItems.puffballPurple) TODO: Fix this???
-					// playerIn.addPotionEffect(new PotionEffect(MobEffects.HEALTH_BOOST, 80, 0));
-
-				else if (i == ModItems.puffballMagenta)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.GLOWING, 20, 0));
-
-				else if (i == ModItems.puffballPink)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.STRENGTH, 20, 0));
+			if (playerIn.getHeldItemOffhand().getItem() == this) {
+				if (this == ModItems.puffballPurple && playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) == null)
+					playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier(maxHealthUUID, "puffball_health_boost", 8.0D, 0));
+				else if (effect != MobEffects.HEALTH_BOOST) playerIn.addPotionEffect(new PotionEffect(effect, 20, 2));
 			}
+			else if (playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) != null) playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(maxHealthUUID);
 		}
 	}
 }

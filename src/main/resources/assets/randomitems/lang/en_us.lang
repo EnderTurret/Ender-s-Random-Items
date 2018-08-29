@@ -75,7 +75,7 @@ item.invisible_diamond_chestplate.name=Invisible Diamond Chestplate
 item.invisible_diamond_leggings.name=Invisible Diamond Leggings
 item.invisible_diamond_boots.name=Invisible Diamond Boots
 
-command.repair.success=Successfully repaired your:
+command.repair.success=Successfully repaired your: 
 itemGroup.randomitems=§1§lEnder's Random Items§r
 
 enchantment.level.0=

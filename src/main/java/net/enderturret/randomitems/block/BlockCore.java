@@ -59,7 +59,7 @@ public class BlockCore extends BlockBase {
 		else
 			return false;
 	}
-	private boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
+	private static boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
 		if (stateAbove == Blocks.END_STONE.getDefaultState()) {
 			worldIn.destroyBlock(pos.up(), false);
 			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.questionableCheese)));
