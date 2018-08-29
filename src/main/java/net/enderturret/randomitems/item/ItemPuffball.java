@@ -2,8 +2,6 @@ package net.enderturret.randomitems.item;
 
 import java.util.UUID;
 
-import com.google.common.collect.Multimap;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.Entity;
@@ -11,7 +9,6 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
