@@ -59,6 +59,7 @@ public class BlockCore extends BlockBase {
 		else
 			return false;
 	}
+
 	private static boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
 		if (stateAbove == Blocks.END_STONE.getDefaultState()) {
 			worldIn.destroyBlock(pos.up(), false);

@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EffectEnchantment extends AbstractFLARDEffect {
+
 	private static final Enchantment[] enchants = {
 			Enchantments.AQUA_AFFINITY, Enchantments.BANE_OF_ARTHROPODS, Enchantments.BINDING_CURSE, Enchantments.BLAST_PROTECTION, Enchantments.DEPTH_STRIDER,
 			Enchantments.EFFICIENCY, Enchantments.FEATHER_FALLING, Enchantments.FIRE_ASPECT, Enchantments.FIRE_PROTECTION, Enchantments.FLAME,
@@ -19,7 +20,9 @@ public class EffectEnchantment extends AbstractFLARDEffect {
 			Enchantments.LUCK_OF_THE_SEA, Enchantments.LURE, Enchantments.MENDING, Enchantments.POWER, Enchantments.PROJECTILE_PROTECTION,
 			Enchantments.PROTECTION, Enchantments.PUNCH, Enchantments.RESPIRATION, Enchantments.SHARPNESS, Enchantments.SILK_TOUCH,
 			Enchantments.SMITE, Enchantments.SWEEPING, Enchantments.THORNS, Enchantments.UNBREAKING, Enchantments.VANISHING_CURSE,
-			ModEnchantments.antiGravity};
+			ModEnchantments.antiGravity
+			};
+
 	@Override
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		if (ConfigHandler.flardEffects.flardOffhandEnchantEffect)

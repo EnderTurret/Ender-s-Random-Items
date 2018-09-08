@@ -1,7 +1,5 @@
 package net.enderturret.randomitems;
 
-import java.util.Random;
-
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -10,8 +8,7 @@ import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
 import net.enderturret.randomitems.util.CommandRepair;
 import net.enderturret.randomitems.util.FLARDEffectRegistry;
-import net.enderturret.randomitems.util.flardeffects.EffectChestLoot;
-import net.enderturret.randomitems.util.flardeffects.EffectEnchantment;
+import net.enderturret.randomitems.util.flardeffects.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.world.storage.loot.LootEntry;
@@ -37,8 +34,7 @@ import net.minecraftforge.server.permission.PermissionAPI;
 @Mod(modid = Reference.modId, name = "Ender's Random Items", version = Reference.modVersion)
 public class RandomItems {
 
-	public static final Random rand = new Random();
-	public static final RandomItemsTab creativeTab = new RandomItemsTab();
+	public static final RandomItemsTab tab = new RandomItemsTab();
 	public static final Logger log = LogManager.getLogger("randomitems");
 
 	@Mod.Instance(Reference.modId)
@@ -78,20 +74,21 @@ public class RandomItems {
 
 		@SubscribeEvent
 		public static void onConfigChanged(OnConfigChangedEvent e) {
-			if (e.getModID().equals(Reference.modId))
-				ConfigManager.sync(Reference.modId, Type.INSTANCE);
+			if (e.getModID().equals(Reference.modId)) ConfigManager.sync(Reference.modId, Type.INSTANCE);
 		}
 	}
 
 	@Mod.EventHandler
 	public static void init(FMLInitializationEvent e) {
-		PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
-		PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
-		PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
+		if (ConfigHandler.repairCommandEnabled) {
+			PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
+			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
+			PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
+		}
 	}
 
 	@Mod.EventHandler
 	public static void onServerStart(FMLServerStartingEvent e) {
-		e.registerServerCommand(new CommandRepair());
+		if (ConfigHandler.repairCommandEnabled) e.registerServerCommand(new CommandRepair());
 	}
 }

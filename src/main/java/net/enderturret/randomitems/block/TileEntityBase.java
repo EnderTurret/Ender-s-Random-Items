@@ -11,17 +11,22 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public abstract class TileEntityBase<TE extends TileEntity> extends BlockBase {
+
 	public TileEntityBase(String name, SoundType soundType, Material material) {
 		super(name, soundType, material);
 	}
+
 	public abstract Class<TE> getTileEntityClass();
+
 	public TE getTileEntity(IBlockAccess world, BlockPos pos) {
 		return (TE)world.getTileEntity(pos);
 	}
+
 	@Override
 	public boolean hasTileEntity() {
 		return true;
 	}
+
 	@Nullable
 	@Override
 	public abstract TE createTileEntity(World world, IBlockState state);

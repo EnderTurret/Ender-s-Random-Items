@@ -8,6 +8,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block {
+
 	private final String name;
 
 	public BlockBase(String name, SoundType soundType, Material material) {
@@ -16,7 +17,7 @@ public class BlockBase extends Block {
 		setUnlocalizedName(name);
 		setRegistryName(name);
 		this.blockSoundType = soundType;
-		setCreativeTab(RandomItems.creativeTab);
+		setCreativeTab(RandomItems.tab);
 	}
 
 	public void registerItemModel(Item itemBlock) {

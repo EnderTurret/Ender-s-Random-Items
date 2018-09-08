@@ -10,7 +10,7 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 	public ItemArmor(String name, ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn) {
 		super(materialIn, 0, equipmentSlotIn);
 		this.name = name;
-		setCreativeTab(RandomItems.creativeTab);
+		setCreativeTab(RandomItems.tab);
 		setRegistryName(name);
 		setUnlocalizedName(name);
 	}

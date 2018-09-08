@@ -15,6 +15,7 @@ import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.server.permission.PermissionAPI;
 
 public class CommandRepair extends CommandBase {
+
 	@Override
 	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
 		if (args.length > 0 && !sender.getEntityWorld().isRemote)

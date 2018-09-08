@@ -16,7 +16,9 @@ import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
 public class EnchantmentNVIDIA extends Enchantment {
+
 	private final String enchName = "nvidia";
+
 	protected EnchantmentNVIDIA() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
 		this.setRegistryName(enchName);
@@ -59,6 +61,6 @@ public class EnchantmentNVIDIA extends Enchantment {
 		}
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT)
 			if (rand.nextInt(10) == 1 && target instanceof EntityPlayer)
-				RandomItems.proxy.notSuspicious();
+				RandomItems.proxy.nvidiaCrash();
 	}
 }

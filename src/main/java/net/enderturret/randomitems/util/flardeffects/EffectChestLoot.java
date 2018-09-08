@@ -12,6 +12,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class EffectChestLoot extends AbstractFLARDEffect {
+
 	@Override
 	public void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		if (ConfigHandler.flardEffects.flardChestLootEffect && worldIn.getTileEntity(pos.down()) != null)
@@ -33,6 +34,7 @@ public class EffectChestLoot extends AbstractFLARDEffect {
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
 		}
 	}
+
 	private static final ResourceLocation[] chests = {
 		new ResourceLocation("minecraft", "chests/abandoned_mineshaft"),
 		new ResourceLocation("minecraft", "chests/desert_pyramid"),

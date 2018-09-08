@@ -24,6 +24,10 @@ public class ConfigHandler {
 	@Comment("Controls whether /repair lists the names of the items vs the localized name")
 	public static boolean repairHumour = false;
 
+	@Comment("Whether the /repair command is enabled")
+	@Config.RequiresWorldRestart
+	public static boolean repairCommandEnabled = true;
+
 	@Comment("Controls whether FLARD can log players using it.")
 	public static boolean flardMessages = true;
 

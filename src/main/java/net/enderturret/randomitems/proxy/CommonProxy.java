@@ -7,7 +7,7 @@ public class CommonProxy {
 
 	public void registerItemRenderer(Item item, int meta, String id) {}
 
-	public void notSuspicious() {}
+	public void nvidiaCrash() {}
 
 	public String localize(String unlocalized) {
 		return I18n.translateToLocal(unlocalized);

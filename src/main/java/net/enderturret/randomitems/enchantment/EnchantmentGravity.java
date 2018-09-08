@@ -7,7 +7,9 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.ItemStack;
 
 public class EnchantmentGravity extends Enchantment {
+
 	private final String enchName = "antigravity";
+
 	protected EnchantmentGravity() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
 		this.setRegistryName(enchName);

@@ -16,7 +16,7 @@ public class SaturatedFoodItem extends ItemFood {
 		this.isDrink = isDrink;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		if (!name.equals("secret_coke")) setCreativeTab(RandomItems.creativeTab);
+		if (!name.equals("secret_coke")) setCreativeTab(RandomItems.tab);
 		else setCreativeTab(null);
 	}
 
