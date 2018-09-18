@@ -21,8 +21,8 @@ public class EnchantmentNVIDIA extends Enchantment {
 
 	protected EnchantmentNVIDIA() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
-		this.setRegistryName(enchName);
-		this.setName(enchName);
+		setRegistryName(enchName);
+		setName(enchName);
 	}
 
 	@Override

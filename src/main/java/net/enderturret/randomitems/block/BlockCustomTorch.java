@@ -12,9 +12,9 @@ public class BlockCustomTorch extends BlockTorch {
 
 	public BlockCustomTorch(String name, SoundType soundType) {
 		this.name = name;
+		this.blockSoundType = soundType;
 		setUnlocalizedName(name);
 		setRegistryName(name);
-		this.blockSoundType = soundType;
 		setCreativeTab(RandomItems.tab);
 		setLightLevel(1f);
 	}

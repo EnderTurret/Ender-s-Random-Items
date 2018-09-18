@@ -19,9 +19,9 @@ public class ItemStoneChisel extends ItemBase {
 
 	public ItemStoneChisel(String name, int durability, int stickAmount) {
 		super(name);
+		this.stickAmount = stickAmount;
 		setMaxDamage(durability);
 		setMaxStackSize(1);
-		this.stickAmount = stickAmount;
 	}
 
 	@Override

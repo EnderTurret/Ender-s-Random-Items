@@ -42,6 +42,21 @@ public class RandomItems {
 
 	@SidedProxy(serverSide = "net.enderturret.randomitems.proxy.CommonProxy", clientSide = "net.enderturret.randomitems.proxy.ClientProxy")
 	public static CommonProxy proxy;
+
+	@Mod.EventHandler
+	public static void init(FMLInitializationEvent e) {
+		if (ConfigHandler.repairCommandEnabled) {
+			PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
+			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
+			PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
+		}
+	}
+
+	@Mod.EventHandler
+	public static void onServerStart(FMLServerStartingEvent e) {
+		if (ConfigHandler.repairCommandEnabled) e.registerServerCommand(new CommandRepair());
+	}
+
 	@Mod.EventBusSubscriber
 	public static class RegistrationHandler {
 
@@ -76,19 +91,5 @@ public class RandomItems {
 		public static void onConfigChanged(OnConfigChangedEvent e) {
 			if (e.getModID().equals(Reference.modId)) ConfigManager.sync(Reference.modId, Type.INSTANCE);
 		}
-	}
-
-	@Mod.EventHandler
-	public static void init(FMLInitializationEvent e) {
-		if (ConfigHandler.repairCommandEnabled) {
-			PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
-			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
-			PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
-		}
-	}
-
-	@Mod.EventHandler
-	public static void onServerStart(FMLServerStartingEvent e) {
-		if (ConfigHandler.repairCommandEnabled) e.registerServerCommand(new CommandRepair());
 	}
 }

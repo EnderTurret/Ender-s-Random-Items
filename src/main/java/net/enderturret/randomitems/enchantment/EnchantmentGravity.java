@@ -12,8 +12,8 @@ public class EnchantmentGravity extends Enchantment {
 
 	protected EnchantmentGravity() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
-		this.setRegistryName(enchName);
-		this.setName(enchName);
+		setRegistryName(enchName);
+		setName(enchName);
 	}
 
 	@Override
