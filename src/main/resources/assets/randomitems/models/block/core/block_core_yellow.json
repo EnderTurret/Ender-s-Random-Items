@@ -1,5 +1,5 @@
 {
     "parent": "minecraft:block/beacon",
     "textures": {
-        "beacon": "randomitems:blocks/block_core_light_blue"
+        "beacon": "randomitems:blocks/core/block_core_yellow"
 }}

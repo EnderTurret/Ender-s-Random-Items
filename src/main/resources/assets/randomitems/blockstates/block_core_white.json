@@ -2,5 +2,5 @@
 	"forge_marker": 1,
     "variants": {
 		"normal": {
-			"model": "randomitems:block_core_white"
+			"model": "randomitems:core/block_core_white"
 }}}

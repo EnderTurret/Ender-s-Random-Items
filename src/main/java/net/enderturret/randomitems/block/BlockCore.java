@@ -20,10 +20,16 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 public class BlockCore extends BlockBase {
 
-	public BlockCore(String name) {
+	private final boolean canCraft;
+
+	public BlockCore(String name, boolean canCraft) {
 		super(name, SoundType.GLASS, Material.PISTON);
 		setLightLevel(1F);
-		setCreativeTab(null);
+		this.canCraft = canCraft;
+	}
+
+	public BlockCore(String name) {
+		this(name, true);
 	}
 
 	@Override
@@ -54,7 +60,7 @@ public class BlockCore extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.coreThingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
+		if (this.canCraft && ConfigHandler.coreThingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
 			return craft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
 		else
 			return false;

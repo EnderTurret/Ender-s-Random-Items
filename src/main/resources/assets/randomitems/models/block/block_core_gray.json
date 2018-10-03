@@ -1,5 +1,0 @@
-{
-    "parent": "minecraft:block/beacon",
-    "textures": {
-        "beacon": "randomitems:blocks/block_core_gray"
-}}

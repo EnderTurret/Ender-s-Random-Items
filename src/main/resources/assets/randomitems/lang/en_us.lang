@@ -2,6 +2,12 @@ tile.block_tesseract.name=Tesseract
 tile.block_love_tesseract.name=Love Tesseract
 tile.block_stone_torch.name=Stone Torch
 
+tile.block_clear_core.name=Clear Core
+tile.block_sun_core.name=Sun Core
+tile.block_night_core.name=Night Core
+tile.block_corrupted_core.name=Corrupted Core
+tile.block_universe_core.name=Universe Core
+
 tile.block_core_purple.name=Purple Core
 tile.block_core_red.name=Red Core
 tile.block_core_blue.name=Blue Core

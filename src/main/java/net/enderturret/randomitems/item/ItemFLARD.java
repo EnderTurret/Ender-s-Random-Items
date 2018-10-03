@@ -35,9 +35,8 @@ public class ItemFLARD extends ItemBase {
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer) entityIn;
-			if (playerIn.getHeldItemMainhand() != null)
-				if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard && ConfigHandler.flardEnabled)
-					rollEffect(stack, worldIn, playerIn, playerIn.getPosition());
+			if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard && ConfigHandler.flardEnabled)
+				rollEffect(stack, worldIn, playerIn, playerIn.getPosition());
 		}
 	}
 	/** Method called whenever a random effect is needed */

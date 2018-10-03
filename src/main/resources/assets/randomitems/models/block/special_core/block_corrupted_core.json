@@ -1,0 +1,6 @@
+{
+	"parent": "randomitems:block/special_core/block_clear_core",
+	"textures": {
+		"0": "randomitems:blocks/black"
+	}
+}

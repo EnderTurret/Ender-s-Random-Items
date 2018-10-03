@@ -12,6 +12,6 @@ public class RandomItemsTab extends CreativeTabs {
 
 	@Override
 	public ItemStack getTabIconItem() {
-		return new ItemStack(ModBlocks.blockTesseract);
+		return new ItemStack(ModBlocks.tesseract);
 	}
 }
