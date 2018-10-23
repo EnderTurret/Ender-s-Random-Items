@@ -1,0 +1,21 @@
+{
+    "result": {
+        "item": "randomitems:block_core_red",
+        "count": 1
+    },
+        "pattern": [
+            " D ",
+            "DCD",
+			" D "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "D": {
+                "item": "minecraft:dye",
+				"data": 1
+	    },
+			"C": {
+                "item": "randomitems:block_core_white",
+				"data": 0
+	    }
+}}

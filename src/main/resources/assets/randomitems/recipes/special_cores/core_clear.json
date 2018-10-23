@@ -1,0 +1,20 @@
+{
+    "result": {
+        "item": "randomitems:block_clear_core",
+        "count": 1
+    },
+        "pattern": [
+            "GGG",
+            "GFG",
+			"GGG"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "G": {
+                "item": "minecraft:glass",
+				"data": 0
+	    },
+			"F": {
+                "item": "randomitems:flard"
+	    }
+}}

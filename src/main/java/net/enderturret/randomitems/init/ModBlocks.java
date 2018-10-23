@@ -6,6 +6,7 @@ import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
+import net.minecraftforge.oredict.OreDictionary;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModBlocks {
@@ -123,5 +124,30 @@ public class ModBlocks {
 		coreNight.registerItemModel(Item.getItemFromBlock(coreNight));
 		coreCorrupt.registerItemModel(Item.getItemFromBlock(coreCorrupt));
 		coreUniverse.registerItemModel(Item.getItemFromBlock(coreUniverse));
+	}
+
+	public static void initOreDict() {
+		OreDictionary.registerOre("core", corePurple);
+		OreDictionary.registerOre("core", coreRed);
+		OreDictionary.registerOre("core", coreBlue);
+		OreDictionary.registerOre("core", coreBlack);
+		OreDictionary.registerOre("core", coreYellow);
+		OreDictionary.registerOre("core", coreWhite);
+		OreDictionary.registerOre("core", coreGray);
+		OreDictionary.registerOre("core", coreLightBlue);
+		OreDictionary.registerOre("core", coreLightGray);
+		OreDictionary.registerOre("core", coreCyan);
+		OreDictionary.registerOre("core", coreOrange);
+		OreDictionary.registerOre("core", coreMagenta);
+		OreDictionary.registerOre("core", corePink);
+		OreDictionary.registerOre("core", coreBrown);
+		OreDictionary.registerOre("core", coreGreen);
+		OreDictionary.registerOre("core", coreLime);
+		OreDictionary.registerOre("core", coreBlack2);
+		OreDictionary.registerOre("coreSpecial", coreClear);
+		OreDictionary.registerOre("coreSpecial", coreSun);
+		OreDictionary.registerOre("coreSpecial", coreNight);
+		OreDictionary.registerOre("coreSpecial", coreCorrupt);
+		OreDictionary.registerOre("coreSpecial", coreUniverse);
 	}
 }

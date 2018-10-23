@@ -14,6 +14,9 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.PotionEffect;
+import net.minecraft.util.ActionResult;
+import net.minecraft.util.EnumActionResult;
+import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
@@ -32,13 +35,12 @@ public class ItemFLARD extends ItemBase {
 	}
 
 	@Override
-	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!worldIn.isRemote && entityIn instanceof EntityPlayer) {
-			EntityPlayer playerIn = (EntityPlayer) entityIn;
-			if (playerIn.getHeldItemMainhand().getItem() == ModItems.flard && ConfigHandler.flardEnabled)
-				rollEffect(stack, worldIn, playerIn, playerIn.getPosition());
-		}
+	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
+		if (!worldIn.isRemote && ConfigHandler.flardEnabled)
+			rollEffect(playerIn.getHeldItem(handIn), worldIn, playerIn, playerIn.getPosition());
+		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
+
 	/** Method called whenever a random effect is needed */
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		effectNum = Item.itemRand.nextInt(10 + FLARDEffectRegistry.registry.size());

@@ -1,14 +1,10 @@
 package net.enderturret.randomitems.util.flardeffects;
 
-import java.util.Collection;
-
 import net.enderturret.randomitems.ConfigHandler;
-import net.enderturret.randomitems.enchantment.ModEnchantments;
 import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.util.AbstractFLARDEffect;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Enchantments;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;

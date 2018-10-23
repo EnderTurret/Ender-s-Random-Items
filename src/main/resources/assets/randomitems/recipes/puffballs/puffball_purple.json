@@ -1,0 +1,28 @@
+{
+    "result": {
+        "item": "randomitems:puffball_purple",
+        "count": 1
+    },
+        "pattern": [
+            "GGG",
+            "pPp",
+			"GgG"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "G": {
+                "item": "minecraft:ghast_tear",
+				"data": 0
+        },
+			"g": {
+				"item": "minecraft:speckled_melon",
+				"data": 0
+		},
+			"P": {
+				"item": "randomitems:puffball"
+		},
+			"p": {
+				"item": "minecraft:dye",
+				"data": 5
+		}
+}}

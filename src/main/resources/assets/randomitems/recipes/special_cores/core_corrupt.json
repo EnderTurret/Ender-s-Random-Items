@@ -1,0 +1,28 @@
+{
+    "result": {
+        "item": "randomitems:block_corrupted_core",
+        "count": 1
+    },
+        "pattern": [
+            "BWB",
+            "BCR",
+			"RBR"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "C": {
+                "item": "randomitems:block_clear_core"
+	    },
+			"B": {
+                "item": "minecraft:wool",
+				"data": 15
+	    },
+			"R": {
+				"item": "minecraft:wool",
+				"data": 14
+		},
+			"W": {
+				"item": "minecraft:wool",
+				"data": 0
+		}
+}}

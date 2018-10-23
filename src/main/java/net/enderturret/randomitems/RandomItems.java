@@ -26,6 +26,7 @@ import net.minecraftforge.fml.client.event.ConfigChangedEvent.OnConfigChangedEve
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
+import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.server.permission.DefaultPermissionLevel;
@@ -50,6 +51,9 @@ public class RandomItems {
 			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
 			PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
 		}
+
+		ModItems.initOreDict();
+		ModBlocks.initOreDict();
 	}
 
 	@Mod.EventHandler
@@ -64,7 +68,7 @@ public class RandomItems {
 		public static void registerItems(RegistryEvent.Register<Item> e) {
 			ModBlocks.registerItemBlocks(e.getRegistry());
 			ModItems.register(e.getRegistry());
-			FLARDEffectRegistry.registerAll(new EffectChestLoot(), new EffectEnchantment());
+			FLARDEffectRegistry.registerAll(new EffectChestLoot(), new EffectEnchantment(), new EffectBlockChange());
 		}
 
 		@SubscribeEvent

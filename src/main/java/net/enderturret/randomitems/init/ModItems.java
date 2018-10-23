@@ -173,4 +173,8 @@ public class ModItems {
 		invisibleDiamondLeggings.registerItemModel();
 		invisibleDiamondBoots.registerItemModel();
 	}
+
+	public static void initOreDict() {
+		
+	}
 }

@@ -6,7 +6,7 @@ import net.enderturret.randomitems.RandomItems;
 
 public class FLARDEffectRegistry {
 	/** The registry */
-	public static final ArrayList<AbstractFLARDEffect> registry = new ArrayList();
+	public static final ArrayList<AbstractFLARDEffect> registry = new ArrayList<AbstractFLARDEffect>();
 	/** For registering your effects. */
 	public static void registerAll(AbstractFLARDEffect... effects) {
 		for (AbstractFLARDEffect i : effects) {

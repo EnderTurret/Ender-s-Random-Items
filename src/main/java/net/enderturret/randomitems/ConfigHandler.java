@@ -80,5 +80,13 @@ public class ConfigHandler {
 
 		@Comment("Set to false to disable FLARD's cobweb creation effect")
 		public boolean flardCobwebEffect = true;
+
+		@Comment("Set to false to disable FLARD's block changing effect")
+		public boolean flardBlockChangeEffect = true;
+
+		@Comment("A list of blocks for the block change effect to not change things to")
+		public String[] flardBlockBlacklist = {"minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
+				"minecraft:chain_command_block", "minecraft:barrier", "minecraft:end_portal_frame",
+				"minecraft:portal", "minecraft:mob_spawner", "minecraft:structure_block", "minecraft:structure_void"};
 	}
 }
