@@ -6,7 +6,6 @@ import net.enderturret.randomitems.item.ItemFLARD;
 import net.enderturret.randomitems.util.AbstractFLARDEffect;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;

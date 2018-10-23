@@ -2,7 +2,6 @@ package net.enderturret.randomitems.item;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
-import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.util.FLARDEffectRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.effect.EntityLightningBolt;
