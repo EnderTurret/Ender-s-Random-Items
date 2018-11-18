@@ -19,7 +19,8 @@ public abstract class TileEntityBase<TE extends TileEntity> extends BlockBase {
 	public abstract Class<TE> getTileEntityClass();
 
 	public TE getTileEntity(IBlockAccess world, BlockPos pos) {
-		return (TE)world.getTileEntity(pos);
+		if (world.getTileEntity(pos) instanceof TileEntity) return (TE)world.getTileEntity(pos);
+		return null;
 	}
 
 	@Override

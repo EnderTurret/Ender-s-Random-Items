@@ -6,38 +6,41 @@ import net.minecraftforge.common.config.Config.Comment;
 @Config(modid="randomitems",type=Config.Type.INSTANCE)
 public class ConfigHandler {
 
-	@Comment("Controls whether tesseracts apply effects.")
+	@Comment("Whether tesseracts apply effects.")
 	public static boolean tesseractEffects = true;
 
-	@Comment("Controls whether FLARD does anything.")
+	@Comment("Whether FLARD does anything.")
 	public static boolean flardEnabled = true;
 
-	@Comment("Controls whether questionable cheese can be used.")
+	@Comment("Whether questionable cheese can be used.")
 	public static boolean questionableCheeseEnabled = true;
 
-	@Comment("Controls whether puffballs apply effects.")
+	@Comment("Whether puffballs apply effects.")
 	public static boolean puffballEffectsEnabled = true;
 
-	@Comment("Controls whether the stone chisel can be used.")
+	@Comment("Whether the saturation puffball does anything")
+	public static boolean saturationPuffballEnabled = true;
+
+	@Comment("Whether the stone chisel can be used.")
 	public static boolean stoneChiselEnabled = true;
 
-	@Comment("Controls whether /repair lists the names of the items vs the localized name")
+	@Comment("Whether /repair lists the names of the items vs the localized name")
 	public static boolean repairHumour = false;
 
 	@Comment("Whether the /repair command is enabled")
 	@Config.RequiresWorldRestart
 	public static boolean repairCommandEnabled = true;
 
-	@Comment("Controls whether FLARD can log players using it.")
+	@Comment("Whether FLARD can log players using it.")
 	public static boolean flardMessages = true;
 
-	@Comment("Controls whether the nVIDIA enchantment works.")
+	@Comment("Whether the nVIDIA enchantment works.")
 	public static boolean nvidiaEnchantmentEnabled = false;
 
-	@Comment("Controls whether the anti-gravity enchant works.")
+	@Comment("Whether the anti-gravity enchant works.")
 	public static boolean antiGravEnabled = true;
 
-	@Comment("Controls whether the cores do anything when right-clicked.")
+	@Comment("Whether the cores do anything when right-clicked.")
 	public static boolean coreThingEnabled = true;
 
 	@Comment("For controlling individual effects.")

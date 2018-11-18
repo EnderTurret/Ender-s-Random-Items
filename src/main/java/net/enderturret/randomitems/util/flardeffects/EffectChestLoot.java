@@ -6,7 +6,7 @@ import net.enderturret.randomitems.util.AbstractFLARDEffect;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityChest;
+import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
@@ -18,18 +18,19 @@ public class EffectChestLoot extends AbstractFLARDEffect {
 		if (ConfigHandler.flardEffects.flardChestLootEffect && worldIn.getTileEntity(pos.down()) != null)
 			if (worldIn.getTileEntity(pos.down()) != null) {
 				TileEntity tileEntity = worldIn.getTileEntity(playerIn.getPosition().down());
-				if (tileEntity instanceof TileEntityChest) {
-					TileEntityChest chest = (TileEntityChest)tileEntity;
+				if (tileEntity instanceof TileEntityLockableLoot) {
+					TileEntityLockableLoot chest = (TileEntityLockableLoot)tileEntity;
 					if (chest.isEmpty()) {
-						log(" stood on a chest and got loot placed in it", playerIn);
-						chest.setLootTable(chests[rand.nextInt(chests.length)], rand.nextLong());
-						chest.fillWithLoot(null);
+						final int rolledTable = rand.nextInt(chests.length);
+						chest.setLootTable(chests[rolledTable], rand.nextLong());
+						log(" stood on a chest and got loot placed in it (Player rolled "+chests[rolledTable].toString()+")", playerIn);
+						chest.fillWithLoot(playerIn);
 					} else
 						log(" would have had a chest of loot, but there were items in it", playerIn);
 				} else
-					log(" would have had a chest of loot, but there wasn't any TileEntityChests under their feet", playerIn);
+					log(" would have had a chest of loot, but there wasn't a TileEntityLockableLoot under their feet", playerIn);
 			} else
-				log(" would have had a chest of loot, but there wasn't any chests under their feet", playerIn);
+				log(" would have had a chest of loot, but there wasn't any TileEntities under their feet", playerIn);
 		else {
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
 		}

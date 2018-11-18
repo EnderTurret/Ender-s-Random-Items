@@ -1,10 +1,10 @@
 package net.enderturret.randomitems.init;
 
-import net.enderturret.randomitems.util.ArmorMaterials;
 import net.enderturret.randomitems.item.*;
 import net.minecraft.init.MobEffects;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
@@ -41,30 +41,30 @@ public class ModItems {
 	public static final ItemPuffball puffballMagenta = new ItemPuffball("puffball_magenta", MobEffects.GLOWING);
 	public static final ItemPuffball puffballPink = new ItemPuffball("puffball_pink", MobEffects.STRENGTH);
 
-	public static final ItemArmor invisibleLeatherCap = new ItemArmor("invisible_leather_cap", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleLeatherTunic = new ItemArmor("invisible_leather_tunic", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleLeatherPants = new ItemArmor("invisible_leather_pants", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleLeatherBoots = new ItemArmor("invisible_leather_boots", ArmorMaterials.invisibleLeather, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleLeatherCap = new ItemArmor("invisible_leather_cap", ArmorMaterial.LEATHER, EntityEquipmentSlot.HEAD, true);
+	public static final ItemArmor invisibleLeatherTunic = new ItemArmor("invisible_leather_tunic", ArmorMaterial.LEATHER, EntityEquipmentSlot.CHEST, true);
+	public static final ItemArmor invisibleLeatherPants = new ItemArmor("invisible_leather_pants", ArmorMaterial.LEATHER, EntityEquipmentSlot.LEGS, true);
+	public static final ItemArmor invisibleLeatherBoots = new ItemArmor("invisible_leather_boots", ArmorMaterial.LEATHER, EntityEquipmentSlot.FEET, true);
 
-	public static final ItemArmor invisibleChainHelmet = new ItemArmor("invisible_chainmail_helmet", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleChainChestplate = new ItemArmor("invisible_chainmail_chestplate", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleChainLeggings = new ItemArmor("invisible_chainmail_leggings", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleChainBoots = new ItemArmor("invisible_chainmail_boots", ArmorMaterials.invisibleChainmail, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleChainHelmet = new ItemArmor("invisible_chainmail_helmet", ArmorMaterial.CHAIN, EntityEquipmentSlot.HEAD, true);
+	public static final ItemArmor invisibleChainChestplate = new ItemArmor("invisible_chainmail_chestplate", ArmorMaterial.CHAIN, EntityEquipmentSlot.CHEST, true);
+	public static final ItemArmor invisibleChainLeggings = new ItemArmor("invisible_chainmail_leggings", ArmorMaterial.CHAIN, EntityEquipmentSlot.LEGS, true);
+	public static final ItemArmor invisibleChainBoots = new ItemArmor("invisible_chainmail_boots", ArmorMaterial.CHAIN, EntityEquipmentSlot.FEET, true);
 
-	public static final ItemArmor invisibleIronHelmet = new ItemArmor("invisible_iron_helmet", ArmorMaterials.invisibleIron, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleIronChestplate = new ItemArmor("invisible_iron_chestplate", ArmorMaterials.invisibleIron, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleIronLeggings = new ItemArmor("invisible_iron_leggings", ArmorMaterials.invisibleIron, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleIronBoots = new ItemArmor("invisible_iron_boots", ArmorMaterials.invisibleIron, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleIronHelmet = new ItemArmor("invisible_iron_helmet", ArmorMaterial.IRON, EntityEquipmentSlot.HEAD, true);
+	public static final ItemArmor invisibleIronChestplate = new ItemArmor("invisible_iron_chestplate", ArmorMaterial.IRON, EntityEquipmentSlot.CHEST, true);
+	public static final ItemArmor invisibleIronLeggings = new ItemArmor("invisible_iron_leggings", ArmorMaterial.IRON, EntityEquipmentSlot.LEGS, true);
+	public static final ItemArmor invisibleIronBoots = new ItemArmor("invisible_iron_boots", ArmorMaterial.IRON, EntityEquipmentSlot.FEET, true);
 
-	public static final ItemArmor invisibleGoldHelmet = new ItemArmor("invisible_gold_helmet", ArmorMaterials.invisibleGold, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleGoldChestplate = new ItemArmor("invisible_gold_chestplate", ArmorMaterials.invisibleGold, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleGoldLeggings = new ItemArmor("invisible_gold_leggings", ArmorMaterials.invisibleGold, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleGoldBoots = new ItemArmor("invisible_gold_boots", ArmorMaterials.invisibleGold, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleGoldHelmet = new ItemArmor("invisible_gold_helmet", ArmorMaterial.GOLD, EntityEquipmentSlot.HEAD, true);
+	public static final ItemArmor invisibleGoldChestplate = new ItemArmor("invisible_gold_chestplate", ArmorMaterial.GOLD, EntityEquipmentSlot.CHEST, true);
+	public static final ItemArmor invisibleGoldLeggings = new ItemArmor("invisible_gold_leggings", ArmorMaterial.GOLD, EntityEquipmentSlot.LEGS, true);
+	public static final ItemArmor invisibleGoldBoots = new ItemArmor("invisible_gold_boots", ArmorMaterial.GOLD, EntityEquipmentSlot.FEET, true);
 
-	public static final ItemArmor invisibleDiamondHelmet = new ItemArmor("invisible_diamond_helmet", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.HEAD);
-	public static final ItemArmor invisibleDiamondChestplate = new ItemArmor("invisible_diamond_chestplate", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.CHEST);
-	public static final ItemArmor invisibleDiamondLeggings = new ItemArmor("invisible_diamond_leggings", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.LEGS);
-	public static final ItemArmor invisibleDiamondBoots = new ItemArmor("invisible_diamond_boots", ArmorMaterials.invisibleDiamond, EntityEquipmentSlot.FEET);
+	public static final ItemArmor invisibleDiamondHelmet = new ItemArmor("invisible_diamond_helmet", ArmorMaterial.DIAMOND, EntityEquipmentSlot.HEAD, true);
+	public static final ItemArmor invisibleDiamondChestplate = new ItemArmor("invisible_diamond_chestplate", ArmorMaterial.DIAMOND, EntityEquipmentSlot.CHEST, true);
+	public static final ItemArmor invisibleDiamondLeggings = new ItemArmor("invisible_diamond_leggings", ArmorMaterial.DIAMOND, EntityEquipmentSlot.LEGS, true);
+	public static final ItemArmor invisibleDiamondBoots = new ItemArmor("invisible_diamond_boots", ArmorMaterial.DIAMOND, EntityEquipmentSlot.FEET, true);
 
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(

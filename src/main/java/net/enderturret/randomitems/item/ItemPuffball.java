@@ -26,12 +26,14 @@ public class ItemPuffball extends ItemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
+		if (this == ModItems.puffballBrown && !ConfigHandler.saturationPuffballEnabled)
+			return;
 		if (ConfigHandler.puffballEffectsEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;
 			if (playerIn.getHeldItemOffhand().getItem() == this) {
 				if (this == ModItems.puffballPurple && playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) == null)
 					playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier(maxHealthUUID, "puffball_health_boost", 8.0D, 0));
-				else if (effect != MobEffects.HEALTH_BOOST) playerIn.addPotionEffect(new PotionEffect(effect, 20, 2));
+				else if (effect != MobEffects.HEALTH_BOOST) playerIn.addPotionEffect(new PotionEffect(effect, 20, 2, false, false));
 			}
 			else if (playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) != null) playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(maxHealthUUID);
 		}
