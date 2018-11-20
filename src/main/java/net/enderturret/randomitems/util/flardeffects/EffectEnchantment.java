@@ -12,15 +12,6 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class EffectEnchantment extends AbstractFLARDEffect {
 
-	/*private static final Enchantment[] enchants = {
-			Enchantments.AQUA_AFFINITY, Enchantments.BANE_OF_ARTHROPODS, Enchantments.BINDING_CURSE, Enchantments.BLAST_PROTECTION, Enchantments.DEPTH_STRIDER,
-			Enchantments.EFFICIENCY, Enchantments.FEATHER_FALLING, Enchantments.FIRE_ASPECT, Enchantments.FIRE_PROTECTION, Enchantments.FLAME,
-			Enchantments.FORTUNE, Enchantments.FROST_WALKER, Enchantments.INFINITY, Enchantments.KNOCKBACK, Enchantments.LOOTING,
-			Enchantments.LUCK_OF_THE_SEA, Enchantments.LURE, Enchantments.MENDING, Enchantments.POWER, Enchantments.PROJECTILE_PROTECTION,
-			Enchantments.PROTECTION, Enchantments.PUNCH, Enchantments.RESPIRATION, Enchantments.SHARPNESS, Enchantments.SILK_TOUCH,
-			Enchantments.SMITE, Enchantments.SWEEPING, Enchantments.THORNS, Enchantments.UNBREAKING, Enchantments.VANISHING_CURSE,
-			ModEnchantments.antiGravity
-			};*/
 	private static Enchantment[] enchants = null;
 
 	@Override

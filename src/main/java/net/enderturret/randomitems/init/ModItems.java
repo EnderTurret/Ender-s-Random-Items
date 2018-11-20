@@ -174,7 +174,5 @@ public class ModItems {
 		invisibleDiamondBoots.registerItemModel();
 	}
 
-	public static void initOreDict() {
-		
-	}
+	public static void initOreDict() {}
 }

@@ -44,7 +44,7 @@ public class ItemFLARD extends ItemBase {
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		effectNum = Item.itemRand.nextInt(10 + FLARDEffectRegistry.registry.size());
 
-		if (effectNum == 0 && ConfigHandler.flardEffects.flardPoisonEffect) {
+		if (effectNum == 0) {
 			if (ConfigHandler.flardEffects.flardPoisonEffect) {
 				log(" was poisoned.", playerIn);
 				playerIn.addPotionEffect(new PotionEffect(MobEffects.POISON, 500, 2));

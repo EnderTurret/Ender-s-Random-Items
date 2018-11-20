@@ -38,9 +38,4 @@ public class BlockTesseract extends BlockBase {
 	public boolean isOpaqueCube(IBlockState state) {
 		return false;
 	}
-
-	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return MapColor.OBSIDIAN;
-	}
 }

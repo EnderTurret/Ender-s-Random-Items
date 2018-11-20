@@ -13,7 +13,7 @@ public abstract class AbstractFLARDEffect {
 
 	protected final Random rand = new Random();
 
-	/** 
+	/**
 	 * Run when FLARD is held and the your effect is chosen
 	 * @param stack The item being held by the player (FLARD)
 	 * @param worldIn The player's world

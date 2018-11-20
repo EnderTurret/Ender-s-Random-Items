@@ -29,12 +29,9 @@ public class ModEnchantments {
 			EntityPlayer playerIn = (EntityPlayer)e.getEntity();
 			int lvlGrav = EnchantmentHelper.getMaxEnchantmentLevel(antiGravity, e.getEntityLiving());
 			if (lvlGrav>0 && ConfigHandler.antiGravEnabled) {
-				if (lvlGrav==1)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 1));
-				if (lvlGrav==2)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 2));
-				if (lvlGrav>2)
-					playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 3));
+				if (lvlGrav==1) playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 1));
+				if (lvlGrav==2) playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 2));
+				if (lvlGrav>2) playerIn.addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, 3));
 			}
 		}
 	}

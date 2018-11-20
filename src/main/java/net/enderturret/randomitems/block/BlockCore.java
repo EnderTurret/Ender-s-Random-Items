@@ -77,11 +77,6 @@ public class BlockCore extends BlockBase {
 			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.flard)));
 			return true;
 		}
-		/*else if (worldIn.getBlockState(pos.up(2)) == Blocks.REEDS.getDefaultState()) {
-			worldIn.destroyBlock(pos.up(2), false);
-			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX()+0.5, pos.getY()+1, pos.getZ()+0.5, new ItemStack(ModItems.syntacticSugar)));
-			return true;
-		}*/
 		return false;
 	}
 }
