@@ -2,6 +2,7 @@ package net.enderturret.randomitems.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
 import net.enderturret.randomitems.ConfigHandler;
 import net.minecraft.command.CommandException;
 import net.minecraft.command.CommandResultStats;
