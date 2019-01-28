@@ -1,6 +1,7 @@
 tile.block_tesseract.name=Tesseract
 tile.block_love_tesseract.name=Love Tesseract
 tile.block_stone_torch.name=Stone Torch
+tile.block_wolfenoot_cake.name=Wolfenoot Cake
 
 tile.block_clear_core.name=Clear Core
 tile.block_sun_core.name=Sun Core

@@ -14,6 +14,8 @@ public class ModBlocks {
 	public static final BlockTesseract tesseract = new BlockTesseract("block_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE);
 	public static final BlockTesseract loveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION);
 	public static final BlockCustomTorch stoneTorch = new BlockCustomTorch("block_stone_torch", SoundType.STONE);
+	public static final BlockWolfenootCake wolfenootCake = new BlockWolfenootCake("block_wolfenoot_cake");
+
 	public static final BlockCore corePurple = new BlockCore("block_core_purple");
 	public static final BlockCore coreRed = new BlockCore("block_core_red");
 	public static final BlockCore coreBlue = new BlockCore("block_core_blue");
@@ -31,6 +33,7 @@ public class ModBlocks {
 	public static final BlockCore coreGreen = new BlockCore("block_core_green");
 	public static final BlockCore coreLime = new BlockCore("block_core_lime");
 	public static final BlockCore coreBlack2 = new BlockCore("block_core_black_2");
+
 	public static final BlockSpecialCore coreClear = new BlockSpecialCore("block_clear_core");
 	public static final BlockSpecialCore coreSun = new BlockSpecialCore("block_sun_core");
 	public static final BlockSpecialCore coreNight = new BlockSpecialCore("block_night_core");
@@ -43,6 +46,7 @@ public class ModBlocks {
 				tesseract,
 				loveTesseract,
 				stoneTorch,
+				wolfenootCake,
 				corePurple,
 				coreRed,
 				coreBlue,
@@ -73,6 +77,7 @@ public class ModBlocks {
 				tesseract.createItemBlock(),
 				loveTesseract.createItemBlock(),
 				stoneTorch.createItemBlock(),
+				wolfenootCake.createItemBlock(),
 				corePurple.createItemBlock(),
 				coreRed.createItemBlock(),
 				coreBlue.createItemBlock(),
@@ -102,6 +107,7 @@ public class ModBlocks {
 		tesseract.registerItemModel(Item.getItemFromBlock(tesseract));
 		loveTesseract.registerItemModel(Item.getItemFromBlock(loveTesseract));
 		stoneTorch.registerItemModel(Item.getItemFromBlock(stoneTorch));
+		wolfenootCake.registerItemModel(Item.getItemFromBlock(wolfenootCake));
 		corePurple.registerItemModel(Item.getItemFromBlock(corePurple));
 		coreRed.registerItemModel(Item.getItemFromBlock(coreRed));
 		coreBlue.registerItemModel(Item.getItemFromBlock(coreBlue));
