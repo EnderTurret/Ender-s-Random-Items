@@ -2,13 +2,14 @@ tile.block_tesseract.name=Tesseract
 tile.block_love_tesseract.name=Love Tesseract
 tile.block_stone_torch.name=Stone Torch
 tile.block_wolfenoot_cake.name=Wolfenoot Cake
+tile.block_keycard_reader.name=Keycard Reader
+tile.block_dog_plushie.name=Dog Plushie
 
 tile.block_clear_core.name=Clear Core
 tile.block_sun_core.name=Sun Core
 tile.block_night_core.name=Night Core
 tile.block_corrupted_core.name=Corrupted Core
 tile.block_universe_core.name=Universe Core
-
 tile.block_core_purple.name=Purple Core
 tile.block_core_red.name=Red Core
 tile.block_core_blue.name=Blue Core
@@ -35,8 +36,7 @@ item.iron_stone_chisel.name=Iron Stone Chisel
 item.diamond_stone_chisel.name=Diamond Stone Chisel
 item.questionable_cheese.name=Questionable Cheese
 item.flard.name=FLARD
-item.syntactic_sugar.name=Syntactic Sugar
-item.dog_residue.name=Dog Residue
+item.keycard.name=Keycard
 
 item.puffball_tail.name=Puffball Tail
 item.puffball_fur.name=Puffball Fur
@@ -83,6 +83,8 @@ item.invisible_diamond_chestplate.name=Invisible Diamond Chestplate
 item.invisible_diamond_leggings.name=Invisible Diamond Leggings
 item.invisible_diamond_boots.name=Invisible Diamond Boots
 
+randomitems.keycard.getname=Keycard Reader's saved name: 
+randomitems.keycard.setname=Changed keycard reader's saved name to 
 command.repair.success=Successfully repaired your: 
 itemGroup.randomitems=§1§lEnder's Random Items§r
 

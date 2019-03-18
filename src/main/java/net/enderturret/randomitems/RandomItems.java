@@ -2,15 +2,16 @@ package net.enderturret.randomitems;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-
 import net.enderturret.randomitems.init.ModBlocks;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.proxy.CommonProxy;
+import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
 import net.enderturret.randomitems.util.CommandRepair;
 import net.enderturret.randomitems.util.FLARDEffectRegistry;
 import net.enderturret.randomitems.util.flardeffects.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
 import net.minecraft.world.storage.loot.LootPool;
@@ -28,6 +29,7 @@ import net.minecraftforge.fml.common.SidedProxy;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLServerStartingEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
+import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.server.permission.DefaultPermissionLevel;
 import net.minecraftforge.server.permission.PermissionAPI;
 
@@ -53,6 +55,9 @@ public class RandomItems {
 
 		ModItems.initOreDict();
 		ModBlocks.initOreDict();
+
+		proxy.init();
+		GameRegistry.registerTileEntity(TileEntityKeycardReader.class, new ResourceLocation(Reference.modId, "tileentitykeycardreader"));
 	}
 
 	@Mod.EventHandler
@@ -84,8 +89,8 @@ public class RandomItems {
 		@SubscribeEvent
 		public static void onLootLoad(LootTableLoadEvent e) {
 			if (e.getName().toString().equals("minecraft:chests/simple_dungeon")) {
-				LootEntry flard = new LootEntryItem(ModItems.flard, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
-				LootPool poolDungeon = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0,2), new RandomValueRange(0), "randomitems:dungeon_pool");
+				final LootEntry flard = new LootEntryItem(ModItems.flard, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
+				final LootPool poolDungeon = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0,2), new RandomValueRange(0), "randomitems:dungeon_pool");
 				e.getTable().addPool(poolDungeon);
 			}
 		}

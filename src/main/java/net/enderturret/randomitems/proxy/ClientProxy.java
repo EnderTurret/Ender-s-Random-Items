@@ -1,5 +1,7 @@
 package net.enderturret.randomitems.proxy;
 
+import org.lwjgl.opengl.GL11;
+
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.Reference;
 import net.enderturret.randomitems.enchantment.NVIDIAException;
@@ -18,6 +20,11 @@ public class ClientProxy extends CommonProxy {
 
 	@Override
 	public void nvidiaCrash() {
-		if (ConfigHandler.nvidiaEnchantmentEnabled) Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
+		if (ConfigHandler.nvidiaEnchantmentEnabled && isNVIDIA) Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
+	}
+
+	@Override
+	public void init() {
+		isNVIDIA = GL11.glGetString(GL11.GL_VENDOR).toLowerCase().contains("nvidia");
 	}
 }

@@ -1,0 +1,21 @@
+{
+    "result": {
+        "item": "randomitems:keycard",
+		"count": 1
+    },
+        "pattern": [
+            " I ",
+            "IRI",
+            " I "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "R": {
+                "item": "minecraft:redstone",
+				"data": 0
+        },
+			"I": {
+				"item": "minecraft:iron_ingot",
+				"data": 0
+		}
+}}

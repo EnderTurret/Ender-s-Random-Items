@@ -1,5 +1,6 @@
 package net.enderturret.randomitems.block;
 
+import net.enderturret.randomitems.util.RandomItemsUtils;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
@@ -7,7 +8,7 @@ import net.minecraft.world.IBlockAccess;
 
 public class BlockSpecialCore extends BlockCore {
 
-	private static final AxisAlignedBB AABB = new AxisAlignedBB(0.0625*3, 0.0625*2, 0.0625*3, 0.0625*13, 0.0625*15, 0.0625*13);
+	private static final AxisAlignedBB AABB = RandomItemsUtils.getAABBFromPixels(3, 2, 3, 13, 15, 13);
 
 	public BlockSpecialCore(String name) {
 		super(name, false);

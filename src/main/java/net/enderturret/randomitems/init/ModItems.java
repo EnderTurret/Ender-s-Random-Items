@@ -19,6 +19,7 @@ public class ModItems {
 	public static final ItemStoneChisel stoneChiselDiamond = new ItemStoneChisel("diamond_stone_chisel", 63, 8);
 	public static final ItemQuestionableCheese questionableCheese = new ItemQuestionableCheese();
 	public static final ItemFLARD flard = new ItemFLARD();
+	public static final ItemKeycard keycard = new ItemKeycard("keycard");
 
 	public static final SaturatedFoodItem secretCoke = new SaturatedFoodItem("secret_coke", 1, 1f, false, true);
 	//public static final SaturatedFoodItem syntacticSugar = new SaturatedFoodItem("syntactic_sugar", 1, 1f, false, false);
@@ -78,7 +79,7 @@ public class ModItems {
 				stoneChiselDiamond,
 				questionableCheese,
 				flard,
-				//syntacticSugar,
+				keycard,
 
 				puffball,
 				puffballWhite,
@@ -132,7 +133,7 @@ public class ModItems {
 		stoneChiselDiamond.registerItemModel();
 		questionableCheese.registerItemModel();
 		flard.registerItemModel();
-		//syntacticSugar.registerItemModel();
+		keycard.registerItemModel();
 
 		puffball.registerItemModel();
 		puffballWhite.registerItemModel();

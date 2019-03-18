@@ -1,0 +1,21 @@
+{
+    "result": {
+        "item": "randomitems:block_wolfenoot_cake",
+		"count": 1
+    },
+        "pattern": [
+            " G ",
+            " C ",
+            "   "
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "G": {
+                "item": "minecraft:dye",
+				"data": 7
+        },
+			"C": {
+				"item": "minecraft:cake",
+				"data": 0
+		}
+}}

@@ -1,0 +1,24 @@
+{
+    "result": {
+        "item": "randomitems:block_keycard_reader",
+		"count": 1
+    },
+        "pattern": [
+            "III",
+            "RKR",
+            "III"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "I": {
+                "item": "minecraft:iron_ingot",
+				"data": 0
+        },
+			"K": {
+				"item": "randomitems:keycard"
+		},
+			"R": {
+				"item": "minecraft:redstone",
+				"data": 0
+		}
+}}

@@ -1,0 +1,17 @@
+{
+    "result": {
+        "item": "randomitems:block_dog_plushie",
+		"count": 1
+    },
+        "pattern": [
+            "  W",
+            "WWW",
+            "W W"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "W": {
+                "item": "minecraft:wool",
+				"data": 12
+        }
+}}

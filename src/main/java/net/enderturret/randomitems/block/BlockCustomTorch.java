@@ -23,6 +23,10 @@ public class BlockCustomTorch extends BlockTorch {
 		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);
 	}
 
+	public void registerItemModel() {
+		registerItemModel(Item.getItemFromBlock(this));
+	}
+
 	public Item createItemBlock() {
 		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}

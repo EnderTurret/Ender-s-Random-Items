@@ -32,11 +32,21 @@ think of it sort of like a mini beacon.
 
 **Invisible Armor**: It's really just normal vanilla armor but with the overlay absolutely covered in alpha.
 
+**Keycard Reader**: Goes with the keycard. It outputs a redstone signal when a player right-clicks it with a keycard matching it's stored name.
+
+**Keycard**: Goes with the keycard reader. Renaming the item and shift-clicking a keycard reader you own will set the reader's stored name to the keycard's.
+
+**Dog Plushie**: Random plushie I spent way too long making AABBs for. Also the first model made by someone other than me.
+
 ## Enchantments
 
 **Anti-Gravity**: Goes on boots, just gives you jump boost when wearing boots with it on them.
 
-**nVIDIA**: Really just a joke enchantment, crashes your game for lols. Disabled by default, you can enable it in the config.
+**nVIDIA**: Really just a joke enchantment. It crashes your game for lols if you have an nVIDIA graphics card. It's disabled by default, you can enable it in the config.
+
+## Commands
+
+**repair**: Does exactly what you think it does. It has two args, 'hand', and 'all'.
 
 ## Other features include:
 

@@ -15,6 +15,8 @@ public class ModBlocks {
 	public static final BlockTesseract loveTesseract = new BlockTesseract("block_love_tesseract", SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION);
 	public static final BlockCustomTorch stoneTorch = new BlockCustomTorch("block_stone_torch", SoundType.STONE);
 	public static final BlockWolfenootCake wolfenootCake = new BlockWolfenootCake("block_wolfenoot_cake");
+	public static final BlockKeycardReader keycardReader = new BlockKeycardReader("block_keycard_reader");
+	public static final BlockPlushie dogPlush = new BlockPlushie("block_dog_plushie", SoundType.CLOTH, Material.CLOTH);
 
 	public static final BlockCore corePurple = new BlockCore("block_core_purple");
 	public static final BlockCore coreRed = new BlockCore("block_core_red");
@@ -47,6 +49,7 @@ public class ModBlocks {
 				loveTesseract,
 				stoneTorch,
 				wolfenootCake,
+				keycardReader,
 				corePurple,
 				coreRed,
 				coreBlue,
@@ -68,7 +71,8 @@ public class ModBlocks {
 				coreSun,
 				coreNight,
 				coreCorrupt,
-				coreUniverse
+				coreUniverse,
+				dogPlush
 				);
 	}
 	/** One registry to find them */
@@ -78,6 +82,7 @@ public class ModBlocks {
 				loveTesseract.createItemBlock(),
 				stoneTorch.createItemBlock(),
 				wolfenootCake.createItemBlock(),
+				keycardReader.createItemBlock(),
 				corePurple.createItemBlock(),
 				coreRed.createItemBlock(),
 				coreBlue.createItemBlock(),
@@ -99,37 +104,40 @@ public class ModBlocks {
 				coreSun.createItemBlock(),
 				coreNight.createItemBlock(),
 				coreCorrupt.createItemBlock(),
-				coreUniverse.createItemBlock()
+				coreUniverse.createItemBlock(),
+				dogPlush.createItemBlock()
 				);
 	}
 	/** One registry to bring them all and in the pre init register them */
 	public static void registerModels() {
-		tesseract.registerItemModel(Item.getItemFromBlock(tesseract));
-		loveTesseract.registerItemModel(Item.getItemFromBlock(loveTesseract));
-		stoneTorch.registerItemModel(Item.getItemFromBlock(stoneTorch));
-		wolfenootCake.registerItemModel(Item.getItemFromBlock(wolfenootCake));
-		corePurple.registerItemModel(Item.getItemFromBlock(corePurple));
-		coreRed.registerItemModel(Item.getItemFromBlock(coreRed));
-		coreBlue.registerItemModel(Item.getItemFromBlock(coreBlue));
-		coreBlack.registerItemModel(Item.getItemFromBlock(coreBlack));
-		coreYellow.registerItemModel(Item.getItemFromBlock(coreYellow));
-		coreWhite.registerItemModel(Item.getItemFromBlock(coreWhite));
-		coreGray.registerItemModel(Item.getItemFromBlock(coreGray));
-		coreLightBlue.registerItemModel(Item.getItemFromBlock(coreLightBlue));
-		coreLightGray.registerItemModel(Item.getItemFromBlock(coreLightGray));
-		coreCyan.registerItemModel(Item.getItemFromBlock(coreCyan));
-		coreOrange.registerItemModel(Item.getItemFromBlock(coreOrange));
-		coreMagenta.registerItemModel(Item.getItemFromBlock(coreMagenta));
-		corePink.registerItemModel(Item.getItemFromBlock(corePink));
-		coreBrown.registerItemModel(Item.getItemFromBlock(coreBrown));
-		coreGreen.registerItemModel(Item.getItemFromBlock(coreGreen));
-		coreLime.registerItemModel(Item.getItemFromBlock(coreLime));
-		coreBlack2.registerItemModel(Item.getItemFromBlock(coreBlack2));
-		coreClear.registerItemModel(Item.getItemFromBlock(coreClear));
-		coreSun.registerItemModel(Item.getItemFromBlock(coreSun));
-		coreNight.registerItemModel(Item.getItemFromBlock(coreNight));
-		coreCorrupt.registerItemModel(Item.getItemFromBlock(coreCorrupt));
-		coreUniverse.registerItemModel(Item.getItemFromBlock(coreUniverse));
+		tesseract.registerItemModel();
+		loveTesseract.registerItemModel();
+		stoneTorch.registerItemModel();
+		wolfenootCake.registerItemModel();
+		keycardReader.registerItemModel();
+		corePurple.registerItemModel();
+		coreRed.registerItemModel();
+		coreBlue.registerItemModel();
+		coreBlack.registerItemModel();
+		coreYellow.registerItemModel();
+		coreWhite.registerItemModel();
+		coreGray.registerItemModel();
+		coreLightBlue.registerItemModel();
+		coreLightGray.registerItemModel();
+		coreCyan.registerItemModel();
+		coreOrange.registerItemModel();
+		coreMagenta.registerItemModel();
+		corePink.registerItemModel();
+		coreBrown.registerItemModel();
+		coreGreen.registerItemModel();
+		coreLime.registerItemModel();
+		coreBlack2.registerItemModel();
+		coreClear.registerItemModel();
+		coreSun.registerItemModel();
+		coreNight.registerItemModel();
+		coreCorrupt.registerItemModel();
+		coreUniverse.registerItemModel();
+		dogPlush.registerItemModel();
 	}
 
 	public static void initOreDict() {
