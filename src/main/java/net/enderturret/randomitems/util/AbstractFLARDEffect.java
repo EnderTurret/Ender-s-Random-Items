@@ -22,15 +22,23 @@ public abstract class AbstractFLARDEffect {
 	 * */
 	public abstract void onFLARDEffectRun(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos);
 
-	/** Logger I use for the console messages saying who held it and what happened */
+	/**
+	 * Logs {@code msg} along with the specified player's username in the format "[FLARD] %PLAYERNAME%%MSG%"
+	 * Wherein {@code %PLAYERNAME%} is the player's username and {@code %MSG%} is the message.
+	 * @param msg The message to log.
+	 * @param playerIn The player to get the username from.
+	 */
 	protected void log(String msg, EntityPlayer playerIn) {
 		if (ConfigHandler.flardMessages)
-			RandomItems.log.info("[FLARD] "+playerIn.getName()+msg);
+			RandomItems.log.info("[FLARD] " + playerIn.getName() + msg);
 	}
 
-	/** Logger */
+	/**
+	 * Logs {@code msg} to the {@code RandomItems} logger.
+	 * @param msg The message to log.
+	 */
 	protected void log(String msg) {
 		if (ConfigHandler.flardMessages)
-			RandomItems.log.info("[FLARD] "+msg);
+			RandomItems.log.info("[FLARD] " + msg);
 	}
 }

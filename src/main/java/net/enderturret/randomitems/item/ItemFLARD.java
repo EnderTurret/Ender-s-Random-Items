@@ -37,10 +37,16 @@ public class ItemFLARD extends ItemBase {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, EntityPlayer playerIn, EnumHand handIn) {
 		if (!worldIn.isRemote && ConfigHandler.flardEnabled)
 			rollEffect(playerIn.getHeldItem(handIn), worldIn, playerIn, playerIn.getPosition());
-		return new ActionResult<ItemStack>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
+		return new ActionResult<>(EnumActionResult.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 
-	/** Method called whenever a random effect is needed */
+	/**
+	 * Rolls a FLARD effect.
+	 * @param stack The {@code ItemStack} containing this item.
+	 * @param worldIn The player's world.
+	 * @param playerIn The player right-clicking this item.
+	 * @param pos The player's position.
+	 */
 	public void rollEffect(ItemStack stack, World worldIn, EntityPlayer playerIn, BlockPos pos) {
 		effectNum = Item.itemRand.nextInt(10 + FLARDEffectRegistry.registry.size());
 

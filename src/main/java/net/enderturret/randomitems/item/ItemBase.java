@@ -13,12 +13,19 @@ public class ItemBase extends Item {
 		setRegistryName(name);
 		setCreativeTab(RandomItems.tab);
 	}
-	/** Registers the item model with meta */
+
+	/**
+	 * 'Registers' the item model with the specified meta value.
+	 * @param meta The meta value of the item.
+	 */
 	public void registerItemModel(int meta) {
 		RandomItems.proxy.registerItemRenderer(this, meta, name);
 	}
-	/** Registers the item model with a meta of 0 */
+
+	/**
+	 * Convenience method for {@code registerItemModel(0)}.
+	 */
 	public void registerItemModel() {
-		RandomItems.proxy.registerItemRenderer(this, 0, name);
+		this.registerItemModel(0);
 	}
 }

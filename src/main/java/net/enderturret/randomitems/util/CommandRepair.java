@@ -23,7 +23,7 @@ public class CommandRepair extends CommandBase {
 				if (sender.getCommandSenderEntity() instanceof EntityPlayer) {
 					EntityPlayer playerIn = (EntityPlayer)sender.getCommandSenderEntity();
 					if (args[0].equalsIgnoreCase("all") && PermissionAPI.hasPermission(playerIn, "randomitems.repair.all")) {
-						final ArrayList<String> names = new ArrayList<String>();
+						final ArrayList<String> names = new ArrayList<>();
 						for (int i = 0; i < playerIn.inventory.getSizeInventory(); i++)
 							if (playerIn.inventory.getStackInSlot(i) != ItemStack.EMPTY)
 								if (playerIn.inventory.getStackInSlot(i).isItemDamaged()) {
@@ -80,6 +80,6 @@ public class CommandRepair extends CommandBase {
 
 	@Override
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
-		return (sender.getCommandSenderEntity() instanceof EntityPlayer) ? PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "randomitems.repair") : false;
+		return sender.getCommandSenderEntity() instanceof EntityPlayer ? PermissionAPI.hasPermission((EntityPlayer)sender.getCommandSenderEntity(), "randomitems.repair") : false;
 	}
 }

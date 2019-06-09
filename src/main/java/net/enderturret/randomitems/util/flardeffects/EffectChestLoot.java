@@ -31,9 +31,8 @@ public class EffectChestLoot extends AbstractFLARDEffect {
 					log(" would have had a chest of loot, but there wasn't a TileEntityLockableLoot under their feet", playerIn);
 			} else
 				log(" would have had a chest of loot, but there wasn't any TileEntities under their feet", playerIn);
-		else {
+		else
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
-		}
 	}
 
 	private static final ResourceLocation[] chests = {

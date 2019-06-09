@@ -24,8 +24,7 @@ public class EffectEnchantment extends AbstractFLARDEffect {
 			}
 			else
 				log(" could have had their offhand item enchanted, but their offhand was empty", playerIn);
-		else {
+		else
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
-		}
 	}
 }

@@ -42,7 +42,9 @@ public class ModBlocks {
 	public static final BlockSpecialCore coreCorrupt = new BlockSpecialCore("block_corrupted_core");
 	public static final BlockSpecialCore coreUniverse = new BlockSpecialCore("block_universe_core");
 
-	/** One registry to rule them all */
+	/*
+	 * One registry to rule them all.
+	 */
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				tesseract,
@@ -75,7 +77,10 @@ public class ModBlocks {
 				dogPlush
 				);
 	}
-	/** One registry to find them */
+
+	/*
+	 * One registry to find them.
+	 */
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				tesseract.createItemBlock(),
@@ -108,7 +113,9 @@ public class ModBlocks {
 				dogPlush.createItemBlock()
 				);
 	}
-	/** One registry to bring them all and in the pre init register them */
+	/*
+	 * One registry to bring them all and in the pre init register them.
+	 */
 	public static void registerModels() {
 		tesseract.registerItemModel();
 		loveTesseract.registerItemModel();

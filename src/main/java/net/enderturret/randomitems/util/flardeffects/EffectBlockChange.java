@@ -33,14 +33,13 @@ public class EffectBlockChange extends AbstractFLARDEffect {
 			}
 			worldIn.setBlockState(pos.down(), randomBlock.getDefaultState());
 			log(" had the block under them changed to "+randomBlock.getRegistryName().toString(), playerIn);
-		} else {
+		} else
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
-		}
 	}
 
 	private boolean compareResourceLocations(ResourceLocation location, ResourceLocation other) {
 		final String domain = location.toString();
 		final String domain2 = other.toString();
-		return (domain.equalsIgnoreCase(domain2)) ? true : false;
+		return domain.equalsIgnoreCase(domain2) ? true : false;
 	}
 }

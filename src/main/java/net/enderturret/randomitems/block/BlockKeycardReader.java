@@ -60,7 +60,7 @@ public class BlockKeycardReader extends BlockDirectional {
 	@Override
 	public int getMetaFromState(IBlockState state) {
 		if (state.getValue(POWERED))
-			return (state.getValue(FACING).getIndex() + 6);
+			return state.getValue(FACING).getIndex() + 6;
 		else
 			return state.getValue(FACING).getIndex();
 	}
@@ -81,11 +81,10 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	@Override
 	public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
-		if (!blockState.getValue(POWERED)) {
+		if (!blockState.getValue(POWERED))
 			return 0;
-		} else {
+		else
 			return blockState.getValue(FACING) == side ? 15 : 0;
-		}
 	}
 
 	@Override
@@ -106,18 +105,16 @@ public class BlockKeycardReader extends BlockDirectional {
 		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
 			final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 			if (playerIn.isSneaking() && playerIn.getHeldItemMainhand().isEmpty()) {
-				if (te.isOwner(playerIn.getUUID(playerIn.getGameProfile()))) {
+				if (te.isOwner(EntityPlayer.getUUID(playerIn.getGameProfile())))
 					playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.getname")+te.getKeycardName()));
-				}
 			}
-			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof ItemKeycard) {
+			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof ItemKeycard)
 				if (te.isNameEqual(playerIn.getHeldItemMainhand().getDisplayName())) {
 					worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(POWERED, true), 3);
 					worldIn.scheduleUpdate(pos, this, 60);
 					worldIn.notifyNeighborsOfStateChange(pos, this, false);
 					worldIn.notifyNeighborsOfStateChange(pos.offset(state.getValue(FACING).getOpposite()), this, false);
 				}
-			}
 		}
 		return true;
 	}
@@ -131,15 +128,13 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
-		if (placer instanceof EntityPlayer && !worldIn.isRemote) {
+		if (placer instanceof EntityPlayer && !worldIn.isRemote)
 			if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
 				final TileEntityKeycardReader reader = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 				final EntityPlayer player = (EntityPlayer) placer;
-				reader.setOwner(player.getUUID(player.getGameProfile()));
-			} else {
+				reader.setOwner(EntityPlayer.getUUID(player.getGameProfile()));
+			} else
 				RandomItems.log.error("TileEntity is null or not a keycard reader at "+pos.toString());
-			}
-		}
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 	}
 

@@ -11,9 +11,9 @@ import net.minecraft.util.math.BlockPos;
 /** Command base class, it simplifies things. */
 public abstract class CommandBase implements ICommand {
 	/** Tab completions, fill it in upon class initialization. */
-	protected static ArrayList<String> tabCompletions = new ArrayList<String>();
+	protected static ArrayList<String> tabCompletions = new ArrayList<>();
 	/** Aliases, same as above ^ */
-	protected static ArrayList<String> aliases = new ArrayList<String>();
+	protected static ArrayList<String> aliases = new ArrayList<>();
 
 	@Override
 	public int compareTo(ICommand o) {

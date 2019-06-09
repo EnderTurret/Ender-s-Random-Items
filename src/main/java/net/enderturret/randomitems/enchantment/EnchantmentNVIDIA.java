@@ -27,7 +27,7 @@ public class EnchantmentNVIDIA extends Enchantment {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return (stack.getItem() instanceof ItemSword && ConfigHandler.nvidiaEnchantmentEnabled) ? true : false;
+		return stack.getItem() instanceof ItemSword && ConfigHandler.nvidiaEnchantmentEnabled ? true : false;
 	}
 
 	@Override
@@ -37,7 +37,7 @@ public class EnchantmentNVIDIA extends Enchantment {
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return (stack.getItem() instanceof ItemSword && ConfigHandler.nvidiaEnchantmentEnabled) ? true : false;
+		return stack.getItem() instanceof ItemSword && ConfigHandler.nvidiaEnchantmentEnabled ? true : false;
 	}
 
 	@Override

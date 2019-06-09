@@ -19,16 +19,15 @@ public class ItemKeycard extends ItemBase {
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.getBlockState(pos).getBlock() instanceof BlockKeycardReader && !worldIn.isRemote && worldIn.getTileEntity(pos) != null) {
+		if (worldIn.getBlockState(pos).getBlock() instanceof BlockKeycardReader && !worldIn.isRemote && worldIn.getTileEntity(pos) != null)
 			if (worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
 				final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
-				if (player.isSneaking() && te.isOwner(player.getUUID(player.getGameProfile()))) {
+				if (player.isSneaking() && te.isOwner(EntityPlayer.getUUID(player.getGameProfile()))) {
 					te.setKeycardName(player.getHeldItemMainhand().getDisplayName());
 					player.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.setname")+player.getHeldItemMainhand().getDisplayName()));
 					return EnumActionResult.SUCCESS;
 				}
 			}
-		}
 		return EnumActionResult.FAIL;
 	}
 }

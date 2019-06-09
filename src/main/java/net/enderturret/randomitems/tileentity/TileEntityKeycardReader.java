@@ -65,7 +65,7 @@ public class TileEntityKeycardReader extends TileEntity {
 
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		this.readFromNBT(pkt.getNbtCompound());;
+		this.readFromNBT(pkt.getNbtCompound());
 	}
 
 	@Override

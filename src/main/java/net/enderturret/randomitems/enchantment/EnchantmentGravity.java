@@ -23,12 +23,12 @@ public class EnchantmentGravity extends Enchantment {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS))) ? true : false;
+		return stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)) ? true : false;
 	}
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return (stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS))) ? true : false;
+		return stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)) ? true : false;
 	}
 
 	@Override
