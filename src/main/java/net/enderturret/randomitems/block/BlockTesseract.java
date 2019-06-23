@@ -28,8 +28,8 @@ public class BlockTesseract extends BlockBase {
 		if (ConfigHandler.tesseractEffects) {
 			playerIn.addPotionEffect(new PotionEffect(effect, 6000, 0));
 			return true;
-		} else
-			return false;
+		}
+		return false;
 	}
 
 	@Override

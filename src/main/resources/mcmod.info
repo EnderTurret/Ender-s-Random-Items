@@ -2,7 +2,7 @@
     "modid": "randomitems",
     "name": "Ender's Random Items",
     "description": "A collection of random items",
-    "version": "1.1.8",
+    "version": "1.1.9",
     "mcversion": "1.12, 1.12.1, 1.12.2",
     "authorList": ["EnderTurret"]
 }]

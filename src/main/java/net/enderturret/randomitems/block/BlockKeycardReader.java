@@ -61,8 +61,7 @@ public class BlockKeycardReader extends BlockDirectional {
 	public int getMetaFromState(IBlockState state) {
 		if (state.getValue(POWERED))
 			return state.getValue(FACING).getIndex() + 6;
-		else
-			return state.getValue(FACING).getIndex();
+		return state.getValue(FACING).getIndex();
 	}
 
 	@Override
@@ -83,8 +82,7 @@ public class BlockKeycardReader extends BlockDirectional {
 	public int getStrongPower(IBlockState blockState, IBlockAccess blockAccess, BlockPos pos, EnumFacing side) {
 		if (!blockState.getValue(POWERED))
 			return 0;
-		else
-			return blockState.getValue(FACING) == side ? 15 : 0;
+		return blockState.getValue(FACING) == side ? 15 : 0;
 	}
 
 	@Override
@@ -96,8 +94,7 @@ public class BlockKeycardReader extends BlockDirectional {
 	public IBlockState getStateFromMeta(int meta) {
 		if (meta <= 5)
 			return getDefaultState().withProperty(FACING, EnumFacing.values()[meta].getAxis() == EnumFacing.Axis.Y ? EnumFacing.NORTH : EnumFacing.values()[meta]).withProperty(POWERED, false);
-		else
-			return getDefaultState().withProperty(FACING, EnumFacing.values()[meta - 6]).withProperty(POWERED, true);
+		return getDefaultState().withProperty(FACING, EnumFacing.values()[meta - 6]).withProperty(POWERED, true);
 	}
 
 	@Override
