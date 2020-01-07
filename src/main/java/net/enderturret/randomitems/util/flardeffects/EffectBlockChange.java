@@ -32,7 +32,7 @@ public class EffectBlockChange extends AbstractFLARDEffect {
 				if (!flag) done = true;
 			}
 			worldIn.setBlockState(pos.down(), randomBlock.getDefaultState());
-			log(" had the block under them changed to "+randomBlock.getRegistryName().toString(), playerIn);
+			log(" had the block under them changed to " + randomBlock.getRegistryName().toString(), playerIn);
 		} else
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
 	}

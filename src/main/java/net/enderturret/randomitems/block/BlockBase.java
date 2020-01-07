@@ -15,7 +15,7 @@ public class BlockBase extends Block {
 		super(material);
 		this.name = name;
 		this.blockSoundType = soundType;
-		setUnlocalizedName(name);
+		setTranslationKey(name);
 		setRegistryName(name);
 		setCreativeTab(RandomItems.tab);
 	}

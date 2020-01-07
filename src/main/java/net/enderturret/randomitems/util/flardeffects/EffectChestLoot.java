@@ -21,9 +21,9 @@ public class EffectChestLoot extends AbstractFLARDEffect {
 				if (tileEntity instanceof TileEntityLockableLoot) {
 					TileEntityLockableLoot chest = (TileEntityLockableLoot)tileEntity;
 					if (chest.isEmpty()) {
-						final int rolledTable = rand.nextInt(chests.length);
-						chest.setLootTable(chests[rolledTable], rand.nextLong());
-						log(" stood on a chest and got loot placed in it (Player rolled "+chests[rolledTable].toString()+")", playerIn);
+						final int rolledTable = rand.nextInt(CHESTS.length);
+						chest.setLootTable(CHESTS[rolledTable], rand.nextLong());
+						log(" stood on a chest and got loot placed in it (Player rolled " + CHESTS[rolledTable].toString() + ")", playerIn);
 						chest.fillWithLoot(playerIn);
 					} else
 						log(" would have had a chest of loot, but there were items in it", playerIn);
@@ -35,7 +35,7 @@ public class EffectChestLoot extends AbstractFLARDEffect {
 			((ItemFLARD) stack.getItem()).rollEffect(stack, worldIn, playerIn, pos);
 	}
 
-	private static final ResourceLocation[] chests = {
+	private static final ResourceLocation[] CHESTS = {
 		new ResourceLocation("minecraft", "chests/abandoned_mineshaft"),
 		new ResourceLocation("minecraft", "chests/desert_pyramid"),
 		new ResourceLocation("minecraft", "chests/end_city_treasure"),

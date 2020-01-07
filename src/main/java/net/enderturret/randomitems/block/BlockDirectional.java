@@ -48,7 +48,7 @@ public class BlockDirectional extends BlockBase {
 
 	@Override
 	public IBlockState getStateFromMeta(int meta) {
-		EnumFacing facing = EnumFacing.getFront(meta);
+		EnumFacing facing = EnumFacing.byIndex(meta);
 		if (facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
 		return this.getDefaultState().withProperty(FACING, facing);
 	}

@@ -37,7 +37,7 @@ public class EnchantmentGravity extends Enchantment {
 	}
 
 	@Override
-	public int getMinEnchantability(int enchantmentLevel) {
-		return 5+enchantmentLevel;
+	public int getMinEnchantability(int level) {
+		return 5 + level;
 	}
 }

@@ -24,7 +24,7 @@ public class ItemKeycard extends ItemBase {
 				final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 				if (player.isSneaking() && te.isOwner(EntityPlayer.getUUID(player.getGameProfile()))) {
 					te.setKeycardName(player.getHeldItemMainhand().getDisplayName());
-					player.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.setname")+player.getHeldItemMainhand().getDisplayName()));
+					player.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.setname") + player.getHeldItemMainhand().getDisplayName()));
 					return EnumActionResult.SUCCESS;
 				}
 			}

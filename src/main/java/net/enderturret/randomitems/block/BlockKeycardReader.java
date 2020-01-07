@@ -103,7 +103,7 @@ public class BlockKeycardReader extends BlockDirectional {
 			final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 			if (playerIn.isSneaking() && playerIn.getHeldItemMainhand().isEmpty()) {
 				if (te.isOwner(EntityPlayer.getUUID(playerIn.getGameProfile())))
-					playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.getname")+te.getKeycardName()));
+					playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.getname") + te.getKeycardName()));
 			}
 			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof ItemKeycard)
 				if (te.isNameEqual(playerIn.getHeldItemMainhand().getDisplayName())) {
@@ -131,7 +131,7 @@ public class BlockKeycardReader extends BlockDirectional {
 				final EntityPlayer player = (EntityPlayer) placer;
 				reader.setOwner(EntityPlayer.getUUID(player.getGameProfile()));
 			} else
-				RandomItems.log.error("TileEntity is null or not a keycard reader at "+pos.toString());
+				RandomItems.log.error("TileEntity is null or not a keycard reader at " + pos.toString());
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 	}
 

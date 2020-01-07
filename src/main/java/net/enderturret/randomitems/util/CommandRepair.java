@@ -2,6 +2,7 @@ package net.enderturret.randomitems.util;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.minecraft.command.CommandException;
@@ -23,7 +24,7 @@ public class CommandRepair extends CommandBase {
 				if (sender.getCommandSenderEntity() instanceof EntityPlayer) {
 					EntityPlayer playerIn = (EntityPlayer)sender.getCommandSenderEntity();
 					if (args[0].equalsIgnoreCase("all") && PermissionAPI.hasPermission(playerIn, "randomitems.repair.all")) {
-						final ArrayList<String> names = new ArrayList<>();
+						final List<String> names = new ArrayList<>();
 						for (int i = 0; i < playerIn.inventory.getSizeInventory(); i++)
 							if (playerIn.inventory.getStackInSlot(i) != ItemStack.EMPTY)
 								if (playerIn.inventory.getStackInSlot(i).isItemDamaged()) {
@@ -31,17 +32,17 @@ public class CommandRepair extends CommandBase {
 									if (ConfigHandler.repairHumour)
 										names.add(playerIn.inventory.getStackInSlot(i).getDisplayName());
 									else
-										names.add(RandomItemsUtils.localize(playerIn.inventory.getStackInSlot(i).getUnlocalizedName()+".name"));
+										names.add(RandomItemsUtils.localize(playerIn.inventory.getStackInSlot(i).getTranslationKey() + ".name"));
 								}
 						sender.setCommandStat(CommandResultStats.Type.AFFECTED_ITEMS, names.size());
 						if (!names.isEmpty()) {
 							final String[] n = names.toArray(new String[0]);
 							if (n.length > 5) {
 								final String[] five = {n[1], n[2], n[3], n[4], n[5]};
-								playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success")+Arrays.toString(five)+" and "+(n.length-5)+" more..."));
+								playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success") + Arrays.toString(five) + " and " + (n.length-5) + " more..."));
 							}
 							else
-								playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success")+Arrays.toString(n)));
+								playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success") + Arrays.toString(n)));
 						}
 					}
 					else if (args[0].equalsIgnoreCase("hand") && PermissionAPI.hasPermission(playerIn, "randomitems.repair.hand"))
@@ -50,9 +51,9 @@ public class CommandRepair extends CommandBase {
 								playerIn.getHeldItemMainhand().setItemDamage(0);
 								sender.setCommandStat(CommandResultStats.Type.AFFECTED_ITEMS, 1);
 								if (ConfigHandler.repairHumour)
-									playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success")+playerIn.getHeldItemMainhand().getDisplayName()));
+									playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success") + playerIn.getHeldItemMainhand().getDisplayName()));
 								else
-									playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success")+RandomItemsUtils.localize(playerIn.getHeldItemMainhand().getUnlocalizedName()+".name")));
+									playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("command.repair.success") + RandomItemsUtils.localize(playerIn.getHeldItemMainhand().getTranslationKey() + ".name")));
 							}
 				}
 				else {}

@@ -1,6 +1,7 @@
 package net.enderturret.randomitems.util;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import net.enderturret.randomitems.RandomItems;
 
@@ -8,7 +9,7 @@ public class FLARDEffectRegistry {
 	/**
 	 * The registry
 	 */
-	public static final ArrayList<AbstractFLARDEffect> registry = new ArrayList<>();
+	public static final List<AbstractFLARDEffect> registry = new ArrayList<>();
 
 	/**
 	 * Registers one (or more) effect(s).

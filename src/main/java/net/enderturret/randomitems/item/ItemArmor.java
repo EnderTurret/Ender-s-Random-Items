@@ -21,7 +21,7 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 		this.isInvisible = isInvisible;
 		setCreativeTab(RandomItems.tab);
 		setRegistryName(name);
-		setUnlocalizedName(name);
+		setTranslationKey(name);
 	}
 
 	public void registerItemModel() {
@@ -30,6 +30,6 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-		return isInvisible ? Reference.modId+":textures/model/invisible_armor.png" : super.getArmorTexture(stack, entity, slot, type);
+		return isInvisible ? Reference.modId + ":textures/model/invisible_armor.png" : super.getArmorTexture(stack, entity, slot, type);
 	}
 }
