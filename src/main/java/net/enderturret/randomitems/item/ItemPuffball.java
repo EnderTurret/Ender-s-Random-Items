@@ -16,7 +16,7 @@ import net.minecraft.world.World;
 
 public class ItemPuffball extends ItemBase {
 
-	private static final UUID maxHealthUUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
+	private static final UUID MAX_HEALTH_UUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
 	private final Potion effect;
 
 	public ItemPuffball(String name, Potion effect) {
@@ -26,16 +26,16 @@ public class ItemPuffball extends ItemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (this == ModItems.puffballBrown && !ConfigHandler.saturationPuffballEnabled)
+		if (this == ModItems.PUFFBALL_BROWN && !ConfigHandler.saturationPuffballEnabled)
 			return;
 		if (ConfigHandler.puffballEffectsEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;
 			if (playerIn.getHeldItemOffhand().getItem() == this) {
-				if (this == ModItems.puffballPurple && playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) == null)
-					playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier(maxHealthUUID, "puffball_health_boost", 8.0D, 0));
+				if (this == ModItems.PUFFBALL_PURPLE && playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(MAX_HEALTH_UUID) == null)
+					playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).applyModifier(new AttributeModifier(MAX_HEALTH_UUID, "puffball_health_boost", 8.0D, 0));
 				else if (effect != MobEffects.HEALTH_BOOST) playerIn.addPotionEffect(new PotionEffect(effect, 20, 2, false, false));
 			}
-			else if (playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(maxHealthUUID) != null) playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(maxHealthUUID);
+			else if (playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(MAX_HEALTH_UUID) != null) playerIn.getEntityAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(MAX_HEALTH_UUID);
 		}
 	}
 }

@@ -2,13 +2,12 @@ package net.enderturret.randomitems.item;
 
 import net.enderturret.randomitems.block.BlockKeycardReader;
 import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
-import net.enderturret.randomitems.util.RandomItemsUtils;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
 public class ItemKeycard extends ItemBase {
@@ -24,7 +23,7 @@ public class ItemKeycard extends ItemBase {
 				final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 				if (player.isSneaking() && te.isOwner(EntityPlayer.getUUID(player.getGameProfile()))) {
 					te.setKeycardName(player.getHeldItemMainhand().getDisplayName());
-					player.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.setname") + player.getHeldItemMainhand().getDisplayName()));
+					player.sendMessage(new TextComponentTranslation("randomitems.keycard.setname", player.getHeldItemMainhand().getDisplayName()));
 					return EnumActionResult.SUCCESS;
 				}
 			}

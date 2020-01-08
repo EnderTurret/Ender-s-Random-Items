@@ -83,11 +83,19 @@ item.invisible_diamond_chestplate.name=Invisible Diamond Chestplate
 item.invisible_diamond_leggings.name=Invisible Diamond Leggings
 item.invisible_diamond_boots.name=Invisible Diamond Boots
 
-randomitems.keycard.getname=Keycard Reader's saved name: 
-randomitems.keycard.setname=Changed keycard reader's saved name to 
-command.repair.success=Successfully repaired your: 
-itemGroup.randomitems=§1§lEnder's Random Items§r
+randomitems.keycard.getname=Keycard Reader's saved name: %s
+randomitems.keycard.setname=Changed keycard reader's saved name to %s.
 
+command.repair.handsuccess=Successfully repaired your %s.
+command.repair.error=An exception occurred while repairing your item(s).
+command.repair.handempty=You must be holding something to repair.
+command.repair.nodurability=That item can't be repaired.
+command.repair.nonerepaired=No items were repaired.
+command.repair.bulkrepair=Repaired %s items.
+
+itemGroup.randomitems=§1§lEnder's Random Items§r
 enchantment.level.0=
 enchantment.antigravity=Anti Gravity
 enchantment.nvidia=nVIDIA
+enchantment.nvidia.deathmessage=%s experienced nVIDIA
+randomitems.flard.fail=The FLARD disappeared without doing anything.

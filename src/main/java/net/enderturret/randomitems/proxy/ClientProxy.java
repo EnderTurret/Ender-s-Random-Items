@@ -11,20 +11,28 @@ import net.minecraft.crash.CrashReport;
 import net.minecraft.item.Item;
 import net.minecraftforge.client.model.ModelLoader;
 
-public class ClientProxy extends CommonProxy {
+public class ClientProxy implements IProxy {
+
+	private static boolean nvidia = false;
 
 	@Override
 	public void registerItemRenderer(Item item, int meta, String id) {
-		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Reference.modId+ ":" + id, "inventory"));
+		ModelLoader.setCustomModelResourceLocation(item, meta, new ModelResourceLocation(Reference.MOD_ID + ":" + id, "inventory"));
 	}
 
 	@Override
 	public void nvidiaCrash() {
-		if (ConfigHandler.nvidiaEnchantmentEnabled && isNVIDIA) Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
+		if (ConfigHandler.nvidiaEnchantmentEnabled && nVIDIA())
+			Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
 	}
 
 	@Override
 	public void init() {
-		isNVIDIA = GL11.glGetString(GL11.GL_VENDOR).toLowerCase().contains("nvidia");
+		nvidia = GL11.glGetString(GL11.GL_VENDOR).toLowerCase().contains("nvidia");
+	}
+
+	@Override
+	public boolean nVIDIA() {
+		return nvidia;
 	}
 }

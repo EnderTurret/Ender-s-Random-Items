@@ -1,19 +1,23 @@
 package net.enderturret.randomitems.block;
 
-import net.enderturret.randomitems.util.RandomItemsUtils;
+import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.IBlockState;
+import net.minecraft.util.EnumFacing;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
 public class BlockWolfenootCake extends BlockBase {
 
-	private static final AxisAlignedBB AABB = RandomItemsUtils.getAABBFromPixels(0, 0, 0, 16, 8, 16);
+	private static final AxisAlignedBB AABB = RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 8, 16);
 
 	public BlockWolfenootCake(String name) {
 		super(name, SoundType.CLOTH, Material.CAKE);
+		setHardness(0.5F);
+		setResistance(0.5F);
 	}
 
 	@Override
@@ -54,5 +58,15 @@ public class BlockWolfenootCake extends BlockBase {
 	@Override
 	public boolean isTranslucent(IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return false;
+	}
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+		return BlockFaceShape.UNDEFINED;
 	}
 }

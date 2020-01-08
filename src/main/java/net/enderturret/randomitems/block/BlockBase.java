@@ -9,19 +9,16 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockBase extends Block {
 
-	private final String name;
-
 	public BlockBase(String name, SoundType soundType, Material material) {
 		super(material);
-		this.name = name;
 		this.blockSoundType = soundType;
 		setTranslationKey(name);
 		setRegistryName(name);
-		setCreativeTab(RandomItems.tab);
+		setCreativeTab(RandomItems.TAB);
 	}
 
 	public void registerItemModel(Item itemBlock) {
-		RandomItems.proxy.registerItemRenderer(itemBlock, 0, name);
+		RandomItems.proxy.registerItemRenderer(itemBlock, 0, getRegistryName().getPath());
 	}
 
 	public void registerItemModel() {

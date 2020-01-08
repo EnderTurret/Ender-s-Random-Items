@@ -19,7 +19,7 @@ public class ItemQuestionableCheese extends ItemBase {
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (!worldIn.isRemote && ConfigHandler.questionableCheeseEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;
-			if (playerIn.getHeldItemMainhand().getItem() == ModItems.questionableCheese && worldIn.getBlockState(playerIn.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
+			if (playerIn.getHeldItemMainhand().getItem() == ModItems.QUESTIONABLE_CHEESE && worldIn.getBlockState(playerIn.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
 				worldIn.setBlockToAir(playerIn.getPosition().down());
 				worldIn.createExplosion(null, playerIn.getPosition().getX(), playerIn.getPosition().getY()-1, playerIn.getPosition().getZ(), 8.0F, true);
 			}
@@ -29,7 +29,7 @@ public class ItemQuestionableCheese extends ItemBase {
 	@Override
 	public boolean onEntityItemUpdate(EntityItem entityItem) {
 		World worldIn = entityItem.getEntityWorld();
-		if (!worldIn.isRemote && ConfigHandler.questionableCheeseEnabled && entityItem.getItem().getItem() == ModItems.questionableCheese)
+		if (!worldIn.isRemote && ConfigHandler.questionableCheeseEnabled && entityItem.getItem().getItem() == ModItems.QUESTIONABLE_CHEESE)
 			if (worldIn.getBlockState(entityItem.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
 				worldIn.setBlockToAir(entityItem.getPosition().down());
 				worldIn.createExplosion(null, entityItem.getPosition().getX(), entityItem.getPosition().getY()-1, entityItem.getPosition().getZ(), 8.0F, true);

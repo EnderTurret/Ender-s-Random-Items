@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 public class ItemArmor extends net.minecraft.item.ItemArmor {
 
 	private final String name;
-	private final boolean isInvisible;
+	private final boolean invisible;
 
 	public ItemArmor(String name, ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn) {
 		this(name, materialIn, equipmentSlotIn, false);
@@ -18,8 +18,8 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 	public ItemArmor(String name, ArmorMaterial materialIn, EntityEquipmentSlot equipmentSlotIn, boolean isInvisible) {
 		super(materialIn, 0, equipmentSlotIn);
 		this.name = name;
-		this.isInvisible = isInvisible;
-		setCreativeTab(RandomItems.tab);
+		this.invisible = isInvisible;
+		setCreativeTab(RandomItems.TAB);
 		setRegistryName(name);
 		setTranslationKey(name);
 	}
@@ -30,6 +30,6 @@ public class ItemArmor extends net.minecraft.item.ItemArmor {
 
 	@Override
 	public String getArmorTexture(ItemStack stack, Entity entity, EntityEquipmentSlot slot, String type) {
-		return isInvisible ? Reference.modId + ":textures/model/invisible_armor.png" : super.getArmorTexture(stack, entity, slot, type);
+		return invisible ? Reference.MOD_ID + ":textures/model/invisible_armor.png" : super.getArmorTexture(stack, entity, slot, type);
 	}
 }

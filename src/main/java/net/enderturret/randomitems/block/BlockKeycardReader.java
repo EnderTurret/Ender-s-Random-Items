@@ -5,11 +5,12 @@ import java.util.Random;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.item.ItemKeycard;
 import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
-import net.enderturret.randomitems.util.RandomItemsUtils;
+import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.IProperty;
 import net.minecraft.block.properties.PropertyBool;
+import net.minecraft.block.state.BlockFaceShape;
 import net.minecraft.block.state.BlockStateContainer;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,21 +21,23 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
 public class BlockKeycardReader extends BlockDirectional {
 
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
-	private static final AxisAlignedBB NORTH_AABB = RandomItemsUtils.getAABBFromPixels(6, 6, 14, 10, 10, 16);
-	private static final AxisAlignedBB SOUTH_AABB = RandomItemsUtils.getAABBFromPixels(6, 6, 0, 10, 10, 2);
-	private static final AxisAlignedBB WEST_AABB = RandomItemsUtils.getAABBFromPixels(14, 6, 6, 16, 10, 10);
-	private static final AxisAlignedBB EAST_AABB = RandomItemsUtils.getAABBFromPixels(0, 6, 6, 2, 10, 10);
+	private static final AxisAlignedBB NORTH_AABB = RandomItemsUtil.getAABBFromPixels(6, 6, 14, 10, 10, 16);
+	private static final AxisAlignedBB SOUTH_AABB = RandomItemsUtil.getAABBFromPixels(6, 6, 0, 10, 10, 2);
+	private static final AxisAlignedBB WEST_AABB = RandomItemsUtil.getAABBFromPixels(14, 6, 6, 16, 10, 10);
+	private static final AxisAlignedBB EAST_AABB = RandomItemsUtil.getAABBFromPixels(0, 6, 6, 2, 10, 10);
 
 	public BlockKeycardReader(String name) {
 		super(name, SoundType.STONE, Material.IRON);
 		this.setDefaultState(this.getDefaultState().withProperty(POWERED, false));
+		setHardness(0.5F);
+		setResistance(0.5F);
 	}
 
 	@Override
@@ -103,7 +106,7 @@ public class BlockKeycardReader extends BlockDirectional {
 			final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
 			if (playerIn.isSneaking() && playerIn.getHeldItemMainhand().isEmpty()) {
 				if (te.isOwner(EntityPlayer.getUUID(playerIn.getGameProfile())))
-					playerIn.sendMessage(new TextComponentString(RandomItemsUtils.localize("randomitems.keycard.getname") + te.getKeycardName()));
+					playerIn.sendMessage(new TextComponentTranslation("randomitems.keycard.getname", te.getKeycardName()));
 			}
 			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof ItemKeycard)
 				if (te.isNameEqual(playerIn.getHeldItemMainhand().getDisplayName())) {
@@ -131,7 +134,7 @@ public class BlockKeycardReader extends BlockDirectional {
 				final EntityPlayer player = (EntityPlayer) placer;
 				reader.setOwner(EntityPlayer.getUUID(player.getGameProfile()));
 			} else
-				RandomItems.log.error("TileEntity is null or not a keycard reader at " + pos.toString());
+				RandomItems.LOGGER.error("TileEntity is null or not a keycard reader at " + pos.toString());
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 	}
 
@@ -163,6 +166,16 @@ public class BlockKeycardReader extends BlockDirectional {
 	@Override
 	public boolean isTranslucent(IBlockState state) {
 		return false;
+	}
+
+	@Override
+	public boolean canPlaceTorchOnTop(IBlockState state, IBlockAccess world, BlockPos pos) {
+		return false;
+	}
+
+	@Override
+	public BlockFaceShape getBlockFaceShape(IBlockAccess worldIn, IBlockState state, BlockPos pos, EnumFacing face) {
+		return BlockFaceShape.UNDEFINED;
 	}
 
 	@Override

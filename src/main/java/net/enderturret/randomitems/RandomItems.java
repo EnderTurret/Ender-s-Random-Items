@@ -2,13 +2,13 @@ package net.enderturret.randomitems;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import net.enderturret.randomitems.init.ModBlocks;
-import net.enderturret.randomitems.init.ModItems;
-import net.enderturret.randomitems.proxy.CommonProxy;
+
+import net.enderturret.randomitems.command.CommandRandomItems;
+import net.enderturret.randomitems.command.CommandRepair;
+import net.enderturret.randomitems.flardeffects.FLARDEffect;
+import net.enderturret.randomitems.init.*;
+import net.enderturret.randomitems.proxy.IProxy;
 import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
-import net.enderturret.randomitems.util.CommandRepair;
-import net.enderturret.randomitems.util.FLARDEffectRegistry;
-import net.enderturret.randomitems.util.flardeffects.*;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -33,17 +33,17 @@ import net.minecraftforge.fml.common.registry.GameRegistry;
 import net.minecraftforge.server.permission.DefaultPermissionLevel;
 import net.minecraftforge.server.permission.PermissionAPI;
 
-@Mod(modid = Reference.modId, name = "Ender's Random Items", version = Reference.modVersion)
+@Mod(modid = Reference.MOD_ID, name = "Ender's Random Items", version = Reference.MOD_VERSION, acceptedMinecraftVersions = "[1.12,)")
 public class RandomItems {
 
-	public static final RandomItemsTab tab = new RandomItemsTab();
-	public static final Logger log = LogManager.getLogger("randomitems");
+	public static final RandomItemsTab TAB = new RandomItemsTab();
+	public static final Logger LOGGER = LogManager.getLogger("randomitems");
 
-	@Mod.Instance(Reference.modId)
+	@Mod.Instance(Reference.MOD_ID)
 	public static RandomItems instance;
 
-	@SidedProxy(serverSide = "net.enderturret.randomitems.proxy.CommonProxy", clientSide = "net.enderturret.randomitems.proxy.ClientProxy")
-	public static CommonProxy proxy;
+	@SidedProxy(serverSide = "net.enderturret.randomitems.proxy.ServerProxy", clientSide = "net.enderturret.randomitems.proxy.ClientProxy")
+	public static IProxy proxy;
 
 	@Mod.EventHandler
 	public static void init(FMLInitializationEvent e) {
@@ -52,17 +52,20 @@ public class RandomItems {
 			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
 			PermissionAPI.registerNode("randomitems.repair", DefaultPermissionLevel.OP, "Used for /repair");
 		}
+		PermissionAPI.registerNode("randomitems.randomitems", DefaultPermissionLevel.OP, "Debug command for testing FLARD effects and stuff.");
 
 		ModItems.initOreDict();
 		ModBlocks.initOreDict();
 
 		proxy.init();
-		GameRegistry.registerTileEntity(TileEntityKeycardReader.class, new ResourceLocation(Reference.modId, "tileentitykeycardreader"));
+		GameRegistry.registerTileEntity(TileEntityKeycardReader.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
 	}
 
 	@Mod.EventHandler
 	public static void onServerStart(FMLServerStartingEvent e) {
-		if (ConfigHandler.repairCommandEnabled) e.registerServerCommand(new CommandRepair());
+		if (ConfigHandler.repairCommandEnabled)
+			e.registerServerCommand(new CommandRepair());
+		e.registerServerCommand(new CommandRandomItems());
 	}
 
 	@Mod.EventBusSubscriber
@@ -72,12 +75,21 @@ public class RandomItems {
 		public static void registerItems(RegistryEvent.Register<Item> e) {
 			ModBlocks.registerItemBlocks(e.getRegistry());
 			ModItems.register(e.getRegistry());
-			FLARDEffectRegistry.registerAll(new EffectChestLoot(), new EffectEnchantment(), new EffectBlockChange());
 		}
 
 		@SubscribeEvent
 		public static void registerBlocks(RegistryEvent.Register<Block> e) {
 			ModBlocks.register(e.getRegistry());
+		}
+
+		@SubscribeEvent
+		public static void registerFlardEffects(RegistryEvent.Register<FLARDEffect> e) {
+			ModFlardEffects.registerAll(e.getRegistry());
+		}
+
+		@SubscribeEvent
+		public static void createRegistries(RegistryEvent.NewRegistry e) {
+			FLARDEffectRegistry.createRegistry();
 		}
 
 		@SubscribeEvent
@@ -88,16 +100,17 @@ public class RandomItems {
 
 		@SubscribeEvent
 		public static void onLootLoad(LootTableLoadEvent e) {
-			if (e.getName().toString().equals("minecraft:chests/simple_dungeon")) {
-				final LootEntry flard = new LootEntryItem(ModItems.flard, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
-				final LootPool poolDungeon = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0,2), new RandomValueRange(0), "randomitems:dungeon_pool");
-				e.getTable().addPool(poolDungeon);
+			if ("minecraft:chests/simple_dungeon".equals(e.getName().toString())) {
+				final LootEntry flard = new LootEntryItem(ModItems.FLARD, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
+				final LootPool pool = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0, 2), new RandomValueRange(0), "randomitems:dungeon_pool");
+				e.getTable().addPool(pool);
 			}
 		}
 
 		@SubscribeEvent
 		public static void onConfigChanged(OnConfigChangedEvent e) {
-			if (e.getModID().equals(Reference.modId)) ConfigManager.sync(Reference.modId, Type.INSTANCE);
+			if (e.getModID().equals(Reference.MOD_ID))
+				ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
 		}
 	}
 }

@@ -8,16 +8,16 @@ import net.minecraft.item.ItemStack;
 public class SaturatedFoodItem extends ItemFood {
 
 	private final String name;
-	private final boolean isDrink;
+	private final boolean drink;
 
 	public SaturatedFoodItem(String name, int food, float saturation, boolean isWolfFood, boolean isDrink) {
 		super(food, saturation, isWolfFood);
 		this.name = name;
-		this.isDrink = isDrink;
+		this.drink = isDrink;
 		setTranslationKey(name);
 		setRegistryName(name);
-		if (!name.equals("secret_coke")) setCreativeTab(RandomItems.tab);
-		else setCreativeTab(null);
+		if (!"secret_coke".equals(name)) setCreativeTab(RandomItems.TAB);
+		//else setCreativeTab(null);
 	}
 
 	public void registerItemModel() {
@@ -26,6 +26,6 @@ public class SaturatedFoodItem extends ItemFood {
 
 	@Override
 	public EnumAction getItemUseAction(ItemStack stack) {
-		return isDrink ? EnumAction.DRINK : EnumAction.EAT;
+		return drink ? EnumAction.DRINK : EnumAction.EAT;
 	}
 }

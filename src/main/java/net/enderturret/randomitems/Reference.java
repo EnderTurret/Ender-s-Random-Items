@@ -1,6 +1,6 @@
 package net.enderturret.randomitems;
 
 public class Reference {
-	public static final String modId = "randomitems";
-	public static final String modVersion = "1.1.9";
+	public static final String MOD_ID = "randomitems";
+	public static final String MOD_VERSION = "1.2.0";
 }

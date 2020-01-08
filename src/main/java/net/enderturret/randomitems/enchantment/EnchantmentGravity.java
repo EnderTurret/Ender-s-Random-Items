@@ -1,19 +1,21 @@
 package net.enderturret.randomitems.enchantment;
 
+import net.enderturret.randomitems.Reference;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
 public class EnchantmentGravity extends Enchantment {
 
-	private final String enchName = "antigravity";
+	private final String name = "antigravity";
 
 	protected EnchantmentGravity() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
-		setRegistryName(enchName);
-		setName(enchName);
+		setRegistryName(Reference.MOD_ID, name);
+		setName(name);
 	}
 
 	@Override
@@ -23,16 +25,24 @@ public class EnchantmentGravity extends Enchantment {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)) ? true : false;
+		return isSuitableItem(stack.getItem());
 	}
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return stack.isItemEqual(new ItemStack(Items.DIAMOND_BOOTS)) || stack.isItemEqual(new ItemStack(Items.CHAINMAIL_BOOTS)) || stack.isItemEqual(new ItemStack(Items.GOLDEN_BOOTS)) || stack.isItemEqual(new ItemStack(Items.IRON_BOOTS)) || stack.isItemEqual(new ItemStack(Items.LEATHER_BOOTS)) ? true : false;
+		return isSuitableItem(stack.getItem());
+	}
+
+	private boolean isSuitableItem(Item item) {
+		return item == Items.DIAMOND_BOOTS ||
+				item == Items.CHAINMAIL_BOOTS ||
+				item == Items.GOLDEN_BOOTS ||
+				item == Items.IRON_BOOTS ||
+				item == Items.LEATHER_BOOTS;
 	}
 
 	@Override
-	public int getMaxEnchantability(int enchantmentLevel) {
+	public int getMaxEnchantability(int level) {
 		return 500;
 	}
 

@@ -24,12 +24,12 @@ public class TileEntityKeycardReader extends TileEntity {
 
 	public void setOwner(UUID playerUUID) {
 		this.owner = playerUUID;
-		this.markDirty();
+		markDirty();
 	}
 
 	public void setKeycardName(String name) {
 		this.keycardName = name;
-		this.markDirty();
+		markDirty();
 	}
 
 	public boolean isOwner(UUID uuid) {
@@ -41,7 +41,7 @@ public class TileEntityKeycardReader extends TileEntity {
 	}
 
 	public EntityPlayer getOwnerPlayer() {
-		return this.world.getPlayerEntityByUUID(owner);
+		return world.getPlayerEntityByUUID(owner);
 	}
 
 	public UUID getOwnerUUID() {
@@ -65,22 +65,22 @@ public class TileEntityKeycardReader extends TileEntity {
 
 	@Override
 	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		this.readFromNBT(pkt.getNbtCompound());
+		readFromNBT(pkt.getNbtCompound());
 	}
 
 	@Override
 	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(pos, 1, this.writeToNBT(new NBTTagCompound()));
+		return new SPacketUpdateTileEntity(pos, 1, writeToNBT(new NBTTagCompound()));
 	}
 
 	@Override
 	public NBTTagCompound getUpdateTag() {
-		return this.writeToNBT(new NBTTagCompound());
+		return writeToNBT(new NBTTagCompound());
 	}
 
 	@Override
 	public void handleUpdateTag(NBTTagCompound tag) {
-		this.readFromNBT(tag);
+		readFromNBT(tag);
 	}
 
 	@Override

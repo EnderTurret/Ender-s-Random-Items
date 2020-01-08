@@ -11,7 +11,7 @@ public class ItemBase extends Item {
 		this.name = name;
 		setTranslationKey(name);
 		setRegistryName(name);
-		setCreativeTab(RandomItems.tab);
+		setCreativeTab(RandomItems.TAB);
 	}
 
 	/**

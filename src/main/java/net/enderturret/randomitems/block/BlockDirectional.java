@@ -1,6 +1,6 @@
 package net.enderturret.randomitems.block;
 
-import net.enderturret.randomitems.util.RandomItemsUtils;
+import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
 import net.minecraft.block.properties.PropertyDirection;
@@ -33,7 +33,7 @@ public class BlockDirectional extends BlockBase {
 	 * @return An array of AxisAlignedBBs in the order above
 	 */
 	public AxisAlignedBB[] getRotationAABB() {
-		return new AxisAlignedBB[] {RandomItemsUtils.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtils.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtils.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtils.getAABBFromPixels(0, 0, 0, 16, 16, 16)};
+		return new AxisAlignedBB[] {RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)};
 	}
 
 	@Override

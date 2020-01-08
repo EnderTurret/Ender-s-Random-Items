@@ -3,7 +3,7 @@ package net.enderturret.randomitems.enchantment;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
-import net.minecraft.util.text.TextComponentString;
+import net.minecraft.util.text.TextComponentTranslation;
 
 public class DamageSourceNVIDIA extends DamageSource {
 
@@ -12,7 +12,7 @@ public class DamageSourceNVIDIA extends DamageSource {
 	}
 
 	@Override
-	public ITextComponent getDeathMessage(EntityLivingBase entityLivingBaseIn) {
-		return new TextComponentString(entityLivingBaseIn.getName() + " experienced nVIDIA");
+	public ITextComponent getDeathMessage(EntityLivingBase entityIn) {
+		return new TextComponentTranslation("enchantment.nvidia.deathmessage", entityIn.getName());
 	}
 }
