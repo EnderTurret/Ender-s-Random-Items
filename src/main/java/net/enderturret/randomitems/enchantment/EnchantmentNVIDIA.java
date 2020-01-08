@@ -18,13 +18,12 @@ import net.minecraftforge.fml.relauncher.Side;
 
 public class EnchantmentNVIDIA extends Enchantment {
 
-	private final String name = "nvidia";
 	private final Random rand = new Random();
 
 	protected EnchantmentNVIDIA() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
-		setRegistryName(Reference.MOD_ID, name);
-		setName(name);
+		setRegistryName(Reference.MOD_ID, "nvidia");
+		setName("nvidia");
 	}
 
 	@Override

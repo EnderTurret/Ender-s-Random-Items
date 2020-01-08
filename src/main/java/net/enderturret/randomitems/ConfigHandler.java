@@ -7,7 +7,7 @@ import net.minecraftforge.common.config.Config.Comment;
 public class ConfigHandler {
 
 	@Comment("Whether tesseracts apply effects.")
-	public static boolean tesseractEffects = true;
+	public static boolean tesseractsEnabled = true;
 
 	@Comment("Whether FLARD does anything when right-clicked.")
 	public static boolean flardEnabled = true;
@@ -19,7 +19,7 @@ public class ConfigHandler {
 	public static boolean puffballEffectsEnabled = true;
 
 	@Comment("Whether the brown puffball applies its effect.")
-	public static boolean saturationPuffballEnabled = true;
+	public static boolean brownPuffballEnabled = true;
 
 	@Comment("Whether the stone chisels can be used.")
 	public static boolean stoneChiselEnabled = true;
@@ -35,7 +35,7 @@ public class ConfigHandler {
 	public static boolean antiGravEnabled = true;
 
 	@Comment("Whether core crafting is enabled.")
-	public static boolean coreThingEnabled = true;
+	public static boolean coreCraftingEnabled = true;
 
 	@Comment("For controlling individual effects.")
 	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();

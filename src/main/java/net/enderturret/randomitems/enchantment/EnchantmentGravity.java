@@ -10,12 +10,10 @@ import net.minecraft.item.ItemStack;
 
 public class EnchantmentGravity extends Enchantment {
 
-	private final String name = "antigravity";
-
 	protected EnchantmentGravity() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
-		setRegistryName(Reference.MOD_ID, name);
-		setName(name);
+		setRegistryName(Reference.MOD_ID, "antigravity");
+		setName("antigravity");
 	}
 
 	@Override

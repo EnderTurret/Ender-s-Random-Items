@@ -26,7 +26,7 @@ public class ItemPuffball extends ItemBase {
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (this == ModItems.PUFFBALL_BROWN && !ConfigHandler.saturationPuffballEnabled)
+		if (this == ModItems.PUFFBALL_BROWN && !ConfigHandler.brownPuffballEnabled)
 			return;
 		if (ConfigHandler.puffballEffectsEnabled && entityIn instanceof EntityPlayer) {
 			EntityPlayer playerIn = (EntityPlayer)entityIn;

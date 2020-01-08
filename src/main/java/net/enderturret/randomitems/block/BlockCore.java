@@ -78,7 +78,7 @@ public class BlockCore extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (canCraft && ConfigHandler.coreThingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
+		if (canCraft && ConfigHandler.coreCraftingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
 			return craft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
 		return false;
 	}

@@ -12,9 +12,9 @@
 
 # Eclipse
 bin
-*.launch
 .settings
 .metadata
+*.launch
 .classpath
 .project
 
@@ -27,10 +27,11 @@ out
 
 # Gradle
 build
+gradle
 .gradle
 gradlew
+gradlew.bat
 gradle.properties
-gradle
 
 # Other
 eclipse

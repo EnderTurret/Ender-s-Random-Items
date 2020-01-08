@@ -28,7 +28,7 @@ public class BlockTesseract extends BlockBase {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.tesseractEffects) {
+		if (ConfigHandler.tesseractsEnabled) {
 			playerIn.addPotionEffect(new PotionEffect(effect, 6000, 0));
 			return true;
 		}
