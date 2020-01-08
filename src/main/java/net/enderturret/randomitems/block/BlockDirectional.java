@@ -18,6 +18,13 @@ public class BlockDirectional extends BlockBase {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
+	public static final AxisAlignedBB[] DEFAULT_AABB = new AxisAlignedBB[] {
+			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
+			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
+			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
+			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)
+	};
+
 	public BlockDirectional(String name, SoundType soundType, Material material) {
 		super(name, soundType, material);
 		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
@@ -33,7 +40,7 @@ public class BlockDirectional extends BlockBase {
 	 * @return An array of AxisAlignedBBs in the order above
 	 */
 	public AxisAlignedBB[] getRotationAABB() {
-		return new AxisAlignedBB[] {RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16), RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)};
+		return DEFAULT_AABB;
 	}
 
 	@Override

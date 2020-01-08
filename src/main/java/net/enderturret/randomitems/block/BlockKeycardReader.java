@@ -33,6 +33,8 @@ public class BlockKeycardReader extends BlockDirectional {
 	private static final AxisAlignedBB WEST_AABB = RandomItemsUtil.getAABBFromPixels(14, 6, 6, 16, 10, 10);
 	private static final AxisAlignedBB EAST_AABB = RandomItemsUtil.getAABBFromPixels(0, 6, 6, 2, 10, 10);
 
+	private static final AxisAlignedBB[] AABB = new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
+
 	public BlockKeycardReader(String name) {
 		super(name, SoundType.STONE, Material.IRON);
 		this.setDefaultState(this.getDefaultState().withProperty(POWERED, false));
@@ -180,6 +182,6 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	@Override
 	public AxisAlignedBB[] getRotationAABB() {
-		return new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
+		return AABB;
 	}
 }
