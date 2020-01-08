@@ -53,4 +53,4 @@ A Minecraft mod with a bunch of random items, blocks, enchantments, and commands
 
 **Custom FLARD effects**: Utilized by FLARD to do something random, like a lucky block. You can create your own effects by extending FLARDEffect, and filling out the method runEffect() and (optionally) canRun(). Then you would want to register the effect by listening to the event RegistryEvent.Register&lt;FLARDEffect&gt;.
 You can see the implementation for each effect [here](../master/src/main/java/net/enderturret/randomitems/flardeffects).
-And you can look at the registration [here](../master/src/main/java/net/enderturret/randomitems/RandomItems) and [here](../master/src/main/java/net/enderturret/randomitems/init/ModFlardEffects).
+And you can look at the registration [here](../master/src/main/java/net/enderturret/randomitems/RandomItems.java) and [here](../master/src/main/java/net/enderturret/randomitems/init/ModFlardEffects.java).
