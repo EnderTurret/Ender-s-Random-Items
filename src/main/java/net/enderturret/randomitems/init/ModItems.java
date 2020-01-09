@@ -41,31 +41,6 @@ public class ModItems {
 	public static final ItemPuffball PUFFBALL_MAGENTA = new ItemPuffball("puffball_magenta", MobEffects.GLOWING);
 	public static final ItemPuffball PUFFBALL_PINK = new ItemPuffball("puffball_pink", MobEffects.STRENGTH);
 
-	public static final ItemArmor INVISIBLE_LEATHER_CAP = new ItemArmor("invisible_leather_cap", ArmorMaterial.LEATHER, EntityEquipmentSlot.HEAD, true);
-	public static final ItemArmor INVISIBLE_LEATHER_TUNIC = new ItemArmor("invisible_leather_tunic", ArmorMaterial.LEATHER, EntityEquipmentSlot.CHEST, true);
-	public static final ItemArmor INVISIBLE_LEATHER_PANTS = new ItemArmor("invisible_leather_pants", ArmorMaterial.LEATHER, EntityEquipmentSlot.LEGS, true);
-	public static final ItemArmor INVISIBLE_LEATHER_BOOTS = new ItemArmor("invisible_leather_boots", ArmorMaterial.LEATHER, EntityEquipmentSlot.FEET, true);
-
-	public static final ItemArmor INVISIBLE_CHAIN_HELMET = new ItemArmor("invisible_chainmail_helmet", ArmorMaterial.CHAIN, EntityEquipmentSlot.HEAD, true);
-	public static final ItemArmor INVISIBLE_CHAIN_CHESTPLATE = new ItemArmor("invisible_chainmail_chestplate", ArmorMaterial.CHAIN, EntityEquipmentSlot.CHEST, true);
-	public static final ItemArmor INVISIBLE_CHAIN_LEGGINGS = new ItemArmor("invisible_chainmail_leggings", ArmorMaterial.CHAIN, EntityEquipmentSlot.LEGS, true);
-	public static final ItemArmor INVISIBLE_CHAIN_BOOTS = new ItemArmor("invisible_chainmail_boots", ArmorMaterial.CHAIN, EntityEquipmentSlot.FEET, true);
-
-	public static final ItemArmor INVISIBLE_IRON_HELMET = new ItemArmor("invisible_iron_helmet", ArmorMaterial.IRON, EntityEquipmentSlot.HEAD, true);
-	public static final ItemArmor INVISIBLE_IRON_CHESTPLATE = new ItemArmor("invisible_iron_chestplate", ArmorMaterial.IRON, EntityEquipmentSlot.CHEST, true);
-	public static final ItemArmor INVISIBLE_IRON_LEGGINGS = new ItemArmor("invisible_iron_leggings", ArmorMaterial.IRON, EntityEquipmentSlot.LEGS, true);
-	public static final ItemArmor INVISIBLE_IRON_BOOTS = new ItemArmor("invisible_iron_boots", ArmorMaterial.IRON, EntityEquipmentSlot.FEET, true);
-
-	public static final ItemArmor INVISIBLE_GOLD_HELMET = new ItemArmor("invisible_gold_helmet", ArmorMaterial.GOLD, EntityEquipmentSlot.HEAD, true);
-	public static final ItemArmor INVISIBLE_GOLD_CHESTPLATE = new ItemArmor("invisible_gold_chestplate", ArmorMaterial.GOLD, EntityEquipmentSlot.CHEST, true);
-	public static final ItemArmor INVISIBLE_GOLD_LEGGINGS = new ItemArmor("invisible_gold_leggings", ArmorMaterial.GOLD, EntityEquipmentSlot.LEGS, true);
-	public static final ItemArmor INVISIBLE_GOLD_BOOTS = new ItemArmor("invisible_gold_boots", ArmorMaterial.GOLD, EntityEquipmentSlot.FEET, true);
-
-	public static final ItemArmor INVISIBLE_DIAMOND_HELMET = new ItemArmor("invisible_diamond_helmet", ArmorMaterial.DIAMOND, EntityEquipmentSlot.HEAD, true);
-	public static final ItemArmor INVISIBLE_DIAMOND_CHESTPLATE = new ItemArmor("invisible_diamond_chestplate", ArmorMaterial.DIAMOND, EntityEquipmentSlot.CHEST, true);
-	public static final ItemArmor INVISIBLE_DIAMOND_LEGGINGS = new ItemArmor("invisible_diamond_leggings", ArmorMaterial.DIAMOND, EntityEquipmentSlot.LEGS, true);
-	public static final ItemArmor INVISIBLE_DIAMOND_BOOTS = new ItemArmor("invisible_diamond_boots", ArmorMaterial.DIAMOND, EntityEquipmentSlot.FEET, true);
-
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				MOIST_TOWELETTE,
@@ -96,28 +71,7 @@ public class ModItems {
 				PUFFBALL_BLUE,
 				PUFFBALL_PURPLE,
 				PUFFBALL_MAGENTA,
-				PUFFBALL_PINK,
-
-				INVISIBLE_LEATHER_CAP,
-				INVISIBLE_LEATHER_TUNIC,
-				INVISIBLE_LEATHER_PANTS,
-				INVISIBLE_LEATHER_BOOTS,
-				INVISIBLE_CHAIN_HELMET,
-				INVISIBLE_CHAIN_CHESTPLATE,
-				INVISIBLE_CHAIN_LEGGINGS,
-				INVISIBLE_CHAIN_BOOTS,
-				INVISIBLE_IRON_HELMET,
-				INVISIBLE_IRON_CHESTPLATE,
-				INVISIBLE_IRON_LEGGINGS,
-				INVISIBLE_IRON_BOOTS,
-				INVISIBLE_GOLD_HELMET,
-				INVISIBLE_GOLD_CHESTPLATE,
-				INVISIBLE_GOLD_LEGGINGS,
-				INVISIBLE_GOLD_BOOTS,
-				INVISIBLE_DIAMOND_HELMET,
-				INVISIBLE_DIAMOND_CHESTPLATE,
-				INVISIBLE_DIAMOND_LEGGINGS,
-				INVISIBLE_DIAMOND_BOOTS
+				PUFFBALL_PINK
 				);
 	}
 
@@ -151,27 +105,6 @@ public class ModItems {
 		PUFFBALL_PURPLE.registerItemModel();
 		PUFFBALL_MAGENTA.registerItemModel();
 		PUFFBALL_PINK.registerItemModel();
-
-		INVISIBLE_LEATHER_CAP.registerItemModel();
-		INVISIBLE_LEATHER_TUNIC.registerItemModel();
-		INVISIBLE_LEATHER_PANTS.registerItemModel();
-		INVISIBLE_LEATHER_BOOTS.registerItemModel();
-		INVISIBLE_CHAIN_HELMET.registerItemModel();
-		INVISIBLE_CHAIN_CHESTPLATE.registerItemModel();
-		INVISIBLE_CHAIN_LEGGINGS.registerItemModel();
-		INVISIBLE_CHAIN_BOOTS.registerItemModel();
-		INVISIBLE_IRON_HELMET.registerItemModel();
-		INVISIBLE_IRON_CHESTPLATE.registerItemModel();
-		INVISIBLE_IRON_LEGGINGS.registerItemModel();
-		INVISIBLE_IRON_BOOTS.registerItemModel();
-		INVISIBLE_GOLD_HELMET.registerItemModel();
-		INVISIBLE_GOLD_CHESTPLATE.registerItemModel();
-		INVISIBLE_GOLD_LEGGINGS.registerItemModel();
-		INVISIBLE_GOLD_BOOTS.registerItemModel();
-		INVISIBLE_DIAMOND_HELMET.registerItemModel();
-		INVISIBLE_DIAMOND_CHESTPLATE.registerItemModel();
-		INVISIBLE_DIAMOND_LEGGINGS.registerItemModel();
-		INVISIBLE_DIAMOND_BOOTS.registerItemModel();
 	}
 
 	public static void initOreDict() {}

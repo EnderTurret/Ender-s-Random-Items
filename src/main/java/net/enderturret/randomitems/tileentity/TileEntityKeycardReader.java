@@ -22,13 +22,13 @@ public class TileEntityKeycardReader extends TileEntity {
 		return keycardName;
 	}
 
-	public void setOwner(UUID playerUUID) {
-		this.owner = playerUUID;
+	public void setKeycardName(String name) {
+		this.keycardName = name;
 		markDirty();
 	}
 
-	public void setKeycardName(String name) {
-		this.keycardName = name;
+	public void setOwner(UUID playerUUID) {
+		this.owner = playerUUID;
 		markDirty();
 	}
 

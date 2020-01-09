@@ -116,7 +116,7 @@ public class ModBlocks {
 	}
 
 	/*
-	 * One registry to bring them all and in the pre-init register them.
+	 * One registry to bring them all and in the event register them.
 	 */
 	public static void registerModels() {
 		TESSERACT.registerItemModel();

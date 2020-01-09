@@ -27,8 +27,6 @@ A Minecraft mod with a bunch of random items, blocks, enchantments, and commands
 
 **FLARD**: It's pretty much just a lucky block in item form.
 
-**Invisible Armor**: It's really just normal vanilla armor but with the overlay absolutely covered in alpha.
-
 **Keycard**: Goes with the keycard reader. Renaming the item and shift-clicking a keycard reader you own will set the reader's stored name to the keycard's name.
 
 **Sanitizing water**: Crafting item.

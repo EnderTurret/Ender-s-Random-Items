@@ -58,31 +58,6 @@ item.puffball_purple.name=Purple Puffball
 item.puffball_magenta.name=Magenta Puffball
 item.puffball_pink.name=Pink Puffball
 
-item.invisible_leather_cap.name=Invisible Leather Cap
-item.invisible_leather_tunic.name=Invisible Leather Tunic
-item.invisible_leather_pants.name=Invisible Leather Pants
-item.invisible_leather_boots.name=Invisible Leather Boots
-
-item.invisible_chainmail_helmet.name=Invisible Chainmail Helmet
-item.invisible_chainmail_chestplate.name=Invisible Chainmail Chestplate
-item.invisible_chainmail_leggings.name=Invisible Chainmail Leggings
-item.invisible_chainmail_boots.name=Invisible Chainmail Boots
-
-item.invisible_iron_helmet.name=Invisible Iron Helmet
-item.invisible_iron_chestplate.name=Invisible Iron Chestplate
-item.invisible_iron_leggings.name=Invisible Iron Leggings
-item.invisible_iron_boots.name=Invisible Iron Boots
-
-item.invisible_gold_helmet.name=Invisible Gold Helmet
-item.invisible_gold_chestplate.name=Invisible Gold Chestplate
-item.invisible_gold_leggings.name=Invisible Gold Leggings
-item.invisible_gold_boots.name=Invisible Gold Boots
-
-item.invisible_diamond_helmet.name=Invisible Diamond Helmet
-item.invisible_diamond_chestplate.name=Invisible Diamond Chestplate
-item.invisible_diamond_leggings.name=Invisible Diamond Leggings
-item.invisible_diamond_boots.name=Invisible Diamond Boots
-
 randomitems.keycard.getname=Keycard Reader's saved name: %s
 randomitems.keycard.setname=Changed keycard reader's saved name to %s.
 

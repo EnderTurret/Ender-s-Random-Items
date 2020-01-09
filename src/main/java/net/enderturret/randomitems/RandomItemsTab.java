@@ -7,7 +7,7 @@ import net.minecraft.item.ItemStack;
 public class RandomItemsTab extends CreativeTabs {
 
 	public RandomItemsTab() {
-		super("randomitems");
+		super(Reference.MOD_ID);
 	}
 
 	@Override
