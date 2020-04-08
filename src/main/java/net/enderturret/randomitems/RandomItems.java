@@ -54,7 +54,6 @@ public class RandomItems {
 		}
 		PermissionAPI.registerNode("randomitems.randomitems", DefaultPermissionLevel.OP, "Debug command for testing FLARD effects and stuff.");
 
-		ModItems.initOreDict();
 		ModBlocks.initOreDict();
 
 		proxy.init();
@@ -111,6 +110,99 @@ public class RandomItems {
 		public static void onConfigChanged(OnConfigChangedEvent e) {
 			if (e.getModID().equals(Reference.MOD_ID))
 				ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
+		}
+
+		@SubscribeEvent
+		public static void missingMappings(RegistryEvent.MissingMappings<Item> event) {
+			for (RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
+				final String path = mapping.key.getPath();
+				if (path.startsWith("puffball_")) {
+					if ("puffball_white".equals(path)) mapping.remap(ModItems.PUFFBALL_WHITE);
+					else if ("puffball_light_gray".equals(path)) mapping.remap(ModItems.PUFFBALL_LIGHT_GRAY);
+					else if ("puffball_gray".equals(path)) mapping.remap(ModItems.PUFFBALL_GRAY);
+					else if ("puffball_black".equals(path)) mapping.remap(ModItems.PUFFBALL_BLACK);
+					else if ("puffball_brown".equals(path)) mapping.remap(ModItems.PUFFBALL_BROWN);
+					else if ("puffball_red".equals(path)) mapping.remap(ModItems.PUFFBALL_RED);
+					else if ("puffball_orange".equals(path)) mapping.remap(ModItems.PUFFBALL_ORANGE);
+					else if ("puffball_yellow".equals(path)) mapping.remap(ModItems.PUFFBALL_YELLOW);
+					else if ("puffball_lime".equals(path)) mapping.remap(ModItems.PUFFBALL_LIME);
+					else if ("puffball_green".equals(path)) mapping.remap(ModItems.PUFFBALL_GREEN);
+					else if ("puffball_cyan".equals(path)) mapping.remap(ModItems.PUFFBALL_CYAN);
+					else if ("puffball_light_blue".equals(path)) mapping.remap(ModItems.PUFFBALL_LIGHT_BLUE);
+					else if ("puffball_blue".equals(path)) mapping.remap(ModItems.PUFFBALL_BLUE);
+					else if ("puffball_purple".equals(path)) mapping.remap(ModItems.PUFFBALL_PURPLE);
+					else if ("puffball_magenta".equals(path)) mapping.remap(ModItems.PUFFBALL_MAGENTA);
+					else if ("puffball_pink".equals(path)) mapping.remap(ModItems.PUFFBALL_PINK);
+				}
+
+				if ("block_tesseract".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.TESSERACT));
+				else if ("block_love_tesseract".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.LOVE_TESSERACT));
+				else if ("block_stone_torch".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.STONE_TORCH));
+				else if ("block_wolfenoot_cake".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.WOLFENOOT_CAKE));
+				else if ("block_keycard_reader".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.KEYCARD_READER));
+				else if ("block_dog_plushie".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.DOG_PLUSH));
+				else if ("block_clear_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CLEAR));
+				else if ("block_sun_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_SUN));
+				else if ("block_night_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_NIGHT));
+				else if ("block_corrupted_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CORRUPT));
+				else if ("block_universe_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_UNIVERSE));
+				else if (path.startsWith("block_core_")) {
+					if ("block_core_purple".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_PURPLE));
+					else if ("block_core_red".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_RED));
+					else if ("block_core_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLUE));
+					else if ("block_core_black".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLACK));
+					else if ("block_core_yellow".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_YELLOW));
+					else if ("block_core_white".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_WHITE));
+					else if ("block_core_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_GRAY));
+					else if ("block_core_light_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIGHT_GRAY));
+					else if ("block_core_light_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIGHT_BLUE));
+					else if ("block_core_cyan".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CYAN));
+					else if ("block_core_orange".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_ORANGE));
+					else if ("block_core_magenta".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_MAGENTA));
+					else if ("block_core_pink".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_PINK));
+					else if ("block_core_brown".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BROWN));
+					else if ("block_core_green".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_GREEN));
+					else if ("block_core_lime".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIME));
+					else if ("block_core_black_2".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLACK_2));
+				}
+			}
+		}
+
+		@SubscribeEvent
+		public static void missingMappingsBlock(RegistryEvent.MissingMappings<Block> event) {
+			for (RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
+				final String path = mapping.key.getPath();
+				if ("block_tesseract".equals(path)) mapping.remap(ModBlocks.TESSERACT);
+				else if ("block_love_tesseract".equals(path)) mapping.remap(ModBlocks.LOVE_TESSERACT);
+				else if ("block_stone_torch".equals(path)) mapping.remap(ModBlocks.STONE_TORCH);
+				else if ("block_wolfenoot_cake".equals(path)) mapping.remap(ModBlocks.WOLFENOOT_CAKE);
+				else if ("block_keycard_reader".equals(path)) mapping.remap(ModBlocks.KEYCARD_READER);
+				else if ("block_dog_plushie".equals(path)) mapping.remap(ModBlocks.DOG_PLUSH);
+				else if ("block_clear_core".equals(path)) mapping.remap(ModBlocks.CORE_CLEAR);
+				else if ("block_sun_core".equals(path)) mapping.remap(ModBlocks.CORE_SUN);
+				else if ("block_night_core".equals(path)) mapping.remap(ModBlocks.CORE_NIGHT);
+				else if ("block_corrupted_core".equals(path)) mapping.remap(ModBlocks.CORE_CORRUPT);
+				else if ("block_universe_core".equals(path)) mapping.remap(ModBlocks.CORE_UNIVERSE);
+				else if (path.startsWith("block_core")) {
+					if ("block_core_purple".equals(path)) mapping.remap(ModBlocks.CORE_PURPLE);
+					else if ("block_core_red".equals(path)) mapping.remap(ModBlocks.CORE_RED);
+					else if ("block_core_blue".equals(path)) mapping.remap(ModBlocks.CORE_BLUE);
+					else if ("block_core_black".equals(path)) mapping.remap(ModBlocks.CORE_BLACK);
+					else if ("block_core_yellow".equals(path)) mapping.remap(ModBlocks.CORE_YELLOW);
+					else if ("block_core_white".equals(path)) mapping.remap(ModBlocks.CORE_WHITE);
+					else if ("block_core_gray".equals(path)) mapping.remap(ModBlocks.CORE_GRAY);
+					else if ("block_core_light_gray".equals(path)) mapping.remap(ModBlocks.CORE_LIGHT_GRAY);
+					else if ("block_core_light_blue".equals(path)) mapping.remap(ModBlocks.CORE_LIGHT_BLUE);
+					else if ("block_core_cyan".equals(path)) mapping.remap(ModBlocks.CORE_CYAN);
+					else if ("block_core_orange".equals(path)) mapping.remap(ModBlocks.CORE_ORANGE);
+					else if ("block_core_magenta".equals(path)) mapping.remap(ModBlocks.CORE_MAGENTA);
+					else if ("block_core_pink".equals(path)) mapping.remap(ModBlocks.CORE_PINK);
+					else if ("block_core_brown".equals(path)) mapping.remap(ModBlocks.CORE_BROWN);
+					else if ("block_core_green".equals(path)) mapping.remap(ModBlocks.CORE_GREEN);
+					else if ("block_core_lime".equals(path)) mapping.remap(ModBlocks.CORE_LIME);
+					else if ("block_core_black_2".equals(path)) mapping.remap(ModBlocks.CORE_BLACK_2);
+				}
+			}
 		}
 	}
 }

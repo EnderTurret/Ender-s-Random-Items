@@ -35,8 +35,8 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	private static final AxisAlignedBB[] AABB = new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
 
-	public BlockKeycardReader(String name) {
-		super(name, SoundType.STONE, Material.IRON);
+	public BlockKeycardReader() {
+		super(SoundType.STONE, Material.IRON);
 		this.setDefaultState(this.getDefaultState().withProperty(POWERED, false));
 		setHardness(0.5F);
 		setResistance(0.5F);

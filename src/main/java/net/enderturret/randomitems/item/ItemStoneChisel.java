@@ -5,6 +5,7 @@ import net.enderturret.randomitems.init.ModItems;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.SoundEvents;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
@@ -12,13 +13,12 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemStoneChisel extends ItemBase {
+public class ItemStoneChisel extends Item {
 
-	private final int stickAmount;
+	private final int stickCount;
 
-	public ItemStoneChisel(String name, int durability, int stickAmount) {
-		super(name);
-		this.stickAmount = stickAmount;
+	public ItemStoneChisel(int durability, int stickCount) {
+		this.stickCount = stickCount;
 		setMaxDamage(durability);
 		setMaxStackSize(1);
 	}
@@ -26,7 +26,7 @@ public class ItemStoneChisel extends ItemBase {
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
 		if (ConfigHandler.stoneChiselEnabled && worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-			playerIn.addItemStackToInventory(new ItemStack(ModItems.STONE_STICK, stickAmount));
+			playerIn.addItemStackToInventory(new ItemStack(ModItems.STONE_STICK, stickCount));
 			worldIn.setBlockToAir(pos);
 			if (playerIn.getHeldItem(hand).getItemDamage() == playerIn.getHeldItem(hand).getMaxDamage()) {
 				playerIn.setHeldItem(hand, ItemStack.EMPTY);

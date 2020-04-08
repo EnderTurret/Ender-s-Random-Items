@@ -1,0 +1,6 @@
+{
+	"parent": "randomitems:block/special_core/clear_core_block",
+	"textures": {
+		"0": "randomitems:blocks/core/night_core"
+	}
+}

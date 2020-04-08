@@ -7,6 +7,7 @@ import net.enderturret.randomitems.flardeffects.FLARDEffect;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.EntityEquipmentSlot;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ActionResult;
 import net.minecraft.util.EnumActionResult;
@@ -15,10 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class ItemFLARD extends ItemBase {
+public class ItemFLARD extends Item {
 
 	public ItemFLARD() {
-		super("flard");
 		setMaxStackSize(1);
 	}
 

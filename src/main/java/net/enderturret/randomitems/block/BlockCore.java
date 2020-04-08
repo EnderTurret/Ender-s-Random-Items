@@ -25,8 +25,8 @@ public class BlockCore extends BlockBase {
 	private final MapColor map;
 	private final float[] colorValues;
 
-	public BlockCore(String name, boolean canCraft, EnumDyeColor color) {
-		super(name, SoundType.GLASS, Material.PISTON);
+	public BlockCore(boolean canCraft, EnumDyeColor color) {
+		super(SoundType.GLASS, Material.PISTON);
 		setLightLevel(1F);
 		setHardness(3F);
 		setResistance(3F);
@@ -36,8 +36,8 @@ public class BlockCore extends BlockBase {
 		this.colorValues = color == null ? null : color.getColorComponentValues();
 	}
 
-	public BlockCore(String name, EnumDyeColor color) {
-		this(name, true, color);
+	public BlockCore(EnumDyeColor color) {
+		this(true, color);
 	}
 
 	@Override

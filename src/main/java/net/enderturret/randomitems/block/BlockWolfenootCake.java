@@ -14,8 +14,8 @@ public class BlockWolfenootCake extends BlockBase {
 
 	private static final AxisAlignedBB AABB = RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 8, 16);
 
-	public BlockWolfenootCake(String name) {
-		super(name, SoundType.CLOTH, Material.CAKE);
+	public BlockWolfenootCake() {
+		super(SoundType.CLOTH, Material.CAKE);
 		setHardness(0.5F);
 		setResistance(0.5F);
 	}

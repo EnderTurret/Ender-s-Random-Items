@@ -1,8 +1,0 @@
-{
-    "variants": {
-        "facing=up": { "model": "randomitems:block_stone_torch" },
-        "facing=east": { "model": "randomitems:block_stone_torch_wall" },
-        "facing=south": { "model": "randomitems:block_stone_torch_wall", "y": 90 },
-        "facing=west": { "model": "randomitems:block_stone_torch_wall", "y": 180 },
-        "facing=north": { "model": "randomitems:block_stone_torch_wall", "y": 270 }
-}}

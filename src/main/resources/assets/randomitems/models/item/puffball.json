@@ -1,6 +1,6 @@
 {
-	"parent": "randomitems:item/puffball_base",
+	"parent": "randomitems:item/base_puffball",
 	"textures": {
-		"layer0": "randomitems:items/puffball"
+		"layer0": "randomitems:items/white_puffball"
 	}
 }

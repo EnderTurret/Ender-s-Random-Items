@@ -19,8 +19,8 @@ public class BlockPlushie extends BlockDirectional {
 
 	private static final AxisAlignedBB[] AABB = new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
 
-	public BlockPlushie(String name, SoundType soundType, Material material) {
-		super(name, soundType, material);
+	public BlockPlushie(SoundType soundType, Material material) {
+		super(soundType, material);
 		setHardness(0.8F);
 		setResistance(0.8F);
 	}

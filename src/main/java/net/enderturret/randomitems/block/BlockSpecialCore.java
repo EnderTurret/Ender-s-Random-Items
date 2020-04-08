@@ -12,8 +12,8 @@ public class BlockSpecialCore extends BlockCore {
 
 	private static final AxisAlignedBB AABB = RandomItemsUtil.getAABBFromPixels(3, 2, 3, 13, 15, 13);
 
-	public BlockSpecialCore(String name) {
-		super(name, false, null);
+	public BlockSpecialCore() {
+		super(false, null);
 	}
 
 	@Override

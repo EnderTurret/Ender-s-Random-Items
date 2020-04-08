@@ -1,6 +1,0 @@
-{
-	"parent": "randomitems:block/block_keycard_reader",
-	"textures": {
-		"1": "randomitems:blocks/keycard_reader/keycard_reader_off"
-	}
-}

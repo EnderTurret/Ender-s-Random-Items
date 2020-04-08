@@ -1,0 +1,12 @@
+{
+	"forge_marker": 1,
+    "variants": {
+		"facing=east,powered=false":  { "model": "randomitems:keycard_reader_block_off", "x": 90, "y": 90  },
+		"facing=west,powered=false":  { "model": "randomitems:keycard_reader_block_off", "x": 90, "y": 270 },
+        "facing=south,powered=false": { "model": "randomitems:keycard_reader_block_off", "x": 90, "y": 180 },
+        "facing=north,powered=false": { "model": "randomitems:keycard_reader_block_off", "x": 90           },
+        "facing=east,powered=true":   { "model": "randomitems:keycard_reader_block", "x": 90, "y": 90      },
+        "facing=west,powered=true":   { "model": "randomitems:keycard_reader_block", "x": 90, "y": 270     },
+        "facing=south,powered=true":  { "model": "randomitems:keycard_reader_block", "x": 90, "y": 180     },
+        "facing=north,powered=true":  { "model": "randomitems:keycard_reader_block", "x": 90               }
+}}

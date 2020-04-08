@@ -6,14 +6,13 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.item.EntityItem;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemQuestionableCheese extends ItemBase {
+public class ItemQuestionableCheese extends Item {
 
-	public ItemQuestionableCheese() {
-		super("questionable_cheese");
-	}
+	public ItemQuestionableCheese() {}
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {

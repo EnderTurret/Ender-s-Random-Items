@@ -1,0 +1,8 @@
+{
+	"forge_marker": 1,
+    "variants": {
+		"facing=east":  { "model": "randomitems:dog_plushie_block", "y": 90  },
+		"facing=west":  { "model": "randomitems:dog_plushie_block", "y": 270 },
+        "facing=south": { "model": "randomitems:dog_plushie_block", "y": 180 },
+        "facing=north": { "model": "randomitems:dog_plushie_block"}
+}}

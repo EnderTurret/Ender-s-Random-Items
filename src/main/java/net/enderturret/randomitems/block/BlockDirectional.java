@@ -25,9 +25,9 @@ public class BlockDirectional extends BlockBase {
 			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)
 	};
 
-	public BlockDirectional(String name, SoundType soundType, Material material) {
-		super(name, soundType, material);
-		this.setDefaultState(this.blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+	public BlockDirectional(SoundType soundType, Material material) {
+		super(soundType, material);
+		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}
 
 	/**

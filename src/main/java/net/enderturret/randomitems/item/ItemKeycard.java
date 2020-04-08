@@ -3,6 +3,7 @@ package net.enderturret.randomitems.item;
 import net.enderturret.randomitems.block.BlockKeycardReader;
 import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
@@ -10,11 +11,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class ItemKeycard extends ItemBase {
+public class ItemKeycard extends Item {
 
-	public ItemKeycard(String name) {
-		super(name);
-	}
+	public ItemKeycard() {}
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {

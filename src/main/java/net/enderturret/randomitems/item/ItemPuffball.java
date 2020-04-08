@@ -9,18 +9,18 @@ import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.MobEffects;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.world.World;
 
-public class ItemPuffball extends ItemBase {
+public class ItemPuffball extends Item {
 
 	private static final UUID MAX_HEALTH_UUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
 	private final Potion effect;
 
-	public ItemPuffball(String name, Potion effect) {
-		super(name);
+	public ItemPuffball(Potion effect) {
 		this.effect = effect;
 	}
 

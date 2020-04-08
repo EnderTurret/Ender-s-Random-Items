@@ -18,8 +18,8 @@ public class BlockTesseract extends BlockBase {
 
 	private final Potion effect;
 
-	public BlockTesseract(String name, SoundType soundType, Material material, Potion effect) {
-		super(name, soundType, material);
+	public BlockTesseract(SoundType soundType, Material material, Potion effect) {
+		super(soundType, material);
 		this.effect = effect;
 		setHardness(50F);
 		setResistance(2000F);

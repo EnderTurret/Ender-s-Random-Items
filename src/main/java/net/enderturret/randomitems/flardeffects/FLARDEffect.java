@@ -22,7 +22,7 @@ public abstract class FLARDEffect implements IForgeRegistryEntry<FLARDEffect> {
 
 	/**
 	 * Whether this {@code FLARDEffect} can run.<br>
-	 * For example, you might want your effect to only run if a config option is enabled.
+	 * For example, you might want your effect to run only if a config option is enabled.
 	 * @param worldIn The player's world.
 	 * @param playerIn The player.
 	 * @return True if the effect can run.

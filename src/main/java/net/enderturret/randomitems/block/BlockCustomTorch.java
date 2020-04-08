@@ -8,23 +8,8 @@ import net.minecraft.item.ItemBlock;
 
 public class BlockCustomTorch extends BlockTorch {
 
-	public BlockCustomTorch(String name, SoundType soundType) {
-		this.blockSoundType = soundType;
-		setTranslationKey(name);
-		setRegistryName(name);
-		setCreativeTab(RandomItems.TAB);
+	public BlockCustomTorch(SoundType soundType) {
+		setSoundType(soundType);
 		setLightLevel(1F);
-	}
-
-	public void registerItemModel(Item itemBlock) {
-		RandomItems.proxy.registerItemRenderer(itemBlock, 0, getRegistryName().getPath());
-	}
-
-	public void registerItemModel() {
-		registerItemModel(Item.getItemFromBlock(this));
-	}
-
-	public Item createItemBlock() {
-		return new ItemBlock(this).setRegistryName(getRegistryName());
 	}
 }

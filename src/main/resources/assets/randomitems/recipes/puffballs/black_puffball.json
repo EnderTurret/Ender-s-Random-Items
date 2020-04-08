@@ -1,0 +1,24 @@
+{
+    "result": {
+        "item": "randomitems:black_puffball",
+        "count": 1
+    },
+        "pattern": [
+            "WWW",
+            "SPS",
+			"WWW"
+        ],
+        "type": "minecraft:crafting_shaped",
+        "key": {
+            "W": {
+                "item": "minecraft:wool",
+				"data": 0
+        },
+			"S": {
+				"item": "minecraft:shulker_shell",
+				"data": 0
+		},
+			"P": {
+				"item": "randomitems:puffball"
+		}
+}}

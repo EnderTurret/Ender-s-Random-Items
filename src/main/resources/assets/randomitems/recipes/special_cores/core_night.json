@@ -1,6 +1,6 @@
 {
     "result": {
-        "item": "randomitems:block_night_core",
+        "item": "randomitems:night_core_block",
         "count": 1
     },
         "pattern": [
@@ -15,6 +15,6 @@
 				"data": 15
 	    },
 			"C": {
-                "item": "randomitems:block_clear_core"
+                "item": "randomitems:clear_core_block"
 	    }
 }}
