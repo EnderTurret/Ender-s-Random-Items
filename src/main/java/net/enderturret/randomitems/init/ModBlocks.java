@@ -121,11 +121,11 @@ public class ModBlocks {
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				items(TESSERACT, LOVE_TESSERACT, STONE_TORCH, WOLFENOOT_CAKE, KEYCARD_READER,
-				PURPLE_CORE, RED_CORE, BLUE_CORE, BLACK_CORE, YELLOW_CORE,
-				WHITE_CORE, GRAY_CORE, LIGHT_BLUE_CORE, LIGHT_GRAY_CORE, CYAN_CORE,
-				ORANGE_CORE, MAGENTA_CORE, PINK_CORE, BROWN_CORE, GREEN_CORE,
-				LIME_CORE, BLACK_2_CORE, CLEAR_CORE, SUN_CORE, NIGHT_CORE,
-				CORRUPT_CORE, UNIVERSE_CORE, DOG_PLUSHIE));
+						PURPLE_CORE, RED_CORE, BLUE_CORE, BLACK_CORE, YELLOW_CORE,
+						WHITE_CORE, GRAY_CORE, LIGHT_BLUE_CORE, LIGHT_GRAY_CORE, CYAN_CORE,
+						ORANGE_CORE, MAGENTA_CORE, PINK_CORE, BROWN_CORE, GREEN_CORE,
+						LIME_CORE, BLACK_2_CORE, CLEAR_CORE, SUN_CORE, NIGHT_CORE,
+						CORRUPT_CORE, UNIVERSE_CORE, DOG_PLUSHIE));
 	}
 
 	/*
@@ -182,7 +182,7 @@ public class ModBlocks {
 	}
 
 	public static ItemBlock[] items(Block... blocks) {
-		return Arrays.stream(blocks).map(block -> item(block)).toArray(ItemBlock[]::new);
+		return Arrays.stream(blocks).map(ModBlocks::item).toArray(ItemBlock[]::new);
 	}
 
 	// setSoundType() and blockSoundType are protected, meaning we can't set them here.

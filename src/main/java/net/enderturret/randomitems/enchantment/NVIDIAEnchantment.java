@@ -1,10 +1,7 @@
 package net.enderturret.randomitems.enchantment;
 
-import java.util.Random;
-
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.RandomItems;
-import net.enderturret.randomitems.Reference;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.entity.Entity;

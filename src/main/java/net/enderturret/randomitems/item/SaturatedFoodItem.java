@@ -1,6 +1,5 @@
 package net.enderturret.randomitems.item;
 
-import net.enderturret.randomitems.RandomItems;
 import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
