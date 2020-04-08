@@ -2,9 +2,7 @@ package net.enderturret.randomitems.init;
 
 import net.enderturret.randomitems.item.*;
 import net.minecraft.init.MobEffects;
-import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraftforge.registries.IForgeRegistry;
 
 public class ModItems {
