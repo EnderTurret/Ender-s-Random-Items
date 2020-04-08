@@ -13,11 +13,11 @@ import net.minecraft.util.EnumHand;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class ItemStoneChisel extends Item {
+public class StoneChiselItem extends Item {
 
 	private final int stickCount;
 
-	public ItemStoneChisel(int durability, int stickCount) {
+	public StoneChiselItem(int durability, int stickCount) {
 		this.stickCount = stickCount;
 		setMaxDamage(durability);
 		setMaxStackSize(1);

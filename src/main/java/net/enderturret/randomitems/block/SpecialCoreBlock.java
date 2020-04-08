@@ -8,11 +8,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockSpecialCore extends BlockCore {
+public class SpecialCoreBlock extends CoreBlock {
 
 	private static final AxisAlignedBB AABB = RandomItemsUtil.getAABBFromPixels(3, 2, 3, 13, 15, 13);
 
-	public BlockSpecialCore() {
+	public SpecialCoreBlock() {
 		super(false, null);
 	}
 

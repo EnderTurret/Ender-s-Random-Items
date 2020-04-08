@@ -10,11 +10,11 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockWolfenootCake extends BlockBase {
+public class WolfenootCakeBlock extends BaseBlock {
 
 	private static final AxisAlignedBB AABB = RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 8, 16);
 
-	public BlockWolfenootCake() {
+	public WolfenootCakeBlock() {
 		super(SoundType.CLOTH, Material.CAKE);
 		setHardness(0.5F);
 		setResistance(0.5F);

@@ -17,7 +17,7 @@ public class BlockChangeEffect extends FLARDEffect {
 	public void runEffect(World worldIn, EntityPlayer playerIn) {
 		if (blocks == null) createResourceLocationArray();
 		final Block randomBlock = ForgeRegistries.BLOCKS.getValue(blocks[RAND.nextInt(blocks.length)]);
-		worldIn.setBlockState(playerIn.getPosition().down(), randomBlock == null ? ModBlocks.CORE_CLEAR.getDefaultState() : randomBlock.getDefaultState());
+		worldIn.setBlockState(playerIn.getPosition().down(), randomBlock == null ? ModBlocks.CLEAR_CORE.getDefaultState() : randomBlock.getDefaultState());
 	}
 
 	@Override

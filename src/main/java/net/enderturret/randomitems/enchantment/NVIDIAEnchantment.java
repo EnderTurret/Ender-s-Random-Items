@@ -16,9 +16,9 @@ import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class EnchantmentNVIDIA extends Enchantment {
+public class NVIDIAEnchantment extends Enchantment {
 
-	protected EnchantmentNVIDIA() {
+	protected NVIDIAEnchantment() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
 	}
 
@@ -52,8 +52,8 @@ public class EnchantmentNVIDIA extends Enchantment {
 		if (!ConfigHandler.nvidiaEnchantmentEnabled || !(target instanceof EntityPlayer)) return;
 		if (!target.getEntityWorld().isRemote) {
 			if (target.world.rand.nextInt(3) == 1) // Let's try really hard to hijack a Random from somewhere else.
-				target.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
-			user.attackEntityFrom(new DamageSourceNVIDIA("nVIDIA"), 20F);
+				target.attackEntityFrom(new NVIDIADamageSource("nVIDIA"), 20F);
+			user.attackEntityFrom(new NVIDIADamageSource("nVIDIA"), 20F);
 		}
 		if (FMLCommonHandler.instance().getSide() == Side.CLIENT && RandomItems.proxy.nVIDIA())
 			if (target.world.rand.nextInt(10) == 1 && target instanceof EntityPlayer)

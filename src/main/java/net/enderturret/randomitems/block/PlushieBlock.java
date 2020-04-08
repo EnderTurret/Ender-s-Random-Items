@@ -10,7 +10,7 @@ import net.minecraft.util.math.AxisAlignedBB;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 
-public class BlockPlushie extends BlockDirectional {
+public class PlushieBlock extends DirectionalBlock {
 
 	private static final AxisAlignedBB NORTH_AABB = RandomItemsUtil.getAABBFromPixels(3, 0, 1, 13, 14, 16);
 	private static final AxisAlignedBB SOUTH_AABB = RandomItemsUtil.getAABBFromPixels(3, 0, 0, 13, 14, 15);
@@ -19,7 +19,7 @@ public class BlockPlushie extends BlockDirectional {
 
 	private static final AxisAlignedBB[] AABB = new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
 
-	public BlockPlushie(SoundType soundType, Material material) {
+	public PlushieBlock(SoundType soundType, Material material) {
 		super(soundType, material);
 		setHardness(0.8F);
 		setResistance(0.8F);

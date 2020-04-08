@@ -19,13 +19,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockCore extends BlockBase {
+public class CoreBlock extends BaseBlock {
 
 	private final boolean canCraft;
 	private final MapColor map;
 	private final float[] colorValues;
 
-	public BlockCore(boolean canCraft, EnumDyeColor color) {
+	public CoreBlock(boolean canCraft, EnumDyeColor color) {
 		super(SoundType.GLASS, Material.PISTON);
 		setLightLevel(1F);
 		setHardness(3F);
@@ -36,7 +36,7 @@ public class BlockCore extends BlockBase {
 		this.colorValues = color == null ? null : color.getColorComponentValues();
 	}
 
-	public BlockCore(EnumDyeColor color) {
+	public CoreBlock(EnumDyeColor color) {
 		this(true, color);
 	}
 

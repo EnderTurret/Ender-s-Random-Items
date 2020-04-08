@@ -3,12 +3,12 @@ package net.enderturret.randomitems;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import net.enderturret.randomitems.command.CommandRandomItems;
-import net.enderturret.randomitems.command.CommandRepair;
+import net.enderturret.randomitems.command.RandomItemsCommand;
+import net.enderturret.randomitems.command.RepairCommand;
 import net.enderturret.randomitems.flardeffects.FLARDEffect;
 import net.enderturret.randomitems.init.*;
 import net.enderturret.randomitems.proxy.IProxy;
-import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
+import net.enderturret.randomitems.tileentity.KeycardReaderTileEntity;
 import net.minecraft.block.Block;
 import net.minecraft.item.Item;
 import net.minecraft.util.ResourceLocation;
@@ -57,14 +57,14 @@ public class RandomItems {
 		ModBlocks.initOreDict();
 
 		proxy.init();
-		GameRegistry.registerTileEntity(TileEntityKeycardReader.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
+		GameRegistry.registerTileEntity(KeycardReaderTileEntity.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
 	}
 
 	@Mod.EventHandler
 	public static void onServerStart(FMLServerStartingEvent e) {
 		if (ConfigHandler.repairCommandEnabled)
-			e.registerServerCommand(new CommandRepair());
-		e.registerServerCommand(new CommandRandomItems());
+			e.registerServerCommand(new RepairCommand());
+		e.registerServerCommand(new RandomItemsCommand());
 	}
 
 	@Mod.EventBusSubscriber
@@ -117,22 +117,22 @@ public class RandomItems {
 			for (RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
 				final String path = mapping.key.getPath();
 				if (path.startsWith("puffball_")) {
-					if ("puffball_white".equals(path)) mapping.remap(ModItems.PUFFBALL_WHITE);
-					else if ("puffball_light_gray".equals(path)) mapping.remap(ModItems.PUFFBALL_LIGHT_GRAY);
-					else if ("puffball_gray".equals(path)) mapping.remap(ModItems.PUFFBALL_GRAY);
-					else if ("puffball_black".equals(path)) mapping.remap(ModItems.PUFFBALL_BLACK);
-					else if ("puffball_brown".equals(path)) mapping.remap(ModItems.PUFFBALL_BROWN);
-					else if ("puffball_red".equals(path)) mapping.remap(ModItems.PUFFBALL_RED);
-					else if ("puffball_orange".equals(path)) mapping.remap(ModItems.PUFFBALL_ORANGE);
-					else if ("puffball_yellow".equals(path)) mapping.remap(ModItems.PUFFBALL_YELLOW);
-					else if ("puffball_lime".equals(path)) mapping.remap(ModItems.PUFFBALL_LIME);
-					else if ("puffball_green".equals(path)) mapping.remap(ModItems.PUFFBALL_GREEN);
-					else if ("puffball_cyan".equals(path)) mapping.remap(ModItems.PUFFBALL_CYAN);
-					else if ("puffball_light_blue".equals(path)) mapping.remap(ModItems.PUFFBALL_LIGHT_BLUE);
-					else if ("puffball_blue".equals(path)) mapping.remap(ModItems.PUFFBALL_BLUE);
-					else if ("puffball_purple".equals(path)) mapping.remap(ModItems.PUFFBALL_PURPLE);
-					else if ("puffball_magenta".equals(path)) mapping.remap(ModItems.PUFFBALL_MAGENTA);
-					else if ("puffball_pink".equals(path)) mapping.remap(ModItems.PUFFBALL_PINK);
+					if ("puffball_white".equals(path)) mapping.remap(ModItems.WHITE_PUFFBALL);
+					else if ("puffball_light_gray".equals(path)) mapping.remap(ModItems.LIGHT_GRAY_PUFFBALL);
+					else if ("puffball_gray".equals(path)) mapping.remap(ModItems.GRAY_PUFFBALL);
+					else if ("puffball_black".equals(path)) mapping.remap(ModItems.BLACK_PUFFBALL);
+					else if ("puffball_brown".equals(path)) mapping.remap(ModItems.BROWN_PUFFBALL);
+					else if ("puffball_red".equals(path)) mapping.remap(ModItems.RED_PUFFBALL);
+					else if ("puffball_orange".equals(path)) mapping.remap(ModItems.ORANGE_PUFFBALL);
+					else if ("puffball_yellow".equals(path)) mapping.remap(ModItems.YELLOW_PUFFBALL);
+					else if ("puffball_lime".equals(path)) mapping.remap(ModItems.LIME_PUFFBALL);
+					else if ("puffball_green".equals(path)) mapping.remap(ModItems.GREEN_PUFFBALL);
+					else if ("puffball_cyan".equals(path)) mapping.remap(ModItems.CYAN_PUFFBALL);
+					else if ("puffball_light_blue".equals(path)) mapping.remap(ModItems.LIGHT_BLUE_PUFFBALL);
+					else if ("puffball_blue".equals(path)) mapping.remap(ModItems.BLUE_PUFFBALL);
+					else if ("puffball_purple".equals(path)) mapping.remap(ModItems.PURPLE_PUFFBALL);
+					else if ("puffball_magenta".equals(path)) mapping.remap(ModItems.MAGENTA_PUFFBALL);
+					else if ("puffball_pink".equals(path)) mapping.remap(ModItems.PINK_PUFFBALL);
 				}
 
 				if ("block_tesseract".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.TESSERACT));
@@ -140,30 +140,30 @@ public class RandomItems {
 				else if ("block_stone_torch".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.STONE_TORCH));
 				else if ("block_wolfenoot_cake".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.WOLFENOOT_CAKE));
 				else if ("block_keycard_reader".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.KEYCARD_READER));
-				else if ("block_dog_plushie".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.DOG_PLUSH));
-				else if ("block_clear_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CLEAR));
-				else if ("block_sun_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_SUN));
-				else if ("block_night_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_NIGHT));
-				else if ("block_corrupted_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CORRUPT));
-				else if ("block_universe_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_UNIVERSE));
+				else if ("block_dog_plushie".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.DOG_PLUSHIE));
+				else if ("block_clear_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CLEAR_CORE));
+				else if ("block_sun_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.SUN_CORE));
+				else if ("block_night_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.NIGHT_CORE));
+				else if ("block_corrupted_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORRUPT_CORE));
+				else if ("block_universe_core".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.UNIVERSE_CORE));
 				else if (path.startsWith("block_core_")) {
-					if ("block_core_purple".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_PURPLE));
-					else if ("block_core_red".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_RED));
-					else if ("block_core_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLUE));
-					else if ("block_core_black".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLACK));
-					else if ("block_core_yellow".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_YELLOW));
-					else if ("block_core_white".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_WHITE));
-					else if ("block_core_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_GRAY));
-					else if ("block_core_light_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIGHT_GRAY));
-					else if ("block_core_light_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIGHT_BLUE));
-					else if ("block_core_cyan".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_CYAN));
-					else if ("block_core_orange".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_ORANGE));
-					else if ("block_core_magenta".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_MAGENTA));
-					else if ("block_core_pink".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_PINK));
-					else if ("block_core_brown".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BROWN));
-					else if ("block_core_green".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_GREEN));
-					else if ("block_core_lime".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_LIME));
-					else if ("block_core_black_2".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CORE_BLACK_2));
+					if ("block_core_purple".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.PURPLE_CORE));
+					else if ("block_core_red".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.RED_CORE));
+					else if ("block_core_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.BLUE_CORE));
+					else if ("block_core_black".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.BLACK_CORE));
+					else if ("block_core_yellow".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.YELLOW_CORE));
+					else if ("block_core_white".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.WHITE_CORE));
+					else if ("block_core_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.GRAY_CORE));
+					else if ("block_core_light_gray".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.LIGHT_GRAY_CORE));
+					else if ("block_core_light_blue".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.LIGHT_BLUE_CORE));
+					else if ("block_core_cyan".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.CYAN_CORE));
+					else if ("block_core_orange".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.ORANGE_CORE));
+					else if ("block_core_magenta".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.MAGENTA_CORE));
+					else if ("block_core_pink".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.PINK_CORE));
+					else if ("block_core_brown".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.BROWN_CORE));
+					else if ("block_core_green".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.GREEN_CORE));
+					else if ("block_core_lime".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.LIME_CORE));
+					else if ("block_core_black_2".equals(path)) mapping.remap(Item.getItemFromBlock(ModBlocks.BLACK_2_CORE));
 				}
 			}
 		}
@@ -177,30 +177,30 @@ public class RandomItems {
 				else if ("block_stone_torch".equals(path)) mapping.remap(ModBlocks.STONE_TORCH);
 				else if ("block_wolfenoot_cake".equals(path)) mapping.remap(ModBlocks.WOLFENOOT_CAKE);
 				else if ("block_keycard_reader".equals(path)) mapping.remap(ModBlocks.KEYCARD_READER);
-				else if ("block_dog_plushie".equals(path)) mapping.remap(ModBlocks.DOG_PLUSH);
-				else if ("block_clear_core".equals(path)) mapping.remap(ModBlocks.CORE_CLEAR);
-				else if ("block_sun_core".equals(path)) mapping.remap(ModBlocks.CORE_SUN);
-				else if ("block_night_core".equals(path)) mapping.remap(ModBlocks.CORE_NIGHT);
-				else if ("block_corrupted_core".equals(path)) mapping.remap(ModBlocks.CORE_CORRUPT);
-				else if ("block_universe_core".equals(path)) mapping.remap(ModBlocks.CORE_UNIVERSE);
+				else if ("block_dog_plushie".equals(path)) mapping.remap(ModBlocks.DOG_PLUSHIE);
+				else if ("block_clear_core".equals(path)) mapping.remap(ModBlocks.CLEAR_CORE);
+				else if ("block_sun_core".equals(path)) mapping.remap(ModBlocks.SUN_CORE);
+				else if ("block_night_core".equals(path)) mapping.remap(ModBlocks.NIGHT_CORE);
+				else if ("block_corrupted_core".equals(path)) mapping.remap(ModBlocks.CORRUPT_CORE);
+				else if ("block_universe_core".equals(path)) mapping.remap(ModBlocks.UNIVERSE_CORE);
 				else if (path.startsWith("block_core")) {
-					if ("block_core_purple".equals(path)) mapping.remap(ModBlocks.CORE_PURPLE);
-					else if ("block_core_red".equals(path)) mapping.remap(ModBlocks.CORE_RED);
-					else if ("block_core_blue".equals(path)) mapping.remap(ModBlocks.CORE_BLUE);
-					else if ("block_core_black".equals(path)) mapping.remap(ModBlocks.CORE_BLACK);
-					else if ("block_core_yellow".equals(path)) mapping.remap(ModBlocks.CORE_YELLOW);
-					else if ("block_core_white".equals(path)) mapping.remap(ModBlocks.CORE_WHITE);
-					else if ("block_core_gray".equals(path)) mapping.remap(ModBlocks.CORE_GRAY);
-					else if ("block_core_light_gray".equals(path)) mapping.remap(ModBlocks.CORE_LIGHT_GRAY);
-					else if ("block_core_light_blue".equals(path)) mapping.remap(ModBlocks.CORE_LIGHT_BLUE);
-					else if ("block_core_cyan".equals(path)) mapping.remap(ModBlocks.CORE_CYAN);
-					else if ("block_core_orange".equals(path)) mapping.remap(ModBlocks.CORE_ORANGE);
-					else if ("block_core_magenta".equals(path)) mapping.remap(ModBlocks.CORE_MAGENTA);
-					else if ("block_core_pink".equals(path)) mapping.remap(ModBlocks.CORE_PINK);
-					else if ("block_core_brown".equals(path)) mapping.remap(ModBlocks.CORE_BROWN);
-					else if ("block_core_green".equals(path)) mapping.remap(ModBlocks.CORE_GREEN);
-					else if ("block_core_lime".equals(path)) mapping.remap(ModBlocks.CORE_LIME);
-					else if ("block_core_black_2".equals(path)) mapping.remap(ModBlocks.CORE_BLACK_2);
+					if ("block_core_purple".equals(path)) mapping.remap(ModBlocks.PURPLE_CORE);
+					else if ("block_core_red".equals(path)) mapping.remap(ModBlocks.RED_CORE);
+					else if ("block_core_blue".equals(path)) mapping.remap(ModBlocks.BLUE_CORE);
+					else if ("block_core_black".equals(path)) mapping.remap(ModBlocks.BLACK_CORE);
+					else if ("block_core_yellow".equals(path)) mapping.remap(ModBlocks.YELLOW_CORE);
+					else if ("block_core_white".equals(path)) mapping.remap(ModBlocks.WHITE_CORE);
+					else if ("block_core_gray".equals(path)) mapping.remap(ModBlocks.GRAY_CORE);
+					else if ("block_core_light_gray".equals(path)) mapping.remap(ModBlocks.LIGHT_GRAY_CORE);
+					else if ("block_core_light_blue".equals(path)) mapping.remap(ModBlocks.LIGHT_BLUE_CORE);
+					else if ("block_core_cyan".equals(path)) mapping.remap(ModBlocks.CYAN_CORE);
+					else if ("block_core_orange".equals(path)) mapping.remap(ModBlocks.ORANGE_CORE);
+					else if ("block_core_magenta".equals(path)) mapping.remap(ModBlocks.MAGENTA_CORE);
+					else if ("block_core_pink".equals(path)) mapping.remap(ModBlocks.PINK_CORE);
+					else if ("block_core_brown".equals(path)) mapping.remap(ModBlocks.BROWN_CORE);
+					else if ("block_core_green".equals(path)) mapping.remap(ModBlocks.GREEN_CORE);
+					else if ("block_core_lime".equals(path)) mapping.remap(ModBlocks.LIME_CORE);
+					else if ("block_core_black_2".equals(path)) mapping.remap(ModBlocks.BLACK_2_CORE);
 				}
 			}
 		}

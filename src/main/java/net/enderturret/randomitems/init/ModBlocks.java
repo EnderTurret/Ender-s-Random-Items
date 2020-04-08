@@ -30,53 +30,53 @@ public class ModBlocks {
 	@ObjectHolder("keycard_reader_block")
 	public static final Block KEYCARD_READER = null;
 	@ObjectHolder("dog_plushie_block")
-	public static final Block DOG_PLUSH = null;
+	public static final Block DOG_PLUSHIE = null;
 
 	@ObjectHolder("purple_core_block")
-	public static final Block CORE_PURPLE = null;
+	public static final Block PURPLE_CORE = null;
 	@ObjectHolder("red_core_block")
-	public static final Block CORE_RED = null;
+	public static final Block RED_CORE = null;
 	@ObjectHolder("blue_core_block")
-	public static final Block CORE_BLUE = null;
+	public static final Block BLUE_CORE = null;
 	@ObjectHolder("black_core_block")
-	public static final Block CORE_BLACK = null;
+	public static final Block BLACK_CORE = null;
 	@ObjectHolder("yellow_core_block")
-	public static final Block CORE_YELLOW = null;
+	public static final Block YELLOW_CORE = null;
 	@ObjectHolder("white_core_block")
-	public static final Block CORE_WHITE = null;
+	public static final Block WHITE_CORE = null;
 	@ObjectHolder("gray_core_block")
-	public static final Block CORE_GRAY = null;
+	public static final Block GRAY_CORE = null;
 	@ObjectHolder("light_gray_core_block")
-	public static final Block CORE_LIGHT_GRAY = null;
+	public static final Block LIGHT_GRAY_CORE = null;
 	@ObjectHolder("light_blue_core_block")
-	public static final Block CORE_LIGHT_BLUE = null;
+	public static final Block LIGHT_BLUE_CORE = null;
 	@ObjectHolder("cyan_core_block")
-	public static final Block CORE_CYAN = null;
+	public static final Block CYAN_CORE = null;
 	@ObjectHolder("orange_core_block")
-	public static final Block CORE_ORANGE = null;
+	public static final Block ORANGE_CORE = null;
 	@ObjectHolder("magenta_core_block")
-	public static final Block CORE_MAGENTA = null;
+	public static final Block MAGENTA_CORE = null;
 	@ObjectHolder("pink_core_block")
-	public static final Block CORE_PINK = null;
+	public static final Block PINK_CORE = null;
 	@ObjectHolder("brown_core_block")
-	public static final Block CORE_BROWN = null;
+	public static final Block BROWN_CORE = null;
 	@ObjectHolder("green_core_block")
-	public static final Block CORE_GREEN = null;
+	public static final Block GREEN_CORE = null;
 	@ObjectHolder("lime_core_block")
-	public static final Block CORE_LIME = null;
+	public static final Block LIME_CORE = null;
 	@ObjectHolder("black_core_block_2")
-	public static final Block CORE_BLACK_2 = null;
+	public static final Block BLACK_2_CORE = null;
 
 	@ObjectHolder("clear_core_block")
-	public static final Block CORE_CLEAR = null;
+	public static final Block CLEAR_CORE = null;
 	@ObjectHolder("sun_core_block")
-	public static final Block CORE_SUN = null;
+	public static final Block SUN_CORE = null;
 	@ObjectHolder("night_core_block")
-	public static final Block CORE_NIGHT = null;
+	public static final Block NIGHT_CORE = null;
 	@ObjectHolder("corrupted_core_block")
-	public static final Block CORE_CORRUPT = null;
+	public static final Block CORRUPT_CORE = null;
 	@ObjectHolder("universe_core_block")
-	public static final Block CORE_UNIVERSE = null;
+	public static final Block UNIVERSE_CORE = null;
 
 	/*
 	 * One registry to rule them all.
@@ -84,34 +84,34 @@ public class ModBlocks {
 	public static void register(IForgeRegistry<Block> registry) {
 		registry.registerAll(
 				//configure(new Block(Material), "_block"),
-				configure(new BlockTesseract(SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE), "tesseract_block"),
-				configure(new BlockTesseract(SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION), "love_tesseract_block"),
-				configure(new BlockCustomTorch(SoundType.STONE), "stone_torch_block"),
-				configure(new BlockWolfenootCake(), "wolfenoot_cake_block"),
-				configure(new BlockKeycardReader(), "keycard_reader_block"),
-				configure(new BlockPlushie(SoundType.CLOTH, Material.CLOTH), "dog_plushie_block"),
-				configure(new BlockCore(EnumDyeColor.PURPLE), "purple_core_block"),
-				configure(new BlockCore(EnumDyeColor.RED), "red_core_block"),
-				configure(new BlockCore(EnumDyeColor.BLUE), "blue_core_block"),
-				configure(new BlockCore(EnumDyeColor.BLACK), "black_core_block"),
-				configure(new BlockCore(EnumDyeColor.YELLOW), "yellow_core_block"),
-				configure(new BlockCore(EnumDyeColor.WHITE), "white_core_block"),
-				configure(new BlockCore(EnumDyeColor.GRAY), "gray_core_block"),
-				configure(new BlockCore(EnumDyeColor.LIGHT_BLUE), "light_blue_core_block"),
-				configure(new BlockCore(EnumDyeColor.SILVER), "light_gray_core_block"),
-				configure(new BlockCore(EnumDyeColor.CYAN), "cyan_core_block"),
-				configure(new BlockCore(EnumDyeColor.ORANGE), "orange_core_block"),
-				configure(new BlockCore(EnumDyeColor.MAGENTA), "magenta_core_block"),
-				configure(new BlockCore(EnumDyeColor.PINK), "pink_core_block"),
-				configure(new BlockCore(EnumDyeColor.BROWN), "brown_core_block"),
-				configure(new BlockCore(EnumDyeColor.GREEN), "green_core_block"),
-				configure(new BlockCore(EnumDyeColor.LIME), "lime_core_block"),
-				configure(new BlockCore(EnumDyeColor.BLACK), "black_core_block_2"),
-				configure(new BlockSpecialCore(), "clear_core_block"),
-				configure(new BlockSpecialCore(), "sun_core_block"),
-				configure(new BlockSpecialCore(), "night_core_block"),
-				configure(new BlockSpecialCore(), "corrupted_core_block"),
-				configure(new BlockSpecialCore(), "universe_core_block")
+				configure(new TesseractBlock(SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE), "tesseract_block"),
+				configure(new TesseractBlock(SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION), "love_tesseract_block"),
+				configure(new CustomTorchBlock(SoundType.STONE), "stone_torch_block"),
+				configure(new WolfenootCakeBlock(), "wolfenoot_cake_block"),
+				configure(new KeycardReaderBlock(), "keycard_reader_block"),
+				configure(new PlushieBlock(SoundType.CLOTH, Material.CLOTH), "dog_plushie_block"),
+				configure(new CoreBlock(EnumDyeColor.PURPLE), "purple_core_block"),
+				configure(new CoreBlock(EnumDyeColor.RED), "red_core_block"),
+				configure(new CoreBlock(EnumDyeColor.BLUE), "blue_core_block"),
+				configure(new CoreBlock(EnumDyeColor.BLACK), "black_core_block"),
+				configure(new CoreBlock(EnumDyeColor.YELLOW), "yellow_core_block"),
+				configure(new CoreBlock(EnumDyeColor.WHITE), "white_core_block"),
+				configure(new CoreBlock(EnumDyeColor.GRAY), "gray_core_block"),
+				configure(new CoreBlock(EnumDyeColor.LIGHT_BLUE), "light_blue_core_block"),
+				configure(new CoreBlock(EnumDyeColor.SILVER), "light_gray_core_block"),
+				configure(new CoreBlock(EnumDyeColor.CYAN), "cyan_core_block"),
+				configure(new CoreBlock(EnumDyeColor.ORANGE), "orange_core_block"),
+				configure(new CoreBlock(EnumDyeColor.MAGENTA), "magenta_core_block"),
+				configure(new CoreBlock(EnumDyeColor.PINK), "pink_core_block"),
+				configure(new CoreBlock(EnumDyeColor.BROWN), "brown_core_block"),
+				configure(new CoreBlock(EnumDyeColor.GREEN), "green_core_block"),
+				configure(new CoreBlock(EnumDyeColor.LIME), "lime_core_block"),
+				configure(new CoreBlock(EnumDyeColor.BLACK), "black_core_block_2"),
+				configure(new SpecialCoreBlock(), "clear_core_block"),
+				configure(new SpecialCoreBlock(), "sun_core_block"),
+				configure(new SpecialCoreBlock(), "night_core_block"),
+				configure(new SpecialCoreBlock(), "corrupted_core_block"),
+				configure(new SpecialCoreBlock(), "universe_core_block")
 				);
 	}
 
@@ -121,11 +121,11 @@ public class ModBlocks {
 	public static void registerItemBlocks(IForgeRegistry<Item> registry) {
 		registry.registerAll(
 				items(TESSERACT, LOVE_TESSERACT, STONE_TORCH, WOLFENOOT_CAKE, KEYCARD_READER,
-				CORE_PURPLE, CORE_RED, CORE_BLUE, CORE_BLACK, CORE_YELLOW,
-				CORE_WHITE, CORE_GRAY, CORE_LIGHT_BLUE, CORE_LIGHT_GRAY, CORE_CYAN,
-				CORE_ORANGE, CORE_MAGENTA, CORE_PINK, CORE_BROWN, CORE_GREEN,
-				CORE_LIME, CORE_BLACK_2, CORE_CLEAR, CORE_SUN, CORE_NIGHT,
-				CORE_CORRUPT, CORE_UNIVERSE, DOG_PLUSH));
+				PURPLE_CORE, RED_CORE, BLUE_CORE, BLACK_CORE, YELLOW_CORE,
+				WHITE_CORE, GRAY_CORE, LIGHT_BLUE_CORE, LIGHT_GRAY_CORE, CYAN_CORE,
+				ORANGE_CORE, MAGENTA_CORE, PINK_CORE, BROWN_CORE, GREEN_CORE,
+				LIME_CORE, BLACK_2_CORE, CLEAR_CORE, SUN_CORE, NIGHT_CORE,
+				CORRUPT_CORE, UNIVERSE_CORE, DOG_PLUSHIE));
 	}
 
 	/*
@@ -133,38 +133,38 @@ public class ModBlocks {
 	 */
 	public static void registerModels() {
 		registerModels(TESSERACT, LOVE_TESSERACT, STONE_TORCH, WOLFENOOT_CAKE, KEYCARD_READER,
-				CORE_PURPLE, CORE_RED, CORE_BLUE, CORE_BLACK, CORE_YELLOW,
-				CORE_WHITE, CORE_GRAY, CORE_LIGHT_BLUE, CORE_LIGHT_GRAY, CORE_CYAN,
-				CORE_ORANGE, CORE_MAGENTA, CORE_PINK, CORE_BROWN, CORE_GREEN,
-				CORE_LIME, CORE_BLACK_2, CORE_CLEAR, CORE_SUN, CORE_NIGHT,
-				CORE_CORRUPT, CORE_UNIVERSE, DOG_PLUSH);
+				PURPLE_CORE, RED_CORE, BLUE_CORE, BLACK_CORE, YELLOW_CORE,
+				WHITE_CORE, GRAY_CORE, LIGHT_BLUE_CORE, LIGHT_GRAY_CORE, CYAN_CORE,
+				ORANGE_CORE, MAGENTA_CORE, PINK_CORE, BROWN_CORE, GREEN_CORE,
+				LIME_CORE, BLACK_2_CORE, CLEAR_CORE, SUN_CORE, NIGHT_CORE,
+				CORRUPT_CORE, UNIVERSE_CORE, DOG_PLUSHIE);
 		/*TESSERACT.registerItemModel();
 		LOVE_TESSERACT.registerItemModel();
 		STONE_TORCH.registerItemModel();
 		WOLFENOOT_CAKE.registerItemModel();
 		KEYCARD_READER.registerItemModel();
-		CORE_PURPLE.registerItemModel();
-		CORE_RED.registerItemModel();
-		CORE_BLUE.registerItemModel();
-		CORE_BLACK.registerItemModel();
-		CORE_YELLOW.registerItemModel();
-		CORE_WHITE.registerItemModel();
-		CORE_GRAY.registerItemModel();
-		CORE_LIGHT_BLUE.registerItemModel();
-		CORE_LIGHT_GRAY.registerItemModel();
-		CORE_CYAN.registerItemModel();
-		CORE_ORANGE.registerItemModel();
-		CORE_MAGENTA.registerItemModel();
-		CORE_PINK.registerItemModel();
-		CORE_BROWN.registerItemModel();
-		CORE_GREEN.registerItemModel();
-		CORE_LIME.registerItemModel();
-		CORE_BLACK_2.registerItemModel();
-		CORE_CLEAR.registerItemModel();
-		CORE_SUN.registerItemModel();
-		CORE_NIGHT.registerItemModel();
-		CORE_CORRUPT.registerItemModel();
-		CORE_UNIVERSE.registerItemModel();
+		PURPLE_CORE.registerItemModel();
+		RED_CORE.registerItemModel();
+		BLUE_CORE.registerItemModel();
+		BLACK_CORE.registerItemModel();
+		YELLOW_CORE.registerItemModel();
+		WHITE_CORE.registerItemModel();
+		GRAY_CORE.registerItemModel();
+		LIGHT_BLUE_CORE.registerItemModel();
+		LIGHT_GRAY_CORE.registerItemModel();
+		CYAN_CORE.registerItemModel();
+		ORANGE_CORE.registerItemModel();
+		MAGENTA_CORE.registerItemModel();
+		PINK_CORE.registerItemModel();
+		BROWN_CORE.registerItemModel();
+		GREEN_CORE.registerItemModel();
+		LIME_CORE.registerItemModel();
+		BLACK_2_CORE.registerItemModel();
+		CLEAR_CORE.registerItemModel();
+		SUN_CORE.registerItemModel();
+		NIGHT_CORE.registerItemModel();
+		CORRUPT_CORE.registerItemModel();
+		UNIVERSE_CORE.registerItemModel();
 		DOG_PLUSH.registerItemModel();*/
 	}
 
@@ -192,27 +192,27 @@ public class ModBlocks {
 	}
 
 	public static void initOreDict() {
-		OreDictionary.registerOre("core", CORE_PURPLE);
-		OreDictionary.registerOre("core", CORE_RED);
-		OreDictionary.registerOre("core", CORE_BLUE);
-		OreDictionary.registerOre("core", CORE_BLACK);
-		OreDictionary.registerOre("core", CORE_YELLOW);
-		OreDictionary.registerOre("core", CORE_WHITE);
-		OreDictionary.registerOre("core", CORE_GRAY);
-		OreDictionary.registerOre("core", CORE_LIGHT_BLUE);
-		OreDictionary.registerOre("core", CORE_LIGHT_GRAY);
-		OreDictionary.registerOre("core", CORE_CYAN);
-		OreDictionary.registerOre("core", CORE_ORANGE);
-		OreDictionary.registerOre("core", CORE_MAGENTA);
-		OreDictionary.registerOre("core", CORE_PINK);
-		OreDictionary.registerOre("core", CORE_BROWN);
-		OreDictionary.registerOre("core", CORE_GREEN);
-		OreDictionary.registerOre("core", CORE_LIME);
-		OreDictionary.registerOre("core", CORE_BLACK_2);
-		OreDictionary.registerOre("coreSpecial", CORE_CLEAR);
-		OreDictionary.registerOre("coreSpecial", CORE_SUN);
-		OreDictionary.registerOre("coreSpecial", CORE_NIGHT);
-		OreDictionary.registerOre("coreSpecial", CORE_CORRUPT);
-		OreDictionary.registerOre("coreSpecial", CORE_UNIVERSE);
+		OreDictionary.registerOre("core", PURPLE_CORE);
+		OreDictionary.registerOre("core", RED_CORE);
+		OreDictionary.registerOre("core", BLUE_CORE);
+		OreDictionary.registerOre("core", BLACK_CORE);
+		OreDictionary.registerOre("core", YELLOW_CORE);
+		OreDictionary.registerOre("core", WHITE_CORE);
+		OreDictionary.registerOre("core", GRAY_CORE);
+		OreDictionary.registerOre("core", LIGHT_BLUE_CORE);
+		OreDictionary.registerOre("core", LIGHT_GRAY_CORE);
+		OreDictionary.registerOre("core", CYAN_CORE);
+		OreDictionary.registerOre("core", ORANGE_CORE);
+		OreDictionary.registerOre("core", MAGENTA_CORE);
+		OreDictionary.registerOre("core", PINK_CORE);
+		OreDictionary.registerOre("core", BROWN_CORE);
+		OreDictionary.registerOre("core", GREEN_CORE);
+		OreDictionary.registerOre("core", LIME_CORE);
+		OreDictionary.registerOre("core", BLACK_2_CORE);
+		OreDictionary.registerOre("coreSpecial", CLEAR_CORE);
+		OreDictionary.registerOre("coreSpecial", SUN_CORE);
+		OreDictionary.registerOre("coreSpecial", NIGHT_CORE);
+		OreDictionary.registerOre("coreSpecial", CORRUPT_CORE);
+		OreDictionary.registerOre("coreSpecial", UNIVERSE_CORE);
 	}
 }

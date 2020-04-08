@@ -16,7 +16,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentString;
 import net.minecraftforge.server.permission.PermissionAPI;
 
-public class CommandRandomItems extends CommandBase {
+public class RandomItemsCommand extends CommandBase {
 
 	private static final Pattern RESOURCE_LOCATION_PATTERN = Pattern.compile("[a-zA-Z0-9_]+:[a-zA-Z0-9/_]+");
 

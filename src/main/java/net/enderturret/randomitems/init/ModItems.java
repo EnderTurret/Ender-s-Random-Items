@@ -23,9 +23,9 @@ public class ModItems {
 	public static final Item STONE_STICK = null;
 	// Aren't you glad there isn't a stone stone chisel?
 	@ObjectHolder("iron_stone_chisel")
-	public static final Item STONE_CHISEL_IRON = null;
+	public static final Item IRON_STONE_CHISEL = null;
 	@ObjectHolder("diamond_stone_chisel")
-	public static final Item STONE_CHISEL_DIAMOND = null;
+	public static final Item DIAMOND_STONE_CHISEL = null;
 	@ObjectHolder("questionable_cheese")
 	public static final Item QUESTIONABLE_CHEESE = null;
 	@ObjectHolder("flard")
@@ -39,37 +39,37 @@ public class ModItems {
 	@ObjectHolder("puffball")
 	public static final Item PUFFBALL = null;
 	@ObjectHolder("white_puffball")
-	public static final Item PUFFBALL_WHITE = null;
+	public static final Item WHITE_PUFFBALL = null;
 	@ObjectHolder("light_gray_puffball")
-	public static final Item PUFFBALL_LIGHT_GRAY = null;
+	public static final Item LIGHT_GRAY_PUFFBALL = null;
 	@ObjectHolder("gray_puffball")
-	public static final Item PUFFBALL_GRAY = null;
+	public static final Item GRAY_PUFFBALL = null;
 	@ObjectHolder("black_puffball")
-	public static final Item PUFFBALL_BLACK = null;
+	public static final Item BLACK_PUFFBALL = null;
 	@ObjectHolder("brown_puffball")
-	public static final Item PUFFBALL_BROWN = null;
+	public static final Item BROWN_PUFFBALL = null;
 	@ObjectHolder("red_puffball")
-	public static final Item PUFFBALL_RED = null;
+	public static final Item RED_PUFFBALL = null;
 	@ObjectHolder("orange_puffball")
-	public static final Item PUFFBALL_ORANGE = null;
+	public static final Item ORANGE_PUFFBALL = null;
 	@ObjectHolder("yellow_puffball")
-	public static final Item PUFFBALL_YELLOW = null;
+	public static final Item YELLOW_PUFFBALL = null;
 	@ObjectHolder("lime_puffball")
-	public static final Item PUFFBALL_LIME = null;
+	public static final Item LIME_PUFFBALL = null;
 	@ObjectHolder("green_puffball")
-	public static final Item PUFFBALL_GREEN = null;
+	public static final Item GREEN_PUFFBALL = null;
 	@ObjectHolder("cyan_puffball")
-	public static final Item PUFFBALL_CYAN = null;
+	public static final Item CYAN_PUFFBALL = null;
 	@ObjectHolder("light_blue_puffball")
-	public static final Item PUFFBALL_LIGHT_BLUE = null;
+	public static final Item LIGHT_BLUE_PUFFBALL = null;
 	@ObjectHolder("blue_puffball")
-	public static final Item PUFFBALL_BLUE = null;
+	public static final Item BLUE_PUFFBALL = null;
 	@ObjectHolder("purple_puffball")
-	public static final Item PUFFBALL_PURPLE = null;
+	public static final Item PURPLE_PUFFBALL = null;
 	@ObjectHolder("magenta_puffball")
-	public static final Item PUFFBALL_MAGENTA = null;
+	public static final Item MAGENTA_PUFFBALL = null;
 	@ObjectHolder("pink_puffball")
-	public static final Item PUFFBALL_PINK = null;
+	public static final Item PINK_PUFFBALL = null;
 
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
@@ -79,40 +79,40 @@ public class ModItems {
 				configure(new Item(), "puffball_tail"),
 				configure(new Item(), "puffball_fur"),
 				configure(new Item(), "stone_stick"),
-				configure(new ItemStoneChisel(31, 4), "iron_stone_chisel"),
-				configure(new ItemStoneChisel(63, 8), "diamond_stone_chisel"),
-				configure(new ItemQuestionableCheese(), "questionable_cheese"),
-				configure(new ItemFLARD(), "flard"),
-				configure(new ItemKeycard(), "keycard"),
+				configure(new StoneChiselItem(31, 4), "iron_stone_chisel"),
+				configure(new StoneChiselItem(63, 8), "diamond_stone_chisel"),
+				configure(new QuestionableCheeseItem(), "questionable_cheese"),
+				configure(new FLARDItem(), "flard"),
+				configure(new KeycardItem(), "keycard"),
 				configure(new SaturatedFoodItem(1, 1F, false, true), "secret_coke").setCreativeTab(null),
 				configure(new Item(), "puffball"),
-				configure(new ItemPuffball(MobEffects.SPEED), "white_puffball"),
-				configure(new ItemPuffball(MobEffects.INVISIBILITY), "light_gray_puffball"),
-				configure(new ItemPuffball(MobEffects.RESISTANCE), "gray_puffball"),
-				configure(new ItemPuffball(MobEffects.LEVITATION), "black_puffball"),
-				configure(new ItemPuffball(MobEffects.SATURATION), "brown_puffball"),
-				configure(new ItemPuffball(MobEffects.REGENERATION), "red_puffball"),
-				configure(new ItemPuffball(MobEffects.FIRE_RESISTANCE), "orange_puffball"),
-				configure(new ItemPuffball(MobEffects.ABSORPTION), "yellow_puffball"),
-				configure(new ItemPuffball(MobEffects.LUCK), "lime_puffball"),
-				configure(new ItemPuffball(MobEffects.JUMP_BOOST), "green_puffball"),
-				configure(new ItemPuffball(MobEffects.HASTE), "cyan_puffball"),
-				configure(new ItemPuffball(MobEffects.WATER_BREATHING), "light_blue_puffball"),
-				configure(new ItemPuffball(MobEffects.NIGHT_VISION), "blue_puffball"),
-				configure(new ItemPuffball(MobEffects.HEALTH_BOOST), "purple_puffball"),
-				configure(new ItemPuffball(MobEffects.GLOWING), "magenta_puffball"),
-				configure(new ItemPuffball(MobEffects.STRENGTH), "pink_puffball")
+				configure(new PuffballItem(MobEffects.SPEED), "white_puffball"),
+				configure(new PuffballItem(MobEffects.INVISIBILITY), "light_gray_puffball"),
+				configure(new PuffballItem(MobEffects.RESISTANCE), "gray_puffball"),
+				configure(new PuffballItem(MobEffects.LEVITATION), "black_puffball"),
+				configure(new PuffballItem(MobEffects.SATURATION), "brown_puffball"),
+				configure(new PuffballItem(MobEffects.REGENERATION), "red_puffball"),
+				configure(new PuffballItem(MobEffects.FIRE_RESISTANCE), "orange_puffball"),
+				configure(new PuffballItem(MobEffects.ABSORPTION), "yellow_puffball"),
+				configure(new PuffballItem(MobEffects.LUCK), "lime_puffball"),
+				configure(new PuffballItem(MobEffects.JUMP_BOOST), "green_puffball"),
+				configure(new PuffballItem(MobEffects.HASTE), "cyan_puffball"),
+				configure(new PuffballItem(MobEffects.WATER_BREATHING), "light_blue_puffball"),
+				configure(new PuffballItem(MobEffects.NIGHT_VISION), "blue_puffball"),
+				configure(new PuffballItem(MobEffects.HEALTH_BOOST), "purple_puffball"),
+				configure(new PuffballItem(MobEffects.GLOWING), "magenta_puffball"),
+				configure(new PuffballItem(MobEffects.STRENGTH), "pink_puffball")
 				);
 	}
 
 	public static void registerModels() {
 		registerModels(
 				MOIST_TOWELETTE, SANITIZING_WATER, SECRET_COKE, PUFFBALL_TAIL, PUFFBALL_FUR,
-				STONE_STICK, STONE_CHISEL_IRON, STONE_CHISEL_DIAMOND, QUESTIONABLE_CHEESE, FLARD,
-				KEYCARD, PUFFBALL, PUFFBALL_WHITE, PUFFBALL_LIGHT_GRAY, PUFFBALL_GRAY,
-				PUFFBALL_BLACK, PUFFBALL_BROWN, PUFFBALL_RED, PUFFBALL_ORANGE, PUFFBALL_YELLOW,
-				PUFFBALL_LIME, PUFFBALL_GREEN, PUFFBALL_CYAN, PUFFBALL_LIGHT_BLUE, PUFFBALL_BLUE,
-				PUFFBALL_PURPLE, PUFFBALL_MAGENTA, PUFFBALL_PINK);
+				STONE_STICK, IRON_STONE_CHISEL, DIAMOND_STONE_CHISEL, QUESTIONABLE_CHEESE, FLARD,
+				KEYCARD, PUFFBALL, WHITE_PUFFBALL, LIGHT_GRAY_PUFFBALL, GRAY_PUFFBALL,
+				BLACK_PUFFBALL, BROWN_PUFFBALL, RED_PUFFBALL, ORANGE_PUFFBALL, YELLOW_PUFFBALL,
+				LIME_PUFFBALL, GREEN_PUFFBALL, CYAN_PUFFBALL, LIGHT_BLUE_PUFFBALL, BLUE_PUFFBALL,
+				PURPLE_PUFFBALL, MAGENTA_PUFFBALL, PINK_PUFFBALL);
 		/*MOIST_TOWELETTE.registerItemModel();
 		SANITIZING_WATER.registerItemModel();
 		SECRET_COKE.registerItemModel();

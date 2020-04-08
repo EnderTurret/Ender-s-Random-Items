@@ -14,7 +14,7 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockDirectional extends BlockBase {
+public class DirectionalBlock extends BaseBlock {
 
 	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
 
@@ -25,7 +25,7 @@ public class BlockDirectional extends BlockBase {
 			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)
 	};
 
-	public BlockDirectional(SoundType soundType, Material material) {
+	public DirectionalBlock(SoundType soundType, Material material) {
 		super(soundType, material);
 		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
 	}

@@ -16,9 +16,9 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class ItemFLARD extends Item {
+public class FLARDItem extends Item {
 
-	public ItemFLARD() {
+	public FLARDItem() {
 		setMaxStackSize(1);
 	}
 

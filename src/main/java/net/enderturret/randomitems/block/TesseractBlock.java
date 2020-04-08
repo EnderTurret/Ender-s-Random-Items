@@ -14,11 +14,11 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockTesseract extends BlockBase {
+public class TesseractBlock extends BaseBlock {
 
 	private final Potion effect;
 
-	public BlockTesseract(SoundType soundType, Material material, Potion effect) {
+	public TesseractBlock(SoundType soundType, Material material, Potion effect) {
 		super(soundType, material);
 		this.effect = effect;
 		setHardness(50F);

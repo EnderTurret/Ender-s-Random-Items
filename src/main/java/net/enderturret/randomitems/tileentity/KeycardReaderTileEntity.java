@@ -11,12 +11,12 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class TileEntityKeycardReader extends TileEntity {
+public class KeycardReaderTileEntity extends TileEntity {
 
 	private String keycardName = "";
 	private UUID owner = null;
 
-	public TileEntityKeycardReader() {}
+	public KeycardReaderTileEntity() {}
 
 	public String getKeycardName() {
 		return keycardName;

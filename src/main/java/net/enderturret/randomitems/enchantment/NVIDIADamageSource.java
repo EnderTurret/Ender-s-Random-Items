@@ -5,9 +5,9 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.TextComponentTranslation;
 
-public class DamageSourceNVIDIA extends DamageSource {
+public class NVIDIADamageSource extends DamageSource {
 
-	public DamageSourceNVIDIA(String damageTypeIn) {
+	public NVIDIADamageSource(String damageTypeIn) {
 		super(damageTypeIn);
 	}
 

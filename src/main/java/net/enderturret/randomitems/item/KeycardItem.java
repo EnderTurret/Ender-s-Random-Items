@@ -1,7 +1,7 @@
 package net.enderturret.randomitems.item;
 
-import net.enderturret.randomitems.block.BlockKeycardReader;
-import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
+import net.enderturret.randomitems.block.KeycardReaderBlock;
+import net.enderturret.randomitems.tileentity.KeycardReaderTileEntity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
 import net.minecraft.util.EnumActionResult;
@@ -11,15 +11,15 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.World;
 
-public class ItemKeycard extends Item {
+public class KeycardItem extends Item {
 
-	public ItemKeycard() {}
+	public KeycardItem() {}
 
 	@Override
 	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.getBlockState(pos).getBlock() instanceof BlockKeycardReader && !worldIn.isRemote && worldIn.getTileEntity(pos) != null)
-			if (worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
-				final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
+		if (worldIn.getBlockState(pos).getBlock() instanceof KeycardReaderBlock && !worldIn.isRemote && worldIn.getTileEntity(pos) != null)
+			if (worldIn.getTileEntity(pos) instanceof KeycardReaderTileEntity) {
+				final KeycardReaderTileEntity te = (KeycardReaderTileEntity) worldIn.getTileEntity(pos);
 				if (player.isSneaking() && te.isOwner(EntityPlayer.getUUID(player.getGameProfile()))) {
 					te.setKeycardName(player.getHeldItemMainhand().getDisplayName());
 					player.sendMessage(new TextComponentTranslation("randomitems.keycard.setname", player.getHeldItemMainhand().getDisplayName()));

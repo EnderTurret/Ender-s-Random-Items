@@ -8,9 +8,9 @@ import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 
-public class EnchantmentGravity extends Enchantment {
+public class AntiGravityEnchantment extends Enchantment {
 
-	protected EnchantmentGravity() {
+	protected AntiGravityEnchantment() {
 		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
 	}
 

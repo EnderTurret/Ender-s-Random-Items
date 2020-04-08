@@ -3,8 +3,8 @@ package net.enderturret.randomitems.block;
 import java.util.Random;
 
 import net.enderturret.randomitems.RandomItems;
-import net.enderturret.randomitems.item.ItemKeycard;
-import net.enderturret.randomitems.tileentity.TileEntityKeycardReader;
+import net.enderturret.randomitems.item.KeycardItem;
+import net.enderturret.randomitems.tileentity.KeycardReaderTileEntity;
 import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -25,7 +25,7 @@ import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 
-public class BlockKeycardReader extends BlockDirectional {
+public class KeycardReaderBlock extends DirectionalBlock {
 
 	public static final PropertyBool POWERED = PropertyBool.create("powered");
 	private static final AxisAlignedBB NORTH_AABB = RandomItemsUtil.getAABBFromPixels(6, 6, 14, 10, 10, 16);
@@ -35,7 +35,7 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	private static final AxisAlignedBB[] AABB = new AxisAlignedBB[] {EAST_AABB, WEST_AABB, SOUTH_AABB, NORTH_AABB};
 
-	public BlockKeycardReader() {
+	public KeycardReaderBlock() {
 		super(SoundType.STONE, Material.IRON);
 		this.setDefaultState(this.getDefaultState().withProperty(POWERED, false));
 		setHardness(0.5F);
@@ -44,7 +44,7 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new TileEntityKeycardReader();
+		return new KeycardReaderTileEntity();
 	}
 
 	@Override
@@ -104,13 +104,13 @@ public class BlockKeycardReader extends BlockDirectional {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
-			final TileEntityKeycardReader te = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
+		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTileEntity) {
+			final KeycardReaderTileEntity te = (KeycardReaderTileEntity) worldIn.getTileEntity(pos);
 			if (playerIn.isSneaking() && playerIn.getHeldItemMainhand().isEmpty()) {
 				if (te.isOwner(EntityPlayer.getUUID(playerIn.getGameProfile())))
 					playerIn.sendMessage(new TextComponentTranslation("randomitems.keycard.getname", te.getKeycardName()));
 			}
-			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof ItemKeycard)
+			else if (!playerIn.isSneaking() && playerIn.getHeldItemMainhand().getItem() instanceof KeycardItem)
 				if (te.isNameEqual(playerIn.getHeldItemMainhand().getDisplayName())) {
 					worldIn.setBlockState(pos, worldIn.getBlockState(pos).withProperty(POWERED, true), 3);
 					worldIn.scheduleUpdate(pos, this, 60);
@@ -131,8 +131,8 @@ public class BlockKeycardReader extends BlockDirectional {
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		if (placer instanceof EntityPlayer && !worldIn.isRemote)
-			if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof TileEntityKeycardReader) {
-				final TileEntityKeycardReader reader = (TileEntityKeycardReader) worldIn.getTileEntity(pos);
+			if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTileEntity) {
+				final KeycardReaderTileEntity reader = (KeycardReaderTileEntity) worldIn.getTileEntity(pos);
 				final EntityPlayer player = (EntityPlayer) placer;
 				reader.setOwner(EntityPlayer.getUUID(player.getGameProfile()));
 			} else

@@ -10,9 +10,9 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-public class ItemQuestionableCheese extends Item {
+public class QuestionableCheeseItem extends Item {
 
-	public ItemQuestionableCheese() {}
+	public QuestionableCheeseItem() {}
 
 	@Override
 	public void onUpdate(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
