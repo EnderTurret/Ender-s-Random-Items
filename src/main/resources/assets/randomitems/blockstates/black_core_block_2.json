@@ -1,6 +1,8 @@
 {
-	"forge_marker": 1,
-    "variants": {
-		"normal": {
-			"model": "randomitems:core/black_core_block_2"
-}}}
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "randomitems:core/black_core_block_2"
+    }
+  }
+}

@@ -1,25 +1,26 @@
 {
-    "result": {
-        "item": "randomitems:stone_torch_block",
-		"count": 1
-    },
-        "pattern": [
-            "C",
-            "S"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "C": [
-            {
-			    "item": "minecraft:coal",
-				"data": 0
-			},
-			{
-				"item": "minecraft:coal",
-				"data": 1
-			}
-		],
-			"S": {
-				"item": "randomitems:stone_stick"
-		}
-}}
+  "pattern": [
+    "C",
+    "S"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:stone_torch_block"
+  },
+  "key": {
+    "C": [
+      {
+        "item": "minecraft:coal",
+        "data": 0
+      },
+      {
+        "item": "minecraft:coal",
+        "data": 1
+      }
+    ],
+    "S": {
+      "item": "randomitems:stone_stick"
+    }
+  }
+}

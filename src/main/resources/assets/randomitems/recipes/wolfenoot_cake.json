@@ -1,21 +1,22 @@
 {
-    "result": {
-        "item": "randomitems:wolfenoot_cake_block",
-		"count": 1
+  "pattern": [
+    " G ",
+    " C ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:wolfenoot_cake_block"
+  },
+  "key": {
+    "C": {
+      "item": "minecraft:cake",
+      "data": 0
     },
-        "pattern": [
-            " G ",
-            " C ",
-            "   "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "G": {
-                "item": "minecraft:dye",
-				"data": 7
-        },
-			"C": {
-				"item": "minecraft:cake",
-				"data": 0
-		}
-}}
+    "G": {
+      "item": "minecraft:dye",
+      "data": 7
+    }
+  }
+}

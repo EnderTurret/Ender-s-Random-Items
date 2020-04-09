@@ -1,21 +1,22 @@
 {
-    "result": {
-        "item": "randomitems:puffball_fur",
-        "count": 1
+  "pattern": [
+    "WWW",
+    "WSW",
+    "WWW"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:puffball_fur"
+  },
+  "key": {
+    "S": {
+      "item": "minecraft:string",
+      "data": 0
     },
-        "pattern": [
-            "WWW",
-            "WSW",
-			"WWW"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "W": {
-                "item": "minecraft:wool",
-				"data": 0
-        },
-			"S": {
-				"item": "minecraft:string",
-				"data": 0
-		}
-}}
+    "W": {
+      "item": "minecraft:wool",
+      "data": 0
+    }
+  }
+}

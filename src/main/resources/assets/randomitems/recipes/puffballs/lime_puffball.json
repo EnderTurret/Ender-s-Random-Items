@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:lime_puffball",
-        "count": 1
+  "pattern": [
+    "DDR",
+    "LPL",
+    "RDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:lime_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "DDR",
-            "LPL",
-			"RDD"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "R": {
-                "item": "minecraft:rabbit_foot",
-				"data": 0
-        },
-			"D": {
-				"item": "minecraft:diamond",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"L": {
-				"item": "minecraft:dye",
-				"data": 10
-		}
-}}
+    "R": {
+      "item": "minecraft:rabbit_foot",
+      "data": 0
+    },
+    "D": {
+      "item": "minecraft:diamond",
+      "data": 0
+    },
+    "L": {
+      "item": "minecraft:dye",
+      "data": 10
+    }
+  }
+}

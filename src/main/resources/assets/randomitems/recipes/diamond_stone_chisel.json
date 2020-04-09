@@ -1,21 +1,22 @@
 {
-    "result": {
-        "item": "randomitems:diamond_stone_chisel",
-		"count": 1
+  "pattern": [
+    "  D",
+    " W ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:diamond_stone_chisel"
+  },
+  "key": {
+    "D": {
+      "item": "minecraft:diamond",
+      "data": 0
     },
-        "pattern": [
-            "  D",
-            " W ",
-            "   "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "W": {
-                "item": "minecraft:stick",
-				"data": 0
-        },
-			"D": {
-				"item": "minecraft:diamond",
-				"data": 0
-		}
-}}
+    "W": {
+      "item": "minecraft:stick",
+      "data": 0
+    }
+  }
+}

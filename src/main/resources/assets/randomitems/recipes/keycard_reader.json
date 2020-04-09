@@ -1,24 +1,25 @@
 {
-    "result": {
-        "item": "randomitems:keycard_reader_block",
-		"count": 1
+  "pattern": [
+    "III",
+    "RKR",
+    "III"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:keycard_reader_block"
+  },
+  "key": {
+    "I": {
+      "item": "minecraft:iron_ingot",
+      "data": 0
     },
-        "pattern": [
-            "III",
-            "RKR",
-            "III"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "I": {
-                "item": "minecraft:iron_ingot",
-				"data": 0
-        },
-			"K": {
-				"item": "randomitems:keycard"
-		},
-			"R": {
-				"item": "minecraft:redstone",
-				"data": 0
-		}
-}}
+    "K": {
+      "item": "randomitems:keycard"
+    },
+    "R": {
+      "item": "minecraft:redstone",
+      "data": 0
+    }
+  }
+}

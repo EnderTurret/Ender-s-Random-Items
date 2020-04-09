@@ -73,7 +73,6 @@ public class ModItems {
 
 	public static void register(IForgeRegistry<Item> registry) {
 		registry.registerAll(
-				//configure(new Item(), ""),
 				configure(new Item(), "moist_towelette"),
 				configure(new Item(), "sanitizing_water"),
 				configure(new Item(), "puffball_tail"),
@@ -84,7 +83,7 @@ public class ModItems {
 				configure(new QuestionableCheeseItem(), "questionable_cheese"),
 				configure(new FLARDItem(), "flard"),
 				configure(new KeycardItem(), "keycard"),
-				configure(new SaturatedFoodItem(1, 1F, false, true), "secret_coke").setCreativeTab(null),
+				configure(new FoodItem(1, 1F, false, true), "secret_coke").setCreativeTab(null),
 				configure(new Item(), "puffball"),
 				configure(new PuffballItem(MobEffects.SPEED), "white_puffball"),
 				configure(new PuffballItem(MobEffects.INVISIBILITY), "light_gray_puffball"),
@@ -113,35 +112,6 @@ public class ModItems {
 				BLACK_PUFFBALL, BROWN_PUFFBALL, RED_PUFFBALL, ORANGE_PUFFBALL, YELLOW_PUFFBALL,
 				LIME_PUFFBALL, GREEN_PUFFBALL, CYAN_PUFFBALL, LIGHT_BLUE_PUFFBALL, BLUE_PUFFBALL,
 				PURPLE_PUFFBALL, MAGENTA_PUFFBALL, PINK_PUFFBALL);
-		/*MOIST_TOWELETTE.registerItemModel();
-		SANITIZING_WATER.registerItemModel();
-		SECRET_COKE.registerItemModel();
-		PUFFBALL_TAIL.registerItemModel();
-		PUFFBALL_FUR.registerItemModel();
-		STONE_STICK.registerItemModel();
-		STONE_CHISEL_IRON.registerItemModel();
-		STONE_CHISEL_DIAMOND.registerItemModel();
-		QUESTIONABLE_CHEESE.registerItemModel();
-		FLARD.registerItemModel();
-		KEYCARD.registerItemModel();
-
-		PUFFBALL.registerItemModel();
-		PUFFBALL_WHITE.registerItemModel();
-		PUFFBALL_LIGHT_GRAY.registerItemModel();
-		PUFFBALL_GRAY.registerItemModel();
-		PUFFBALL_BLACK.registerItemModel();
-		PUFFBALL_BROWN.registerItemModel();
-		PUFFBALL_RED.registerItemModel();
-		PUFFBALL_ORANGE.registerItemModel();
-		PUFFBALL_YELLOW.registerItemModel();
-		PUFFBALL_LIME.registerItemModel();
-		PUFFBALL_GREEN.registerItemModel();
-		PUFFBALL_CYAN.registerItemModel();
-		PUFFBALL_LIGHT_BLUE.registerItemModel();
-		PUFFBALL_BLUE.registerItemModel();
-		PUFFBALL_PURPLE.registerItemModel();
-		PUFFBALL_MAGENTA.registerItemModel();
-		PUFFBALL_PINK.registerItemModel();*/
 	}
 
 	public static void registerModels(Item... items) {

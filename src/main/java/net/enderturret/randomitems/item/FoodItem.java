@@ -4,11 +4,11 @@ import net.minecraft.item.EnumAction;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemStack;
 
-public class SaturatedFoodItem extends ItemFood {
+public class FoodItem extends ItemFood {
 
 	private final boolean drink;
 
-	public SaturatedFoodItem(int food, float saturation, boolean isWolfFood, boolean isDrink) {
+	public FoodItem(int food, float saturation, boolean isWolfFood, boolean isDrink) {
 		super(food, saturation, isWolfFood);
 		this.drink = isDrink;
 	}

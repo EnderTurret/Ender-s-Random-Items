@@ -1,0 +1,21 @@
+{
+  "pattern": [
+    "YYY",
+    "YCY",
+    "YYY"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:sun_core_block"
+  },
+  "key": {
+    "Y": {
+      "item": "minecraft:wool",
+      "data": 4
+    },
+    "C": {
+      "item": "randomitems:clear_core_block"
+    }
+  }
+}

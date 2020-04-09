@@ -1,17 +1,18 @@
 {
-    "result": {
-        "item": "randomitems:white_core_block",
-        "count": 1
-    },
-		"pattern": [
-            "   ",
-            " C ",
-			"   "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "C": {
-                "type": "forge:ore_dict",
-				"ore": "core"
-        }
-}}
+  "pattern": [
+    "   ",
+    " C ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:white_core_block"
+  },
+  "key": {
+    "C": {
+      "ore": "core",
+      "type": "forge:ore_dict"
+    }
+  }
+}

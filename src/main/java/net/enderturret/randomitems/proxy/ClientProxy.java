@@ -13,7 +13,7 @@ import net.minecraftforge.client.model.ModelLoader;
 
 public class ClientProxy implements IProxy {
 
-	private static boolean nvidia = false;
+	private boolean nvidia = false;
 
 	@Override
 	public void registerItemRenderer(Item item, int meta, String id) {
@@ -22,17 +22,17 @@ public class ClientProxy implements IProxy {
 
 	@Override
 	public void nvidiaCrash() {
-		if (ConfigHandler.nvidiaEnchantmentEnabled && nVIDIA())
+		if (ConfigHandler.nvidiaEnchantmentEnabled && isNVIDIA())
 			Minecraft.getMinecraft().crashed(new CrashReport("Experienced nVIDIA", new NVIDIAException("You were killed by something with the nVIDIA enchant. DO NOT REPORT THIS")));
 	}
 
 	@Override
 	public void init() {
-		nvidia = GL11.glGetString(GL11.GL_VENDOR).toLowerCase().contains("nvidia");
+		Minecraft.getMinecraft().addScheduledTask(() -> nvidia = GL11.glGetString(GL11.GL_VENDOR).toLowerCase().contains("nvidia"));
 	}
 
 	@Override
-	public boolean nVIDIA() {
+	public boolean isNVIDIA() {
 		return nvidia;
 	}
 }

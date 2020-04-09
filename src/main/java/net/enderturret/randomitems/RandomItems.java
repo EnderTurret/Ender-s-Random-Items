@@ -8,9 +8,11 @@ import net.enderturret.randomitems.command.RepairCommand;
 import net.enderturret.randomitems.flardeffects.FLARDEffect;
 import net.enderturret.randomitems.init.*;
 import net.enderturret.randomitems.proxy.IProxy;
-import net.enderturret.randomitems.tileentity.KeycardReaderTileEntity;
+import net.enderturret.randomitems.tileentity.KeycardReaderTE;
 import net.minecraft.block.Block;
+import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.storage.loot.LootEntry;
 import net.minecraft.world.storage.loot.LootEntryItem;
@@ -36,8 +38,14 @@ import net.minecraftforge.server.permission.PermissionAPI;
 @Mod(modid = Reference.MOD_ID, name = "Ender's Random Items", version = Reference.MOD_VERSION, acceptedMinecraftVersions = "[1.12,)")
 public class RandomItems {
 
-	public static final RandomItemsTab TAB = new RandomItemsTab();
-	public static final Logger LOGGER = LogManager.getLogger("randomitems");
+	public static final CreativeTabs TAB = new CreativeTabs(Reference.MOD_ID) {
+		@Override
+		public ItemStack createIcon() {
+			return new ItemStack(ModBlocks.TESSERACT);
+		}
+	};
+
+	public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
 
 	@Mod.Instance(Reference.MOD_ID)
 	public static RandomItems instance;
@@ -46,7 +54,7 @@ public class RandomItems {
 	public static IProxy proxy;
 
 	@Mod.EventHandler
-	public static void init(FMLInitializationEvent e) {
+	static void init(FMLInitializationEvent e) {
 		if (ConfigHandler.repairCommandEnabled) {
 			PermissionAPI.registerNode("randomitems.repair.all", DefaultPermissionLevel.OP, "Used for /repair all");
 			PermissionAPI.registerNode("randomitems.repair.hand", DefaultPermissionLevel.OP, "Used for /repair hand");
@@ -57,48 +65,48 @@ public class RandomItems {
 		ModBlocks.initOreDict();
 
 		proxy.init();
-		GameRegistry.registerTileEntity(KeycardReaderTileEntity.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
+		GameRegistry.registerTileEntity(KeycardReaderTE.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
 	}
 
 	@Mod.EventHandler
-	public static void onServerStart(FMLServerStartingEvent e) {
+	static void onServerStart(FMLServerStartingEvent e) {
 		if (ConfigHandler.repairCommandEnabled)
 			e.registerServerCommand(new RepairCommand());
 		e.registerServerCommand(new RandomItemsCommand());
 	}
 
 	@Mod.EventBusSubscriber
-	public static class RegistrationHandler {
+	static class RegistrationHandler {
 
 		@SubscribeEvent
-		public static void registerItems(RegistryEvent.Register<Item> e) {
+		static void registerItems(RegistryEvent.Register<Item> e) {
 			ModBlocks.registerItemBlocks(e.getRegistry());
 			ModItems.register(e.getRegistry());
 		}
 
 		@SubscribeEvent
-		public static void registerBlocks(RegistryEvent.Register<Block> e) {
+		static void registerBlocks(RegistryEvent.Register<Block> e) {
 			ModBlocks.register(e.getRegistry());
 		}
 
 		@SubscribeEvent
-		public static void registerFlardEffects(RegistryEvent.Register<FLARDEffect> e) {
+		static void registerFlardEffects(RegistryEvent.Register<FLARDEffect> e) {
 			ModFlardEffects.registerAll(e.getRegistry());
 		}
 
 		@SubscribeEvent
-		public static void createRegistries(RegistryEvent.NewRegistry e) {
+		static void createRegistries(RegistryEvent.NewRegistry e) {
 			FLARDEffectRegistry.createRegistry();
 		}
 
 		@SubscribeEvent
-		public static void registerModels(ModelRegistryEvent e) {
+		static void registerModels(ModelRegistryEvent e) {
 			ModBlocks.registerModels();
 			ModItems.registerModels();
 		}
 
 		@SubscribeEvent
-		public static void onLootLoad(LootTableLoadEvent e) {
+		static void onLootLoad(LootTableLoadEvent e) {
 			if ("minecraft:chests/simple_dungeon".equals(e.getName().toString())) {
 				final LootEntry flard = new LootEntryItem(ModItems.FLARD, 6, 80, new LootFunction[0], new LootCondition[0], "randomitems:flard");
 				final LootPool pool = new LootPool(new LootEntry[]{flard}, new LootCondition[0], new RandomValueRange(0, 2), new RandomValueRange(0), "randomitems:dungeon_pool");
@@ -107,13 +115,13 @@ public class RandomItems {
 		}
 
 		@SubscribeEvent
-		public static void onConfigChanged(OnConfigChangedEvent e) {
+		static void onConfigChanged(OnConfigChangedEvent e) {
 			if (e.getModID().equals(Reference.MOD_ID))
 				ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
 		}
 
 		@SubscribeEvent
-		public static void missingMappings(RegistryEvent.MissingMappings<Item> event) {
+		static void missingMappings(RegistryEvent.MissingMappings<Item> event) {
 			for (RegistryEvent.MissingMappings.Mapping<Item> mapping : event.getMappings()) {
 				final String path = mapping.key.getPath();
 				if (path.startsWith("puffball_")) {
@@ -169,7 +177,7 @@ public class RandomItems {
 		}
 
 		@SubscribeEvent
-		public static void missingMappingsBlock(RegistryEvent.MissingMappings<Block> event) {
+		static void missingMappingsBlock(RegistryEvent.MissingMappings<Block> event) {
 			for (RegistryEvent.MissingMappings.Mapping<Block> mapping : event.getMappings()) {
 				final String path = mapping.key.getPath();
 				if ("block_tesseract".equals(path)) mapping.remap(ModBlocks.TESSERACT);

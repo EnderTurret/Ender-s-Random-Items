@@ -28,11 +28,10 @@ public class StoneChiselItem extends Item {
 		if (ConfigHandler.stoneChiselEnabled && worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
 			playerIn.addItemStackToInventory(new ItemStack(ModItems.STONE_STICK, stickCount));
 			worldIn.setBlockToAir(pos);
-			if (playerIn.getHeldItem(hand).getItemDamage() == playerIn.getHeldItem(hand).getMaxDamage()) {
+			if (playerIn.getHeldItem(hand).attemptDamageItem(1, itemRand, null)) {
 				playerIn.setHeldItem(hand, ItemStack.EMPTY);
 				playerIn.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
 			}
-			playerIn.getHeldItem(hand).attemptDamageItem(1, itemRand, null);
 			return EnumActionResult.SUCCESS;
 		}
 		return EnumActionResult.FAIL;

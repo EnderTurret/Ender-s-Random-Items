@@ -11,33 +11,33 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class KeycardReaderTileEntity extends TileEntity {
+public class KeycardReaderTE extends TileEntity {
 
 	private String keycardName = "";
 	private UUID owner = null;
 
-	public KeycardReaderTileEntity() {}
+	public KeycardReaderTE() {}
 
 	public String getKeycardName() {
 		return keycardName;
 	}
 
 	public void setKeycardName(String name) {
-		this.keycardName = name;
+		keycardName = name;
 		markDirty();
 	}
 
 	public void setOwner(UUID playerUUID) {
-		this.owner = playerUUID;
+		owner = playerUUID;
 		markDirty();
 	}
 
 	public boolean isOwner(UUID uuid) {
-		return owner.equals(uuid);
+		return owner == null && uuid == null || owner.equals(uuid);
 	}
 
 	public boolean isNameEqual(String keycardName) {
-		return keycardName.equals(this.keycardName);
+		return this.keycardName == null && keycardName == null || keycardName.equals(this.keycardName);
 	}
 
 	public EntityPlayer getOwnerPlayer() {
@@ -64,13 +64,13 @@ public class KeycardReaderTileEntity extends TileEntity {
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		readFromNBT(pkt.getNbtCompound());
+	public SPacketUpdateTileEntity getUpdatePacket() {
+		return new SPacketUpdateTileEntity(pos, 1, writeToNBT(new NBTTagCompound()));
 	}
 
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(pos, 1, writeToNBT(new NBTTagCompound()));
+	public void handleUpdateTag(NBTTagCompound tag) {
+		readFromNBT(tag);
 	}
 
 	@Override
@@ -79,8 +79,8 @@ public class KeycardReaderTileEntity extends TileEntity {
 	}
 
 	@Override
-	public void handleUpdateTag(NBTTagCompound tag) {
-		readFromNBT(tag);
+	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
+		readFromNBT(pkt.getNbtCompound());
 	}
 
 	@Override

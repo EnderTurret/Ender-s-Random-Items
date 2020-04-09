@@ -29,6 +29,6 @@ public final class FLARDEffectRegistry {
 	}
 
 	public static FLARDEffect getRandom(Random rand) {
-		return RandomItemsUtil.getRandom(registry, rand);
+		return RandomItemsUtil.getRandom(getRegistry(), rand);
 	}
 }

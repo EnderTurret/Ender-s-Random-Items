@@ -17,20 +17,6 @@ import net.minecraftforge.server.permission.PermissionAPI;
 
 public class RepairCommand extends CommandBase {
 
-	@Override
-	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
-		if (args.length > 0 && !sender.getEntityWorld().isRemote && sender.getCommandSenderEntity() instanceof EntityPlayer) {
-			final EntityPlayer playerIn = (EntityPlayer) sender.getCommandSenderEntity();
-			if ("all".equals(args[0]) && PermissionAPI.hasPermission(playerIn, "randomitems.repair.all"))
-				sender.sendMessage(repairItems(playerIn));
-			else if (PermissionAPI.hasPermission(playerIn, "randomitems.repair.hand"))
-				if ("mainhand".equals(args[0]))
-					sender.sendMessage(repairHand(playerIn, true));
-				else if ("offhand".equals(args[0]))
-					sender.sendMessage(repairHand(playerIn, false));
-		} else sender.sendMessage(new TextComponentString(getUsage(sender)));
-	}
-
 	public static ITextComponent repairItems(EntityPlayer playerIn) {
 		try {
 			int repaired = 0;
@@ -94,5 +80,19 @@ public class RepairCommand extends CommandBase {
 	public boolean checkPermission(MinecraftServer server, ICommandSender sender) {
 		return sender.getCommandSenderEntity() instanceof EntityPlayer &&
 				PermissionAPI.hasPermission((EntityPlayer) sender.getCommandSenderEntity(), "randomitems.repair");
+	}
+
+	@Override
+	public void execute(MinecraftServer server, ICommandSender sender, String[] args) throws CommandException {
+		if (args.length > 0 && !sender.getEntityWorld().isRemote && sender.getCommandSenderEntity() instanceof EntityPlayer) {
+			final EntityPlayer playerIn = (EntityPlayer) sender.getCommandSenderEntity();
+			if ("all".equals(args[0]) && PermissionAPI.hasPermission(playerIn, "randomitems.repair.all"))
+				sender.sendMessage(repairItems(playerIn));
+			else if (PermissionAPI.hasPermission(playerIn, "randomitems.repair.hand"))
+				if ("mainhand".equals(args[0]))
+					sender.sendMessage(repairHand(playerIn, true));
+				else if ("offhand".equals(args[0]))
+					sender.sendMessage(repairHand(playerIn, false));
+		} else sender.sendMessage(new TextComponentString(getUsage(sender)));
 	}
 }

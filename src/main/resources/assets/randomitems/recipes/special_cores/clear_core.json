@@ -1,25 +1,21 @@
 {
   "pattern": [
     "GGG",
-    "GTG",
-    "OOO"
+    "GFG",
+    "GGG"
   ],
   "type": "minecraft:crafting_shaped",
   "result": {
     "count": 1,
-    "item": "randomitems:white_core_block"
+    "item": "randomitems:clear_core_block"
   },
   "key": {
-    "O": {
-      "item": "minecraft:obsidian",
-      "data": 0
-    },
     "G": {
       "item": "minecraft:glass",
       "data": 0
     },
-    "T": {
-      "item": "randomitems:tesseract_block"
+    "F": {
+      "item": "randomitems:flard"
     }
   }
 }

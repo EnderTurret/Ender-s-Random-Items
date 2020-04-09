@@ -1,21 +1,22 @@
 {
-    "result": {
-        "item": "randomitems:purple_core_block",
-        "count": 1
+  "pattern": [
+    " D ",
+    "DCD",
+    " D "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:purple_core_block"
+  },
+  "key": {
+    "C": {
+      "item": "randomitems:white_core_block",
+      "data": 0
     },
-        "pattern": [
-            " D ",
-            "DCD",
-			" D "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "D": {
-                "item": "minecraft:dye",
-				"data": 5
-	    },
-			"C": {
-                "item": "randomitems:white_core_block",
-				"data": 0
-	    }
-}}
+    "D": {
+      "item": "minecraft:dye",
+      "data": 5
+    }
+  }
+}

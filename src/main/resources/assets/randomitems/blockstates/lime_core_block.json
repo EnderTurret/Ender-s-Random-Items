@@ -1,6 +1,8 @@
 {
-	"forge_marker": 1,
-    "variants": {
-		"normal": {
-			"model": "randomitems:core/lime_core_block"
-}}}
+  "forge_marker": 1,
+  "variants": {
+    "normal": {
+      "model": "randomitems:core/lime_core_block"
+    }
+  }
+}

@@ -1,24 +1,25 @@
 {
-    "result": {
-        "item": "randomitems:green_puffball",
-        "count": 1
+  "pattern": [
+    "RgR",
+    "gPg",
+    "RgR"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:green_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "RgR",
-            "gPg",
-			"RgR"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "R": {
-                "item": "minecraft:rabbit_foot",
-				"data": 0
-        },
-			"g": {
-				"item": "minecraft:dye",
-				"data": 2
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		}
-}}
+    "R": {
+      "item": "minecraft:rabbit_foot",
+      "data": 0
+    },
+    "g": {
+      "item": "minecraft:dye",
+      "data": 2
+    }
+  }
+}

@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:light_blue_puffball",
-        "count": 1
+  "pattern": [
+    "pWp",
+    "LPL",
+    "pWp"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:light_blue_puffball"
+  },
+  "key": {
+    "p": {
+      "item": "minecraft:fish",
+      "data": 3
     },
-        "pattern": [
-            "pWp",
-            "LPL",
-			"pWp"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "p": {
-                "item": "minecraft:fish",
-				"data": 3
-        },
-			"W": {
-				"item": "minecraft:water_bucket",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"L": {
-				"item": "minecraft:dye",
-				"data": 12
-		}
-}}
+    "L": {
+      "item": "minecraft:dye",
+      "data": 12
+    },
+    "W": {
+      "item": "minecraft:water_bucket",
+      "data": 0
+    },
+    "P": {
+      "item": "randomitems:puffball"
+    }
+  }
+}

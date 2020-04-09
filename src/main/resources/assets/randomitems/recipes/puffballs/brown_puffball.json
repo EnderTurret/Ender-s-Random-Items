@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:brown_puffball",
-        "count": 1
+  "pattern": [
+    "SGS",
+    "BPB",
+    "SGS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:brown_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "SGS",
-            "BPB",
-			"SGS"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "G": {
-                "item": "minecraft:golden_carrot",
-				"data": 0
-        },
-			"S": {
-				"item": "minecraft:cooked_beef",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"B": {
-				"item": "minecraft:dye",
-				"data": 3
-		}
-}}
+    "S": {
+      "item": "minecraft:cooked_beef",
+      "data": 0
+    },
+    "B": {
+      "item": "minecraft:dye",
+      "data": 3
+    },
+    "G": {
+      "item": "minecraft:golden_carrot",
+      "data": 0
+    }
+  }
+}

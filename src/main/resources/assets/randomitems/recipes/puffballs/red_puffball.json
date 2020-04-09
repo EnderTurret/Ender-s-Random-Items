@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:red_puffball",
-        "count": 1
+  "pattern": [
+    "GgG",
+    "rPr",
+    "GgG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:red_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "GgG",
-            "rPr",
-			"GgG"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "G": {
-                "item": "minecraft:ghast_tear",
-				"data": 0
-        },
-			"g": {
-				"item": "minecraft:speckled_melon",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"r": {
-				"item": "minecraft:dye",
-				"data": 1
-		}
-}}
+    "r": {
+      "item": "minecraft:dye",
+      "data": 1
+    },
+    "g": {
+      "item": "minecraft:speckled_melon",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:ghast_tear",
+      "data": 0
+    }
+  }
+}

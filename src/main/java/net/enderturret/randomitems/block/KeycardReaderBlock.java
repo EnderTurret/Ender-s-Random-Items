@@ -4,7 +4,7 @@ import java.util.Random;
 
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.item.KeycardItem;
-import net.enderturret.randomitems.tileentity.KeycardReaderTileEntity;
+import net.enderturret.randomitems.tileentity.KeycardReaderTE;
 import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.SoundType;
 import net.minecraft.block.material.Material;
@@ -44,7 +44,7 @@ public class KeycardReaderBlock extends DirectionalBlock {
 
 	@Override
 	public TileEntity createTileEntity(World world, IBlockState state) {
-		return new KeycardReaderTileEntity();
+		return new KeycardReaderTE();
 	}
 
 	@Override
@@ -104,8 +104,8 @@ public class KeycardReaderBlock extends DirectionalBlock {
 
 	@Override
 	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTileEntity) {
-			final KeycardReaderTileEntity te = (KeycardReaderTileEntity) worldIn.getTileEntity(pos);
+		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTE) {
+			final KeycardReaderTE te = (KeycardReaderTE) worldIn.getTileEntity(pos);
 			if (playerIn.isSneaking() && playerIn.getHeldItemMainhand().isEmpty()) {
 				if (te.isOwner(EntityPlayer.getUUID(playerIn.getGameProfile())))
 					playerIn.sendMessage(new TextComponentTranslation("randomitems.keycard.getname", te.getKeycardName()));
@@ -131,8 +131,8 @@ public class KeycardReaderBlock extends DirectionalBlock {
 	@Override
 	public void onBlockPlacedBy(World worldIn, BlockPos pos, IBlockState state, EntityLivingBase placer, ItemStack stack) {
 		if (placer instanceof EntityPlayer && !worldIn.isRemote)
-			if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTileEntity) {
-				final KeycardReaderTileEntity reader = (KeycardReaderTileEntity) worldIn.getTileEntity(pos);
+			if (worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTE) {
+				final KeycardReaderTE reader = (KeycardReaderTE) worldIn.getTileEntity(pos);
 				final EntityPlayer player = (EntityPlayer) placer;
 				reader.setOwner(EntityPlayer.getUUID(player.getGameProfile()));
 			} else

@@ -13,15 +13,15 @@ import net.minecraft.item.ItemSword;
 import net.minecraftforge.fml.common.FMLCommonHandler;
 import net.minecraftforge.fml.relauncher.Side;
 
-public class NVIDIAEnchantment extends Enchantment {
+public class NVIDIAEnchantment extends BaseEnchantment {
 
 	protected NVIDIAEnchantment() {
-		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, new EntityEquipmentSlot[]{EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND});
+		super(Rarity.VERY_RARE, EnumEnchantmentType.WEAPON, EntityEquipmentSlot.MAINHAND, EntityEquipmentSlot.OFFHAND);
 	}
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return ConfigHandler.nvidiaEnchantmentEnabled && stack.getItem() instanceof ItemSword;
+		return canApply(stack);
 	}
 
 	@Override
@@ -35,12 +35,12 @@ public class NVIDIAEnchantment extends Enchantment {
 	}
 
 	@Override
-	public int getMaxEnchantability(int enchantmentLevel) {
+	public int getMaxEnchantability(int level) {
 		return 19;
 	}
 
 	@Override
-	public int getMinEnchantability(int enchantmentLevel) {
+	public int getMinEnchantability(int level) {
 		return 8;
 	}
 
@@ -49,10 +49,10 @@ public class NVIDIAEnchantment extends Enchantment {
 		if (!ConfigHandler.nvidiaEnchantmentEnabled || !(target instanceof EntityPlayer)) return;
 		if (!target.getEntityWorld().isRemote) {
 			if (target.world.rand.nextInt(3) == 1) // Let's try really hard to hijack a Random from somewhere else.
-				target.attackEntityFrom(new NVIDIADamageSource("nVIDIA"), 20F);
-			user.attackEntityFrom(new NVIDIADamageSource("nVIDIA"), 20F);
+				target.attackEntityFrom(new NVIDIADamageSource(), 20F);
+			user.attackEntityFrom(new NVIDIADamageSource(), 20F);
 		}
-		if (FMLCommonHandler.instance().getSide() == Side.CLIENT && RandomItems.proxy.nVIDIA())
+		if (FMLCommonHandler.instance().getSide() == Side.CLIENT && RandomItems.proxy.isNVIDIA())
 			if (target.world.rand.nextInt(10) == 1 && target instanceof EntityPlayer)
 				RandomItems.proxy.nvidiaCrash();
 	}

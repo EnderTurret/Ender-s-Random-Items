@@ -2,5 +2,4 @@
 	"parent": "randomitems:item/base_puffball",
 	"textures": {
 		"layer0": "randomitems:items/white_puffball"
-	}
-}
+}}

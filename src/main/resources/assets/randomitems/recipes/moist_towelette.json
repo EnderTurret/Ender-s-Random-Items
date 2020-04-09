@@ -1,20 +1,21 @@
 {
-    "result": {
-        "item": "randomitems:moist_towelette",
-        "count": 1
+  "pattern": [
+    "   ",
+    "SPS",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:moist_towelette"
+  },
+  "key": {
+    "P": {
+      "item": "minecraft:paper",
+      "data": 0
     },
-        "pattern": [
-            "   ",
-            "SPS",
-			"   "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "S": {
-                "item": "randomitems:sanitizing_water"
-        },
-			"P": {
-				"item": "minecraft:paper",
-				"data": 0
-		}
-}}
+    "S": {
+      "item": "randomitems:sanitizing_water"
+    }
+  }
+}

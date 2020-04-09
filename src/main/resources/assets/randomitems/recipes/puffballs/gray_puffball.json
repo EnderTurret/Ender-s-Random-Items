@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:gray_puffball",
-        "count": 1
+  "pattern": [
+    "sGs",
+    "SPS",
+    "sGs"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:gray_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "sGs",
-            "SPS",
-			"sGs"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "S": {
-                "item": "minecraft:shield",
-				"data": 0
-        },
-			"s": {
-				"item": "minecraft:stone",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"G": {
-				"item": "minecraft:dye",
-				"data": 8
-		}
-}}
+    "S": {
+      "item": "minecraft:shield",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:dye",
+      "data": 8
+    }
+  }
+}

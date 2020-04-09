@@ -1,20 +1,21 @@
 {
-    "result": {
-        "item": "minecraft:beef",
-        "data": 0,
-		"count": 1
+  "pattern": [
+    "M",
+    "R"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "minecraft:beef",
+    "data": 0
+  },
+  "key": {
+    "R": {
+      "item": "minecraft:rotten_flesh",
+      "data": 0
     },
-        "pattern": [
-            "M",
-            "R"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "M": {
-                "item": "randomitems:moist_towelette"
-        },
-			"R": {
-				"item": "minecraft:rotten_flesh",
-				"data": 0
-		}
-}}
+    "M": {
+      "item": "randomitems:moist_towelette"
+    }
+  }
+}

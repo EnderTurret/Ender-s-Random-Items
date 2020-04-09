@@ -5,12 +5,13 @@ import net.minecraft.enchantment.EnumEnchantmentType;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.EntityEquipmentSlot;
 import net.minecraft.item.Item;
+import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 
-public class AntiGravityEnchantment extends Enchantment {
+public class AntiGravityEnchantment extends BaseEnchantment {
 
 	protected AntiGravityEnchantment() {
-		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, new EntityEquipmentSlot[]{EntityEquipmentSlot.FEET});
+		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, EntityEquipmentSlot.FEET);
 	}
 
 	@Override
@@ -20,20 +21,12 @@ public class AntiGravityEnchantment extends Enchantment {
 
 	@Override
 	public boolean canApplyAtEnchantingTable(ItemStack stack) {
-		return isSuitableItem(stack.getItem());
+		return canApply(stack);
 	}
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return isSuitableItem(stack.getItem());
-	}
-
-	private boolean isSuitableItem(Item item) {
-		return item == Items.DIAMOND_BOOTS ||
-				item == Items.CHAINMAIL_BOOTS ||
-				item == Items.GOLDEN_BOOTS ||
-				item == Items.IRON_BOOTS ||
-				item == Items.LEATHER_BOOTS;
+		return stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET;
 	}
 
 	@Override

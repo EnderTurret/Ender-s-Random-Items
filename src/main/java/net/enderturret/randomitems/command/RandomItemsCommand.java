@@ -25,7 +25,7 @@ public class RandomItemsCommand extends CommandBase {
 		if (effect == null)
 			playerIn.sendMessage(new TextComponentString("No effect registered with id " + id.toString()));
 		else if (!effect.canRun(playerIn.getEntityWorld(), playerIn))
-			playerIn.sendMessage(new TextComponentString("Effect " + id.toString() + "returned false from canRun()."));
+			playerIn.sendMessage(new TextComponentString("Effect " + id.toString() + " returned false from canRun()."));
 		else {
 			effect.runEffect(playerIn.getEntityWorld(), playerIn);
 			playerIn.sendMessage(new TextComponentString("Successfully run effect " + id.toString()));

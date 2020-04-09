@@ -1,25 +1,26 @@
 {
-    "result": {
-        "item": "randomitems:tesseract_block",
-        "count": 1
+  "pattern": [
+    "EOE",
+    "ONO",
+    "EOE"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:tesseract_block"
+  },
+  "key": {
+    "E": {
+      "item": "minecraft:ender_eye",
+      "data": 0
     },
-        "pattern": [
-            "EOE",
-            "ONO",
-			"EOE"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "N": {
-                "item": "minecraft:nether_star",
-                "data": 0
-        },
-			"E": {
-				"item": "minecraft:ender_eye",
-				"data": 0
-		},
-			"O": {
-				"item": "minecraft:obsidian",
-				"data": 0
-		}
-}}
+    "O": {
+      "item": "minecraft:obsidian",
+      "data": 0
+    },
+    "N": {
+      "item": "minecraft:nether_star",
+      "data": 0
+    }
+  }
+}

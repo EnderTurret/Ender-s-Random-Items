@@ -1,25 +1,26 @@
 {
-    "result": {
-        "item": "randomitems:sanitizing_water",
-        "count": 8
+  "pattern": [
+    " R ",
+    "GWG",
+    " R "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 8,
+    "item": "randomitems:sanitizing_water"
+  },
+  "key": {
+    "R": {
+      "item": "minecraft:redstone",
+      "data": 0
     },
-        "pattern": [
-            " R ",
-            "GWG",
-			" R "
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "W": {
-                "item": "minecraft:water_bucket",
-				"data": 0
-        },
-			"G": {
-				"item": "minecraft:glowstone_dust",
-				"data": 0
-		},
-			"R": {
-				"item": "minecraft:redstone",
-				"data": 0
-		}
-}}
+    "G": {
+      "item": "minecraft:glowstone_dust",
+      "data": 0
+    },
+    "W": {
+      "item": "minecraft:water_bucket",
+      "data": 0
+    }
+  }
+}

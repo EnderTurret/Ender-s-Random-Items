@@ -1,24 +1,25 @@
 {
-    "result": {
-        "item": "randomitems:white_puffball",
-        "count": 1
+  "pattern": [
+    "sss",
+    "WPW",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:white_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "sss",
-            "WPW",
-			"sss"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "s": {
-                "item": "minecraft:sugar",
-				"data": 0
-        },
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"W": {
-				"item": "minecraft:dye",
-				"data": 15
-		}
-}}
+    "s": {
+      "item": "minecraft:sugar",
+      "data": 0
+    },
+    "W": {
+      "item": "minecraft:dye",
+      "data": 15
+    }
+  }
+}

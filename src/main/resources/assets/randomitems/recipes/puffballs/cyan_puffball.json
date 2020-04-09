@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:cyan_puffball",
-        "count": 1
+  "pattern": [
+    "SpS",
+    "CPC",
+    "SpS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:cyan_puffball"
+  },
+  "key": {
+    "p": {
+      "item": "minecraft:wooden_pickaxe",
+      "data": 0
     },
-        "pattern": [
-            "SpS",
-            "CPC",
-			"SpS"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "p": {
-                "item": "minecraft:wooden_pickaxe",
-				"data": 0
-        },
-			"S": {
-				"item": "minecraft:sugar",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"C": {
-				"item": "minecraft:dye",
-				"data": 6
-		}
-}}
+    "S": {
+      "item": "minecraft:sugar",
+      "data": 0
+    },
+    "C": {
+      "item": "minecraft:dye",
+      "data": 6
+    },
+    "P": {
+      "item": "randomitems:puffball"
+    }
+  }
+}

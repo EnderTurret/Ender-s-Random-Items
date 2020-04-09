@@ -14,5 +14,5 @@ public class ServerProxy implements IProxy {
 	public void init() {}
 
 	@Override
-	public boolean nVIDIA() { return false; }
+	public boolean isNVIDIA() { return false; }
 }

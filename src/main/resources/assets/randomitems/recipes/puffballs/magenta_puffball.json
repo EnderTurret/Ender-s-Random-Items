@@ -1,28 +1,29 @@
 {
-    "result": {
-        "item": "randomitems:magenta_puffball",
-        "count": 1
+  "pattern": [
+    "GgG",
+    "MPM",
+    "GgG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:magenta_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
     },
-        "pattern": [
-            "GgG",
-            "MPM",
-			"GgG"
-        ],
-        "type": "minecraft:crafting_shaped",
-        "key": {
-            "G": {
-                "item": "minecraft:glowstone",
-				"data": 0
-        },
-			"g": {
-				"item": "minecraft:glowstone_dust",
-				"data": 0
-		},
-			"P": {
-				"item": "randomitems:puffball"
-		},
-			"M": {
-				"item": "minecraft:dye",
-				"data": 13
-		}
-}}
+    "M": {
+      "item": "minecraft:dye",
+      "data": 13
+    },
+    "g": {
+      "item": "minecraft:glowstone_dust",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:glowstone",
+      "data": 0
+    }
+  }
+}

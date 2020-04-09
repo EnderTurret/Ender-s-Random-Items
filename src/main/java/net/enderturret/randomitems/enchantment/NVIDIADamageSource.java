@@ -7,12 +7,12 @@ import net.minecraft.util.text.TextComponentTranslation;
 
 public class NVIDIADamageSource extends DamageSource {
 
-	public NVIDIADamageSource(String damageTypeIn) {
-		super(damageTypeIn);
+	public NVIDIADamageSource() {
+		super("nVIDIA");
 	}
 
 	@Override
 	public ITextComponent getDeathMessage(EntityLivingBase entityIn) {
-		return new TextComponentTranslation("enchantment.nvidia.deathmessage", entityIn.getName());
+		return new TextComponentTranslation("enchantment.randomitems.nvidia.death", entityIn.getName());
 	}
 }

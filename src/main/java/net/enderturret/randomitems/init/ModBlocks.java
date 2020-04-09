@@ -86,7 +86,7 @@ public class ModBlocks {
 				//configure(new Block(Material), "_block"),
 				configure(new TesseractBlock(SoundType.METAL, Material.CIRCUITS, MobEffects.RESISTANCE), "tesseract_block"),
 				configure(new TesseractBlock(SoundType.METAL, Material.CIRCUITS, MobEffects.REGENERATION), "love_tesseract_block"),
-				configure(new CustomTorchBlock(SoundType.STONE), "stone_torch_block"),
+				configure(new StoneTorchBlock(SoundType.STONE), "stone_torch_block"),
 				configure(new WolfenootCakeBlock(), "wolfenoot_cake_block"),
 				configure(new KeycardReaderBlock(), "keycard_reader_block"),
 				configure(new PlushieBlock(SoundType.CLOTH, Material.CLOTH), "dog_plushie_block"),
@@ -138,34 +138,6 @@ public class ModBlocks {
 				ORANGE_CORE, MAGENTA_CORE, PINK_CORE, BROWN_CORE, GREEN_CORE,
 				LIME_CORE, BLACK_2_CORE, CLEAR_CORE, SUN_CORE, NIGHT_CORE,
 				CORRUPT_CORE, UNIVERSE_CORE, DOG_PLUSHIE);
-		/*TESSERACT.registerItemModel();
-		LOVE_TESSERACT.registerItemModel();
-		STONE_TORCH.registerItemModel();
-		WOLFENOOT_CAKE.registerItemModel();
-		KEYCARD_READER.registerItemModel();
-		PURPLE_CORE.registerItemModel();
-		RED_CORE.registerItemModel();
-		BLUE_CORE.registerItemModel();
-		BLACK_CORE.registerItemModel();
-		YELLOW_CORE.registerItemModel();
-		WHITE_CORE.registerItemModel();
-		GRAY_CORE.registerItemModel();
-		LIGHT_BLUE_CORE.registerItemModel();
-		LIGHT_GRAY_CORE.registerItemModel();
-		CYAN_CORE.registerItemModel();
-		ORANGE_CORE.registerItemModel();
-		MAGENTA_CORE.registerItemModel();
-		PINK_CORE.registerItemModel();
-		BROWN_CORE.registerItemModel();
-		GREEN_CORE.registerItemModel();
-		LIME_CORE.registerItemModel();
-		BLACK_2_CORE.registerItemModel();
-		CLEAR_CORE.registerItemModel();
-		SUN_CORE.registerItemModel();
-		NIGHT_CORE.registerItemModel();
-		CORRUPT_CORE.registerItemModel();
-		UNIVERSE_CORE.registerItemModel();
-		DOG_PLUSH.registerItemModel();*/
 	}
 
 	public static void registerModels(Block... blocks) {
