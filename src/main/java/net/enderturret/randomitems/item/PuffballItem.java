@@ -1,9 +1,11 @@
 package net.enderturret.randomitems.item;
 
+import java.util.List;
 import java.util.UUID;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.ai.attributes.AttributeModifier;
@@ -13,16 +15,21 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Effect;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.World;
 
 public class PuffballItem extends Item {
 
 	private static final UUID MAX_HEALTH_UUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
 	private final Effect effect;
+	private final TextFormatting color;
 
-	public PuffballItem(Item.Properties settings, Effect effect) {
+	public PuffballItem(Item.Properties settings, Effect effect, TextFormatting color) {
 		super(settings);
 		this.effect = effect;
+		this.color = color;
 	}
 
 	@Override
@@ -38,5 +45,11 @@ public class PuffballItem extends Item {
 			}
 			else if (playerIn.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(MAX_HEALTH_UUID) != null) playerIn.getAttribute(SharedMonsterAttributes.MAX_HEALTH).removeModifier(MAX_HEALTH_UUID);
 		}
+	}
+
+	@Override
+	public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+		tooltip.add(new StringTextComponent(color.toString()).appendSibling(effect.getDisplayName()));
+		super.addInformation(stack, worldIn, tooltip, flagIn);
 	}
 }
