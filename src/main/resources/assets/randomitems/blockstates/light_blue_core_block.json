@@ -1,0 +1,8 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "": {
+      "model": "randomitems:block/core/light_blue_core_block"
+    }
+  }
+}

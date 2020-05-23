@@ -1,0 +1,22 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "waterlogged=false,facing=east,powered=false":  { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 90  },
+    "waterlogged=false,facing=west,powered=false":  { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 270 },
+    "waterlogged=false,facing=south,powered=false": { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 180 },
+    "waterlogged=false,facing=north,powered=false": { "model": "randomitems:block/keycard_reader_block_off", "x": 90           },
+    "waterlogged=false,facing=east,powered=true":   { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 90      },
+    "waterlogged=false,facing=west,powered=true":   { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 270     },
+    "waterlogged=false,facing=south,powered=true":  { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 180     },
+    "waterlogged=false,facing=north,powered=true":  { "model": "randomitems:block/keycard_reader_block", "x": 90               },
+
+    "waterlogged=true,facing=east,powered=false":  { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 90  },
+    "waterlogged=true,facing=west,powered=false":  { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 270 },
+    "waterlogged=true,facing=south,powered=false": { "model": "randomitems:block/keycard_reader_block_off", "x": 90, "y": 180 },
+    "waterlogged=true,facing=north,powered=false": { "model": "randomitems:block/keycard_reader_block_off", "x": 90           },
+    "waterlogged=true,facing=east,powered=true":   { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 90      },
+    "waterlogged=true,facing=west,powered=true":   { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 270     },
+    "waterlogged=true,facing=south,powered=true":  { "model": "randomitems:block/keycard_reader_block", "x": 90, "y": 180     },
+    "waterlogged=true,facing=north,powered=true":  { "model": "randomitems:block/keycard_reader_block", "x": 90               }
+  }
+}

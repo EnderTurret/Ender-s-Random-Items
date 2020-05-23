@@ -1,0 +1,25 @@
+{
+  "pattern": [
+    "sss",
+    "WPW",
+    "sss"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:white_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "s": {
+      "item": "minecraft:sugar",
+      "data": 0
+    },
+    "W": {
+      "item": "minecraft:white_dye",
+      "data": 0
+    }
+  }
+}

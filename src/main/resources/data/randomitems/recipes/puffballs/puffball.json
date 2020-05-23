@@ -1,0 +1,23 @@
+{
+  "pattern": [
+    "FFF",
+    "FtF",
+    "FTF"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:puffball"
+  },
+  "key": {
+    "t": {
+      "item": "randomitems:tesseract_block"
+    },
+    "T": {
+      "item": "randomitems:puffball_tail"
+    },
+    "F": {
+      "item": "randomitems:puffball_fur"
+    }
+  }
+}

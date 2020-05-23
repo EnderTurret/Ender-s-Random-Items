@@ -1,0 +1,8 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "": {
+      "model": "randomitems:block/wolfenoot_cake_block"
+    }
+  }
+}

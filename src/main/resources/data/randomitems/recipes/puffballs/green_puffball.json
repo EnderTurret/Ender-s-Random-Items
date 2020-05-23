@@ -1,0 +1,25 @@
+{
+  "pattern": [
+    "RgR",
+    "gPg",
+    "RgR"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:green_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "R": {
+      "item": "minecraft:rabbit_foot",
+      "data": 0
+    },
+    "g": {
+      "item": "minecraft:green_dye",
+      "data": 0
+    }
+  }
+}

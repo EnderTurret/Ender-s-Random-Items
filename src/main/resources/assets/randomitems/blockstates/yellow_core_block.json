@@ -1,0 +1,8 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "": {
+      "model": "randomitems:block/core/yellow_core_block"
+    }
+  }
+}

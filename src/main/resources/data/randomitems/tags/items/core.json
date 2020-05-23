@@ -1,0 +1,22 @@
+{
+	"replace": false,
+	"values": [
+		"randomitems:purple_core_block",
+		"randomitems:red_core_block",
+		"randomitems:blue_core_block",
+		"randomitems:black_core_block",
+		"randomitems:yellow_core_block",
+		"randomitems:white_core_block",
+		"randomitems:gray_core_block",
+		"randomitems:light_blue_core_block",
+		"randomitems:light_gray_core_block",
+		"randomitems:cyan_core_block",
+		"randomitems:orange_core_block",
+		"randomitems:magenta_core_block",
+		"randomitems:pink_core_block",
+		"randomitems:brown_core_block",
+		"randomitems:green_core_block",
+		"randomitems:lime_core_block",
+		"randomitems:black_core_block_2"
+	]
+}

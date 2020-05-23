@@ -1,0 +1,22 @@
+{
+  "pattern": [
+    "SSS",
+    "WWW",
+    "SSS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:puffball_tail"
+  },
+  "key": {
+    "S": {
+      "item": "minecraft:string",
+      "data": 0
+    },
+    "W": {
+      "item": "minecraft:white_wool",
+      "data": 0
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "forge_marker": 1,
+  "variants": {
+    "waterlogged=false,facing=east":  { "model": "randomitems:block/dog_plushie_block", "y": 90  },
+    "waterlogged=false,facing=west":  { "model": "randomitems:block/dog_plushie_block", "y": 270 },
+    "waterlogged=false,facing=south": { "model": "randomitems:block/dog_plushie_block", "y": 180 },
+    "waterlogged=false,facing=north": { "model": "randomitems:block/dog_plushie_block" },
+    "waterlogged=true,facing=east":  { "model": "randomitems:block/dog_plushie_block", "y": 90  },
+    "waterlogged=true,facing=west":  { "model": "randomitems:block/dog_plushie_block", "y": 270 },
+    "waterlogged=true,facing=south": { "model": "randomitems:block/dog_plushie_block", "y": 180 },
+    "waterlogged=true,facing=north": { "model": "randomitems:block/dog_plushie_block" }
+  }
+}

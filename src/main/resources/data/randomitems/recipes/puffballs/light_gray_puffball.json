@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "GFG",
+    "LPL",
+    "GFG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:light_gray_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "L": {
+      "item": "minecraft:light_gray_dye",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:golden_carrot",
+      "data": 0
+    },
+    "F": {
+      "item": "minecraft:fermented_spider_eye",
+      "data": 0
+    }
+  }
+}

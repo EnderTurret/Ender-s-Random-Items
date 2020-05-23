@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "MLM",
+    "OPO",
+    "MLM"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:orange_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "M": {
+      "item": "minecraft:magma_cream",
+      "data": 0
+    },
+    "L": {
+      "item": "minecraft:lava_bucket",
+      "data": 0
+    },
+    "O": {
+      "item": "minecraft:orange_dye",
+      "data": 0
+    }
+  }
+}

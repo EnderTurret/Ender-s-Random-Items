@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "pWp",
+    "LPL",
+    "pWp"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:light_blue_puffball"
+  },
+  "key": {
+    "p": {
+      "item": "minecraft:cod",
+      "data": 0
+    },
+    "L": {
+      "item": "minecraft:light_blue_dye",
+      "data": 0
+    },
+    "W": {
+      "item": "minecraft:water_bucket",
+      "data": 0
+    },
+    "P": {
+      "item": "randomitems:puffball"
+    }
+  }
+}

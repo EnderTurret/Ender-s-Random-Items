@@ -1,0 +1,25 @@
+{
+  "pattern": [
+    "gGg",
+    "GTG",
+    "gGg"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:love_tesseract_block"
+  },
+  "key": {
+    "g": {
+      "item": "minecraft:glistering_melon_slice",
+      "data": 0
+    },
+    "T": {
+      "item": "randomitems:tesseract_block"
+    },
+    "G": {
+      "item": "minecraft:ghast_tear",
+      "data": 0
+    }
+  }
+}

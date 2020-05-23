@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "SGS",
+    "BPB",
+    "SGS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:brown_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "S": {
+      "item": "minecraft:cooked_beef",
+      "data": 0
+    },
+    "B": {
+      "item": "minecraft:brown_dye",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:golden_carrot",
+      "data": 0
+    }
+  }
+}
