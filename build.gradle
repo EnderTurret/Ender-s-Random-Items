@@ -19,11 +19,11 @@ archivesBaseName = 'EndersRandomItems-1.15.2'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.0'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.8'
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200522-1.15.1'
+    mappings channel: 'snapshot', version: '20200606-1.15.1'
     // makeObfSourceJar = false
 
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
