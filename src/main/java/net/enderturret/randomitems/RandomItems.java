@@ -53,7 +53,7 @@ public class RandomItems {
 
 	public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
 
-	public static IProxy proxy = DistExecutor.safeRunForDist(() -> () -> new ClientProxy(), () -> () -> new ServerProxy());
+	public static IProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
 
 	public RandomItems() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC, Reference.MOD_ID + ".toml");
