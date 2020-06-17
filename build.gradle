@@ -1,43 +1,48 @@
 buildscript {
     repositories {
+        maven { url = 'https://files.minecraftforge.net/maven' }
         jcenter()
-        maven { url = "http://files.minecraftforge.net/maven" }
+        mavenCentral()
     }
     dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
+        classpath 'net.minecraftforge.gradle:ForgeGradle:3.+'
     }
 }
-apply plugin: 'net.minecraftforge.gradle.forge'
+
+apply plugin: 'net.minecraftforge.gradle'
+
+apply plugin: 'eclipse'
 
 version = "1.2.0"
 group = "net.enderturret.randomitems"
 archivesBaseName = "EndersRandomItems-1.12.2"
 
-sourceCompatibility = targetCompatibility = '1.8'
-compileJava {
-    sourceCompatibility = targetCompatibility = '1.8'
-}
+sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 minecraft {
-    version = "1.12.2-14.23.5.2847"
-    runDir = "run"
+    mappings channel: 'snapshot', version: '20180814-1.12'
 
-    mappings = "snapshot_20180814"
-    // makeObfSourceJar = false
+    runs {
+        client {
+            workingDirectory project.file('run')
+        }
+
+        server {}
+    }
 }
 
 dependencies {
+	minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2854'
 }
 
 processResources {
 
     inputs.property "version", project.version
-    inputs.property "mcversion", project.minecraft.version
 
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
 
-        expand 'version':project.version, 'mcversion':project.minecraft.version
+        expand 'version':project.version
     }
 
     from(sourceSets.main.resources.srcDirs) {
