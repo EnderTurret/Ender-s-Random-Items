@@ -14,7 +14,7 @@ public class HoleEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardHoleEffect &&
+		return ConfigHandler.flardEffects.holeEffect &&
 				!worldIn.isAirBlock(playerIn.getPosition().down()) &&
 				worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
 	}

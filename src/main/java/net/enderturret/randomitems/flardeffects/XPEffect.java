@@ -13,6 +13,6 @@ public class XPEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardXPEffect;
+		return ConfigHandler.flardEffects.xpEffect;
 	}
 }

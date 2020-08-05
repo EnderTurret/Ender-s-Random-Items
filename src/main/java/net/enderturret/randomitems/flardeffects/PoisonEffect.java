@@ -15,6 +15,6 @@ public class PoisonEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardPoisonEffect;
+		return ConfigHandler.flardEffects.poisonEffect;
 	}
 }

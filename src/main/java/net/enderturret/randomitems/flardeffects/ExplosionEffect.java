@@ -14,6 +14,6 @@ public class ExplosionEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardExplosionEffect;
+		return ConfigHandler.flardEffects.explosionEffect;
 	}
 }

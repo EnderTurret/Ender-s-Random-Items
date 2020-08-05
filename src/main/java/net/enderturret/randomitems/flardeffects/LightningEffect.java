@@ -16,6 +16,6 @@ public class LightningEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardLightningEffect && worldIn instanceof WorldServer;
+		return ConfigHandler.flardEffects.lightningEffect && worldIn instanceof WorldServer;
 	}
 }

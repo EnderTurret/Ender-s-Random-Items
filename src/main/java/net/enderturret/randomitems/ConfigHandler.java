@@ -29,7 +29,7 @@ public class ConfigHandler {
 	public static boolean repairCommandEnabled = true;
 
 	@Comment("Whether the anti-gravity enchant applies its effect.")
-	public static boolean antiGravEnabled = true;
+	public static boolean antiGravityEnabled = true;
 
 	@Comment("Whether core crafting is enabled.")
 	public static boolean coreCraftingEnabled = true;
@@ -40,46 +40,46 @@ public class ConfigHandler {
 	public static class SubCategoryFLARD {
 
 		@Comment("Whether the poison effect is enabled.")
-		public boolean flardPoisonEffect = true;
+		public boolean poisonEffect = true;
 
 		@Comment("Whether the offhand enchant is enabled.")
-		public boolean flardOffhandEnchantEffect = true;
+		public boolean offhandEnchantEffect = true;
 
 		@Comment("Whether the inventory drop effect is enabled.")
-		public boolean flardInventoryDropEffect = true;
+		public boolean inventoryDropEffect = true;
 
 		@Comment("Whether the lightning strike effect is enabled.")
-		public boolean flardLightningEffect = true;
+		public boolean lightningEffect = true;
 
 		@Comment("Whether the diamond effect is enabled. (Gives the player one diamond.)")
-		public boolean flardDiamondEffect = true;
+		public boolean diamondEffect = true;
 
 		@Comment("Whether the hole effect is enabled. (Removes the block under the player.)")
-		public boolean flardHoleEffect = true;
+		public boolean holeEffect = true;
 
 		@Comment("Whether the explosion effect is enabled.")
-		public boolean flardExplosionEffect = true;
+		public boolean explosionEffect = true;
 
 		@Comment("Whether the XP effect is enabled. (Gives the player 0-9 xp points.)")
-		public boolean flardXPEffect = true;
+		public boolean xpEffect = true;
 
 		@Comment("Whether the chest loot table effect is enabled. (Modifies an empty chest's loot table and respawns loot.)")
-		public boolean flardChestLootEffect = true;
+		public boolean chestLootEffect = true;
 
 		@Comment("Whether the fire effect is enabled.")
-		public boolean flardFireEffect = true;
+		public boolean fireEffect = true;
 
 		@Comment("Whether the puddle effect is enabled.")
-		public boolean flardPuddleEffect = true;
+		public boolean puddleEffect = true;
 
 		@Comment("Whether the cobweb effect is enabled.")
-		public boolean flardCobwebEffect = true;
+		public boolean cobwebEffect = true;
 
 		@Comment("Whether the block change effect is enabled. (Changes the block under the player to a random block.)")
-		public boolean flardBlockChangeEffect = true;
+		public boolean blockChangeEffect = true;
 
-		@Comment("The blacklist for the block change effect.")
-		public String[] flardBlockBlacklist = {"minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
+		@Comment("The blacklist for various effect.")
+		public String[] blockBlacklist = {"minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
 				"minecraft:chain_command_block", "minecraft:barrier", "minecraft:end_portal_frame",
 				"minecraft:portal", "minecraft:mob_spawner", "minecraft:structure_block", "minecraft:structure_void"};
 	}

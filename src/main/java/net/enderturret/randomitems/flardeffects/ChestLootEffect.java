@@ -20,7 +20,7 @@ public class ChestLootEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		if (ConfigHandler.flardEffects.flardChestLootEffect) {
+		if (ConfigHandler.flardEffects.chestLootEffect) {
 			TileEntity te = worldIn.getTileEntity(playerIn.getPosition().down());
 			if (te == null) te = worldIn.getTileEntity(playerIn.getPosition());
 			if (te != null)

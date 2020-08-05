@@ -14,6 +14,6 @@ public class PuddleEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardPuddleEffect && worldIn.isAirBlock(playerIn.getPosition());
+		return ConfigHandler.flardEffects.puddleEffect && worldIn.isAirBlock(playerIn.getPosition());
 	}
 }

@@ -15,6 +15,6 @@ public class DiamondEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardDiamondEffect;
+		return ConfigHandler.flardEffects.diamondEffect;
 	}
 }

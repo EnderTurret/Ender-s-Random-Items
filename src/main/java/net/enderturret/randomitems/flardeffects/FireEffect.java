@@ -14,6 +14,6 @@ public class FireEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardFireEffect && worldIn.isAirBlock(playerIn.getPosition());
+		return ConfigHandler.flardEffects.fireEffect && worldIn.isAirBlock(playerIn.getPosition());
 	}
 }

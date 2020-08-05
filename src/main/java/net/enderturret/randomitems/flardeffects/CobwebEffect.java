@@ -14,6 +14,6 @@ public class CobwebEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardCobwebEffect && worldIn.isAirBlock(playerIn.getPosition());
+		return ConfigHandler.flardEffects.cobwebEffect && worldIn.isAirBlock(playerIn.getPosition());
 	}
 }

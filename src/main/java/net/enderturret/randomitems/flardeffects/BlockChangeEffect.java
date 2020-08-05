@@ -22,7 +22,7 @@ public class BlockChangeEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardBlockChangeEffect && worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
+		return ConfigHandler.flardEffects.blockChangeEffect && worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
 	}
 
 	private static boolean compareResourceLocations(ResourceLocation location, ResourceLocation other) {
@@ -31,7 +31,7 @@ public class BlockChangeEffect extends FLARDEffect {
 
 	private static void createResourceLocationArray() {
 		blocks = ForgeRegistries.BLOCKS.getKeys().stream().filter(rl -> {
-			for (String s : ConfigHandler.flardEffects.flardBlockBlacklist)
+			for (String s : ConfigHandler.flardEffects.blockBlacklist)
 				if (compareResourceLocations(rl, new ResourceLocation(s)))
 					return false;
 			return true;

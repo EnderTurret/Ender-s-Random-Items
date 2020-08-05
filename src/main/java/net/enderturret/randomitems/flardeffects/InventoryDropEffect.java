@@ -13,6 +13,6 @@ public class InventoryDropEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardInventoryDropEffect;
+		return ConfigHandler.flardEffects.inventoryDropEffect;
 	}
 }

@@ -31,7 +31,7 @@ public class ModEnchantments {
 	public static void onEntityUpdate(LivingUpdateEvent e) {
 		if (!e.getEntityLiving().getEntityWorld().isRemote) {
 			final int lvlGrav = EnchantmentHelper.getMaxEnchantmentLevel(ANTI_GRAVITY, e.getEntityLiving());
-			if (lvlGrav > 0 && ConfigHandler.antiGravEnabled)
+			if (lvlGrav > 0 && ConfigHandler.antiGravityEnabled)
 				e.getEntityLiving().addPotionEffect(new PotionEffect(MobEffects.JUMP_BOOST, 20, Math.min(3, lvlGrav)));
 		}
 	}

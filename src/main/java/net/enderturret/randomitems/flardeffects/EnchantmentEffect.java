@@ -16,6 +16,6 @@ public class EnchantmentEffect extends FLARDEffect {
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.flardOffhandEnchantEffect && playerIn.getHeldItemOffhand() != ItemStack.EMPTY;
+		return ConfigHandler.flardEffects.offhandEnchantEffect && playerIn.getHeldItemOffhand() != ItemStack.EMPTY;
 	}
 }
