@@ -24,8 +24,7 @@ public class ModEnchantments {
 	@SubscribeEvent
 	public static void registerEnchants(RegistryEvent.Register<Enchantment> registry) {
 		registry.getRegistry().registerAll(
-				configure(new AntiGravityEnchantment(), "antigravity"),
-				configure(new NVIDIAEnchantment(), "nvidia"));
+				configure(new AntiGravityEnchantment(), "antigravity"));
 	}
 
 	@SubscribeEvent

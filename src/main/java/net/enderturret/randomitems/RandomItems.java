@@ -11,6 +11,7 @@ import net.enderturret.randomitems.proxy.IProxy;
 import net.enderturret.randomitems.tileentity.KeycardReaderTE;
 import net.minecraft.block.Block;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.enchantment.Enchantment;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
@@ -64,7 +65,6 @@ public class RandomItems {
 
 		ModBlocks.initOreDict();
 
-		proxy.init();
 		GameRegistry.registerTileEntity(KeycardReaderTE.class, new ResourceLocation(Reference.MOD_ID, "tileentitykeycardreader"));
 	}
 
@@ -210,6 +210,13 @@ public class RandomItems {
 					else if ("block_core_lime".equals(path)) mapping.remap(ModBlocks.LIME_CORE);
 					else if ("block_core_black_2".equals(path)) mapping.remap(ModBlocks.BLACK_2_CORE);
 				}
+			}
+		}
+
+		@SubscribeEvent
+		static void missingMappingsEnchantment(RegistryEvent.MissingMappings<Enchantment> event) {
+			for (RegistryEvent.MissingMappings.Mapping<Enchantment> mapping : event.getMappings()) {
+				if (mapping.key.getPath().equals("nvidia")) mapping.ignore();
 			}
 		}
 	}

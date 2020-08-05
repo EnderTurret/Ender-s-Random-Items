@@ -28,9 +28,6 @@ public class ConfigHandler {
 	@Config.RequiresWorldRestart
 	public static boolean repairCommandEnabled = true;
 
-	@Comment("On servers, this controls whether nvidia insta-kills players. On the client, this controls whether nvidia crashes the game.")
-	public static boolean nvidiaEnchantmentEnabled = false;
-
 	@Comment("Whether the anti-gravity enchant applies its effect.")
 	public static boolean antiGravEnabled = true;
 
