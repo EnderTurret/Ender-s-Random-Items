@@ -19,7 +19,6 @@ public class ConfigHandler {
 	public BooleanValue brownPuffballEnabled;
 	public BooleanValue stoneChiselEnabled;
 	public BooleanValue repairCommandEnabled;
-	public BooleanValue nvidiaEnchantmentEnabled;
 	public BooleanValue antiGravEnabled;
 	public BooleanValue coreCraftingEnabled;
 
@@ -47,7 +46,6 @@ public class ConfigHandler {
 		brownPuffballEnabled = builder.comment("Whether the brown puffball applies its effect.").define("brownPuffballEnabled", true);
 		stoneChiselEnabled = builder.comment("Whether the stone chisels can be used.").define("stoneChiselEnabled", true);
 		repairCommandEnabled = builder.comment("Whether /repair is enabled.").define("repairCommandEnabled", true);
-		nvidiaEnchantmentEnabled = builder.comment("On servers, this controls whether nvidia insta-kills players. On the client, this controls whether nvidia crashes the game.").define("nvidiaEnchantmentEnabled", false);
 		antiGravEnabled = builder.comment("Whether the anti-gravity enchant applies its effect.").define("antiGravEnabled", true);
 		coreCraftingEnabled = builder.comment("Whether core crafting is enabled.").define("coreCraftingEnabled", true);
 		builder.push("flardEffects");

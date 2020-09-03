@@ -11,9 +11,6 @@ import net.enderturret.randomitems.init.ModCommands;
 import net.enderturret.randomitems.init.ModFlardEffects;
 import net.enderturret.randomitems.init.ModItems;
 import net.enderturret.randomitems.init.ModTileEntities;
-import net.enderturret.randomitems.proxy.ClientProxy;
-import net.enderturret.randomitems.proxy.ServerProxy;
-import net.enderturret.randomitems.proxy.IProxy;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.RenderType;
 import net.minecraft.client.renderer.RenderTypeLookup;
@@ -53,8 +50,6 @@ public class RandomItems {
 
 	public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
 
-	public static IProxy proxy = DistExecutor.safeRunForDist(() -> ClientProxy::new, () -> ServerProxy::new);
-
 	public RandomItems() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC, Reference.MOD_ID + ".toml");
 		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
@@ -74,8 +69,6 @@ public class RandomItems {
 
 	public void init(FMLCommonSetupEvent e) {
 		ModCommands.registerPermissionNodes();
-
-		proxy.init();
 	}
 
 	public void clientInit(FMLClientSetupEvent e) {

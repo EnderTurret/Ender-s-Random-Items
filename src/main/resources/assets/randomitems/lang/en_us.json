@@ -69,8 +69,6 @@
 
   "enchantment.level.0": "",
   "enchantment.randomitems.antigravity": "Anti Gravity",
-  "enchantment.randomitems.nvidia": "nVIDIA",
-  "enchantment.randomitems.nvidia.death": "%s experienced nVIDIA",
   "itemGroup.randomitems": "§1§lEnder's Random Items§r",
   "randomitems.flard.fail": "The FLARD disappeared without doing anything."
 }
