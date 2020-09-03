@@ -89,12 +89,14 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext ctx) {
 		final boolean fluid = ctx.getWorld().getFluidState(ctx.getPos()).getFluid() == Fluids.WATER;
+
 		return super.getStateForPlacement(ctx).with(FACING, ctx.getPlacementHorizontalFacing().getOpposite()).with(WATERLOGGED, fluid);
 	}
 
 	@Override
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (stateIn.get(WATERLOGGED)) worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+
 		return super.updatePostPlacement(stateIn, facing, facingState, worldIn, currentPos, facingPos);
 	}
 
@@ -109,6 +111,7 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 			worldIn.notifyNeighbors(pos, this);
 			worldIn.notifyNeighbors(pos.offset(state.get(FACING).getOpposite()), this);
 		}
+
 		super.onBlockHarvested(worldIn, pos, state, playerIn);
 	}
 
@@ -120,6 +123,7 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 	@Override
 	public int getStrongPower(BlockState state, IBlockReader reader, BlockPos pos, Direction side) {
 		if (!state.get(POWERED)) return 0;
+
 		return state.get(FACING) == side ? 15 : 0;
 	}
 
@@ -132,10 +136,12 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand hand, BlockRayTraceResult result) {
 		if (!worldIn.isRemote && worldIn.getTileEntity(pos) != null && worldIn.getTileEntity(pos) instanceof KeycardReaderTE) {
 			final KeycardReaderTE te = (KeycardReaderTE) worldIn.getTileEntity(pos);
+
 			if (playerIn.isCrouching() && playerIn.getHeldItemMainhand().isEmpty()) {
 				if (te.isOwner(PlayerEntity.getUUID(playerIn.getGameProfile())))
 					playerIn.sendMessage(new TranslationTextComponent("randomitems.keycard.getname", te.getKeycardName()));
 			}
+
 			else if (!playerIn.isCrouching() && playerIn.getHeldItemMainhand().getItem() instanceof KeycardItem)
 				if (te.isNameEqual(playerIn.getHeldItemMainhand().getDisplayName().getString())) {
 					worldIn.setBlockState(pos, worldIn.getBlockState(pos).with(POWERED, true), 3);
@@ -144,6 +150,7 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 					worldIn.notifyNeighbors(pos.offset(state.get(FACING).getOpposite()), this);
 				}
 		}
+
 		return ActionResultType.SUCCESS;
 	}
 
@@ -159,10 +166,12 @@ public class KeycardReaderBlock extends DirectionalBlock implements IWaterLoggab
 		if (placer instanceof PlayerEntity && !worldIn.isRemote)
 			if (worldIn.getTileEntity(pos) != null) {
 				final TileEntity reader = worldIn.getTileEntity(pos);
+
 				if (reader instanceof KeycardReaderTE)
 					((KeycardReaderTE) reader).setOwner(PlayerEntity.getUUID(((PlayerEntity)placer).getGameProfile()));
 				else RandomItems.LOGGER.error("TileEntity is not a keycard reader at " + pos.toString() + "!!!");
 			} else RandomItems.LOGGER.error("TileEntity is null at " + pos.toString() + "!!!");
+
 		super.onBlockPlacedBy(worldIn, pos, state, placer, stack);
 	}
 

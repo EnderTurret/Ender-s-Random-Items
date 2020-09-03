@@ -19,12 +19,15 @@ public class KeycardItem extends Item {
 		if (ctx.getWorld().getBlockState(ctx.getPos()).getBlock() instanceof KeycardReaderBlock && !ctx.getWorld().isRemote && ctx.getWorld().getTileEntity(ctx.getPos()) != null)
 			if (ctx.getWorld().getTileEntity(ctx.getPos()) instanceof KeycardReaderTE) {
 				final KeycardReaderTE te = (KeycardReaderTE) ctx.getWorld().getTileEntity(ctx.getPos());
+
 				if (ctx.getPlayer().isCrouching() && te.isOwner(PlayerEntity.getUUID(ctx.getPlayer().getGameProfile()))) {
 					te.setKeycardName(ctx.getPlayer().getHeldItemMainhand().getDisplayName().getString());
 					ctx.getPlayer().sendMessage(new TranslationTextComponent("randomitems.keycard.setname", ctx.getPlayer().getHeldItemMainhand().getDisplayName()));
+
 					return ActionResultType.SUCCESS;
 				}
 			}
+
 		return ActionResultType.FAIL;
 	}
 }

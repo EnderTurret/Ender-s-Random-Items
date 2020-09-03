@@ -31,6 +31,7 @@ public class FLARDItem extends Item {
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
 		if (!worldIn.isRemote && ConfigHandler.get().flardEnabled.get() && playerIn.getHeldItemMainhand().getItem() == ModItems.FLARD.get())
 			rollEffect(worldIn, playerIn);
+
 		return new ActionResult<>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));
 	}
 
@@ -42,6 +43,7 @@ public class FLARDItem extends Item {
 	public void rollEffect(World worldIn, PlayerEntity playerIn) {
 		FLARDEffect effect = null;
 		int tries = 0;
+
 		while ((effect = FLARDEffectRegistry.getRandom(random)) != null && !effect.canRun(worldIn, playerIn)) {
 			tries++;
 			if (tries == 100) {
@@ -50,7 +52,9 @@ public class FLARDItem extends Item {
 				return;
 			}
 		}
+
 		finishRoll(playerIn);
+
 		try {
 			effect.runEffect(worldIn, playerIn);
 		} catch (Exception e) {

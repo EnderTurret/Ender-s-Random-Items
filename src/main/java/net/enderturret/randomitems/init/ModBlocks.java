@@ -22,7 +22,7 @@ public final class ModBlocks {
 	private ModBlocks() {}
 
 	// One registry to rule them all.
-	public static final DeferredRegister<Block> REGISTRY = new DeferredRegister<>(ForgeRegistries.BLOCKS, Reference.MOD_ID);
+	public static final DeferredRegister<Block> REGISTRY = DeferredRegister.create(ForgeRegistries.BLOCKS, Reference.MOD_ID);
 
 	// One registry to find them.
 	public static final RegistryObject<Block> TESSERACT = REGISTRY.register("tesseract_block", () -> new TesseractBlock(create(Material.IRON).harvestTool(ToolType.PICKAXE).lightValue(15).hardnessAndResistance(50F, 2000F).sound(SoundType.METAL).notSolid(), Effects.RESISTANCE));

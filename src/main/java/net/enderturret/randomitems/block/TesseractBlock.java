@@ -43,6 +43,7 @@ public class TesseractBlock extends Block implements IWaterLoggable {
 		final VoxelShape cornerSE = makeCuboidShape(15, 0, 15, 16, 16, 16);
 		final VoxelShape cornerSW = makeCuboidShape(0, 0, 15, 1, 16, 16);
 		final VoxelShape center = makeCuboidShape(4, 4, 4, 12, 12, 12);
+
 		AABB = RandomItemsUtil.combineAll(
 				bottomNorth, bottomSouth, bottomEast, bottomWest,
 				topNorth, topSouth, topEast, topWest,
@@ -64,6 +65,7 @@ public class TesseractBlock extends Block implements IWaterLoggable {
 			playerIn.addPotionEffect(new EffectInstance(effect, 6000, 0));
 			return ActionResultType.SUCCESS;
 		}
+
 		return ActionResultType.FAIL;
 	}
 
@@ -76,12 +78,14 @@ public class TesseractBlock extends Block implements IWaterLoggable {
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext ctx) {
 		final boolean fluid = ctx.getWorld().getFluidState(ctx.getPos()).getFluid() == Fluids.WATER;
+
 		return super.getStateForPlacement(ctx).with(WATERLOGGED, fluid);
 	}
 
 	@Override
 	public BlockState updatePostPlacement(BlockState stateIn, Direction facing, BlockState facingState, IWorld worldIn, BlockPos currentPos, BlockPos facingPos) {
 		if (stateIn.get(WATERLOGGED)) worldIn.getPendingFluidTicks().scheduleTick(currentPos, Fluids.WATER, Fluids.WATER.getTickRate(worldIn));
+
 		return stateIn;
 	}
 

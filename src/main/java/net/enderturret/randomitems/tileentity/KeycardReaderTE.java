@@ -51,15 +51,19 @@ public class KeycardReaderTE extends TileEntity {
 	@Override
 	public CompoundNBT write(CompoundNBT compound) {
 		compound.putString("keycardName", keycardName);
+
 		if (owner != null) compound.putString("owner", owner.toString());
+
 		return super.write(compound);
 	}
 
 	@Override
 	public void read(CompoundNBT compound) {
 		keycardName = compound.getString("keycardName");
+
 		if (compound.getString("owner") != null) owner = UUID.fromString(compound.getString("owner"));
 		else owner = null;
+
 		super.read(compound);
 	}
 

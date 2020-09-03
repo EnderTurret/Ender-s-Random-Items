@@ -14,6 +14,7 @@ public class ChestLootEffect extends FLARDEffect {
 		final TileEntity te = worldIn.getTileEntity(playerIn.getPosition().down());
 		final LockableLootTileEntity chest = (LockableLootTileEntity) (te != null ? te : worldIn.getTileEntity(playerIn.getPosition()));
 		final int rolledTable = RAND.nextInt(CHESTS.length);
+
 		chest.setLootTable(CHESTS[rolledTable], RAND.nextLong());
 		chest.fillWithLoot(playerIn);
 	}
@@ -27,6 +28,7 @@ public class ChestLootEffect extends FLARDEffect {
 				if (te instanceof LockableLootTileEntity)
 					return ((LockableLootTileEntity) te).isEmpty();
 		}
+
 		return false;
 	}
 

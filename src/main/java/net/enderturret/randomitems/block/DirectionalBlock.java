@@ -23,7 +23,7 @@ public class DirectionalBlock extends Block {
 
 	public DirectionalBlock(Block.Properties settings) {
 		super(settings);
-		this.setDefaultState(this.getDefaultState().with(FACING, Direction.NORTH));
+		setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
 	}
 
 	/**
@@ -38,12 +38,13 @@ public class DirectionalBlock extends Block {
 
 	@Override
 	public BlockState getStateForPlacement(BlockItemUseContext ctx) {
-		return this.getDefaultState().with(FACING, ctx.getPlacementHorizontalFacing());
+		return getDefaultState().with(FACING, ctx.getPlacementHorizontalFacing());
 	}
 
 	@Override
 	public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext ctx) {
-		final VoxelShape[] boundingBox = this.getRotationAABB();
+		final VoxelShape[] boundingBox = getRotationAABB();
+
 		switch (state.get(FACING)) {
 		case EAST: return boundingBox[0];
 		case WEST: return boundingBox[1];
@@ -55,7 +56,8 @@ public class DirectionalBlock extends Block {
 
 	@Override
 	public VoxelShape getCollisionShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext ctx) {
-		final VoxelShape[] boundingBox = this.getRotationAABB();
+		final VoxelShape[] boundingBox = getRotationAABB();
+
 		switch (state.get(FACING)) {
 		case EAST: return boundingBox[0];
 		case WEST: return boundingBox[1];

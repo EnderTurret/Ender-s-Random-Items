@@ -36,6 +36,7 @@ public class QuestionableCheeseItem extends Item {
 				item.getEntityWorld().removeBlock(item.getPosition().down(), false);
 				item.getEntityWorld().createExplosion(null, item.getPosition().getX(), item.getPosition().getY() - 1, item.getPosition().getZ(), 8.0F, Explosion.Mode.DESTROY);
 			}
+
 		return false;
 	}
 }

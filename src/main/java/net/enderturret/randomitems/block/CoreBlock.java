@@ -37,6 +37,7 @@ public class CoreBlock extends Block implements IBeaconBeamColorProvider {
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand hand, BlockRayTraceResult result) {
 		if (canCraft && ConfigHandler.get().coreCraftingEnabled.get() && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
 			return onCraft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
+
 		return ActionResultType.FAIL;
 	}
 
@@ -46,11 +47,13 @@ public class CoreBlock extends Block implements IBeaconBeamColorProvider {
 			worldIn.addEntity(new ItemEntity(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.QUESTIONABLE_CHEESE.get())));
 			return ActionResultType.SUCCESS;
 		}
+
 		else if (stateAbove == Blocks.QUARTZ_BLOCK.getDefaultState()) {
 			worldIn.removeBlock(pos.up(), false);
 			worldIn.addEntity(new ItemEntity(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.FLARD.get())));
 			return ActionResultType.SUCCESS;
 		}
+
 		return ActionResultType.FAIL;
 	}
 

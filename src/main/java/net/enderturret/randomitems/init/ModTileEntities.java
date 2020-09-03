@@ -11,7 +11,7 @@ public final class ModTileEntities {
 
 	private ModTileEntities() {}
 
-	public static final DeferredRegister<TileEntityType<?>> REGISTRY = new DeferredRegister<>(ForgeRegistries.TILE_ENTITIES, Reference.MOD_ID);
+	public static final DeferredRegister<TileEntityType<?>> REGISTRY = DeferredRegister.create(ForgeRegistries.TILE_ENTITIES, Reference.MOD_ID);
 
 	public static final RegistryObject<TileEntityType<?>> KEYCARD_READER_TYPE = REGISTRY.register("keycardreadertileentity", () -> TileEntityType.Builder.create(KeycardReaderTE::new).build(null));
 }

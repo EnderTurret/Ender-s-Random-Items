@@ -49,6 +49,7 @@ public class RepairCommand {
 			stack.setDamage(0);
 			return true;
 		}
+
 		return false;
 	}
 
@@ -72,6 +73,7 @@ public class RepairCommand {
 				ctx.getSource().sendFeedback(RepairCommand.repairHand((PlayerEntity) ctx.getSource().getEntity(), false), false);
 			return Command.SINGLE_SUCCESS;
 		}));
+
 		return repair;
 	}
 }

@@ -23,6 +23,7 @@ import net.minecraft.world.World;
 public class PuffballItem extends Item {
 
 	private static final UUID MAX_HEALTH_UUID = UUID.fromString("edf80de8-538c-4ca1-90ec-4f34fde9aaa9");
+
 	private final Effect effect;
 	private final TextFormatting color;
 
@@ -36,6 +37,7 @@ public class PuffballItem extends Item {
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
 		if (this == ModItems.BROWN_PUFFBALL.get() && !ConfigHandler.get().brownPuffballEnabled.get())
 			return;
+
 		if (ConfigHandler.get().puffballEffectsEnabled.get() && entityIn instanceof PlayerEntity) {
 			final PlayerEntity playerIn = (PlayerEntity) entityIn;
 			if (playerIn.getHeldItemOffhand().getItem() == this) {

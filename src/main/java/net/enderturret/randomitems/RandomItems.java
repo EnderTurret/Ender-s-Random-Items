@@ -52,14 +52,18 @@ public class RandomItems {
 
 	public RandomItems() {
 		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC, Reference.MOD_ID + ".toml");
+
 		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
+
 		bus.addListener(this::init);
 		bus.addListener(this::clientInit);
 		ModBlocks.REGISTRY.register(bus);
 		ModItems.REGISTRY.register(bus);
 		ModTileEntities.REGISTRY.register(bus);
 		ModEnchantments.REGISTRY.register(bus);
+
 		ModBlocks.registerItemBlocks();
+
 		MinecraftForge.EVENT_BUS.addListener(this::onServerStart); // ServerStartingEvent is fired on the Forge bus, not the mod one.
 		MinecraftForge.EVENT_BUS.addListener(this::onLootLoad); // Same with this all these.
 		MinecraftForge.EVENT_BUS.addListener(this::onEntityTick);

@@ -7,7 +7,7 @@ import net.minecraftforge.registries.DeferredRegister;
 
 public class ModFlardEffects {
 
-	public static final DeferredRegister<FLARDEffect> REGISTRY = new DeferredRegister<>(FLARDEffectRegistry.getRegistry(), Reference.MOD_ID);
+	public static final DeferredRegister<FLARDEffect> REGISTRY = DeferredRegister.create(FLARDEffectRegistry.getRegistry(), Reference.MOD_ID);
 
 	static {
 		REGISTRY.register("block_change", BlockChangeEffect::new);

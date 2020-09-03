@@ -22,10 +22,13 @@ public class RandomItemsCommand {
 
 	public static void processFLARDEffect(ResourceLocation id, PlayerEntity playerIn) {
 		final FLARDEffect effect = FLARDEffectRegistry.getRegistry().getValue(id);
+
 		if (effect == null)
 			playerIn.sendMessage(new StringTextComponent("No effect registered with id " + id.toString()));
+
 		else if (!effect.canRun(playerIn.getEntityWorld(), playerIn))
 			playerIn.sendMessage(new StringTextComponent("Effect " + id.toString() + " returned false from canRun()."));
+
 		else {
 			effect.runEffect(playerIn.getEntityWorld(), playerIn);
 			playerIn.sendMessage(new StringTextComponent("Successfully run effect " + id.toString()));
@@ -50,6 +53,7 @@ public class RandomItemsCommand {
 
 	public static CompletableFuture<Suggestions> suggestResourceLocations(Iterable<ResourceLocation> locations, String input, SuggestionsBuilder builder) {
 		final boolean containsColon = input.indexOf(':') != -1;
+
 		for (ResourceLocation loc : locations) {
 			final String str = loc.toString();
 			if (containsColon) {
@@ -59,6 +63,7 @@ public class RandomItemsCommand {
 					"minecraft".equals(loc.getNamespace()) && loc.getPath().startsWith(input)) // Vanilla logic.
 				builder.suggest(str);
 		}
+
 		return builder.buildFuture();
 	}
 }

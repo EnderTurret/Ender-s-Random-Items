@@ -14,7 +14,7 @@ public final class ModItems {
 
 	private ModItems() {}
 
-	public static final DeferredRegister<Item> REGISTRY = new DeferredRegister<>(ForgeRegistries.ITEMS, Reference.MOD_ID);
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
 
 	public static final RegistryObject<Item> MOIST_TOWELETTE = REGISTRY.register("moist_towelette", () -> new Item(create()));
 	public static final RegistryObject<Item> SANITIZING_WATER = REGISTRY.register("sanitizing_water", () -> new Item(create()));
