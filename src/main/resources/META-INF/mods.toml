@@ -8,3 +8,4 @@ loaderVersion="[31,)"
     '''
     version="2.0.1"
     authors="EnderTurret"
+    license="MIT"

@@ -21,6 +21,7 @@ public final class FLARDEffectRegistry {
 		registry = new RegistryBuilder<FLARDEffect>()
 				.setName(new ResourceLocation(Reference.MOD_ID, "flard_effects"))
 				.setType(FLARDEffect.class)
+				.disableSaving()
 				.create();
 	}
 

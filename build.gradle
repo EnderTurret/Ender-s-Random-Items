@@ -19,20 +19,15 @@ archivesBaseName = 'EndersRandomItems-1.15.2'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.8'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.36'
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200606-1.15.1'
-    // makeObfSourceJar = false
-
-    // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
+    mappings channel: 'snapshot', version: '20200808-1.15.1'
 
     runs {
         client {
             workingDirectory project.file('run')
-
-            property 'forge.logging.console.level', 'debug'
 
             mods {
                 randomitems {
@@ -44,8 +39,6 @@ minecraft {
         server {
             workingDirectory project.file('run')
 
-            property 'forge.logging.console.level', 'debug'
-
             mods {
                 randomitems {
                     source sourceSets.main
@@ -55,9 +48,6 @@ minecraft {
 
         data {
             workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
 
             args '--mod', 'randomitems', '--all', '--output', file('src/generated/resources/')
 
@@ -75,7 +65,7 @@ jar {
         attributes([
             "Specification-Title": "Ender's Random Items",
             "Specification-Vendor": "EnderTurret",
-            "Specification-Version": "1.2.0",
+            "Specification-Version": "1",
             "Implementation-Title": project.name,
             "Implementation-Version": "${version}",
             "Implementation-Vendor" :"EnderTurret",
