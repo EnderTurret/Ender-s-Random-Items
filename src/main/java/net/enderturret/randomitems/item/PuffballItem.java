@@ -35,10 +35,10 @@ public class PuffballItem extends Item {
 
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (this == ModItems.BROWN_PUFFBALL.get() && !ConfigHandler.get().brownPuffballEnabled.get())
+		if (this == ModItems.BROWN_PUFFBALL.get() && !ConfigHandler.isBrownPuffballEnabled())
 			return;
 
-		if (ConfigHandler.get().puffballEffectsEnabled.get() && entityIn instanceof PlayerEntity) {
+		if (ConfigHandler.arePuffballEffectsEnabled() && entityIn instanceof PlayerEntity) {
 			final PlayerEntity playerIn = (PlayerEntity) entityIn;
 			if (playerIn.getHeldItemOffhand().getItem() == this) {
 				if (this == ModItems.PURPLE_PUFFBALL.get() && playerIn.getAttribute(SharedMonsterAttributes.MAX_HEALTH).getModifier(MAX_HEALTH_UUID) == null)

@@ -35,7 +35,7 @@ public class CoreBlock extends Block implements IBeaconBeamColorProvider {
 
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand hand, BlockRayTraceResult result) {
-		if (canCraft && ConfigHandler.get().coreCraftingEnabled.get() && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
+		if (canCraft && ConfigHandler.isCoreCraftingEnabled() && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
 			return onCraft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
 
 		return ActionResultType.FAIL;

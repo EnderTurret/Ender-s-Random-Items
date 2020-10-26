@@ -59,28 +59,28 @@ public final class ModBlocks {
 
 	// One registry to bring them all and in the event register them.
 	public static void registerItemBlocks() {
-		createItemBlock(TESSERACT, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(LOVE_TESSERACT, ModItems.create().rarity(Rarity.RARE));
+		createItemBlock(TESSERACT, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(LOVE_TESSERACT, ModItems.props().rarity(Rarity.RARE));
 		createWallOrFloorItemBlock(STONE_TORCH_WALL, STONE_TORCH);
 		createItemBlock(WOLFENOOT_CAKE);
 		createItemBlock(KEYCARD_READER);
-		createItemBlock(PURPLE_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(RED_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(BLUE_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(BLACK_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(YELLOW_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(WHITE_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(GRAY_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(LIGHT_BLUE_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(LIGHT_GRAY_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(CYAN_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(ORANGE_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(MAGENTA_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(PINK_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(BROWN_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(GREEN_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(LIME_CORE, ModItems.create().rarity(Rarity.RARE));
-		createItemBlock(BLACK_CORE_2, ModItems.create().rarity(Rarity.RARE));
+		createItemBlock(PURPLE_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(RED_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(BLUE_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(BLACK_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(YELLOW_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(WHITE_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(GRAY_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(LIGHT_BLUE_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(LIGHT_GRAY_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(CYAN_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(ORANGE_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(MAGENTA_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(PINK_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(BROWN_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(GREEN_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(LIME_CORE, ModItems.props().rarity(Rarity.RARE));
+		createItemBlock(BLACK_CORE_2, ModItems.props().rarity(Rarity.RARE));
 		createItemBlock(CLEAR_CORE);
 		createItemBlock(SUN_CORE);
 		createItemBlock(NIGHT_CORE);
@@ -94,10 +94,10 @@ public final class ModBlocks {
 	}
 
 	static void createItemBlock(RegistryObject<Block> block) {
-		createItemBlock(block, ModItems.create());
+		createItemBlock(block, ModItems.props());
 	}
 
 	static void createWallOrFloorItemBlock(RegistryObject<Block> wall, RegistryObject<Block> floor) {
-		ModItems.REGISTRY.register(floor.getId().getPath(), () -> new WallOrFloorItem(floor.get(), wall.get(), ModItems.create()));
+		ModItems.REGISTRY.register(floor.getId().getPath(), () -> new WallOrFloorItem(floor.get(), wall.get(), ModItems.props()));
 	}
 }

@@ -18,8 +18,8 @@ import net.minecraft.world.World;
 
 public class FLARDItem extends Item {
 
-	public FLARDItem() {
-		super(new Item.Properties().group(RandomItems.TAB).maxStackSize(1));
+	public FLARDItem(Item.Properties props) {
+		super(props);
 	}
 
 	@Override
@@ -29,7 +29,7 @@ public class FLARDItem extends Item {
 
 	@Override
 	public ActionResult<ItemStack> onItemRightClick(World worldIn, PlayerEntity playerIn, Hand handIn) {
-		if (!worldIn.isRemote && ConfigHandler.get().flardEnabled.get() && playerIn.getHeldItemMainhand().getItem() == ModItems.FLARD.get())
+		if (!worldIn.isRemote && ConfigHandler.isFLARDEnabled() && playerIn.getHeldItemMainhand().getItem() == ModItems.FLARD.get())
 			rollEffect(worldIn, playerIn);
 
 		return new ActionResult<>(ActionResultType.SUCCESS, playerIn.getHeldItem(handIn));

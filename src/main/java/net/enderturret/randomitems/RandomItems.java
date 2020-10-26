@@ -51,7 +51,7 @@ public class RandomItems {
 	public static final Logger LOGGER = LogManager.getLogger(Reference.MOD_ID);
 
 	public RandomItems() {
-		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.CONFIG_SPEC, Reference.MOD_ID + ".toml");
+		ModLoadingContext.get().registerConfig(ModConfig.Type.COMMON, ConfigHandler.SPEC, Reference.MOD_ID + ".toml");
 
 		final IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -117,9 +117,9 @@ public class RandomItems {
 	}
 
 	private void onEntityTick(LivingUpdateEvent e) {
-		if (!e.getEntityLiving().getEntityWorld().isRemote) {
+		if (!e.getEntityLiving().getEntityWorld().isRemote && ConfigHandler.isAntiGravityEnabled()) {
 			final int lvlGrav = EnchantmentHelper.getMaxEnchantmentLevel(ModEnchantments.ANTI_GRAVITY.get(), e.getEntityLiving());
-			if (lvlGrav > 0 && ConfigHandler.get().antiGravEnabled.get())
+			if (lvlGrav > 0)
 				e.getEntityLiving().addPotionEffect(new EffectInstance(Effects.JUMP_BOOST, 20, Math.min(3, lvlGrav)));
 		}
 	}

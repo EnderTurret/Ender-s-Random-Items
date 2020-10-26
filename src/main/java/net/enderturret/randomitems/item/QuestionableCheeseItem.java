@@ -14,13 +14,13 @@ import net.minecraft.world.World;
 
 public class QuestionableCheeseItem extends Item {
 
-	public QuestionableCheeseItem() {
-		super(new Item.Properties().group(RandomItems.TAB));
+	public QuestionableCheeseItem(Item.Properties props) {
+		super(props);
 	}
 
 	@Override
 	public void inventoryTick(ItemStack stack, World worldIn, Entity entityIn, int itemSlot, boolean isSelected) {
-		if (!worldIn.isRemote && ConfigHandler.get().questionableCheeseEnabled.get() && entityIn instanceof PlayerEntity) {
+		if (!worldIn.isRemote && ConfigHandler.isQuestionableCheeseEnabled() && entityIn instanceof PlayerEntity) {
 			final PlayerEntity playerIn = (PlayerEntity) entityIn;
 			if (playerIn.getHeldItemMainhand().getItem() == ModItems.QUESTIONABLE_CHEESE.get() && worldIn.getBlockState(playerIn.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
 				worldIn.setBlockState(playerIn.getPosition().down(), Blocks.AIR.getDefaultState());
@@ -31,7 +31,7 @@ public class QuestionableCheeseItem extends Item {
 
 	@Override
 	public boolean onEntityItemUpdate(ItemStack stack, ItemEntity item) {
-		if (!item.getEntityWorld().isRemote && ConfigHandler.get().questionableCheeseEnabled.get() && stack.getItem() == ModItems.QUESTIONABLE_CHEESE.get())
+		if (!item.getEntityWorld().isRemote && ConfigHandler.isQuestionableCheeseEnabled() && stack.getItem() == ModItems.QUESTIONABLE_CHEESE.get())
 			if (item.getEntityWorld().getBlockState(item.getPosition().down()) == Blocks.BEACON.getDefaultState()) {
 				item.getEntityWorld().removeBlock(item.getPosition().down(), false);
 				item.getEntityWorld().createExplosion(null, item.getPosition().getX(), item.getPosition().getY() - 1, item.getPosition().getZ(), 8.0F, Explosion.Mode.DESTROY);

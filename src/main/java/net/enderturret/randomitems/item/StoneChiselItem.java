@@ -21,7 +21,7 @@ public class StoneChiselItem extends Item {
 
 	@Override
 	public ActionResultType onItemUse(ItemUseContext ctx) {
-		if (ConfigHandler.get().stoneChiselEnabled.get() && ctx.getWorld().getBlockState(ctx.getPos()) == Blocks.STONE.getDefaultState()) {
+		if (ConfigHandler.areStoneChiselsEnabled() && ctx.getWorld().getBlockState(ctx.getPos()) == Blocks.STONE.getDefaultState()) {
 			ctx.getPlayer().addItemStackToInventory(new ItemStack(ModItems.STONE_STICK.get(), stickCount));
 
 			ctx.getWorld().removeBlock(ctx.getPos(), false);

@@ -19,11 +19,11 @@ archivesBaseName = 'EndersRandomItems-1.15.2'
 sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8'
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.36'
+    minecraft 'net.minecraftforge:forge:1.15.2-31.2.41'
 }
 
 minecraft {
-    mappings channel: 'snapshot', version: '20200808-1.15.1'
+    mappings channel: 'snapshot', version: '20200924-1.15.1'
 
     runs {
         client {

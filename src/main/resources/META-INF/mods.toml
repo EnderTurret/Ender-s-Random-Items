@@ -1,5 +1,6 @@
 modLoader="javafml"
 loaderVersion="[31,)"
+license="MIT"
 [[mods]]
     modId="randomitems"
     displayName="Ender's Random Items"
@@ -8,4 +9,3 @@ loaderVersion="[31,)"
     '''
     version="2.0.1"
     authors="EnderTurret"
-    license="MIT"

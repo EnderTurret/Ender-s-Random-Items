@@ -61,7 +61,7 @@ public class TesseractBlock extends Block implements IWaterLoggable {
 
 	@Override
 	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand handIn, BlockRayTraceResult result) {
-		if (ConfigHandler.get().tesseractsEnabled.get() && !playerIn.isCrouching()) {
+		if (ConfigHandler.areTesseractEffectsEnabled() && !playerIn.isCrouching()) {
 			playerIn.addPotionEffect(new EffectInstance(effect, 6000, 0));
 			return ActionResultType.SUCCESS;
 		}
