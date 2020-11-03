@@ -71,6 +71,4 @@ command.repair.bulkrepair=Repaired %s items.
 itemGroup.randomitems=§1§lEnder's Random Items§r
 enchantment.level.0=
 enchantment.antigravity=Anti Gravity
-enchantment.nvidia=nVIDIA
-enchantment.randomitems.nvidia.death=%s experienced nVIDIA
 randomitems.flard.fail=The FLARD disappeared without doing anything.

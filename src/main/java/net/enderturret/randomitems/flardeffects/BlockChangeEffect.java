@@ -2,6 +2,7 @@ package net.enderturret.randomitems.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModBlocks;
+import net.enderturret.randomitems.util.RandomItemsUtil;
 import net.minecraft.block.Block;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -11,30 +12,19 @@ import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 public class BlockChangeEffect extends FLARDEffect {
 
-	private static ResourceLocation[] blocks = null;
-
 	@Override
 	public void runEffect(World worldIn, EntityPlayer playerIn) {
-		if (blocks == null) createResourceLocationArray();
-		final Block randomBlock = ForgeRegistries.BLOCKS.getValue(blocks[RAND.nextInt(blocks.length)]);
+		final Block randomBlock = ForgeRegistries.BLOCKS.getValue(RandomItemsUtil.pickRandom(RAND, ConfigHandler.flardEffects.getBlockKeys()));
 		worldIn.setBlockState(playerIn.getPosition().down(), randomBlock == null ? ModBlocks.CLEAR_CORE.getDefaultState() : randomBlock.getDefaultState());
 	}
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.blockChangeEffect && worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
+		return ConfigHandler.flardEffects.blockChangeEffect &&
+				!ConfigHandler.flardEffects.isBlacklisted(worldIn.getBlockState(playerIn.getPosition().down()).getBlock().getRegistryName());
 	}
 
-	private static boolean compareResourceLocations(ResourceLocation location, ResourceLocation other) {
-		return location == null && other == null || location.toString().equals(other.toString());
-	}
-
-	private static void createResourceLocationArray() {
-		blocks = ForgeRegistries.BLOCKS.getKeys().stream().filter(rl -> {
-			for (String s : ConfigHandler.flardEffects.blockBlacklist)
-				if (compareResourceLocations(rl, new ResourceLocation(s)))
-					return false;
-			return true;
-		}).toArray(ResourceLocation[]::new);
+	private static boolean areEqual(ResourceLocation location, ResourceLocation other) {
+		return location == null && other == null || location.equals(other);
 	}
 }

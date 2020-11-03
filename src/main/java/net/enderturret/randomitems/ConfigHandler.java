@@ -1,7 +1,13 @@
 package net.enderturret.randomitems;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.Config.Comment;
+import net.minecraftforge.fml.common.registry.ForgeRegistries;
 
 @Config(modid = Reference.MOD_ID, type = Config.Type.INSTANCE)
 public class ConfigHandler {
@@ -37,7 +43,16 @@ public class ConfigHandler {
 	@Comment("For controlling individual effects.")
 	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();
 
+	public static void bake() {
+		flardEffects.refreshBlacklist();
+	}
+
 	public static class SubCategoryFLARD {
+
+		@Config.Ignore
+		private List<ResourceLocation> blockKeys = null;
+		@Config.Ignore
+		private List<ResourceLocation> bakedBlockBlacklist = null;
 
 		@Comment("Whether the poison effect is enabled.")
 		public boolean poisonEffect = true;
@@ -78,9 +93,30 @@ public class ConfigHandler {
 		@Comment("Whether the block change effect is enabled. (Changes the block under the player to a random block.)")
 		public boolean blockChangeEffect = true;
 
-		@Comment("The blacklist for various effect.")
+		@Comment("The blacklist for various effects.")
 		public String[] blockBlacklist = {"minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
 				"minecraft:chain_command_block", "minecraft:barrier", "minecraft:end_portal_frame",
 				"minecraft:portal", "minecraft:mob_spawner", "minecraft:structure_block", "minecraft:structure_void"};
+
+		public List<ResourceLocation> getBlockKeys() {
+			if (blockKeys == null) refreshBlacklist();
+
+			return blockKeys;
+		}
+
+		public List<ResourceLocation> getBlockBlacklist() {
+			if (bakedBlockBlacklist == null) refreshBlacklist();
+
+			return bakedBlockBlacklist;
+		}
+
+		public boolean isBlacklisted(ResourceLocation registryName) {
+			return getBlockBlacklist().contains(registryName);
+		}
+
+		public void refreshBlacklist() {
+			bakedBlockBlacklist = Arrays.stream(blockBlacklist).map(ResourceLocation::new).collect(Collectors.toList());
+			blockKeys = ForgeRegistries.BLOCKS.getKeys().stream().filter(key -> !bakedBlockBlacklist.contains(key)).collect(Collectors.toList());
+		}
 	}
 }

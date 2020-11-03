@@ -22,7 +22,7 @@ import net.minecraft.world.storage.loot.RandomValueRange;
 import net.minecraft.world.storage.loot.conditions.LootCondition;
 import net.minecraft.world.storage.loot.functions.LootFunction;
 import net.minecraftforge.client.event.ModelRegistryEvent;
-import net.minecraftforge.common.config.Config.Type;
+import net.minecraftforge.common.config.Config;
 import net.minecraftforge.common.config.ConfigManager;
 import net.minecraftforge.event.LootTableLoadEvent;
 import net.minecraftforge.event.RegistryEvent;
@@ -116,8 +116,10 @@ public class RandomItems {
 
 		@SubscribeEvent
 		static void onConfigChanged(OnConfigChangedEvent e) {
-			if (e.getModID().equals(Reference.MOD_ID))
-				ConfigManager.sync(Reference.MOD_ID, Type.INSTANCE);
+			if (e.getModID().equals(Reference.MOD_ID)) {
+				ConfigManager.sync(Reference.MOD_ID, Config.Type.INSTANCE);
+				ConfigHandler.bake();
+			}
 		}
 
 		@SubscribeEvent

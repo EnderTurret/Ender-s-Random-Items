@@ -9,13 +9,13 @@ public class HoleEffect extends FLARDEffect {
 
 	@Override
 	public void runEffect(World worldIn, EntityPlayer playerIn) {
-		worldIn.setBlockState(playerIn.getPosition().down(), Blocks.AIR.getDefaultState());
+		worldIn.setBlockToAir(playerIn.getPosition().down());
 	}
 
 	@Override
 	public boolean canRun(World worldIn, EntityPlayer playerIn) {
 		return ConfigHandler.flardEffects.holeEffect &&
 				!worldIn.isAirBlock(playerIn.getPosition().down()) &&
-				worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
+				!ConfigHandler.flardEffects.isBlacklisted(worldIn.getBlockState(playerIn.getPosition().down()).getBlock().getRegistryName());
 	}
 }
