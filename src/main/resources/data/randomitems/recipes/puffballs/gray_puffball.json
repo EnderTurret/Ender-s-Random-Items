@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "sGs",
+    "SPS",
+    "sGs"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:gray_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "S": {
+      "item": "minecraft:shield",
+      "data": 0
+    },
+    "s": {
+      "item": "minecraft:stone",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:gray_dye",
+      "data": 0
+    }
+  }
+}

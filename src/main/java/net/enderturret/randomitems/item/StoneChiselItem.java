@@ -2,38 +2,35 @@ package net.enderturret.randomitems.item;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.SoundEvents;
+import net.minecraft.block.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.SoundEvents;
 
 public class StoneChiselItem extends Item {
 
 	private final int stickCount;
 
-	public StoneChiselItem(int durability, int stickCount) {
+	public StoneChiselItem(Item.Properties settings, int stickCount) {
+		super(settings);
+
 		this.stickCount = stickCount;
-		setMaxDamage(durability);
-		setMaxStackSize(1);
 	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer playerIn, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (ConfigHandler.stoneChiselEnabled && worldIn.getBlockState(pos) == Blocks.STONE.getDefaultState()) {
-			playerIn.addItemStackToInventory(new ItemStack(ModItems.STONE_STICK, stickCount));
-			worldIn.setBlockToAir(pos);
-			if (playerIn.getHeldItem(hand).attemptDamageItem(1, itemRand, null)) {
-				playerIn.setHeldItem(hand, ItemStack.EMPTY);
-				playerIn.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1f, 1f);
-			}
-			return EnumActionResult.SUCCESS;
+	public ActionResultType onItemUse(ItemUseContext ctx) {
+		if (ConfigHandler.areStoneChiselsEnabled() && ctx.getWorld().getBlockState(ctx.getPos()) == Blocks.STONE.getDefaultState()) {
+			ctx.getPlayer().addItemStackToInventory(new ItemStack(ModItems.STONE_STICK.get(), stickCount));
+
+			ctx.getWorld().removeBlock(ctx.getPos(), false);
+
+			ctx.getItem().damageItem(1, ctx.getPlayer(), player -> player.playSound(SoundEvents.ENTITY_ITEM_BREAK, 1F, 1F));
+
+			return ActionResultType.SUCCESS;
 		}
-		return EnumActionResult.FAIL;
+
+		return ActionResultType.PASS;
 	}
 }

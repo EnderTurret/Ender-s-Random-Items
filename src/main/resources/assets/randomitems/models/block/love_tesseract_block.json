@@ -1,9 +1,9 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"0": "minecraft:blocks/structure_block",
-		"1": "minecraft:blocks/concrete_pink",
-		"particle": "minecraft:blocks/concrete_pink"
+		"0": "minecraft:block/structure_block",
+		"1": "minecraft:block/pink_concrete",
+		"particle": "minecraft:block/pink_concrete"
 	},
 	"elements": [
 		{

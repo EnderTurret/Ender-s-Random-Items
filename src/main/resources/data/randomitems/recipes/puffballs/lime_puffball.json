@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "DDR",
+    "LPL",
+    "RDD"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:lime_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "R": {
+      "item": "minecraft:rabbit_foot",
+      "data": 0
+    },
+    "D": {
+      "item": "minecraft:diamond",
+      "data": 0
+    },
+    "L": {
+      "item": "minecraft:lime_dye",
+      "data": 0
+    }
+  }
+}

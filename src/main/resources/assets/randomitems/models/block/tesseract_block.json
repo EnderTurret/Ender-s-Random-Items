@@ -1,8 +1,8 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"0": "minecraft:blocks/structure_block",
-		"particle": "minecraft:blocks/structure_block"
+		"0": "minecraft:block/structure_block",
+		"particle": "minecraft:block/structure_block"
 	},
 	"elements": [
 		{

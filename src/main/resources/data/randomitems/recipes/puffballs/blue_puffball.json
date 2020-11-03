@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "GgG",
+    "BPB",
+    "GgG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:blue_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "B": {
+      "item": "minecraft:blue_dye",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:golden_carrot",
+      "data": 0
+    },
+    "g": {
+      "item": "minecraft:glowstone",
+      "data": 0
+    }
+  }
+}

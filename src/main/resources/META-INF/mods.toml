@@ -1,0 +1,11 @@
+modLoader="javafml"
+loaderVersion="[31,)"
+license="MIT"
+[[mods]]
+    modId="randomitems"
+    displayName="Ender's Random Items"
+    description='''
+        A collection of random items.
+    '''
+    version="2.0.1"
+    authors="EnderTurret"

@@ -1,12 +1,11 @@
 package net.enderturret.randomitems.block;
 
-import net.minecraft.block.BlockTorch;
-import net.minecraft.block.SoundType;
+import net.minecraft.block.Block;
+import net.minecraft.block.TorchBlock;
 
-public class StoneTorchBlock extends BlockTorch {
+public class StoneTorchBlock extends TorchBlock {
 
-	public StoneTorchBlock(SoundType soundType) {
-		setSoundType(soundType);
-		setLightLevel(1F);
+	public StoneTorchBlock(Block.Properties settings) {
+		super(settings);
 	}
 }

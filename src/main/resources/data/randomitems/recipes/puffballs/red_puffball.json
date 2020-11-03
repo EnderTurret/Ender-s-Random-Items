@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "GgG",
+    "rPr",
+    "GgG"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:red_puffball"
+  },
+  "key": {
+    "P": {
+      "item": "randomitems:puffball"
+    },
+    "r": {
+      "item": "minecraft:red_dye",
+      "data": 0
+    },
+    "g": {
+      "item": "minecraft:glistering_melon_slice",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:ghast_tear",
+      "data": 0
+    }
+  }
+}

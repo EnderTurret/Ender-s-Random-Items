@@ -2,30 +2,32 @@ package net.enderturret.randomitems.item;
 
 import net.enderturret.randomitems.block.KeycardReaderBlock;
 import net.enderturret.randomitems.tileentity.KeycardReaderTE;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
-import net.minecraft.util.EnumActionResult;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraft.world.World;
+import net.minecraft.item.ItemUseContext;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.text.TranslationTextComponent;
 
 public class KeycardItem extends Item {
 
-	public KeycardItem() {}
+	public KeycardItem(Item.Properties settings) {
+		super(settings);
+	}
 
 	@Override
-	public EnumActionResult onItemUse(EntityPlayer player, World worldIn, BlockPos pos, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (worldIn.getBlockState(pos).getBlock() instanceof KeycardReaderBlock && !worldIn.isRemote && worldIn.getTileEntity(pos) != null)
-			if (worldIn.getTileEntity(pos) instanceof KeycardReaderTE) {
-				final KeycardReaderTE te = (KeycardReaderTE) worldIn.getTileEntity(pos);
-				if (player.isSneaking() && te.isOwner(EntityPlayer.getUUID(player.getGameProfile()))) {
-					te.setKeycardName(player.getHeldItemMainhand().getDisplayName());
-					player.sendMessage(new TextComponentTranslation("randomitems.keycard.setname", player.getHeldItemMainhand().getDisplayName()));
-					return EnumActionResult.SUCCESS;
+	public ActionResultType onItemUse(ItemUseContext ctx) {
+		if (ctx.getWorld().getBlockState(ctx.getPos()).getBlock() instanceof KeycardReaderBlock && !ctx.getWorld().isRemote && ctx.getWorld().getTileEntity(ctx.getPos()) != null)
+			if (ctx.getWorld().getTileEntity(ctx.getPos()) instanceof KeycardReaderTE) {
+				final KeycardReaderTE te = (KeycardReaderTE) ctx.getWorld().getTileEntity(ctx.getPos());
+
+				if (ctx.getPlayer().isCrouching() && te.isOwner(PlayerEntity.getUUID(ctx.getPlayer().getGameProfile()))) {
+					te.setKeycardName(ctx.getPlayer().getHeldItemMainhand().getDisplayName().getString());
+					ctx.getPlayer().sendMessage(new TranslationTextComponent("randomitems.keycard.setname", ctx.getPlayer().getHeldItemMainhand().getDisplayName()));
+
+					return ActionResultType.SUCCESS;
 				}
 			}
-		return EnumActionResult.FAIL;
+
+		return ActionResultType.FAIL;
 	}
 }

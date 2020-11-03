@@ -1,32 +1,34 @@
 package net.enderturret.randomitems.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
-import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.tileentity.LockableLootTileEntity;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.tileentity.TileEntityLockableLoot;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.World;
 
 public class ChestLootEffect extends FLARDEffect {
 
 	@Override
-	public void runEffect(World worldIn, EntityPlayer playerIn) {
+	public void runEffect(World worldIn, PlayerEntity playerIn) {
 		final TileEntity te = worldIn.getTileEntity(playerIn.getPosition().down());
-		final TileEntityLockableLoot chest = (TileEntityLockableLoot) (te != null ? te : worldIn.getTileEntity(playerIn.getPosition()));
+		final LockableLootTileEntity chest = (LockableLootTileEntity) (te != null ? te : worldIn.getTileEntity(playerIn.getPosition()));
 		final int rolledTable = RAND.nextInt(CHESTS.length);
+
 		chest.setLootTable(CHESTS[rolledTable], RAND.nextLong());
 		chest.fillWithLoot(playerIn);
 	}
 
 	@Override
-	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		if (ConfigHandler.flardEffects.chestLootEffect) {
+	public boolean canRun(World worldIn, PlayerEntity playerIn) {
+		if (ConfigHandler.get().flardChestLootEffect.get()) {
 			TileEntity te = worldIn.getTileEntity(playerIn.getPosition().down());
 			if (te == null) te = worldIn.getTileEntity(playerIn.getPosition());
 			if (te != null)
-				if (te instanceof TileEntityLockableLoot)
-					return ((TileEntityLockableLoot) te).isEmpty();
+				if (te instanceof LockableLootTileEntity)
+					return ((LockableLootTileEntity) te).isEmpty();
 		}
+
 		return false;
 	}
 

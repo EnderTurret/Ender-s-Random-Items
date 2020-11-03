@@ -2,98 +2,63 @@ package net.enderturret.randomitems.block;
 
 import net.enderturret.randomitems.ConfigHandler;
 import net.enderturret.randomitems.init.ModItems;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.block.Blocks;
+import net.minecraft.block.IBeaconBeamColorProvider;
 import net.minecraft.block.SoundType;
-import net.minecraft.block.material.MapColor;
 import net.minecraft.block.material.Material;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.item.EntityItem;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
-import net.minecraft.item.EnumDyeColor;
+import net.minecraft.entity.item.ItemEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.DyeColor;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.BlockRenderLayer;
-import net.minecraft.util.EnumBlockRenderType;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
+import net.minecraft.util.ActionResultType;
+import net.minecraft.util.Hand;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
+import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.world.World;
 
-public class CoreBlock extends BaseBlock {
+public class CoreBlock extends Block implements IBeaconBeamColorProvider {
 
 	private final boolean canCraft;
-	private final MapColor map;
-	private final float[] colorValues;
+	private final DyeColor beaconBeam;
 
-	public CoreBlock(boolean canCraft, EnumDyeColor color) {
-		super(SoundType.GLASS, Material.PISTON);
-		setLightLevel(1F);
-		setHardness(3F);
-		setResistance(3F);
-
+	public CoreBlock(boolean canCraft, DyeColor color) {
+		super(Block.Properties.create(Material.PISTON).sound(SoundType.GLASS).lightValue(15).hardnessAndResistance(3F).notSolid());
 		this.canCraft = canCraft;
-		this.map = color == null ? null : MapColor.getBlockColor(color);
-		this.colorValues = color == null ? null : color.getColorComponentValues();
+		this.beaconBeam = color;
 	}
 
-	public CoreBlock(EnumDyeColor color) {
+	public CoreBlock(DyeColor color) {
 		this(true, color);
 	}
 
 	@Override
-	public MapColor getMapColor(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		return map != null ? map : super.getMapColor(state, worldIn, pos);
+	public ActionResultType onBlockActivated(BlockState state, World worldIn, BlockPos pos, PlayerEntity playerIn, Hand hand, BlockRayTraceResult result) {
+		if (canCraft && ConfigHandler.isCoreCraftingEnabled() && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
+			return onCraft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
+
+		return ActionResultType.FAIL;
 	}
 
-	@Override
-	public float[] getBeaconColorMultiplier(IBlockState state, World world, BlockPos pos, BlockPos beaconPos) {
-		return colorValues;
-	}
-
-	@Override
-	public boolean isOpaqueCube(IBlockState state) {
-		return false;
-	}
-
-	@Override
-	public EnumBlockRenderType getRenderType(IBlockState state) {
-		return EnumBlockRenderType.MODEL;
-	}
-
-	@Override
-	public boolean isTranslucent(IBlockState state) {
-		return true;
-	}
-
-	@Override
-	public boolean isFullCube(IBlockState state) {
-		return false;
-	}
-
-
-	@Override
-	public BlockRenderLayer getRenderLayer() {
-		return BlockRenderLayer.CUTOUT;
-	}
-
-	@Override
-	public boolean onBlockActivated(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, EnumHand hand, EnumFacing facing, float hitX, float hitY, float hitZ) {
-		if (canCraft && ConfigHandler.coreCraftingEnabled && !worldIn.isRemote && !worldIn.isAirBlock(pos.up()))
-			return craft(worldIn, pos, state, playerIn, worldIn.getBlockState(pos.up()));
-		return false;
-	}
-
-	private static boolean craft(World worldIn, BlockPos pos, IBlockState state, EntityPlayer playerIn, IBlockState stateAbove) {
+	private ActionResultType onCraft(World worldIn, BlockPos pos, BlockState state, PlayerEntity playerIn, BlockState stateAbove) {
 		if (stateAbove == Blocks.END_STONE.getDefaultState()) {
-			worldIn.destroyBlock(pos.up(), false);
-			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.QUESTIONABLE_CHEESE)));
-			return true;
+			worldIn.removeBlock(pos.up(), false);
+			worldIn.addEntity(new ItemEntity(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.QUESTIONABLE_CHEESE.get())));
+			return ActionResultType.SUCCESS;
 		}
+
 		else if (stateAbove == Blocks.QUARTZ_BLOCK.getDefaultState()) {
-			worldIn.destroyBlock(pos.up(), false);
-			worldIn.spawnEntity(new EntityItem(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.FLARD)));
-			return true;
+			worldIn.removeBlock(pos.up(), false);
+			worldIn.addEntity(new ItemEntity(worldIn, pos.getX() + 0.5, pos.getY() + 1, pos.getZ() + 0.5, new ItemStack(ModItems.FLARD.get())));
+			return ActionResultType.SUCCESS;
 		}
-		return false;
+
+		return ActionResultType.FAIL;
+	}
+
+	@Override
+	public DyeColor getColor() {
+		return beaconBeam;
 	}
 }

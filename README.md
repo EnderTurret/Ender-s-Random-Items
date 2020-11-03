@@ -3,7 +3,7 @@ A Minecraft mod with a bunch of random items, blocks, enchantments, and commands
 
 ## Blocks
 
-**Tesseract**: A block that when right-clicked give you a potion effect. Think of it sort of like a mini beacon.
+**Tesseract**: A block that when right-clicked gives you a potion effect. Think of it sort of like a mini beacon.
 
 **Stone Torch**: Basically a torch made with stone rather than wood.
 

@@ -1,19 +1,19 @@
 package net.enderturret.randomitems.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
 public class FireEffect extends FLARDEffect {
 
 	@Override
-	public void runEffect(World worldIn, EntityPlayer playerIn) {
+	public void runEffect(World worldIn, PlayerEntity playerIn) {
 		worldIn.setBlockState(playerIn.getPosition(), Blocks.FIRE.getDefaultState());
 	}
 
 	@Override
-	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.fireEffect && worldIn.isAirBlock(playerIn.getPosition());
+	public boolean canRun(World worldIn, PlayerEntity playerIn) {
+		return ConfigHandler.get().flardFireEffect.get() && worldIn.isAirBlock(playerIn.getPosition());
 	}
 }

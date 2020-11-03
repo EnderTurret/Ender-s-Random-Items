@@ -2,121 +2,177 @@ package net.enderturret.randomitems;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
 
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.common.config.Config;
-import net.minecraftforge.common.config.Config.Comment;
-import net.minecraftforge.fml.common.registry.ForgeRegistries;
+import org.apache.commons.lang3.tuple.Pair;
 
-@Config(modid = Reference.MOD_ID, type = Config.Type.INSTANCE)
+import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.common.ForgeConfigSpec.BooleanValue;
+import net.minecraftforge.eventbus.api.SubscribeEvent;
+import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
+import net.minecraftforge.fml.config.ModConfig;
+
+@EventBusSubscriber(modid = Reference.MOD_ID, bus = EventBusSubscriber.Bus.MOD)
 public class ConfigHandler {
 
-	@Comment("Whether tesseracts apply effects.")
-	public static boolean tesseractsEnabled = true;
+	private static final ConfigHandler INSTANCE;
+	static final ForgeConfigSpec SPEC;
 
-	@Comment("Whether FLARD does anything when right-clicked.")
-	public static boolean flardEnabled = true;
-
-	@Comment("Whether questionable cheese explodes.")
-	public static boolean questionableCheeseEnabled = true;
-
-	@Comment("Whether puffballs apply effects.")
-	public static boolean puffballEffectsEnabled = true;
-
-	@Comment("Whether the brown puffball applies its effect.")
-	public static boolean brownPuffballEnabled = true;
-
-	@Comment("Whether the stone chisels can be used.")
-	public static boolean stoneChiselEnabled = true;
-
-	@Comment("Whether /repair is enabled")
-	@Config.RequiresWorldRestart
-	public static boolean repairCommandEnabled = true;
-
-	@Comment("Whether the anti-gravity enchant applies its effect.")
-	public static boolean antiGravityEnabled = true;
-
-	@Comment("Whether core crafting is enabled.")
-	public static boolean coreCraftingEnabled = true;
-
-	@Comment("For controlling individual effects.")
-	public static SubCategoryFLARD flardEffects = new SubCategoryFLARD();
-
-	public static void bake() {
-		flardEffects.refreshBlacklist();
+	static {
+		final Pair<ConfigHandler,ForgeConfigSpec> pair = new ForgeConfigSpec.Builder().configure(ConfigHandler::new);
+		INSTANCE = pair.getLeft();
+		SPEC = pair.getRight();
 	}
 
-	public static class SubCategoryFLARD {
+	@Deprecated // Prefer areTesseractsEnabled()
+	public final BooleanValue tesseractsEnabled;
+	@Deprecated // Prefer isFLARDEnabled()
+	public final BooleanValue flardEnabled;
+	@Deprecated // Prefer isQuestionableCheeseEnabled()
+	public final BooleanValue questionableCheeseEnabled;
+	@Deprecated // Prefer arePuffballsEffectsEnabled()
+	public final BooleanValue puffballEffectsEnabled;
+	@Deprecated // Prefer isBrownPuffballEnabled()
+	public final BooleanValue brownPuffballEnabled;
+	@Deprecated // Prefer areStoneChiselsEnabled()
+	public final BooleanValue stoneChiselEnabled;
+	public final BooleanValue repairCommandEnabled;
+	@Deprecated // Prefer isAntiGravityEnabled()
+	public final BooleanValue antiGravEnabled;
+	@Deprecated // Prefer isCoreCraftingEnabled()
+	public final BooleanValue coreCraftingEnabled;
 
-		@Config.Ignore
-		private List<ResourceLocation> blockKeys = null;
-		@Config.Ignore
-		private List<ResourceLocation> bakedBlockBlacklist = null;
+	public final BooleanValue flardPoisonEffect;
+	public final BooleanValue flardOffhandEnchantEffect;
+	public final BooleanValue flardInventoryDropEffect;
+	public final BooleanValue flardLightningEffect;
+	public final BooleanValue flardDiamondEffect;
+	public final BooleanValue flardHoleEffect;
+	public final BooleanValue flardExplosionEffect;
+	public final BooleanValue flardXPEffect;
+	public final BooleanValue flardChestLootEffect;
+	public final BooleanValue flardFireEffect;
+	public final BooleanValue flardPuddleEffect;
+	public final BooleanValue flardCobwebEffect;
+	public final BooleanValue flardBlockChangeEffect;
+	public final ForgeConfigSpec.ConfigValue<List<? extends String>> flardBlockBlacklist;
 
-		@Comment("Whether the poison effect is enabled.")
-		public boolean poisonEffect = true;
+	private boolean tesseractsEnabledBaked;
+	private boolean flardEnabledBaked;
+	private boolean questionableCheeseEnabledBaked;
+	private boolean puffballEffectsEnabledBaked;
+	private boolean brownPuffballEnabledBaked;
+	private boolean stoneChiselEnabledBaked;
+	private boolean antiGravEnabledBaked;
+	private boolean coreCraftingEnabledBaked;
 
-		@Comment("Whether the offhand enchant is enabled.")
-		public boolean offhandEnchantEffect = true;
+	private ConfigHandler(ForgeConfigSpec.Builder builder) {
+		builder.push("RandomItems");
 
-		@Comment("Whether the inventory drop effect is enabled.")
-		public boolean inventoryDropEffect = true;
+		tesseractsEnabled = builder.comment("Whether tesseracts apply effects.").define("tesseractEnabled", true);
+		flardEnabled = builder.comment("Whether FLARD does anything when right-clicked.").define("flardEnabled", true);
+		questionableCheeseEnabled = builder.comment("Whether questionable cheese explodes.").define("questionableCheeseEnabled", true);
+		puffballEffectsEnabled = builder.comment("Whether puffballs apply effects.").define("puffballEffectsEnabled", true);
+		brownPuffballEnabled = builder.comment("Whether the brown puffball applies its effect.").define("brownPuffballEnabled", true);
+		stoneChiselEnabled = builder.comment("Whether the stone chisels can be used.").define("stoneChiselEnabled", true);
+		repairCommandEnabled = builder.comment("Whether /repair is enabled.").define("repairCommandEnabled", true);
+		antiGravEnabled = builder.comment("Whether the anti-gravity enchant applies its effect.").define("antiGravEnabled", true);
+		coreCraftingEnabled = builder.comment("Whether core crafting is enabled.").define("coreCraftingEnabled", true);
 
-		@Comment("Whether the lightning strike effect is enabled.")
-		public boolean lightningEffect = true;
+		builder.push("flardEffects");
 
-		@Comment("Whether the diamond effect is enabled. (Gives the player one diamond.)")
-		public boolean diamondEffect = true;
+		flardPoisonEffect			= builder.comment("Whether the poison effect is enabled.").define("flardPoisonEffect", true);
+		flardOffhandEnchantEffect	= builder.comment("Whether the offhand enchant is enabled.").define("flardOffhandEnchantEffect", true);
+		flardInventoryDropEffect	= builder.comment("Whether the inventory drop effect is enabled.").define("flardInventoryDropEffect", true);
+		flardLightningEffect		= builder.comment("Whether the lightning strike effect is enabled.").define("flardLightningEffect", true);
+		flardDiamondEffect			= builder.comment("Whether the diamond effect is enabled. (Gives the player one diamond.)").define("flardDiamondEffect", true);
+		flardHoleEffect				= builder.comment("Whether the hole effect is enabled. (Removes the block under the player.)").define("flardHoleEffect", true);
+		flardExplosionEffect		= builder.comment("Whether the explosion effect is enabled.").define("flardExplosionEffect", true);
+		flardXPEffect				= builder.comment("Whether the XP effect is enabled. (Gives the player 0-9 xp points.)").define("flardXPEffect", true);
+		flardChestLootEffect		= builder.comment("Whether the chest loot table effect is enabled. (Modifies an empty chest's loot table and respawns loot.)").define("flardChestLootEffect", true);
+		flardFireEffect				= builder.comment("Whether the fire effect is enabled.").define("flardFireEffect", true);
+		flardPuddleEffect			= builder.comment("Whether the puddle effect is enabled.").define("flardPuddleEffect", true);
+		flardCobwebEffect			= builder.comment("Whether the cobweb effect is enabled.").define("flardCobwebEffect", true);
+		flardBlockChangeEffect		= builder.comment("Whether the block change effect is enabled. (Changes the block under the player to a random block.)").define("flardBlockChangeEffect", true);
+		flardBlockBlacklist			= builder.comment("The blacklist for the block change effect.").defineList("flardBlockBlacklist",
+				Arrays.asList("minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
+						"minecraft:chain_command_block", "minecraft:barrier", "minecraft:end_portal_frame",
+						"minecraft:portal", "minecraft:mob_spawner", "minecraft:structure_block", "minecraft:structure_void"),
+				o -> {
+					if (!(o instanceof String)) return false;
 
-		@Comment("Whether the hole effect is enabled. (Removes the block under the player.)")
-		public boolean holeEffect = true;
+					final String s = (String) o;
 
-		@Comment("Whether the explosion effect is enabled.")
-		public boolean explosionEffect = true;
+					if (s.isEmpty() || !s.contains(":")) return false;
 
-		@Comment("Whether the XP effect is enabled. (Gives the player 0-9 xp points.)")
-		public boolean xpEffect = true;
+					final String[] split = s.split(":");
 
-		@Comment("Whether the chest loot table effect is enabled. (Modifies an empty chest's loot table and respawns loot.)")
-		public boolean chestLootEffect = true;
+					if (split.length != 2) return false;
 
-		@Comment("Whether the fire effect is enabled.")
-		public boolean fireEffect = true;
+					return split[0].chars().allMatch(i -> isNamespaceValid((char) i)) &&
+							split[1].chars().allMatch(i -> isPathValid((char) i));
+				});
 
-		@Comment("Whether the puddle effect is enabled.")
-		public boolean puddleEffect = true;
+		builder.pop(2);
+	}
 
-		@Comment("Whether the cobweb effect is enabled.")
-		public boolean cobwebEffect = true;
+	public void bake() {
+		tesseractsEnabledBaked = tesseractsEnabled.get();
+		flardEnabledBaked = flardEnabled.get();
+		questionableCheeseEnabledBaked = questionableCheeseEnabled.get();
+		puffballEffectsEnabledBaked = puffballEffectsEnabled.get();
+		brownPuffballEnabledBaked = brownPuffballEnabled.get();
+		stoneChiselEnabledBaked = stoneChiselEnabled.get();
+		antiGravEnabledBaked = antiGravEnabled.get();
+		coreCraftingEnabledBaked = coreCraftingEnabled.get();
+	}
 
-		@Comment("Whether the block change effect is enabled. (Changes the block under the player to a random block.)")
-		public boolean blockChangeEffect = true;
+	@SubscribeEvent
+	static void onConfigChange(ModConfig.ModConfigEvent e) {
+		if (e.getConfig().getSpec() == SPEC)
+			INSTANCE.bake();
+	}
 
-		@Comment("The blacklist for various effects.")
-		public String[] blockBlacklist = {"minecraft:bedrock", "minecraft:repeating_command_block", "minecraft:command_block",
-				"minecraft:chain_command_block", "minecraft:barrier", "minecraft:end_portal_frame",
-				"minecraft:portal", "minecraft:mob_spawner", "minecraft:structure_block", "minecraft:structure_void"};
+	public static boolean areTesseractEffectsEnabled() {
+		return INSTANCE.tesseractsEnabledBaked;
+	}
 
-		public List<ResourceLocation> getBlockKeys() {
-			if (blockKeys == null) refreshBlacklist();
+	public static boolean isFLARDEnabled() {
+		return INSTANCE.flardEnabledBaked;
+	}
 
-			return blockKeys;
-		}
+	public static boolean isQuestionableCheeseEnabled() {
+		return INSTANCE.questionableCheeseEnabledBaked;
+	}
 
-		public List<ResourceLocation> getBlockBlacklist() {
-			if (bakedBlockBlacklist == null) refreshBlacklist();
+	public static boolean arePuffballEffectsEnabled() {
+		return INSTANCE.puffballEffectsEnabledBaked;
+	}
 
-			return bakedBlockBlacklist;
-		}
+	public static boolean isBrownPuffballEnabled() {
+		return INSTANCE.brownPuffballEnabledBaked;
+	}
 
-		public boolean isBlacklisted(ResourceLocation registryName) {
-			return getBlockBlacklist().contains(registryName);
-		}
+	public static boolean areStoneChiselsEnabled() {
+		return INSTANCE.stoneChiselEnabledBaked;
+	}
 
-		public void refreshBlacklist() {
-			bakedBlockBlacklist = Arrays.stream(blockBlacklist).map(ResourceLocation::new).collect(Collectors.toList());
-			blockKeys = ForgeRegistries.BLOCKS.getKeys().stream().filter(key -> !bakedBlockBlacklist.contains(key)).collect(Collectors.toList());
-		}
+	public static boolean isAntiGravityEnabled() {
+		return INSTANCE.antiGravEnabledBaked;
+	}
+
+	public static boolean isCoreCraftingEnabled() {
+		return INSTANCE.coreCraftingEnabledBaked;
+	}
+
+	private static boolean isPathValid(char charIn) {
+		return charIn >= '0' && charIn <= '9' || charIn >= 'a' && charIn <= 'z' || charIn == '_' || charIn == ':' || charIn == '/' || charIn == '.' || charIn == '-';
+	}
+
+	private static boolean isNamespaceValid(char charIn) {
+		return charIn >= '0' && charIn <= '9' || charIn >= 'a' && charIn <= 'z' || charIn == '_' || charIn == ':' || charIn == '.' || charIn == '-';
+	}
+
+	public static ConfigHandler get() {
+		return INSTANCE;
 	}
 }

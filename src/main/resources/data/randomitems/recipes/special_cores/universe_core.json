@@ -1,0 +1,25 @@
+{
+  "pattern": [
+    "BPP",
+    "PCP",
+    "PPB"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:universe_core_block"
+  },
+  "key": {
+    "P": {
+      "item": "minecraft:purple_wool",
+      "data": 0
+    },
+    "C": {
+      "item": "randomitems:clear_core_block"
+    },
+    "B": {
+      "item": "minecraft:blue_wool",
+      "data": 0
+    }
+  }
+}

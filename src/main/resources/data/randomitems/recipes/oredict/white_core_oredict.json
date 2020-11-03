@@ -1,0 +1,17 @@
+{
+  "pattern": [
+    "   ",
+    " C ",
+    "   "
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:white_core_block"
+  },
+  "key": {
+    "C": {
+      "tag": "randomitems:core"
+    }
+  }
+}

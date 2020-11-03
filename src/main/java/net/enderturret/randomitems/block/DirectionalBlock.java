@@ -1,74 +1,51 @@
 package net.enderturret.randomitems.block;
 
-import net.enderturret.randomitems.util.RandomItemsUtil;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
-import net.minecraft.block.properties.PropertyDirection;
-import net.minecraft.block.state.BlockStateContainer;
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.util.EnumFacing;
-import net.minecraft.util.EnumHand;
-import net.minecraft.util.math.AxisAlignedBB;
+import net.minecraft.block.Block;
+import net.minecraft.block.BlockState;
+import net.minecraft.item.BlockItemUseContext;
+import net.minecraft.state.DirectionProperty;
+import net.minecraft.state.StateContainer.Builder;
+import net.minecraft.state.properties.BlockStateProperties;
+import net.minecraft.util.Direction;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.IBlockAccess;
-import net.minecraft.world.World;
+import net.minecraft.util.math.shapes.ISelectionContext;
+import net.minecraft.util.math.shapes.VoxelShape;
+import net.minecraft.world.IBlockReader;
 
-public class DirectionalBlock extends BaseBlock {
+public class DirectionalBlock extends Block {
 
-	public static final PropertyDirection FACING = PropertyDirection.create("facing", EnumFacing.Plane.HORIZONTAL);
+	public static final DirectionProperty FACING = BlockStateProperties.HORIZONTAL_FACING;
 
-	public static final AxisAlignedBB[] DEFAULT_AABB = new AxisAlignedBB[] {
-			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
-			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
-			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16),
-			RandomItemsUtil.getAABBFromPixels(0, 0, 0, 16, 16, 16)
-	};
+	private static final VoxelShape[] DEFAULT_ROTATIONAL_SHAPE = {makeCuboidShape(0, 0, 0, 16, 16, 16),
+			makeCuboidShape(0, 0, 0, 16, 16, 16),
+			makeCuboidShape(0, 0, 0, 16, 16, 16),
+			makeCuboidShape(0, 0, 0, 16, 16, 16)};
 
-	public DirectionalBlock(SoundType soundType, Material material) {
-		super(soundType, material);
-		setDefaultState(blockState.getBaseState().withProperty(FACING, EnumFacing.NORTH));
+	public DirectionalBlock(Block.Properties settings) {
+		super(settings);
+		setDefaultState(getDefaultState().with(FACING, Direction.NORTH));
 	}
 
 	/**
-	 * Used in BlockDirectional for rotation bounding boxes. Override this if you have a custom bounding box.
-	 * The AxisAlignedBBs in the array need to be in a particular order:
-	 * EAST,
-	 * WEST,
-	 * SOUTH,
-	 * NORTH.
-	 * @return An array of AxisAlignedBBs in the order above
+	 * Used in {@code BlockDirectional} for rotation bounding boxes. Override this if you have a custom bounding box.
+	 * The {@code VoxelShape}s in the array need to be in the order:
+	 * EAST, WEST, SOUTH, NORTH.
+	 * @return An array of {@code VoxelShape}s in the order above.
 	 */
-	public AxisAlignedBB[] getRotationAABB() {
-		return DEFAULT_AABB;
+	public VoxelShape[] getRotationAABB() {
+		return DEFAULT_ROTATIONAL_SHAPE;
 	}
 
 	@Override
-	public IBlockState getStateForPlacement(World world, BlockPos pos, EnumFacing facing, float hitX, float hitY, float hitZ, int meta, EntityLivingBase placer, EnumHand hand) {
-		return this.getDefaultState().withProperty(FACING, placer.getHorizontalFacing());
+	public BlockState getStateForPlacement(BlockItemUseContext ctx) {
+		return getDefaultState().with(FACING, ctx.getPlacementHorizontalFacing());
 	}
 
 	@Override
-	public int getMetaFromState(IBlockState state) {
-		return state.getValue(FACING).getIndex();
-	}
+	public VoxelShape getShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext ctx) {
+		final VoxelShape[] boundingBox = getRotationAABB();
 
-	@Override
-	public IBlockState getStateFromMeta(int meta) {
-		EnumFacing facing = EnumFacing.byIndex(meta);
-		if (facing.getAxis() == EnumFacing.Axis.Y) facing = EnumFacing.NORTH;
-		return this.getDefaultState().withProperty(FACING, facing);
-	}
-
-	@Override
-	protected BlockStateContainer createBlockState() {
-		return new BlockStateContainer(this, FACING);
-	}
-
-	@Override
-	public AxisAlignedBB getBoundingBox(IBlockState state, IBlockAccess worldIn, BlockPos pos) {
-		final AxisAlignedBB[] boundingBox = this.getRotationAABB();
-		switch (state.getValue(FACING)) {
+		switch (state.get(FACING)) {
 		case EAST: return boundingBox[0];
 		case WEST: return boundingBox[1];
 		case SOUTH: return boundingBox[2];
@@ -78,14 +55,21 @@ public class DirectionalBlock extends BaseBlock {
 	}
 
 	@Override
-	public AxisAlignedBB getCollisionBoundingBox(IBlockState blockState, IBlockAccess worldIn, BlockPos pos) {
-		final AxisAlignedBB[] boundingBox = this.getRotationAABB();
-		switch (blockState.getValue(FACING)) {
+	public VoxelShape getCollisionShape(BlockState state, IBlockReader world, BlockPos pos, ISelectionContext ctx) {
+		final VoxelShape[] boundingBox = getRotationAABB();
+
+		switch (state.get(FACING)) {
 		case EAST: return boundingBox[0];
 		case WEST: return boundingBox[1];
 		case SOUTH: return boundingBox[2];
 		case NORTH:
 		default: return boundingBox[3];
 		}
+	}
+
+	@Override
+	protected void fillStateContainer(Builder<Block, BlockState> builder) {
+		super.fillStateContainer(builder);
+		builder.add(FACING);
 	}
 }

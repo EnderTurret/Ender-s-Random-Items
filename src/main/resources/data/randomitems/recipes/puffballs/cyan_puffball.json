@@ -1,0 +1,29 @@
+{
+  "pattern": [
+    "SpS",
+    "CPC",
+    "SpS"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:cyan_puffball"
+  },
+  "key": {
+    "p": {
+      "item": "minecraft:wooden_pickaxe",
+      "data": 0
+    },
+    "S": {
+      "item": "minecraft:sugar",
+      "data": 0
+    },
+    "C": {
+      "item": "minecraft:cyan_dye",
+      "data": 0
+    },
+    "P": {
+      "item": "randomitems:puffball"
+    }
+  }
+}

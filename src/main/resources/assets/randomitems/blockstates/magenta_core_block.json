@@ -1,8 +1,8 @@
 {
   "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "randomitems:core/magenta_core_block"
+    "": {
+      "model": "randomitems:block/core/magenta_core_block"
     }
   }
 }

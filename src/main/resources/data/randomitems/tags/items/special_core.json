@@ -1,0 +1,10 @@
+{
+	"replace": false,
+	"values": [
+		"randomitems:clear_core_block",
+		"randomitems:sun_core_block",
+		"randomitems:night_core_block",
+		"randomitems:corrupted_core_block",
+		"randomitems:universe_core_block"
+	]
+}

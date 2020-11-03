@@ -1,17 +1,14 @@
 package net.enderturret.randomitems.enchantment;
 
-import net.minecraft.enchantment.Enchantment;
-import net.minecraft.enchantment.EnumEnchantmentType;
-import net.minecraft.init.Items;
-import net.minecraft.inventory.EntityEquipmentSlot;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
+import net.minecraft.enchantment.EnchantmentType;
+import net.minecraft.inventory.EquipmentSlotType;
+import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ItemStack;
 
 public class AntiGravityEnchantment extends BaseEnchantment {
 
 	protected AntiGravityEnchantment() {
-		super(Rarity.VERY_RARE, EnumEnchantmentType.ARMOR_FEET, EntityEquipmentSlot.FEET);
+		super(Rarity.VERY_RARE, EnchantmentType.ARMOR_FEET, EquipmentSlotType.FEET);
 	}
 
 	@Override
@@ -26,12 +23,7 @@ public class AntiGravityEnchantment extends BaseEnchantment {
 
 	@Override
 	public boolean canApply(ItemStack stack) {
-		return stack.getItem() instanceof ItemArmor && ((ItemArmor) stack.getItem()).getEquipmentSlot() == EntityEquipmentSlot.FEET;
-	}
-
-	@Override
-	public int getMaxEnchantability(int level) {
-		return 500;
+		return stack.getItem() instanceof ArmorItem && ((ArmorItem) stack.getItem()).getEquipmentSlot() == EquipmentSlotType.FEET;
 	}
 
 	@Override

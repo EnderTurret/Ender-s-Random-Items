@@ -1,0 +1,25 @@
+{
+  "pattern": [
+    "GGG",
+    "GTG",
+    "OOO"
+  ],
+  "type": "minecraft:crafting_shaped",
+  "result": {
+    "count": 1,
+    "item": "randomitems:white_core_block"
+  },
+  "key": {
+    "O": {
+      "item": "minecraft:obsidian",
+      "data": 0
+    },
+    "G": {
+      "item": "minecraft:glass",
+      "data": 0
+    },
+    "T": {
+      "item": "randomitems:tesseract_block"
+    }
+  }
+}

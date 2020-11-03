@@ -1,5 +1,5 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "minecraft:blocks/end_stone"
+		"layer0": "minecraft:block/end_stone"
 }}

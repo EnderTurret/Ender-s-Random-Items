@@ -1,21 +1,21 @@
 package net.enderturret.randomitems.flardeffects;
 
 import net.enderturret.randomitems.ConfigHandler;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.init.Blocks;
+import net.minecraft.block.Blocks;
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
 
 public class HoleEffect extends FLARDEffect {
 
 	@Override
-	public void runEffect(World worldIn, EntityPlayer playerIn) {
-		worldIn.setBlockToAir(playerIn.getPosition().down());
+	public void runEffect(World worldIn, PlayerEntity playerIn) {
+		worldIn.setBlockState(playerIn.getPosition().down(), Blocks.AIR.getDefaultState());
 	}
 
 	@Override
-	public boolean canRun(World worldIn, EntityPlayer playerIn) {
-		return ConfigHandler.flardEffects.holeEffect &&
+	public boolean canRun(World worldIn, PlayerEntity playerIn) {
+		return ConfigHandler.get().flardHoleEffect.get() &&
 				!worldIn.isAirBlock(playerIn.getPosition().down()) &&
-				!ConfigHandler.flardEffects.isBlacklisted(worldIn.getBlockState(playerIn.getPosition().down()).getBlock().getRegistryName());
+				worldIn.getBlockState(playerIn.getPosition().down()) != Blocks.BEDROCK.getDefaultState();
 	}
 }

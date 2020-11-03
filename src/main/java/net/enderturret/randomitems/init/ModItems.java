@@ -3,125 +3,56 @@ package net.enderturret.randomitems.init;
 import net.enderturret.randomitems.RandomItems;
 import net.enderturret.randomitems.Reference;
 import net.enderturret.randomitems.item.*;
-import net.minecraft.init.MobEffects;
 import net.minecraft.item.Item;
-import net.minecraftforge.fml.common.registry.GameRegistry.ObjectHolder;
-import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraft.potion.Effects;
+import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.fml.RegistryObject;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 
-@ObjectHolder(Reference.MOD_ID)
-public class ModItems {
+public final class ModItems {
 
-	@ObjectHolder("moist_towelette")
-	public static final Item MOIST_TOWELETTE = null;
-	@ObjectHolder("sanitizing_water")
-	public static final Item SANITIZING_WATER = null;
-	@ObjectHolder("puffball_tail")
-	public static final Item PUFFBALL_TAIL = null;
-	@ObjectHolder("puffball_fur")
-	public static final Item PUFFBALL_FUR = null;
-	@ObjectHolder("stone_stick")
-	public static final Item STONE_STICK = null;
+	private ModItems() {}
+
+	public static final DeferredRegister<Item> REGISTRY = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
+
+	public static final RegistryObject<Item> MOIST_TOWELETTE = REGISTRY.register("moist_towelette", () -> new Item(props()));
+	public static final RegistryObject<Item> SANITIZING_WATER = REGISTRY.register("sanitizing_water", () -> new Item(props()));
+	public static final RegistryObject<Item> PUFFBALL_TAIL = REGISTRY.register("puffball_tail", () -> new Item(props()));
+	public static final RegistryObject<Item> PUFFBALL_FUR = REGISTRY.register("puffball_fur", () -> new Item(props()));
+	public static final RegistryObject<Item> STONE_STICK = REGISTRY.register("stone_stick", () -> new Item(props()));
 	// Aren't you glad there isn't a stone stone chisel?
-	@ObjectHolder("iron_stone_chisel")
-	public static final Item IRON_STONE_CHISEL = null;
-	@ObjectHolder("diamond_stone_chisel")
-	public static final Item DIAMOND_STONE_CHISEL = null;
-	@ObjectHolder("questionable_cheese")
-	public static final Item QUESTIONABLE_CHEESE = null;
-	@ObjectHolder("flard")
-	public static final Item FLARD = null;
-	@ObjectHolder("keycard")
-	public static final Item KEYCARD = null;
+	public static final RegistryObject<Item> STONE_CHISEL_IRON = REGISTRY.register("iron_stone_chisel", () -> new StoneChiselItem(props(1).maxDamage(31), 4));
+	public static final RegistryObject<Item> STONE_CHISEL_DIAMOND = REGISTRY.register("diamond_stone_chisel", () -> new StoneChiselItem(props(1).maxDamage(63), 8));
+	public static final RegistryObject<Item> QUESTIONABLE_CHEESE = REGISTRY.register("questionable_cheese", () -> new QuestionableCheeseItem(props(1)));
+	public static final RegistryObject<Item> FLARD = REGISTRY.register("flard", () -> new FLARDItem(props(1)));
+	public static final RegistryObject<Item> KEYCARD = REGISTRY.register("keycard", () -> new KeycardItem(props(1)));
 
-	@ObjectHolder("secret_coke")
-	public static final Item SECRET_COKE = null;
+	public static final RegistryObject<Item> SECRET_COKE = REGISTRY.register("secret_coke", () -> new FoodItem(new Item.Properties(), 1, 1f, false, true));
 
-	@ObjectHolder("puffball")
-	public static final Item PUFFBALL = null;
-	@ObjectHolder("white_puffball")
-	public static final Item WHITE_PUFFBALL = null;
-	@ObjectHolder("light_gray_puffball")
-	public static final Item LIGHT_GRAY_PUFFBALL = null;
-	@ObjectHolder("gray_puffball")
-	public static final Item GRAY_PUFFBALL = null;
-	@ObjectHolder("black_puffball")
-	public static final Item BLACK_PUFFBALL = null;
-	@ObjectHolder("brown_puffball")
-	public static final Item BROWN_PUFFBALL = null;
-	@ObjectHolder("red_puffball")
-	public static final Item RED_PUFFBALL = null;
-	@ObjectHolder("orange_puffball")
-	public static final Item ORANGE_PUFFBALL = null;
-	@ObjectHolder("yellow_puffball")
-	public static final Item YELLOW_PUFFBALL = null;
-	@ObjectHolder("lime_puffball")
-	public static final Item LIME_PUFFBALL = null;
-	@ObjectHolder("green_puffball")
-	public static final Item GREEN_PUFFBALL = null;
-	@ObjectHolder("cyan_puffball")
-	public static final Item CYAN_PUFFBALL = null;
-	@ObjectHolder("light_blue_puffball")
-	public static final Item LIGHT_BLUE_PUFFBALL = null;
-	@ObjectHolder("blue_puffball")
-	public static final Item BLUE_PUFFBALL = null;
-	@ObjectHolder("purple_puffball")
-	public static final Item PURPLE_PUFFBALL = null;
-	@ObjectHolder("magenta_puffball")
-	public static final Item MAGENTA_PUFFBALL = null;
-	@ObjectHolder("pink_puffball")
-	public static final Item PINK_PUFFBALL = null;
+	public static final RegistryObject<Item> PUFFBALL = REGISTRY.register("puffball", () -> new Item(props(1)));
+	public static final RegistryObject<Item> WHITE_PUFFBALL = REGISTRY.register("white_puffball", () -> new PuffballItem(props(1), Effects.SPEED, TextFormatting.WHITE));
+	public static final RegistryObject<Item> LIGHT_GRAY_PUFFBALL = REGISTRY.register("light_gray_puffball", () -> new PuffballItem(props(1), Effects.INVISIBILITY, TextFormatting.GRAY));
+	public static final RegistryObject<Item> GRAY_PUFFBALL = REGISTRY.register("gray_puffball", () -> new PuffballItem(props(1), Effects.RESISTANCE, TextFormatting.DARK_GRAY));
+	public static final RegistryObject<Item> BLACK_PUFFBALL = REGISTRY.register("black_puffball", () -> new PuffballItem(props(1), Effects.LEVITATION, TextFormatting.BLACK));
+	public static final RegistryObject<Item> BROWN_PUFFBALL = REGISTRY.register("brown_puffball", () -> new PuffballItem(props(1), Effects.SATURATION, TextFormatting.GOLD));
+	public static final RegistryObject<Item> RED_PUFFBALL = REGISTRY.register("red_puffball", () -> new PuffballItem(props(1), Effects.REGENERATION, TextFormatting.DARK_RED));
+	public static final RegistryObject<Item> ORANGE_PUFFBALL = REGISTRY.register("orange_puffball", () -> new PuffballItem(props(1), Effects.FIRE_RESISTANCE, TextFormatting.GOLD));
+	public static final RegistryObject<Item> YELLOW_PUFFBALL = REGISTRY.register("yellow_puffball", () -> new PuffballItem(props(1), Effects.ABSORPTION, TextFormatting.YELLOW));
+	public static final RegistryObject<Item> LIME_PUFFBALL = REGISTRY.register("lime_puffball", () -> new PuffballItem(props(1), Effects.LUCK, TextFormatting.GREEN));
+	public static final RegistryObject<Item> GREEN_PUFFBALL = REGISTRY.register("green_puffball", () -> new PuffballItem(props(1), Effects.JUMP_BOOST, TextFormatting.DARK_GREEN));
+	public static final RegistryObject<Item> CYAN_PUFFBALL = REGISTRY.register("cyan_puffball", () -> new PuffballItem(props(1), Effects.HASTE, TextFormatting.DARK_AQUA));
+	public static final RegistryObject<Item> LIGHT_BLUE_PUFFBALL = REGISTRY.register("light_blue_puffball", () -> new PuffballItem(props(1), Effects.WATER_BREATHING, TextFormatting.AQUA));
+	public static final RegistryObject<Item> BLUE_PUFFBALL = REGISTRY.register("blue_puffball", () -> new PuffballItem(props(1), Effects.NIGHT_VISION, TextFormatting.DARK_BLUE));
+	public static final RegistryObject<Item> PURPLE_PUFFBALL = REGISTRY.register("purple_puffball", () -> new PuffballItem(props(1), Effects.HEALTH_BOOST, TextFormatting.DARK_PURPLE));
+	public static final RegistryObject<Item> MAGENTA_PUFFBALL = REGISTRY.register("magenta_puffball", () -> new PuffballItem(props(1), Effects.GLOWING, TextFormatting.LIGHT_PURPLE));
+	public static final RegistryObject<Item> PINK_PUFFBALL = REGISTRY.register("pink_puffball", () -> new PuffballItem(props(1), Effects.STRENGTH, TextFormatting.LIGHT_PURPLE));
 
-	public static void register(IForgeRegistry<Item> registry) {
-		registry.registerAll(
-				configure(new Item(), "moist_towelette"),
-				configure(new Item(), "sanitizing_water"),
-				configure(new Item(), "puffball_tail"),
-				configure(new Item(), "puffball_fur"),
-				configure(new Item(), "stone_stick"),
-				configure(new StoneChiselItem(31, 4), "iron_stone_chisel"),
-				configure(new StoneChiselItem(63, 8), "diamond_stone_chisel"),
-				configure(new QuestionableCheeseItem(), "questionable_cheese"),
-				configure(new FLARDItem(), "flard"),
-				configure(new KeycardItem(), "keycard"),
-				configure(new FoodItem(1, 1F, false, true), "secret_coke").setCreativeTab(null),
-				configure(new Item(), "puffball"),
-				configure(new PuffballItem(MobEffects.SPEED), "white_puffball"),
-				configure(new PuffballItem(MobEffects.INVISIBILITY), "light_gray_puffball"),
-				configure(new PuffballItem(MobEffects.RESISTANCE), "gray_puffball"),
-				configure(new PuffballItem(MobEffects.LEVITATION), "black_puffball"),
-				configure(new PuffballItem(MobEffects.SATURATION), "brown_puffball"),
-				configure(new PuffballItem(MobEffects.REGENERATION), "red_puffball"),
-				configure(new PuffballItem(MobEffects.FIRE_RESISTANCE), "orange_puffball"),
-				configure(new PuffballItem(MobEffects.ABSORPTION), "yellow_puffball"),
-				configure(new PuffballItem(MobEffects.LUCK), "lime_puffball"),
-				configure(new PuffballItem(MobEffects.JUMP_BOOST), "green_puffball"),
-				configure(new PuffballItem(MobEffects.HASTE), "cyan_puffball"),
-				configure(new PuffballItem(MobEffects.WATER_BREATHING), "light_blue_puffball"),
-				configure(new PuffballItem(MobEffects.NIGHT_VISION), "blue_puffball"),
-				configure(new PuffballItem(MobEffects.HEALTH_BOOST), "purple_puffball"),
-				configure(new PuffballItem(MobEffects.GLOWING), "magenta_puffball"),
-				configure(new PuffballItem(MobEffects.STRENGTH), "pink_puffball")
-				);
+	static Item.Properties props() {
+		return new Item.Properties().group(RandomItems.TAB);
 	}
 
-	public static void registerModels() {
-		registerModels(
-				MOIST_TOWELETTE, SANITIZING_WATER, SECRET_COKE, PUFFBALL_TAIL, PUFFBALL_FUR,
-				STONE_STICK, IRON_STONE_CHISEL, DIAMOND_STONE_CHISEL, QUESTIONABLE_CHEESE, FLARD,
-				KEYCARD, PUFFBALL, WHITE_PUFFBALL, LIGHT_GRAY_PUFFBALL, GRAY_PUFFBALL,
-				BLACK_PUFFBALL, BROWN_PUFFBALL, RED_PUFFBALL, ORANGE_PUFFBALL, YELLOW_PUFFBALL,
-				LIME_PUFFBALL, GREEN_PUFFBALL, CYAN_PUFFBALL, LIGHT_BLUE_PUFFBALL, BLUE_PUFFBALL,
-				PURPLE_PUFFBALL, MAGENTA_PUFFBALL, PINK_PUFFBALL);
-	}
-
-	public static void registerModels(Item... items) {
-		for (Item item : items)
-			RandomItems.proxy.registerItemRenderer(item, 0, item.getRegistryName().getPath());
-	}
-
-	public static <T extends Item> T configure(T item, String registryName) {
-		item.setRegistryName(Reference.MOD_ID, registryName).setTranslationKey(registryName);
-		item.setCreativeTab(RandomItems.TAB);
-		return item;
+	static Item.Properties props(int stackSize) {
+		return props().maxStackSize(stackSize);
 	}
 }

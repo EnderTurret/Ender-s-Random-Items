@@ -2,21 +2,21 @@ package net.enderturret.randomitems.tileentity;
 
 import java.util.UUID;
 
-import net.minecraft.block.state.IBlockState;
-import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.nbt.NBTTagCompound;
+import net.enderturret.randomitems.init.ModTileEntities;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.network.NetworkManager;
-import net.minecraft.network.play.server.SPacketUpdateTileEntity;
+import net.minecraft.network.play.server.SUpdateTileEntityPacket;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.world.World;
 
 public class KeycardReaderTE extends TileEntity {
 
 	private String keycardName = "";
 	private UUID owner = null;
 
-	public KeycardReaderTE() {}
+	public KeycardReaderTE() {
+		super(ModTileEntities.KEYCARD_READER_TYPE.get());
+	}
 
 	public String getKeycardName() {
 		return keycardName;
@@ -40,8 +40,8 @@ public class KeycardReaderTE extends TileEntity {
 		return this.keycardName == null && keycardName == null || keycardName.equals(this.keycardName);
 	}
 
-	public EntityPlayer getOwnerPlayer() {
-		return world.getPlayerEntityByUUID(owner);
+	public PlayerEntity getOwnerPlayer() {
+		return world.getPlayerByUuid(owner);
 	}
 
 	public UUID getOwnerUUID() {
@@ -49,42 +49,46 @@ public class KeycardReaderTE extends TileEntity {
 	}
 
 	@Override
-	public NBTTagCompound writeToNBT(NBTTagCompound compound) {
-		compound.setString("keycardName", keycardName);
-		if (owner != null) compound.setString("owner", owner.toString());
-		return super.writeToNBT(compound);
+	public CompoundNBT write(CompoundNBT compound) {
+		compound.putString("keycardName", keycardName);
+
+		if (owner != null) compound.putString("owner", owner.toString());
+
+		return super.write(compound);
 	}
 
 	@Override
-	public void readFromNBT(NBTTagCompound compound) {
+	public void read(CompoundNBT compound) {
 		keycardName = compound.getString("keycardName");
+
 		if (compound.getString("owner") != null) owner = UUID.fromString(compound.getString("owner"));
 		else owner = null;
-		super.readFromNBT(compound);
+
+		super.read(compound);
 	}
 
 	@Override
-	public SPacketUpdateTileEntity getUpdatePacket() {
-		return new SPacketUpdateTileEntity(pos, 1, writeToNBT(new NBTTagCompound()));
+	public SUpdateTileEntityPacket getUpdatePacket() {
+		return new SUpdateTileEntityPacket(pos, 1, write(new CompoundNBT()));
 	}
 
 	@Override
-	public void handleUpdateTag(NBTTagCompound tag) {
-		readFromNBT(tag);
+	public void handleUpdateTag(CompoundNBT tag) {
+		read(tag);
 	}
 
 	@Override
-	public NBTTagCompound getUpdateTag() {
-		return writeToNBT(new NBTTagCompound());
+	public CompoundNBT getUpdateTag() {
+		return write(new CompoundNBT());
 	}
 
 	@Override
-	public void onDataPacket(NetworkManager net, SPacketUpdateTileEntity pkt) {
-		readFromNBT(pkt.getNbtCompound());
+	public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
+		read(pkt.getNbtCompound());
 	}
 
 	@Override
-	public boolean shouldRefresh(World world, BlockPos pos, IBlockState oldState, IBlockState newSate) {
-		return oldState.getBlock() != newSate.getBlock();
+	public CompoundNBT getTileData() {
+		return write(new CompoundNBT());
 	}
 }

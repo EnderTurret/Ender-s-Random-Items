@@ -1,8 +1,8 @@
 {
   "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "randomitems:core/blue_core_block"
+    "": {
+      "model": "randomitems:block/core/blue_core_block"
     }
   }
 }

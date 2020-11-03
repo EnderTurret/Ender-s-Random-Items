@@ -1,9 +1,9 @@
 {
 	"parent": "block/block",
 	"textures": {
-		"0": "minecraft:blocks/concrete_white",
+		"0": "minecraft:block/white_concrete",
 		"1": "randomitems:blocks/keycard_reader/keycard_reader_on",
-		"particle": "minecraft:blocks/concrete_white"
+		"particle": "minecraft:block/white_concrete"
 	},
 	"elements": [
 		{

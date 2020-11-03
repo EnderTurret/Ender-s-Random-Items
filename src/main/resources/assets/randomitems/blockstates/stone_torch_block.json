@@ -1,10 +1,8 @@
 {
   "forge_marker": 1,
   "variants": {
-    "facing=up": { "model": "randomitems:stone_torch_block" },
-    "facing=east": { "model": "randomitems:stone_torch_wall_block" },
-    "facing=south": { "model": "randomitems:stone_torch_wall_block", "y": 90 },
-    "facing=west": { "model": "randomitems:stone_torch_wall_block", "y": 180 },
-    "facing=north": { "model": "randomitems:stone_torch_wall_block", "y": 270 }
+    "": {
+      "model": "randomitems:block/stone_torch_block"
+    }
   }
 }

@@ -1,20 +1,40 @@
 package net.enderturret.randomitems.item;
 
-import net.minecraft.item.EnumAction;
-import net.minecraft.item.ItemFood;
+import net.minecraft.item.Food;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.UseAction;
 
-public class FoodItem extends ItemFood {
+public class FoodItem extends Item {
 
 	private final boolean drink;
+	public static final float DEFAULT_SATURATION = 0.7F;
 
-	public FoodItem(int food, float saturation, boolean isWolfFood, boolean isDrink) {
-		super(food, saturation, isWolfFood);
+	public FoodItem(Item.Properties settings, int food, float saturation, boolean isWolfFood, boolean isDrink) {
+		this(settings, isWolfFood ? new Food.Builder()
+				.hunger(food)
+				.saturation(saturation)
+				.meat()
+				.build() : new Food.Builder()
+				.hunger(food)
+				.saturation(saturation)
+				.build(), isDrink);
+	}
+
+	public FoodItem(Item.Properties settings, int food, float saturation) {
+		this(settings, new Food.Builder()
+				.hunger(food)
+				.saturation(saturation)
+				.build(), false);
+	}
+
+	public FoodItem(Item.Properties settings, Food foodSettings, boolean isDrink) {
+		super(settings.food(foodSettings));
 		this.drink = isDrink;
 	}
 
 	@Override
-	public EnumAction getItemUseAction(ItemStack stack) {
-		return drink ? EnumAction.DRINK : EnumAction.EAT;
+	public UseAction getUseAction(ItemStack stack) {
+		return drink ? UseAction.DRINK : UseAction.EAT;
 	}
 }

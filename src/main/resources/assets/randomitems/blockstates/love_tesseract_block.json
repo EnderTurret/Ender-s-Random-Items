@@ -1,8 +1,8 @@
 {
   "forge_marker": 1,
   "variants": {
-    "normal": {
-      "model": "randomitems:love_tesseract_block"
+    "": {
+      "model": "randomitems:block/love_tesseract_block"
     }
   }
 }
